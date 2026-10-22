@@ -56,3 +56,21 @@ k wird über {1, 3, 6, 9} variiert: Wie viel „Konzept“ hält man fest, wie v
 1. Gleiches Experiment auf easy/medium.
 2. Fehlersignal ohne Verifizierer: Rekonstruktions-Mismatch zwischen alten und neu kodierten Codes.
 3. Training mit Selbst-Konditionierung (das Modell sieht im Training eigene Fehler), braucht eine GPU (Colab/LRZ).
+
+---
+
+# Experiment 2: Fehlersignal ohne Regel-Checker
+
+**Frage:** Experiment 1 hat gezeigt, dass fehlergetriebenes Neu-Sampeln hilft. Das Fehlersignal kam dort aber von einem externen Regel-Checker, den es bei Text nicht gibt. Erkennt das Modell *selbst*, wann es falsch liegt?
+
+**Signale** (Details in `experiments/selfsignal_sudoku.py`): Konfidenz des Decoders (unsicherste Zelle bzw. Mittelwert), Likelihood der gewählten Codes laut Generator, Selbstkonsistenz (neu kodiertes Brett gegen generierte Codes), Abgleich mit den Vorgaben im Rätsel (Input-Check, keine Regeln). Als Referenz läuft der Regel-Checker mit.
+
+**Ablauf:**
+- *Teil A:* Wie gut trennt jedes Signal gelöste von ungelösten Brettern (AUROC)? Die Schwelle wird auf 500 separaten Kalibrierungs-Brettern festgelegt, nicht auf den Testbrettern.
+- *Teil B:* Die Schleife aus Experiment 1 (k0, T=0,7, 4 Runden), gesteuert durch das interne Signal: verdächtige Bretter werden neu versucht, übernommen wird nur ein Versuch mit besserem Signal. Kontrolle bei gleichem Aufwand: `best2_gen_ll` (2 Versuche, der sicherere gewinnt).
+
+**Erwartungen (vorab):**
+1. Die Decoder-Konfidenz ist ein schwaches Signal (AUROC ~0,6–0,7): Fehler bei Sudoku sind globale Widersprüche, die einzelne Zelle kann sich trotzdem „sicher“ anfühlen.
+2. Die Generator-Likelihood ist besser (AUROC ~0,75), weil sie die ganze Hierarchie abdeckt.
+3. Die Selbstkonsistenz ist nahe am Zufall, weil Experiment 1 gezeigt hat, dass das Modell auch auf falsche Ausgaben stabil reagiert.
+4. Die Schleife mit dem besten internen Signal holt ungefähr die Hälfte des Gewinns des Regel-Checkers (also ~88 % statt 91 %).

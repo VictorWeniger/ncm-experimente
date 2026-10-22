@@ -41,7 +41,7 @@ Zellen korrekt nach Ebene 1…12 (baseline, %): 14,5 · 14,5 · 17,0 · 20,3 · 
 - **Aber: Je *weniger* von der groben Repräsentation festgehalten wird, desto besser.** Das spricht dagegen, dass die *Re-Kodierung der groben Ebenen* der Grund für den Gewinn ist. Plausibler ist: Der Gewinn kommt daher, dass **nur die fehlerhaften Bretter** gezielt neu gesampelt werden (fehlergetriebene Rechenzeit) und eine Verschlechterung nie übernommen wird. `sample2` verteilt seinen Aufwand dagegen auf alle Bretter, auch auf die schon gelösten.
 - Die Analyse pro Ebene bestätigt das: Die groben Ebenen tragen kaum Lösungsinformation (nach Ebene 6 sind erst 28 % der Zellen richtig). Sie festzuhalten heißt eher, die Fehler mit festzuhalten.
 
-**Vorläufiges Fazit:** Der Effekt ist eher „Predictive Coding als *Fehlersignal, das Rechenzeit steuert*“ als „Predictive Coding als *Korrektur der groben Repräsentation*“. Für die zweite Variante müsste das Modell wohl darauf trainiert werden, auf eigenen fehlerhaften Codes zu konditionieren (Future Work im Paper).
+**Vorläufiges Fazit (vor dem Kontrolllauf):** Der Effekt ist eher „Predictive Coding als *Fehlersignal, das Rechenzeit steuert*“ als „Predictive Coding als *Korrektur der groben Repräsentation*“. Für die zweite Variante müsste das Modell wohl darauf trainiert werden, auf eigenen fehlerhaften Codes zu konditionieren (Future Work im Paper).
 
 ## Kontrolllauf (500 Bretter, `results/sudoku-hard-kontrolle.json`)
 

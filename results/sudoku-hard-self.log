@@ -1,0 +1,43 @@
+VQVAE, Total parameter count: 14.90M
+VQVAE, Non embedding parameter count: 14.87M
+NCP Transformer, Total parameter count: 25.46M
+NCP Transformer, Non embedding parameter count: 25.32M
+Gerät: mps | sudoku-hard | Test: 500 | Kalibrierung: 500 | T=0.7 | Runden=4
+
+Teil A: Erkennt das Modell seine Fehler? (Baseline gelöst: Test 85.2 %, Kalibrierung 83.4 %, 97s)
+Signal      AUROC    Schwelle  markiert %  Treffer %  Fehlalarm %
+dec_min     0.898      0.9974        18.8       74.3          9.2
+dec_mean    0.896     -0.0001        18.2       74.3          8.5
+gen_ll      0.888     -0.0831        32.4       85.1         23.2
+gen_min     0.761      0.3762        29.4       62.2         23.7
+cycle       0.860      0.8789        36.8       81.1         29.1
+clue        0.500     -0.0000         0.0        0.0          0.0
+rules       1.000     -0.0000        14.8      100.0          0.0
+
+Teil B: Schleife mit internem Fehlersignal
+Variante             gelöst %  Ebenen/Brett  je versucht %  Zeit s   gelöst je Runde
+baseline                85.20          12.0            0.0      47   85.2
+verifier                91.40          17.6           14.8      77   85.2 → 88.0 → 89.2 → 90.6 → 91.4
+self_dec_min            88.20          17.1           18.8      76   85.2 → 86.4 → 87.6 → 87.6 → 88.2
+self_gen_ll             85.40          27.6           32.4     115   85.2 → 85.2 → 85.2 → 85.2 → 85.4
+self_cycle              86.40          28.0           36.8     177   85.2 → 86.0 → 85.8 → 86.0 → 86.4
+self_dec_min+clue       87.80          17.5           18.8     101   85.2 → 86.6 → 87.0 → 87.6 → 87.8
+self_gen_ll+clue        85.40          27.6           32.4     142   85.2 → 85.2 → 85.2 → 85.2 → 85.4
+best2_gen_ll            85.20          24.0            0.0     112   85.2
+
+Gepaarter McNemar-Test (nur A gelöst / nur B gelöst / p):
+  verifier             vs baseline    31 /    0   p=0.0000
+  self_dec_min         vs baseline    18 /    3   p=0.0015
+  self_gen_ll          vs baseline     1 /    0   p=1.0000
+  self_cycle           vs baseline    11 /    5   p=0.2101
+  self_dec_min+clue    vs baseline    15 /    2   p=0.0023
+  self_gen_ll+clue     vs baseline     1 /    0   p=1.0000
+  best2_gen_ll         vs baseline     0 /    0   p=1.0000
+  self_dec_min         vs verifier     4 /   20   p=0.0015
+  self_gen_ll          vs verifier     0 /   30   p=0.0000
+  self_cycle           vs verifier     3 /   28   p=0.0000
+  self_dec_min+clue    vs verifier     4 /   22   p=0.0005
+  self_gen_ll+clue     vs verifier     0 /   30   p=0.0000
+  best2_gen_ll         vs verifier     0 /   31   p=0.0000
+
+Gespeichert: /Users/victorweniger/Documents/ncm-experimente/results/sudoku-hard-self.json
