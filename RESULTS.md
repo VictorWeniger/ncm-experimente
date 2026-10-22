@@ -111,3 +111,70 @@ Gepaarter McNemar-Test (exakt, zweiseitig) auf denselben 500 Brettern:
 - **Ohne Regel-Checker funktioniert es auch:** `self_dec_min` holt **+3,0 Prozentpunkte** (signifikant), also knapp die Hälfte des Gewinns mit Regel-Checker (+6,2). Damit trifft Erwartung 4 zu.
 - **`gen_ll` und `cycle` scheitern in der Schleife trotz guter AUROC. Das ist ein Designfehler von mir, kein Befund:** Ein greedy erzeugter Versuch hat per Konstruktion die höchste Likelihood seiner eigenen Codes. Ein gesampelter Versuch kann im Vergleich also praktisch nie gewinnen (`best2_gen_ll` ändert kein einziges Brett, die Schleife bleibt bei 85,2 hängen). Der Vergleich misst den Sampling-Pfad, nicht die Qualität des Bretts.
 - **Fix für den nächsten Lauf:** `gen_llR` bewertet das *fertige Brett* neu, indem es kodiert und die Codes per Teacher Forcing durch den Generator geschickt werden. Das ist fair zwischen greedy und Samples, kostet aber einen zweiten Durchlauf pro Versuch.
+
+## Lauf 2 mit fairer Likelihood (`results/sudoku-hard-self2.json`)
+
+**Erkennung:** `gen_llR` (fertiges Brett neu kodiert und per Teacher Forcing bewertet) erreicht **AUROC 0,956**: 86,5 % der Fehler werden erkannt, bei nur **2,8 % Fehlalarmen**. Das ist nah am Regel-Checker. Zum Vergleich: dieselbe Likelihood auf dem Sampling-Pfad (`gen_ll`) lag bei 0,888 mit 23 % Fehlalarmen.
+
+| Variante | gelöst % | Ebenen/Brett* |
+|---|---|---|
+| baseline | 85,2 | 12,0 |
+| verifier (Regel-Checker) | 91,4 | 17,6 |
+| **self_gen_llR** | **90,0** | 35,8 |
+| self_dec_min | 88,2 | 17,1 |
+| best2_gen_llR | 87,8 | 48,0 |
+| best2_dec_min | 87,4 | 24,0 |
+
+Gepaarte Tests (nur A gelöst / nur B gelöst, p):
+- self_gen_llR vs. verifier: 6 / 13, **p = 0,17** (kein signifikanter Unterschied zum Regel-Checker)
+- self_gen_llR vs. self_dec_min: 12 / 3, p = 0,035
+- self_gen_llR vs. best2_gen_llR: 12 / 1, p = 0,0034 (gezielte Schleife schlägt blinde Auswahl)
+- self_dec_min vs. best2_dec_min: 11 / 7, p = 0,48
+
+\* Die Bewertung per Teacher Forcing läuft hier Ebene für Ebene und ist deshalb wie eine volle Generierung gezählt (+12 pro Versuch). Im Training rechnet NCM alle Ebenen in **einem** Forward Pass. Mit diesem Pfad würde die Bewertung grob einen Durchlauf kosten, und `self_gen_llR` läge eher bei ~19 statt 35,8 Ebenen pro Brett, also auf dem Niveau des Regel-Checkers. Das ist noch nicht implementiert, also eine Schätzung.
+
+## Fazit Experiment 2
+
+1. **NCM erkennt seine eigenen Fehler sehr gut**, wenn man das *fertige Ergebnis* bewertet statt den Weg dorthin (AUROC 0,96).
+2. **Mit diesem internen Signal kommt die Schleife ohne Regel-Checker auf 90,0 %**, statistisch nicht vom Regel-Checker (91,4 %) zu unterscheiden. Das ist +4,8 Prozentpunkte gegenüber dem Paper-Setup, ohne jedes Training.
+3. **Gezielt nachrechnen schlägt blind auswählen** (p = 0,0034). Der Gewinn kommt aus der Kombination aus Fehlererkennung und Rechenzeit nur dort, wo sie gebraucht wird.
+4. Die Bewertung „Kodieren, dann Likelihood unter dem Generator“ ist im Kern eine **Vorhersagefehler-Messung**: Wie gut erklärt das generative Modell seine eigene Ausgabe? Das ist die Predictive-Coding-Idee, nur eben als Steuersignal und nicht als Korrektur der Repräsentation.
+
+## Nächste Schritte
+
+1. Bewertung in einem einzigen Forward Pass (Trainingspfad), um die Kosten korrekt zu messen.
+2. Gegenprobe auf easy/medium und mit allen 2000 Brettern.
+3. Übertragung auf Text (TinyStories): Funktioniert `gen_llR` dort als Signal für schlechte Generierungen?
+
+---
+
+# Tageslauf 22.10. (`./run_day.sh`)
+
+**Technischer Hinweis:** Das MacBook Air (M1) hat sehr wenig gemeinsamen Grafik-/Arbeitsspeicher. Der Lauf **Sudoku hard (16:40–19:35) ist ungültig**: Wiederholt „Insufficient Memory“ auf der GPU, die Baseline weicht innerhalb desselben Laufs ab (84,3 % in Teil A gegen 82,8 % in Teil B auf denselben Brettern), am Ende Absturz. Auch der große Text-Lauf ist bei Batchgröße 64 abgestürzt. Beide laufen mit kleineren Batches und Speicher-Obergrenze neu (`./run_rest.sh`). Medium, easy und der Text-Schnelltest liefen ohne einen einzigen Speicherfehler.
+
+Der Selbsttest der Ein-Pass-Bewertung war in allen Läufen bestanden (max. Abweichung zur Ebene-für-Ebene-Bewertung im Mittel < 1e-6).
+
+## Sudoku medium (1000 Test- / 1000 Kalibrierungsbretter)
+
+Erkennung: gen_llR **AUROC 0,964** (93,5 % der Fehler erkannt, 6,2 % Fehlalarm), dec_min 0,851, cycle 0,899.
+
+| Variante | gelöst % | NFE/Brett | vs. baseline (nur A / nur B, p) |
+|---|---|---|---|
+| baseline | 96,9 | 12,0 | |
+| verifier | 98,1 | 13,2 | 12 / 0, p = 0,0005 |
+| **self_gen_llR** | **97,8** | 17,2 | 13 / 4, p = 0,049 |
+| self_dec_min | 97,6 | 14,4 | 9 / 2, p = 0,065 |
+| **rand_gen_llR** | **96,9** | 18,5 | **0 / 0**, p = 1 |
+| best2_gen_llR | 97,4 | 26,0 | 6 / 1, p = 0,125 |
+
+self_gen_llR vs. verifier: 5 / 8, p = 0,58 (kein Unterschied nachweisbar).
+
+**Wichtigster neuer Befund, die Zufallskontrolle:** Genauso viele Neuversuche, aber zufällig verteilt, ändern **kein einziges** Ergebnis. Der Gewinn kommt also aus der **Erkennung**, nicht daraus, dass die Auswahl nach gen_llR an sich bessere Bretter findet.
+
+## Sudoku easy
+
+Die Baseline löst schon 99,7 %, keine Variante unterscheidet sich (alle p = 1). Schwachpunkt: Bei so wenigen Fehlern ist die auf den Kalibrierungsbrettern gelernte Schwelle für gen_llR zu locker. 19 % der Bretter werden neu versucht (NFE 22,9), obwohl nur 0,3 % falsch sind. Das kostet Rechenzeit, schadet aber nicht.
+
+## Text (Schnelltest, nur 32 Geschichten, nicht aussagekräftig)
+
+Läuft technisch durch (GPT-2 large in float16). Der volle Lauf mit 5 × 256 Geschichten steht noch aus (`./run_rest.sh`).

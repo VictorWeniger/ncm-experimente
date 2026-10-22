@@ -1,0 +1,5 @@
+Start: 2026-10-22 22:32:55
+22:32:55  läuft:  sudoku-hard-self3
+22:32:59  FEHLER: sudoku-hard-self3 (siehe results/sudoku-hard-self3.log)
+22:32:59  läuft:  tinystories-text
+22:33:05  FEHLER: tinystories-text (siehe results/tinystories-text.log)

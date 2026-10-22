@@ -1,62 +1,20 @@
 VQVAE, Total parameter count: 36.43M
 VQVAE, Non embedding parameter count: 33.24M
-NCP Transformer, Total parameter count: 88.61M
-NCP Transformer, Non embedding parameter count: 88.30M
-Gerät: mps | TinyStories | Seeds [42, 0, 1, 2, 3] x 256 | Kalibrierung Seed 1000 | Referenz gpt2-large
-Selbsttest Ein-Pass-Bewertung: Abweichung 4.77e-07 (Mittelwert), 6.53e-05 (einzelner Code) -> Ein-Pass
-Error: command buffer exited with error status.
-	The Metal Performance Shaders operations encoded on it may not have completed.
-	Error: 
-	(null)
-	Insufficient Memory (00000008:kIOGPUCommandBufferCallbackErrorOutOfMemory)
-	<AGXG13GFamilyCommandBuffer: 0x764d488e00>
-    label = <none> 
-    device = <AGXG13GDevice: 0x764bf9c000>
-        name = Apple M1 
-    commandQueue = <AGXG13GFamilyCommandQueue: 0x1015bfc50>
-        label = <none> 
-        device = <AGXG13GDevice: 0x764bf9c000>
-            name = Apple M1 
-    retainedReferences = 1
-Error: command buffer exited with error status.
-	The Metal Performance Shaders operations encoded on it may not have completed.
-	Error: 
-	(null)
-	Insufficient Memory (00000008:kIOGPUCommandBufferCallbackErrorOutOfMemory)
-	<AGXG13GFamilyCommandBuffer: 0x764d488000>
-    label = <none> 
-    device = <AGXG13GDevice: 0x764bf9c000>
-        name = Apple M1 
-    commandQueue = <AGXG13GFamilyCommandQueue: 0x1015bfc50>
-        label = <none> 
-        device = <AGXG13GDevice: 0x764bf9c000>
-            name = Apple M1 
-    retainedReferences = 1
 Traceback (most recent call last):
-  File "/Users/victorweniger/Documents/ncm-experimente/experiments/textsignal_tinystories.py", line 264, in <module>
-    init = {s: initial_pass(s) for s in seeds}
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/victorweniger/Documents/ncm-experimente/experiments/textsignal_tinystories.py", line 264, in <dictcomp>
-    init = {s: initial_pass(s) for s in seeds}
-               ^^^^^^^^^^^^^^^
-  File "/Users/victorweniger/Documents/ncm-experimente/experiments/textsignal_tinystories.py", line 203, in initial_pass
-    r, sg = attempt(min(a.bs, a.n - s))
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/victorweniger/Documents/ncm-experimente/experiments/textsignal_tinystories.py", line 131, in attempt
-    llr = teacher_forced_logp(net, tk.vqvae, pfx, re).mean(1)
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/victorweniger/Documents/ncm-experimente/.venv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/victorweniger/Documents/ncm-experimente/experiments/ncm_scoring.py", line 28, in teacher_forced_logp
-    xt = vqvae.vq.idx_to_ncm_input(idx)  # Eingaben für die Ebenen 1..K-1
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/victorweniger/Documents/ncm-experimente/.venv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/victorweniger/Documents/ncm-experimente/ncm/models/quant.py", line 686, in idx_to_ncm_input
-    F.interpolate(
-  File "/Users/victorweniger/Documents/ncm-experimente/experiments/textsignal_tinystories.py", line 66, in _interp_mps_safe
-    return _F_interp(input.cpu(), *args, **kwargs).to(input.device)
-                     ^^^^^^^^^^^
-torch.AcceleratorError: index 4593460025128311821 is out of bounds for dimension with size 4096
+  File "/Users/victorweniger/Documents/ncm-experimente/experiments/textsignal_tinystories.py", line 79, in <module>
+    tk.vqvae = tk.vqvae.to(dev).eval()
+               ^^^^^^^^^^^^^^^^
+  File "/Users/victorweniger/Documents/ncm-experimente/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1388, in to
+    return self._apply(convert)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/victorweniger/Documents/ncm-experimente/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 933, in _apply
+    module._apply(fn)
+  File "/Users/victorweniger/Documents/ncm-experimente/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 933, in _apply
+    module._apply(fn)
+  File "/Users/victorweniger/Documents/ncm-experimente/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 966, in _apply
+    param_applied = fn(param)
+                    ^^^^^^^^^
+  File "/Users/victorweniger/Documents/ncm-experimente/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1374, in convert
+    return t.to(
+           ^^^^^
+RuntimeError: invalid low watermark ratio 1.4
