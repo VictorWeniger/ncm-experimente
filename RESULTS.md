@@ -75,3 +75,39 @@ Gepaarter McNemar-Test (exakt, zweiseitig) auf denselben 500 Brettern:
 1. **Fehlersignal ohne Verifizierer:** Kann das Modell selbst erkennen, wann es falsch liegt (z.B. an niedriger Konfidenz der Logits oder an Mismatch zwischen alten und neu kodierten Codes)? Das wäre die Voraussetzung, damit das auf Text übertragbar ist.
 2. **Training mit Selbst-Konditionierung** (das Modell sieht im Training seine eigenen fehlerhaften Codes), um zu testen, ob die Korrektur der groben Ebenen dann etwas bringt. Braucht eine GPU (Colab/LRZ).
 3. Die beiden besten Varianten auf alle 2000 Bretter sowie easy/medium.
+
+---
+
+# Experiment 2: Fehlersignal ohne Regel-Checker (`results/sudoku-hard-self.json`)
+
+500 Testbretter, Schwellen auf 500 separaten Kalibrierungsbrettern festgelegt.
+
+## Teil A: Erkennt das Modell seine Fehler?
+
+| Signal | AUROC | markiert % | Treffer % | Fehlalarm % |
+|---|---|---|---|---|
+| dec_min (unsicherste Zelle) | **0,898** | 18,8 | 74,3 | 9,2 |
+| dec_mean | 0,896 | 18,2 | 74,3 | 8,5 |
+| gen_ll | 0,888 | 32,4 | 85,1 | 23,2 |
+| cycle | 0,860 | 36,8 | 81,1 | 29,1 |
+| gen_min | 0,761 | 29,4 | 62,2 | 23,7 |
+| clue | 0,500 | 0 | 0 | 0 |
+| rules (Orakel) | 1,000 | 14,8 | 100 | 0 |
+
+**Das Modell weiß ziemlich gut, wann es falsch liegt.** Die Unsicherheit des Decoders bei der unsichersten Zelle erkennt 3 von 4 Fehlern bei nur 9 % Fehlalarmen. Damit lagen die Erwartungen 1 und 3 aus dem Plan **falsch**: Die Decoder-Konfidenz ist das *beste* Signal, nicht das schwächste, und die Selbstkonsistenz ist weit besser als Zufall (0,86). `clue` ist wertlos, weil das Modell den Vorgaben nie widerspricht (passt zu `clamp` aus Experiment 1).
+
+## Teil B: Schleife mit internem Signal
+
+| Variante | gelöst % | Ebenen/Brett | p vs. baseline | p vs. verifier |
+|---|---|---|---|---|
+| baseline | 85,2 | 12,0 | | |
+| verifier (Regel-Checker) | 91,4 | 17,6 | <0,0001 | |
+| **self_dec_min** | **88,2** | 17,1 | 0,0015 | 0,0015 |
+| self_dec_min+clue | 87,8 | 17,5 | 0,0023 | 0,0005 |
+| self_cycle | 86,4 | 28,0 | 0,21 | <0,0001 |
+| self_gen_ll | 85,4 | 27,6 | 1,0 | <0,0001 |
+| best2_gen_ll | 85,2 | 24,0 | 1,0 | <0,0001 |
+
+- **Ohne Regel-Checker funktioniert es auch:** `self_dec_min` holt **+3,0 Prozentpunkte** (signifikant), also knapp die Hälfte des Gewinns mit Regel-Checker (+6,2). Damit trifft Erwartung 4 zu.
+- **`gen_ll` und `cycle` scheitern in der Schleife trotz guter AUROC. Das ist ein Designfehler von mir, kein Befund:** Ein greedy erzeugter Versuch hat per Konstruktion die höchste Likelihood seiner eigenen Codes. Ein gesampelter Versuch kann im Vergleich also praktisch nie gewinnen (`best2_gen_ll` ändert kein einziges Brett, die Schleife bleibt bei 85,2 hängen). Der Vergleich misst den Sampling-Pfad, nicht die Qualität des Bretts.
+- **Fix für den nächsten Lauf:** `gen_llR` bewertet das *fertige Brett* neu, indem es kodiert und die Codes per Teacher Forcing durch den Generator geschickt werden. Das ist fair zwischen greedy und Samples, kostet aber einen zweiten Durchlauf pro Versuch.
