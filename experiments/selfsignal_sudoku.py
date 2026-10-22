@@ -43,13 +43,14 @@ NCM = os.path.join(ROOT, "ncm")
 sys.path.insert(0, NCM)
 from models.next_concept import NextConceptTransformer  # noqa: E402
 from tokenization.vqvae_tokenizer import VQVAETokenizer  # noqa: E402
+from ncm_scoring import make_generate, teacher_forced_logp, check_fast_scoring  # noqa: E402
 
 SEP, BOS = 10, 11
 BOARD_LEN = 89
 SIGNALS = ["dec_min", "dec_mean", "gen_ll", "gen_llR", "gen_min", "cycle", "clue", "rules"]
 DEFAULT_VARIANTS = ["baseline", "verifier",
                     "self_dec_min", "self_gen_llR",
-                    "best2_dec_min", "best2_gen_llR"]
+                    "rand_gen_llR", "best2_gen_llR"]
 
 ap = argparse.ArgumentParser()
 ap.add_argument("--task", default="hard", choices=["easy", "medium", "hard"])
@@ -62,7 +63,8 @@ ap.add_argument("--variants", default=",".join(DEFAULT_VARIANTS))
 ap.add_argument("--device", default="auto")
 ap.add_argument("--seed", type=int, default=0)
 ap.add_argument("--out", default=os.path.join(ROOT, "results"))
-ap.add_argument("--tag", default="self2")
+ap.add_argument("--tag", default="self3")
+ap.add_argument("--slow_scoring", action="store_true", help="Teacher Forcing Ebene für Ebene statt in einem Pass")
 a = ap.parse_args()
 
 dev = a.device if a.device != "auto" else (
@@ -140,27 +142,7 @@ def clue_errors(board, clues):
 
 
 # ---------------------------------------------------------------- Generierung mit Buchführung
-_orig_sample = net._sample_level
-
-
-def generate(pfx, temp, forced=None):
-    """Generiert alle Ebenen und merkt sich die (untemperierte) Wahrscheinlichkeit jedes gewählten Codes.
-    Mit forced (Liste aller Ebenen) wird nichts gesampelt, sondern die vorgegebenen Codes werden bewertet (Teacher Forcing)."""
-    logps = []
-
-    def sample(logits, temperature, top_k, top_p):
-        idx = forced[len(logps)] if forced is not None else _orig_sample(logits, temp, 0, 1.0)
-        lp = F.log_softmax(logits.float(), -1).gather(-1, idx.unsqueeze(-1)).squeeze(-1)
-        logps.append(lp)
-        return idx
-
-    net._sample_level = sample
-    try:
-        with torch.no_grad():
-            g = net.generate(None, pfx, temperature=temp, top_k=0, top_p=1.0, cfg_scale=0.0)
-    finally:
-        del net._sample_level
-    return g, torch.cat(logps, dim=1)
+generate = make_generate(net)
 
 
 def full_z(idx):
@@ -195,7 +177,8 @@ def attempt(pfx, clues, temp):
         "dec_min": cell_lp.min(1).values.exp(),
         "dec_mean": cell_lp.mean(1),
         "gen_ll": code_lp.mean(1),
-        "gen_llR": generate(pfx, 0.0, forced=split_levels(re))[1].mean(1),
+        "gen_llR": (teacher_forced_logp(net, tk.vqvae, pfx, re) if FAST
+                    else generate(pfx, 0.0, forced=split_levels(re))[1]).mean(1),
         "gen_min": code_lp.min(1).values.exp(),
         "cycle": (re == g).float().mean(1),
         "clue": -clue_errors(raw, clues).float(),
@@ -219,8 +202,14 @@ def auroc(score, pos):
     return (gt + 0.5 * eq).item()
 
 
+def free_gpu():
+    if dev == "mps":
+        torch.mps.empty_cache()
+
+
 def batches(items):
     for s in range(0, len(items), a.bs):
+        free_gpu()
         yield s, torch.tensor([prefix(it) for it in items[s:s + a.bs]], device=dev), \
             torch.tensor([clue_board(it) for it in items[s:s + a.bs]], device=dev)
 
@@ -274,7 +263,8 @@ def suspicious(name, sg, thr):
 def run_variant(name, pfx, clues, thr):
     B = pfx.shape[0]
     board, sg = attempt(pfx, clues, 0.0)
-    step = 2 * K if "gen_llR" in name else K  # Teacher-Forcing-Bewertung kostet einen zweiten Durchlauf
+    # Bewertung per Teacher Forcing: 1 extra Forward Pass (schnell) bzw. K (Ebene für Ebene)
+    step = (K + (1 if FAST else K)) if "gen_llR" in name else K
     cost = torch.full((B,), float(step), device=dev)
     if name == "baseline":
         return board, cost, [board.clone()], torch.zeros(B, dtype=torch.bool, device=dev)
@@ -284,9 +274,10 @@ def run_variant(name, pfx, clues, thr):
         take = s2[sig] > sg[sig]
         return torch.where(take[:, None], b2, board), cost + step, [board.clone()], torch.zeros(B, dtype=torch.bool, device=dev)
     hist = [board.clone()]
-    ever_flagged = suspicious(name, sg, thr).clone()
+    rand_flag = (torch.rand(B, device=dev) < RAND_Q) if name.startswith("rand_") else None
+    ever_flagged = rand_flag.clone() if rand_flag is not None else suspicious(name, sg, thr).clone()
     for _ in range(a.rounds):
-        act = suspicious(name, sg, thr)
+        act = rand_flag if rand_flag is not None else suspicious(name, sg, thr)
         ever_flagged |= act
         if act.any():
             ai = act.nonzero().squeeze(1)
@@ -311,9 +302,19 @@ def mcnemar(a_mask, b_mask):
 
 # ---------------------------------------------------------------- Lauf
 os.makedirs(a.out, exist_ok=True)
+
+# Ein-Pass-Bewertung gegen Ebene-für-Ebene prüfen (müssen bis auf Rundung gleich sein)
+FAST = False
+if not a.slow_scoring:
+    _pfx = torch.tensor([prefix(it) for it in TEST[0][:64]], device=dev)
+    _g, _ = generate(_pfx, 0.0)
+    d_mean, d_max = check_fast_scoring(net, tk.vqvae, generate, _pfx, _g, idx0_given=False)
+    FAST = d_mean < 1e-3
+    print(f"Selbsttest Ein-Pass-Bewertung: max. Abweichung Mittelwert {d_mean:.2e}, einzelner Code {d_max:.2e} -> "
+          + ("benutze Ein-Pass" if FAST else "WEICHT AB, benutze Ebene für Ebene"))
 out_path = os.path.join(a.out, f"{task}-{a.tag}.json")
 print(f"Gerät: {dev} | {task} | Test: {a.n} | Kalibrierung: {a.n_cal} | T={a.temp} | Runden={a.rounds}")
-summary = {"task": task, "n": a.n, "n_cal": a.n_cal, "temp": a.temp, "rounds": a.rounds}
+summary = {"task": task, "n": a.n, "n_cal": a.n_cal, "temp": a.temp, "rounds": a.rounds, "fast_scoring": FAST}
 
 # Teil A: Erkennung auf den Testbrettern + Schwellen auf den Kalibrierungsbrettern
 t0 = time.time()
@@ -335,11 +336,12 @@ for k in SIGNALS:
     d = detection[k]
     print(f"{k:<10}{d['auroc']:7.3f}{t:12.4f}{d['flagged']:12.1f}{tpr:11.1f}{fpr:13.1f}")
 summary["detection"] = detection
+RAND_Q = (sig_cal["gen_llR"] < thr["gen_llR"]).float().mean().item()  # gleiche Quote wie gen_llR, aber zufällig
 json.dump(summary, open(out_path, "w"), indent=2)
 
 # Teil B: Schleifen
 print(f"\nTeil B: Schleife mit internem Fehlersignal")
-print(f"{'Variante':<20}{'gelöst %':>9}{'Ebenen/Brett':>14}{'je versucht %':>15}{'Zeit s':>8}   gelöst je Runde")
+print(f"{'Variante':<20}{'gelöst %':>9}{'NFE/Brett':>14}{'je versucht %':>15}{'Zeit s':>8}   gelöst je Runde")
 items, refs = TEST
 results, masks = {}, {}
 for name in variants:

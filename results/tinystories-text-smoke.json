@@ -1,0 +1,115 @@
+{
+  "seeds": [
+    42
+  ],
+  "n": 32,
+  "ref": "gpt2-large",
+  "rounds": 2,
+  "flag_q": 0.2,
+  "fast_scoring": true,
+  "detection": {
+    "gen_llR": {
+      "spearman_vs_neg_logppl": 0.6414956011730205,
+      "auroc_bad": 0.7942857142857143
+    },
+    "gen_ll": {
+      "spearman_vs_neg_logppl": 0.45821114369501464,
+      "auroc_bad": 0.8114285714285714
+    },
+    "dec_mean": {
+      "spearman_vs_neg_logppl": 0.3533724340175953,
+      "auroc_bad": 0.56
+    },
+    "cycle": {
+      "spearman_vs_neg_logppl": 0.25769794721407624,
+      "auroc_bad": 0.6371428571428571
+    }
+  },
+  "results": {
+    "baseline": {
+      "genppl": 15.798772811889648,
+      "genppl_sd": 0.0,
+      "entropy": 3.9497191569064247,
+      "nfe": 11.0,
+      "retried": 0.0,
+      "per_seed_genppl": [
+        15.798773284154572
+      ],
+      "seconds": 15.017680168151855
+    },
+    "self_gen_llR": {
+      "genppl": 15.49028491973877,
+      "genppl_sd": 0.0,
+      "entropy": 3.94543829687509,
+      "nfe": 12.75,
+      "retried": 6.25,
+      "per_seed_genppl": [
+        15.490285299072596
+      ],
+      "seconds": 8.212826251983643
+    },
+    "rand_gen_llR": {
+      "genppl": 15.48287582397461,
+      "genppl_sd": 0.0,
+      "entropy": 3.9504586165829436,
+      "nfe": 21.0,
+      "retried": 37.5,
+      "per_seed_genppl": [
+        15.482875557030258
+      ],
+      "seconds": 13.467957019805908
+    },
+    "best2_gen_llR": {
+      "genppl": 13.245604515075684,
+      "genppl_sd": 0.0,
+      "entropy": 3.9659177718320935,
+      "nfe": 24.0,
+      "retried": 100.0,
+      "per_seed_genppl": [
+        13.245604210994516
+      ],
+      "seconds": 62.57900619506836
+    },
+    "self_dec_mean": {
+      "genppl": 14.836881637573242,
+      "genppl_sd": 0.0,
+      "entropy": 3.976275764635045,
+      "nfe": 16.125,
+      "retried": 25.0,
+      "per_seed_genppl": [
+        14.836881662845453
+      ],
+      "seconds": 15.290802955627441
+    }
+  },
+  "paired_vs_baseline": {
+    "self_gen_llR": {
+      "mean_dlogppl": -0.019448578357696533,
+      "ci95": [
+        -0.05743040144443512,
+        0.0
+      ]
+    },
+    "rand_gen_llR": {
+      "mean_dlogppl": -0.020165756344795227,
+      "ci95": [
+        -0.10261550080031157,
+        0.05353024229407307
+      ]
+    },
+    "best2_gen_llR": {
+      "mean_dlogppl": -0.17639296501874924,
+      "ci95": [
+        -0.2660168683156371,
+        -0.09429580960422755
+      ]
+    },
+    "self_dec_mean": {
+      "mean_dlogppl": -0.06268326938152313,
+      "ci95": [
+        -0.1294187441468239,
+        -0.01394887715578083
+      ]
+    }
+  }
+}

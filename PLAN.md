@@ -74,3 +74,39 @@ k wird über {1, 3, 6, 9} variiert: Wie viel „Konzept“ hält man fest, wie v
 2. Die Generator-Likelihood ist besser (AUROC ~0,75), weil sie die ganze Hierarchie abdeckt.
 3. Die Selbstkonsistenz ist nahe am Zufall, weil Experiment 1 gezeigt hat, dass das Modell auch auf falsche Ausgaben stabil reagiert.
 4. Die Schleife mit dem besten internen Signal holt ungefähr die Hälfte des Gewinns des Regel-Checkers (also ~88 % statt 91 %).
+
+---
+
+# Tageslauf (`./run_all.sh`)
+
+1. **Ehrliche Kosten:** `gen_llR` wird jetzt in **einem** Forward Pass bewertet (Trainingspfad von NCM) statt Ebene für Ebene. Ein Selbsttest prüft am Anfang, dass beide Wege dieselben Werte liefern. Kosten pro Versuch: 12 + 1 NFE statt 24.
+2. **Zufallskontrolle `rand_gen_llR`:** Genauso viele Bretter werden neu versucht wie bei `self_gen_llR`, aber zufällig ausgewählt. Damit lässt sich trennen, was die *Erkennung* bringt und was nur das *Auswählen des besseren Versuchs*.
+3. **Mehr Bretter:** 1000 Test- / 1000 Kalibrierungsbretter auf hard, medium und easy.
+
+## Experiment 3: Text (TinyStories)
+
+**Frage:** Ist das interne Signal auch bei Text ein Qualitätsmaß, und hilft gezieltes Neu-Sampeln?
+
+- Qualität wie im Paper: Perplexity unter GPT-2 large (niedriger = flüssiger) über 5 Seeds × 256 Geschichten, dazu Unigramm-Entropie (Vielfalt).
+- *Teil A:* Spearman-Korrelation zwischen Signal und GPT-2-Qualität pro Geschichte.
+- *Teil B:* untere 20 % nach Signal neu sampeln (bis zu 2 Runden, nur Verbesserungen übernehmen), Kontrollen `rand_` und `best2_`.
+
+**Erwartungen (vorab):**
+1. `gen_llR` korreliert positiv, aber deutlich schwächer als bei Sudoku (Spearman ~0,3–0,5): Bei Text gibt es viele gute Antworten, und Likelihood misst eher „typisch“ als „gut“.
+2. Gezieltes Neu-Sampeln senkt die GenPPL leicht (~5–10 %).
+3. **Risiko:** Auswahl nach Likelihood bevorzugt repetitiven Text. Fällt die Entropie deutlich (> 0,05), ist der Gewinn zum Teil Schein.
+4. `self_` ist besser als `rand_` bei ähnlichen Kosten. Sonst bringt die Erkennung nichts.
+
+---
+
+# Agenda: Experiment 4, Nachtraining mit eigenen Fehlern
+
+**Warum:** Experiment 1 hat gezeigt, dass das Festhalten der groben Ebenen nichts bringt. Vermutete Ursache: Das Modell hat im Training nur perfekte grobe Codes gesehen und kann mit eigenen fehlerhaften nichts anfangen.
+
+**Plan:**
+1. Trainingscode schreiben (fehlt im Upstream-Repo). Die Verlustfunktion steht im Paper (Gl. 10, inklusive Code-Korruption).
+2. Sudoku-Trainingsdaten selbst erzeugen (Generator + Löser, 30–40 Vorgaben).
+3. Den bestehenden Generator nachtrainieren: Ein Teil der Batches wird mit den *eigenen* generierten groben Codes konditioniert statt mit zufälliger Korruption (Selbst-Konditionierung).
+4. Experiment 1 wiederholen. Die Frage: Schlägt `loop_k3_t0.7` jetzt `loop_k0_t0.7`?
+
+**Rechenbedarf:** Nachtrainieren dauert auf einer A100 ~30–60 min, auf der kostenlosen Colab-T4 einige Stunden. Ziel ist ein Colab-Notebook, das man mit einem Klick startet. Alternativ eine GPU über TUM/LRZ.

@@ -1,0 +1,33 @@
+VQVAE, Total parameter count: 36.43M
+VQVAE, Non embedding parameter count: 33.24M
+NCP Transformer, Total parameter count: 88.61M
+NCP Transformer, Non embedding parameter count: 88.30M
+Gerät: mps | TinyStories | Seeds [42] x 32 | Kalibrierung Seed 1000 | Referenz gpt2-large
+Selbsttest Ein-Pass-Bewertung: Abweichung 4.77e-07 (Mittelwert), 6.53e-05 (einzelner Code) -> Ein-Pass
+Startversuche fertig (21s), bewerte mit gpt2-large ...
+W1022 20:32:17.584000 68342 torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+Loading weights:   0%|          | 0/436 [00:00<?, ?it/s]Loading weights:   0%|          | 2/436 [00:00<00:28, 15.14it/s]Loading weights:   5%|▌         | 22/436 [00:00<00:07, 57.11it/s]Loading weights:   8%|▊         | 34/436 [00:00<00:05, 72.43it/s]Loading weights:  11%|█         | 46/436 [00:00<00:05, 70.30it/s]Loading weights:  13%|█▎        | 58/436 [00:00<00:05, 73.78it/s]Loading weights:  16%|█▌        | 70/436 [00:01<00:05, 70.62it/s]Loading weights:  19%|█▉        | 82/436 [00:01<00:05, 63.51it/s]Loading weights:  22%|██▏       | 94/436 [00:01<00:05, 64.71it/s]Loading weights:  24%|██▍       | 106/436 [00:01<00:04, 66.62it/s]Loading weights:  27%|██▋       | 118/436 [00:01<00:05, 62.03it/s]Loading weights:  30%|██▉       | 130/436 [00:01<00:04, 66.25it/s]Loading weights:  33%|███▎      | 142/436 [00:02<00:04, 69.12it/s]Loading weights:  35%|███▌      | 154/436 [00:02<00:04, 63.53it/s]Loading weights:  38%|███▊      | 166/436 [00:02<00:03, 70.94it/s]Loading weights:  40%|███▉      | 174/436 [00:02<00:03, 72.50it/s]Loading weights:  42%|████▏     | 182/436 [00:02<00:03, 70.22it/s]Loading weights:  44%|████▎     | 190/436 [00:02<00:04, 59.99it/s]Loading weights:  46%|████▋     | 202/436 [00:03<00:03, 68.35it/s]Loading weights:  48%|████▊     | 210/436 [00:03<00:03, 68.69it/s]Loading weights:  50%|█████     | 218/436 [00:03<00:03, 63.36it/s]Loading weights:  52%|█████▏    | 226/436 [00:03<00:03, 61.83it/s]Loading weights:  55%|█████▍    | 238/436 [00:03<00:02, 68.79it/s]Loading weights:  57%|█████▋    | 250/436 [00:03<00:02, 67.88it/s]Loading weights:  60%|██████    | 262/436 [00:03<00:02, 62.86it/s]Loading weights:  63%|██████▎   | 274/436 [00:04<00:02, 60.58it/s]Loading weights:  66%|██████▌   | 286/436 [00:04<00:02, 60.08it/s]Loading weights:  68%|██████▊   | 298/436 [00:04<00:02, 61.55it/s]Loading weights:  71%|███████   | 310/436 [00:04<00:02, 60.18it/s]Loading weights:  74%|███████▍  | 322/436 [00:04<00:01, 66.51it/s]Loading weights:  75%|███████▌  | 329/436 [00:05<00:01, 65.90it/s]Loading weights:  77%|███████▋  | 336/436 [00:05<00:01, 64.56it/s]Loading weights:  79%|███████▉  | 346/436 [00:05<00:01, 62.90it/s]Loading weights:  82%|████████▏ | 358/436 [00:05<00:01, 67.96it/s]Loading weights:  85%|████████▍ | 370/436 [00:05<00:00, 74.13it/s]Loading weights:  88%|████████▊ | 382/436 [00:05<00:00, 67.93it/s]Loading weights:  90%|█████████ | 394/436 [00:05<00:00, 72.52it/s]Loading weights:  93%|█████████▎| 406/436 [00:06<00:00, 70.88it/s]Loading weights:  96%|█████████▌| 418/436 [00:06<00:00, 63.24it/s]Loading weights:  99%|█████████▊| 430/436 [00:06<00:00, 70.69it/s]Loading weights: 100%|██████████| 436/436 [00:07<00:00, 59.64it/s]
+Referenzmodell gpt2-large geladen (float16)
+
+Teil A: Hängt das interne Signal mit der Textqualität zusammen? (32 Geschichten)
+Signal      Spearman   AUROC schlechteste 20 %
+gen_llR        0.641                     0.794
+gen_ll         0.458                     0.811
+dec_mean       0.353                     0.560
+cycle          0.258                     0.637
+
+Teil B: Gezielt neu sampeln
+Variante          GenPPL  ± Seeds  Entropie  NFE/Sample  versucht %  Zeit s
+baseline           15.80     0.00     3.950        11.0         0.0      15
+self_gen_llR       15.49     0.00     3.945        12.8         6.2       8
+rand_gen_llR       15.48     0.00     3.950        21.0        37.5      13
+best2_gen_llR      13.25     0.00     3.966        24.0       100.0      63
+self_dec_mean      14.84     0.00     3.976        16.1        25.0      15
+
+Paarweise gegen baseline (mittlere Änderung log-PPL pro Geschichte, 95 %-Bootstrap-KI; negativ = besser):
+  self_gen_llR     -0.0194  [-0.0574, +0.0000]
+  rand_gen_llR     -0.0202  [-0.1026, +0.0535]
+  best2_gen_llR    -0.1764  [-0.2660, -0.0943]
+  self_dec_mean    -0.0627  [-0.1294, -0.0139]
+
+Gespeichert: /Users/victorweniger/Documents/ncm-experimente/results/tinystories-text-smoke.json

@@ -1,0 +1,13 @@
+Start: 2026-10-22 16:40:14
+16:40:14  läuft:  download
+16:40:15  fertig: download
+16:40:15  läuft:  sudoku-hard-self3
+19:35:00  FEHLER: sudoku-hard-self3 (siehe results/sudoku-hard-self3.log)
+19:35:00  läuft:  sudoku-medium-self3
+19:59:06  fertig: sudoku-medium-self3
+19:59:06  läuft:  sudoku-easy-self3
+20:24:43  fertig: sudoku-easy-self3
+20:24:43  läuft:  text-smoke
+20:35:53  fertig: text-smoke
+20:35:53  läuft:  tinystories-text
+21:02:21  FEHLER: tinystories-text (siehe results/tinystories-text.log)

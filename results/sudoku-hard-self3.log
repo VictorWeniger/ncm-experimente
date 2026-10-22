@@ -1,0 +1,396 @@
+VQVAE, Total parameter count: 14.90M
+VQVAE, Non embedding parameter count: 14.87M
+NCP Transformer, Total parameter count: 25.46M
+NCP Transformer, Non embedding parameter count: 25.32M
+Selbsttest Ein-Pass-Bewertung: max. Abweichung Mittelwert 8.94e-08, einzelner Code 1.25e-05 -> benutze Ein-Pass
+Gerät: mps | sudoku-hard | Test: 1000 | Kalibrierung: 1000 | T=0.7 | Runden=4
+Error: command buffer exited with error status.
+	The Metal Performance Shaders operations encoded on it may not have completed.
+	Error: 
+	(null)
+	Insufficient Memory (00000008:kIOGPUCommandBufferCallbackErrorOutOfMemory)
+	<AGXG13GFamilyCommandBuffer: 0x7b859b8000>
+    label = <none> 
+    device = <AGXG13GDevice: 0x7b858dc000>
+        name = Apple M1 
+    commandQueue = <AGXG13GFamilyCommandQueue: 0x105a43140>
+        label = <none> 
+        device = <AGXG13GDevice: 0x7b858dc000>
+            name = Apple M1 
+    retainedReferences = 1
+Error: command buffer exited with error status.
+	The Metal Performance Shaders operations encoded on it may not have completed.
+	Error: 
+	(null)
+	Insufficient Memory (00000008:kIOGPUCommandBufferCallbackErrorOutOfMemory)
+	<AGXG13GFamilyCommandBuffer: 0x7b859b8000>
+    label = <none> 
+    device = <AGXG13GDevice: 0x7b858dc000>
+        name = Apple M1 
+    commandQueue = <AGXG13GFamilyCommandQueue: 0x105a43140>
+        label = <none> 
+        device = <AGXG13GDevice: 0x7b858dc000>
+            name = Apple M1 
+    retainedReferences = 1
+Error: command buffer exited with error status.
+	The Metal Performance Shaders operations encoded on it may not have completed.
+	Error: 
+	(null)
+	Insufficient Memory (00000008:kIOGPUCommandBufferCallbackErrorOutOfMemory)
+	<AGXG13GFamilyCommandBuffer: 0x7b859b8000>
+    label = <none> 
+    device = <AGXG13GDevice: 0x7b858dc000>
+        name = Apple M1 
+    commandQueue = <AGXG13GFamilyCommandQueue: 0x105a43140>
+        label = <none> 
+        device = <AGXG13GDevice: 0x7b858dc000>
+            name = Apple M1 
+    retainedReferences = 1
+Error: command buffer exited with error status.
+	The Metal Performance Shaders operations encoded on it may not have completed.
+	Error: 
+	(null)
+	Insufficient Memory (00000008:kIOGPUCommandBufferCallbackErrorOutOfMemory)
+	<AGXG13GFamilyCommandBuffer: 0x7b859b8000>
+    label = <none> 
+    device = <AGXG13GDevice: 0x7b858dc000>
+        name = Apple M1 
+    commandQueue = <AGXG13GFamilyCommandQueue: 0x105a43140>
+        label = <none> 
+        device = <AGXG13GDevice: 0x7b858dc000>
+            name = Apple M1 
+    retainedReferences = 1
+Error: command buffer exited with error status.
+	The Metal Performance Shaders operations encoded on it may not have completed.
+	Error: 
+	(null)
+	Insufficient Memory (00000008:kIOGPUCommandBufferCallbackErrorOutOfMemory)
+	<AGXG13GFamilyCommandBuffer: 0x7b859b8000>
+    label = <none> 
+    device = <AGXG13GDevice: 0x7b858dc000>
+        name = Apple M1 
+    commandQueue = <AGXG13GFamilyCommandQueue: 0x105a43140>
+        label = <none> 
+        device = <AGXG13GDevice: 0x7b858dc000>
+            name = Apple M1 
+    retainedReferences = 1
+Error: command buffer exited with error status.
+	The Metal Performance Shaders operations encoded on it may not have completed.
+	Error: 
+	(null)
+	Insufficient Memory (00000008:kIOGPUCommandBufferCallbackErrorOutOfMemory)
+	<AGXG13GFamilyCommandBuffer: 0x7b859b8000>
+    label = <none> 
+    device = <AGXG13GDevice: 0x7b858dc000>
+        name = Apple M1 
+    commandQueue = <AGXG13GFamilyCommandQueue: 0x105a43140>
+        label = <none> 
+        device = <AGXG13GDevice: 0x7b858dc000>
+            name = Apple M1 
+    retainedReferences = 1
+Error: command buffer exited with error status.
+	The Metal Performance Shaders operations encoded on it may not have completed.
+	Error: 
+	(null)
+	Insufficient Memory (00000008:kIOGPUCommandBufferCallbackErrorOutOfMemory)
+	<AGXG13GFamilyCommandBuffer: 0x7b859b8000>
+    label = <none> 
+    device = <AGXG13GDevice: 0x7b858dc000>
+        name = Apple M1 
+    commandQueue = <AGXG13GFamilyCommandQueue: 0x105a43140>
+        label = <none> 
+        device = <AGXG13GDevice: 0x7b858dc000>
+            name = Apple M1 
+    retainedReferences = 1
+
+Teil A: Erkennt das Modell seine Fehler? (Baseline gelöst: Test 84.3 %, Kalibrierung 84.6 %, 2759s)
+Signal      AUROC    Schwelle  markiert %  Treffer %  Fehlalarm %
+dec_min     0.878      0.9950        14.4       64.3          5.1
+dec_mean    0.888     -0.0001        16.2       68.2          6.5
+gen_ll      0.892     -0.0899        21.8       74.5         12.0
+gen_llR     0.954     -0.1761        17.6       86.0          4.9
+gen_min     0.727      0.3738        29.6       55.4         24.8
+cycle       0.853      0.8634        22.3       66.9         14.0
+clue        0.500     -1.0000         0.0        0.0          0.0
+rules       1.000     -0.0000        15.7      100.0          0.0
+
+Teil B: Schleife mit internem Fehlersignal
+Variante             gelöst %     NFE/Brett  je versucht %  Zeit s   gelöst je Runde
+Error: command buffer exited with error status.
+	The Metal Performance Shaders operations encoded on it may not have completed.
+	Error: 
+	(null)
+	Insufficient Memory (00000008:kIOGPUCommandBufferCallbackErrorOutOfMemory)
+	<AGXG13GFamilyCommandBuffer: 0x7b859b8000>
+    label = <none> 
+    device = <AGXG13GDevice: 0x7b858dc000>
+        name = Apple M1 
+    commandQueue = <AGXG13GFamilyCommandQueue: 0x105a43140>
+        label = <none> 
+        device = <AGXG13GDevice: 0x7b858dc000>
+            name = Apple M1 
+    retainedReferences = 1
+Error: command buffer exited with error status.
+	The Metal Performance Shaders operations encoded on it may not have completed.
+	Error: 
+	(null)
+	Insufficient Memory (00000008:kIOGPUCommandBufferCallbackErrorOutOfMemory)
+	<AGXG13GFamilyCommandBuffer: 0x7b859b8000>
+    label = <none> 
+    device = <AGXG13GDevice: 0x7b858dc000>
+        name = Apple M1 
+    commandQueue = <AGXG13GFamilyCommandQueue: 0x105a43140>
+        label = <none> 
+        device = <AGXG13GDevice: 0x7b858dc000>
+            name = Apple M1 
+    retainedReferences = 1
+Error: command buffer exited with error status.
+	The Metal Performance Shaders operations encoded on it may not have completed.
+	Error: 
+	(null)
+	Insufficient Memory (00000008:kIOGPUCommandBufferCallbackErrorOutOfMemory)
+	<AGXG13GFamilyCommandBuffer: 0x7b859b8000>
+    label = <none> 
+    device = <AGXG13GDevice: 0x7b858dc000>
+        name = Apple M1 
+    commandQueue = <AGXG13GFamilyCommandQueue: 0x105a43140>
+        label = <none> 
+        device = <AGXG13GDevice: 0x7b858dc000>
+            name = Apple M1 
+    retainedReferences = 1
+Error: command buffer exited with error status.
+	The Metal Performance Shaders operations encoded on it may not have completed.
+	Error: 
+	(null)
+	Insufficient Memory (00000008:kIOGPUCommandBufferCallbackErrorOutOfMemory)
+	<AGXG13GFamilyCommandBuffer: 0x7b859b8000>
+    label = <none> 
+    device = <AGXG13GDevice: 0x7b858dc000>
+        name = Apple M1 
+    commandQueue = <AGXG13GFamilyCommandQueue: 0x105a43140>
+        label = <none> 
+        device = <AGXG13GDevice: 0x7b858dc000>
+            name = Apple M1 
+    retainedReferences = 1
+Error: command buffer exited with error status.
+	The Metal Performance Shaders operations encoded on it may not have completed.
+	Error: 
+	(null)
+	Insufficient Memory (00000008:kIOGPUCommandBufferCallbackErrorOutOfMemory)
+	<AGXG13GFamilyCommandBuffer: 0x7b859b8000>
+    label = <none> 
+    device = <AGXG13GDevice: 0x7b858dc000>
+        name = Apple M1 
+    commandQueue = <AGXG13GFamilyCommandQueue: 0x105a43140>
+        label = <none> 
+        device = <AGXG13GDevice: 0x7b858dc000>
+            name = Apple M1 
+    retainedReferences = 1
+Error: command buffer exited with error status.
+	The Metal Performance Shaders operations encoded on it may not have completed.
+	Error: 
+	(null)
+	Insufficient Memory (00000008:kIOGPUCommandBufferCallbackErrorOutOfMemory)
+	<AGXG13GFamilyCommandBuffer: 0x7b859b8000>
+    label = <none> 
+    device = <AGXG13GDevice: 0x7b858dc000>
+        name = Apple M1 
+    commandQueue = <AGXG13GFamilyCommandQueue: 0x105a43140>
+        label = <none> 
+        device = <AGXG13GDevice: 0x7b858dc000>
+            name = Apple M1 
+    retainedReferences = 1
+baseline                82.80          12.0            0.0    1796   82.8
+Error: command buffer exited with error status.
+	The Metal Performance Shaders operations encoded on it may not have completed.
+	Error: 
+	(null)
+	Insufficient Memory (00000008:kIOGPUCommandBufferCallbackErrorOutOfMemory)
+	<AGXG13GFamilyCommandBuffer: 0x7b859b8000>
+    label = <none> 
+    device = <AGXG13GDevice: 0x7b858dc000>
+        name = Apple M1 
+    commandQueue = <AGXG13GFamilyCommandQueue: 0x105a43140>
+        label = <none> 
+        device = <AGXG13GDevice: 0x7b858dc000>
+            name = Apple M1 
+    retainedReferences = 1
+Error: command buffer exited with error status.
+	The Metal Performance Shaders operations encoded on it may not have completed.
+	Error: 
+	(null)
+	Insufficient Memory (00000008:kIOGPUCommandBufferCallbackErrorOutOfMemory)
+	<AGXG13GFamilyCommandBuffer: 0x7b859b8000>
+    label = <none> 
+    device = <AGXG13GDevice: 0x7b858dc000>
+        name = Apple M1 
+    commandQueue = <AGXG13GFamilyCommandQueue: 0x105a43140>
+        label = <none> 
+        device = <AGXG13GDevice: 0x7b858dc000>
+            name = Apple M1 
+    retainedReferences = 1
+Error: command buffer exited with error status.
+	The Metal Performance Shaders operations encoded on it may not have completed.
+	Error: 
+	(null)
+	Insufficient Memory (00000008:kIOGPUCommandBufferCallbackErrorOutOfMemory)
+	<AGXG13GFamilyCommandBuffer: 0x7b859b8000>
+    label = <none> 
+    device = <AGXG13GDevice: 0x7b858dc000>
+        name = Apple M1 
+    commandQueue = <AGXG13GFamilyCommandQueue: 0x105a43140>
+        label = <none> 
+        device = <AGXG13GDevice: 0x7b858dc000>
+            name = Apple M1 
+    retainedReferences = 1
+Error: command buffer exited with error status.
+	The Metal Performance Shaders operations encoded on it may not have completed.
+	Error: 
+	(null)
+	Insufficient Memory (00000008:kIOGPUCommandBufferCallbackErrorOutOfMemory)
+	<AGXG13GFamilyCommandBuffer: 0x7b859b8000>
+    label = <none> 
+    device = <AGXG13GDevice: 0x7b858dc000>
+        name = Apple M1 
+    commandQueue = <AGXG13GFamilyCommandQueue: 0x105a43140>
+        label = <none> 
+        device = <AGXG13GDevice: 0x7b858dc000>
+            name = Apple M1 
+    retainedReferences = 1
+Error: command buffer exited with error status.
+	The Metal Performance Shaders operations encoded on it may not have completed.
+	Error: 
+	(null)
+	Insufficient Memory (00000008:kIOGPUCommandBufferCallbackErrorOutOfMemory)
+	<AGXG13GFamilyCommandBuffer: 0x7b859b8000>
+    label = <none> 
+    device = <AGXG13GDevice: 0x7b858dc000>
+        name = Apple M1 
+    commandQueue = <AGXG13GFamilyCommandQueue: 0x105a43140>
+        label = <none> 
+        device = <AGXG13GDevice: 0x7b858dc000>
+            name = Apple M1 
+    retainedReferences = 1
+Error: command buffer exited with error status.
+	The Metal Performance Shaders operations encoded on it may not have completed.
+	Error: 
+	(null)
+	Insufficient Memory (00000008:kIOGPUCommandBufferCallbackErrorOutOfMemory)
+	<AGXG13GFamilyCommandBuffer: 0x7b859b8000>
+    label = <none> 
+    device = <AGXG13GDevice: 0x7b858dc000>
+        name = Apple M1 
+    commandQueue = <AGXG13GFamilyCommandQueue: 0x105a43140>
+        label = <none> 
+        device = <AGXG13GDevice: 0x7b858dc000>
+            name = Apple M1 
+    retainedReferences = 1
+Error: command buffer exited with error status.
+	The Metal Performance Shaders operations encoded on it may not have completed.
+	Error: 
+	(null)
+	Insufficient Memory (00000008:kIOGPUCommandBufferCallbackErrorOutOfMemory)
+	<AGXG13GFamilyCommandBuffer: 0x7b859b8000>
+    label = <none> 
+    device = <AGXG13GDevice: 0x7b858dc000>
+        name = Apple M1 
+    commandQueue = <AGXG13GFamilyCommandQueue: 0x105a43140>
+        label = <none> 
+        device = <AGXG13GDevice: 0x7b858dc000>
+            name = Apple M1 
+    retainedReferences = 1
+Error: command buffer exited with error status.
+	The Metal Performance Shaders operations encoded on it may not have completed.
+	Error: 
+	(null)
+	Insufficient Memory (00000008:kIOGPUCommandBufferCallbackErrorOutOfMemory)
+	<AGXG13GFamilyCommandBuffer: 0x7b859b8000>
+    label = <none> 
+    device = <AGXG13GDevice: 0x7b858dc000>
+        name = Apple M1 
+    commandQueue = <AGXG13GFamilyCommandQueue: 0x105a43140>
+        label = <none> 
+        device = <AGXG13GDevice: 0x7b858dc000>
+            name = Apple M1 
+    retainedReferences = 1
+Error: command buffer exited with error status.
+	The Metal Performance Shaders operations encoded on it may not have completed.
+	Error: 
+	(null)
+	Insufficient Memory (00000008:kIOGPUCommandBufferCallbackErrorOutOfMemory)
+	<AGXG13GFamilyCommandBuffer: 0x7b859b8000>
+    label = <none> 
+    device = <AGXG13GDevice: 0x7b858dc000>
+        name = Apple M1 
+    commandQueue = <AGXG13GFamilyCommandQueue: 0x105a43140>
+        label = <none> 
+        device = <AGXG13GDevice: 0x7b858dc000>
+            name = Apple M1 
+    retainedReferences = 1
+Error: command buffer exited with error status.
+	The Metal Performance Shaders operations encoded on it may not have completed.
+	Error: 
+	(null)
+	Insufficient Memory (00000008:kIOGPUCommandBufferCallbackErrorOutOfMemory)
+	<AGXG13GFamilyCommandBuffer: 0x7b859b8000>
+    label = <none> 
+    device = <AGXG13GDevice: 0x7b858dc000>
+        name = Apple M1 
+    commandQueue = <AGXG13GFamilyCommandQueue: 0x105a43140>
+        label = <none> 
+        device = <AGXG13GDevice: 0x7b858dc000>
+            name = Apple M1 
+    retainedReferences = 1
+Error: command buffer exited with error status.
+	The Metal Performance Shaders operations encoded on it may not have completed.
+	Error: 
+	(null)
+	Insufficient Memory (00000008:kIOGPUCommandBufferCallbackErrorOutOfMemory)
+	<AGXG13GFamilyCommandBuffer: 0x7b859b8000>
+    label = <none> 
+    device = <AGXG13GDevice: 0x7b858dc000>
+        name = Apple M1 
+    commandQueue = <AGXG13GFamilyCommandQueue: 0x105a43140>
+        label = <none> 
+        device = <AGXG13GDevice: 0x7b858dc000>
+            name = Apple M1 
+    retainedReferences = 1
+Error: command buffer exited with error status.
+	The Metal Performance Shaders operations encoded on it may not have completed.
+	Error: 
+	(null)
+	Insufficient Memory (00000008:kIOGPUCommandBufferCallbackErrorOutOfMemory)
+	<AGXG13GFamilyCommandBuffer: 0x7b859b8000>
+    label = <none> 
+    device = <AGXG13GDevice: 0x7b858dc000>
+        name = Apple M1 
+    commandQueue = <AGXG13GFamilyCommandQueue: 0x105a43140>
+        label = <none> 
+        device = <AGXG13GDevice: 0x7b858dc000>
+            name = Apple M1 
+    retainedReferences = 1
+Traceback (most recent call last):
+  File "/Users/victorweniger/Documents/ncm-experimente/experiments/selfsignal_sudoku.py", line 346, in <module>
+    results, masks = {}, {}
+                         ^^^
+  File "/Users/victorweniger/Documents/ncm-experimente/experiments/selfsignal_sudoku.py", line 278, in run_variant
+    ever_flagged = rand_flag.clone() if rand_flag is not None else suspicious(name, sg, thr).clone()
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/victorweniger/Documents/ncm-experimente/experiments/selfsignal_sudoku.py", line 180, in attempt
+    "gen_llR": (teacher_forced_logp(net, tk.vqvae, pfx, re) if FAST
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/victorweniger/Documents/ncm-experimente/.venv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/victorweniger/Documents/ncm-experimente/experiments/ncm_scoring.py", line 28, in teacher_forced_logp
+    xt = vqvae.vq.idx_to_ncm_input(idx)  # Eingaben für die Ebenen 1..K-1
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/victorweniger/Documents/ncm-experimente/.venv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/victorweniger/Documents/ncm-experimente/ncm/models/quant.py", line 686, in idx_to_ncm_input
+    F.interpolate(
+  File "/Users/victorweniger/Documents/ncm-experimente/experiments/selfsignal_sudoku.py", line 81, in _interp_mps_safe
+    return _F_interp(input.cpu(), *args, **kwargs).to(input.device)
+                     ^^^^^^^^^^^
+torch.AcceleratorError: index 4783426583296896522 is out of bounds for dimension with size 16

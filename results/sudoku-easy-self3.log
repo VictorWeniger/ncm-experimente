@@ -1,0 +1,39 @@
+VQVAE, Total parameter count: 14.90M
+VQVAE, Non embedding parameter count: 14.87M
+NCP Transformer, Total parameter count: 25.46M
+NCP Transformer, Non embedding parameter count: 25.32M
+Selbsttest Ein-Pass-Bewertung: max. Abweichung Mittelwert 7.45e-08, einzelner Code 5.72e-06 -> benutze Ein-Pass
+Gerät: mps | sudoku-easy | Test: 1000 | Kalibrierung: 1000 | T=0.7 | Runden=4
+
+Teil A: Erkennt das Modell seine Fehler? (Baseline gelöst: Test 99.7 %, Kalibrierung 99.3 %, 268s)
+Signal      AUROC    Schwelle  markiert %  Treffer %  Fehlalarm %
+dec_min     0.988      0.9729         1.1       33.3          1.0
+dec_mean    0.989     -0.0004         1.6       33.3          1.5
+gen_ll      1.000     -0.1351        13.4      100.0         13.1
+gen_llR     0.999     -0.2305        19.2      100.0         19.0
+gen_min     0.851      0.3520        36.7      100.0         36.5
+cycle       0.997      0.8261         8.6      100.0          8.3
+clue        0.499     -1.0000         0.0        0.0          0.0
+rules       1.000     -0.0000         0.3      100.0          0.0
+
+Teil B: Schleife mit internem Fehlersignal
+Variante             gelöst %     NFE/Brett  je versucht %  Zeit s   gelöst je Runde
+baseline                99.70          12.0            0.0     136   99.7
+verifier                99.80          12.1            0.3     140   99.7 → 99.7 → 99.8 → 99.8 → 99.8
+self_dec_min            99.70          12.2            1.1     141   99.7 → 99.7 → 99.7 → 99.7 → 99.7
+self_gen_llR            99.70          22.9           19.2     252   99.7 → 99.7 → 99.7 → 99.7 → 99.7
+rand_gen_llR            99.70          23.5           20.2     260   99.7 → 99.7 → 99.7 → 99.7 → 99.7
+best2_gen_llR           99.70          26.0            0.0     295   99.7
+
+Gepaarter McNemar-Test (nur A gelöst / nur B gelöst / p):
+  verifier             vs baseline     1 /    0   p=1.0000
+  self_dec_min         vs baseline     0 /    0   p=1.0000
+  self_gen_llR         vs baseline     0 /    0   p=1.0000
+  rand_gen_llR         vs baseline     0 /    0   p=1.0000
+  best2_gen_llR        vs baseline     0 /    0   p=1.0000
+  self_dec_min         vs verifier     0 /    1   p=1.0000
+  self_gen_llR         vs verifier     0 /    1   p=1.0000
+  rand_gen_llR         vs verifier     0 /    1   p=1.0000
+  best2_gen_llR        vs verifier     0 /    1   p=1.0000
+
+Gespeichert: /Users/victorweniger/Documents/ncm-experimente/results/sudoku-easy-self3.json
