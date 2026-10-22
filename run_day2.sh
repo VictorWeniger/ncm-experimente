@@ -13,7 +13,7 @@ fi
 source .venv/bin/activate
 export PYTORCH_ENABLE_MPS_FALLBACK=1 PYTHONUNBUFFERED=1
 # GPU-Speicher auf dem M1 begrenzen, damit macOS nicht ins Auslagern kommt
-export PYTORCH_MPS_HIGH_WATERMARK_RATIO=0.7
+export PYTORCH_MPS_HIGH_WATERMARK_RATIO=0.7 PYTORCH_MPS_LOW_WATERMARK_RATIO=0.5
 mkdir -p results
 STATUS=results/STATUS.txt
 echo "Start: $(date '+%F %T')" > "$STATUS"

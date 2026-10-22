@@ -1,20 +1,39 @@
 VQVAE, Total parameter count: 14.90M
 VQVAE, Non embedding parameter count: 14.87M
-Traceback (most recent call last):
-  File "/Users/victorweniger/Documents/ncm-experimente/experiments/selfsignal_sudoku.py", line 95, in <module>
-    tk.vqvae = tk.vqvae.to(dev).eval()
-               ^^^^^^^^^^^^^^^^
-  File "/Users/victorweniger/Documents/ncm-experimente/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1388, in to
-    return self._apply(convert)
-           ^^^^^^^^^^^^^^^^^^^^
-  File "/Users/victorweniger/Documents/ncm-experimente/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 933, in _apply
-    module._apply(fn)
-  File "/Users/victorweniger/Documents/ncm-experimente/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 933, in _apply
-    module._apply(fn)
-  File "/Users/victorweniger/Documents/ncm-experimente/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 966, in _apply
-    param_applied = fn(param)
-                    ^^^^^^^^^
-  File "/Users/victorweniger/Documents/ncm-experimente/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1374, in convert
-    return t.to(
-           ^^^^^
-RuntimeError: invalid low watermark ratio 1.4
+NCP Transformer, Total parameter count: 25.46M
+NCP Transformer, Non embedding parameter count: 25.32M
+Selbsttest Ein-Pass-Bewertung: max. Abweichung Mittelwert 8.94e-08, einzelner Code 1.25e-05 -> benutze Ein-Pass
+Gerät: mps | sudoku-hard | Test: 1000 | Kalibrierung: 1000 | T=0.7 | Runden=4
+
+Teil A: Erkennt das Modell seine Fehler? (Baseline gelöst: Test 84.3 %, Kalibrierung 88.4 %, 280s)
+Signal      AUROC    Schwelle  markiert %  Treffer %  Fehlalarm %
+dec_min     0.878      0.9967        17.5       71.3          7.5
+dec_mean    0.888     -0.0001        20.2       74.5         10.1
+gen_ll      0.892     -0.0899        21.8       74.5         12.0
+gen_llR     0.954     -0.1761        17.6       86.0          4.9
+gen_min     0.727      0.3738        29.6       55.4         24.8
+cycle       0.853      0.8696        26.2       72.0         17.7
+clue        0.500     -0.0000         0.0        0.0          0.0
+rules       1.000     -0.0000        15.7      100.0          0.0
+
+Teil B: Schleife mit internem Fehlersignal
+Variante             gelöst %     NFE/Brett  je versucht %  Zeit s   gelöst je Runde
+baseline                84.30          12.0            0.0     139   84.3
+verifier                89.40          18.2           15.7     245   84.3 → 86.8 → 88.2 → 89.1 → 89.4
+self_dec_min            87.50          17.2           17.5     234   84.3 → 86.2 → 87.0 → 87.4 → 87.5
+self_gen_llR            88.30          20.6           17.6     253   84.3 → 86.0 → 87.0 → 87.7 → 88.3
+rand_gen_llR            85.60          20.7           14.9     256   84.3 → 84.7 → 85.1 → 85.3 → 85.6
+best2_gen_llR           85.90          26.0            0.0     305   84.3
+
+Gepaarter McNemar-Test (nur A gelöst / nur B gelöst / p):
+  verifier             vs baseline    51 /    0   p=0.0000
+  self_dec_min         vs baseline    34 /    2   p=0.0000
+  self_gen_llR         vs baseline    42 /    2   p=0.0000
+  rand_gen_llR         vs baseline    13 /    0   p=0.0002
+  best2_gen_llR        vs baseline    18 /    2   p=0.0004
+  self_dec_min         vs verifier    10 /   29   p=0.0034
+  self_gen_llR         vs verifier    11 /   22   p=0.0801
+  rand_gen_llR         vs verifier     5 /   43   p=0.0000
+  best2_gen_llR        vs verifier     2 /   37   p=0.0000
+
+Gespeichert: /Users/victorweniger/Documents/ncm-experimente/results/sudoku-hard-self3.json

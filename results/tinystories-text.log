@@ -1,20 +1,54 @@
 VQVAE, Total parameter count: 36.43M
 VQVAE, Non embedding parameter count: 33.24M
+NCP Transformer, Total parameter count: 88.61M
+NCP Transformer, Non embedding parameter count: 88.30M
+Gerät: mps | TinyStories | Seeds [42, 0, 1, 2, 3] x 256 | Kalibrierung Seed 1000 | Referenz gpt2-large
+Selbsttest Ein-Pass-Bewertung: Abweichung 4.77e-07 (Mittelwert), 6.53e-05 (einzelner Code) -> Ein-Pass
+Startversuche fertig (577s), bewerte mit gpt2-large ...
+W1022 23:13:35.699000 4338 torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+Loading weights:   0%|          | 0/436 [00:00<?, ?it/s]Loading weights:   5%|▌         | 22/436 [00:00<00:06, 62.32it/s]Loading weights:   8%|▊         | 36/436 [00:00<00:06, 64.53it/s]Loading weights:  13%|█▎        | 58/436 [00:00<00:04, 87.23it/s]Loading weights:  17%|█▋        | 72/436 [00:00<00:03, 95.05it/s]Loading weights:  19%|█▉        | 83/436 [00:00<00:03, 91.17it/s]Loading weights:  22%|██▏       | 94/436 [00:01<00:05, 68.17it/s]Loading weights:  23%|██▎       | 102/436 [00:01<00:04, 68.29it/s]Loading weights:  25%|██▌       | 110/436 [00:01<00:06, 52.05it/s]Loading weights:  27%|██▋       | 118/436 [00:01<00:06, 47.99it/s]Loading weights:  30%|██▉       | 130/436 [00:02<00:05, 52.62it/s]Loading weights:  33%|███▎      | 142/436 [00:02<00:05, 57.45it/s]Loading weights:  35%|███▌      | 154/436 [00:02<00:04, 60.46it/s]Loading weights:  38%|███▊      | 166/436 [00:02<00:04, 64.55it/s]Loading weights:  41%|████      | 178/436 [00:02<00:04, 64.14it/s]Loading weights:  44%|████▎     | 190/436 [00:02<00:04, 59.96it/s]Loading weights:  46%|████▋     | 202/436 [00:03<00:03, 60.76it/s]Loading weights:  48%|████▊     | 209/436 [00:03<00:03, 60.32it/s]Loading weights:  50%|████▉     | 216/436 [00:03<00:04, 51.52it/s]Loading weights:  52%|█████▏    | 226/436 [00:03<00:04, 51.08it/s]Loading weights:  55%|█████▍    | 238/436 [00:03<00:03, 51.68it/s]Loading weights:  57%|█████▋    | 250/436 [00:04<00:03, 50.91it/s]Loading weights:  59%|█████▊    | 256/436 [00:04<00:03, 51.24it/s]Loading weights:  60%|██████    | 262/436 [00:04<00:03, 45.73it/s]Loading weights:  63%|██████▎   | 274/436 [00:04<00:03, 50.68it/s]Loading weights:  66%|██████▌   | 286/436 [00:04<00:02, 58.06it/s]Loading weights:  68%|██████▊   | 298/436 [00:04<00:02, 60.91it/s]Loading weights:  71%|███████   | 310/436 [00:05<00:01, 64.71it/s]Loading weights:  73%|███████▎  | 317/436 [00:05<00:01, 65.43it/s]Loading weights:  74%|███████▍  | 324/436 [00:05<00:02, 49.74it/s]Loading weights:  77%|███████▋  | 334/436 [00:05<00:01, 52.21it/s]Loading weights:  79%|███████▉  | 346/436 [00:05<00:01, 58.41it/s]Loading weights:  82%|████████▏ | 358/436 [00:06<00:01, 57.12it/s]Loading weights:  85%|████████▍ | 370/436 [00:06<00:01, 53.68it/s]Loading weights:  88%|████████▊ | 382/436 [00:06<00:01, 48.36it/s]Loading weights:  90%|█████████ | 394/436 [00:06<00:00, 46.70it/s]Loading weights:  93%|█████████▎| 406/436 [00:07<00:00, 52.49it/s]Loading weights:  96%|█████████▌| 418/436 [00:07<00:00, 53.98it/s]Loading weights:  99%|█████████▊| 430/436 [00:07<00:00, 54.51it/s]Loading weights: 100%|██████████| 436/436 [00:08<00:00, 22.50it/s]Loading weights: 100%|██████████| 436/436 [00:08<00:00, 51.69it/s]
+Referenzmodell gpt2-large geladen (float16)
 Traceback (most recent call last):
-  File "/Users/victorweniger/Documents/ncm-experimente/experiments/textsignal_tinystories.py", line 79, in <module>
-    tk.vqvae = tk.vqvae.to(dev).eval()
-               ^^^^^^^^^^^^^^^^
-  File "/Users/victorweniger/Documents/ncm-experimente/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1388, in to
-    return self._apply(convert)
-           ^^^^^^^^^^^^^^^^^^^^
-  File "/Users/victorweniger/Documents/ncm-experimente/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 933, in _apply
-    module._apply(fn)
-  File "/Users/victorweniger/Documents/ncm-experimente/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 933, in _apply
-    module._apply(fn)
-  File "/Users/victorweniger/Documents/ncm-experimente/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 966, in _apply
-    param_applied = fn(param)
-                    ^^^^^^^^^
-  File "/Users/victorweniger/Documents/ncm-experimente/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1374, in convert
-    return t.to(
-           ^^^^^
-RuntimeError: invalid low watermark ratio 1.4
+  File "/Users/victorweniger/Documents/ncm-experimente/experiments/textsignal_tinystories.py", line 270, in <module>
+    ppl_base, _ = quality(all_txt)
+                  ^^^^^^^^^^^^^^^^
+  File "/Users/victorweniger/Documents/ncm-experimente/experiments/textsignal_tinystories.py", line 174, in quality
+    r = generation_perplexity(rlm, rtok, [""] * len(texts), texts, device=dev, batch_size=8)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/victorweniger/Documents/ncm-experimente/.venv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/victorweniger/Documents/ncm-experimente/ncm/evaluation/gen_ppl.py", line 74, in generation_perplexity
+    logits = ref_model(input_ids=input_ids, attention_mask=attn_mask).logits
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/victorweniger/Documents/ncm-experimente/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/victorweniger/Documents/ncm-experimente/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/victorweniger/Documents/ncm-experimente/experiments/textsignal_tinystories.py", line 164, in forward
+    out = self.inner(**kw)
+          ^^^^^^^^^^^^^^^^
+  File "/Users/victorweniger/Documents/ncm-experimente/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/victorweniger/Documents/ncm-experimente/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/victorweniger/Documents/ncm-experimente/.venv/lib/python3.11/site-packages/transformers/utils/generic.py", line 943, in wrapper
+    output = func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/victorweniger/Documents/ncm-experimente/.venv/lib/python3.11/site-packages/transformers/models/gpt2/modeling_gpt2.py", line 697, in forward
+    logits = self.lm_head(hidden_states[:, slice_indices, :])
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/victorweniger/Documents/ncm-experimente/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/victorweniger/Documents/ncm-experimente/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/victorweniger/Documents/ncm-experimente/.venv/lib/python3.11/site-packages/torch/nn/modules/linear.py", line 134, in forward
+    return F.linear(input, self.weight, self.bias)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: MPS backend out of memory (MPS allocated: 3.42 GiB, other allocations: 220.36 MiB, max allowed: 3.73 GiB). Tried to allocate 100.00 MiB on shared pool. Use PYTORCH_MPS_HIGH_WATERMARK_RATIO=0.0 to disable upper limit for memory allocations (may cause system failure).
