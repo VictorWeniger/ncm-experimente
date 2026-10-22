@@ -28,7 +28,7 @@ BOARD_LEN = 89
 ALL_VARIANTS = ["baseline", "clamp",
                 "loop_k1", "loop_k3", "loop_k6", "loop_k9",
                 "loop_k1_t0.7", "loop_k3_t0.7", "loop_k6_t0.7",
-                "sample8"]
+                "sample2", "sample8"]
 
 ap = argparse.ArgumentParser()
 ap.add_argument("--task", default="hard", choices=["easy", "medium", "hard"])
@@ -40,6 +40,7 @@ ap.add_argument("--variants", default="all", help="kommagetrennt oder 'all'")
 ap.add_argument("--device", default="auto")
 ap.add_argument("--seed", type=int, default=0)
 ap.add_argument("--out", default=os.path.join(ROOT, "results"))
+ap.add_argument("--tag", default="", help="Suffix für die Ergebnisdatei, z.B. n500")
 a = ap.parse_args()
 
 if a.device == "auto":
@@ -48,8 +49,23 @@ else:
     dev = a.device
 variants = ALL_VARIANTS if a.variants == "all" else a.variants.split(",")
 
+# MPS kann adaptive_avg_pool1d (= interpolate mode="area") nur bei teilbaren Längen.
+# Die Ebenen 1,2,4,6,9,... sind nicht teilbar -> diese eine Operation auf der CPU rechnen.
+_F_interp = torch.nn.functional.interpolate
+
+
+def _interp_mps_safe(input, *args, **kwargs):
+    mode = kwargs.get("mode", args[2] if len(args) > 2 else "nearest")
+    if input.device.type == "mps" and mode == "area":
+        return _F_interp(input.cpu(), *args, **kwargs).to(input.device)
+    return _F_interp(input, *args, **kwargs)
+
+
+torch.nn.functional.interpolate = _interp_mps_safe
+
 # ---------------------------------------------------------------- Setup
 task = f"sudoku-{a.task}"
+out_name = task + (f"-{a.tag}" if a.tag else "")
 CFG = OmegaConf.load(os.path.join(NCM, "config", "eval", f"{task}.yaml"))
 ck = os.path.join(ROOT, "artifacts", "sudoku", a.task)
 dd_candidates = [os.path.join(ROOT, "data", "sudoku", a.task), os.path.join(ROOT, "data", "sudoku")]
@@ -281,11 +297,12 @@ for name in variants:
     per_round = [score(torch.cat(h))[1] / len(items) * 100 for h in hists]
     cost = torch.cat(costs).mean().item()
     dt = time.time() - t0
-    r = {"solved": solved / len(items) * 100, "valid": valid, "cells": cell * 100,
+    r = {"solved_mask": [int(h == ref) for h, ref in zip(hyps, refs)],
+         "solved": solved / len(items) * 100, "valid": valid, "cells": cell * 100,
          "level_evals": cost, "seconds": dt, "solved_per_round": per_round}
     summary["results"][name] = r
     print(f"{name:<16}{r['solved']:9.2f}{r['valid']:9.2f}{r['cells']:9.2f}{cost:14.1f}{dt:8.0f}   "
           + " → ".join(f"{x:.1f}" for x in per_round), flush=True)
-    json.dump(summary, open(os.path.join(a.out, f"{task}.json"), "w"), indent=2)
+    json.dump(summary, open(os.path.join(a.out, f"{out_name}.json"), "w"), indent=2)
 
-print(f"\nGespeichert: {os.path.join(a.out, task + '.json')}")
+print(f"\nGespeichert: {os.path.join(a.out, out_name + '.json')}")
