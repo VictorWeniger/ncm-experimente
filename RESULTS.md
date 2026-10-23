@@ -178,3 +178,34 @@ Die Baseline löst schon 99,7 %, keine Variante unterscheidet sich (alle p = 1).
 ## Text (Schnelltest, nur 32 Geschichten, nicht aussagekräftig)
 
 Läuft technisch durch (GPT-2 large in float16). Der volle Lauf mit 5 × 256 Geschichten steht noch aus (`./run_rest.sh`).
+
+## Sudoku hard, Nachlauf (22.10., 22:34–23:03, ohne Speicherfehler)
+
+1000 Test- / 1000 Kalibrierungsbretter, Bewertung in einem Durchlauf (Selbsttest bestanden). Ersetzt den ungültigen Lauf vom Nachmittag.
+
+Erkennung: gen_llR **AUROC 0,954** (86,0 % der Fehler erkannt, 4,9 % Fehlalarm). dec_min 0,878, cycle 0,853, gen_ll 0,892.
+
+| Variante | gelöst % | NFE/Brett | vs. baseline (nur A / nur B, p) |
+|---|---|---|---|
+| baseline | 84,3 | 12,0 | |
+| verifier | 89,4 | 18,2 | 51 / 0, p < 0,0001 |
+| **self_gen_llR** | **88,3** | **20,6** | 42 / 2, p < 0,0001 |
+| self_dec_min | 87,5 | 17,2 | 34 / 2, p < 0,0001 |
+| rand_gen_llR | 85,6 | 20,7 | 13 / 0, p = 0,0002 |
+| best2_gen_llR | 85,9 | 26,0 | 18 / 2, p = 0,0004 |
+
+Paarweise:
+- self_gen_llR vs. **rand_gen_llR: 33 / 6, p < 0,0001** (gleicher Aufwand, gezielt gegen zufällig)
+- self_gen_llR vs. best2_gen_llR: 29 / 5, p < 0,0001
+- self_gen_llR vs. verifier: 11 / 22, p = 0,08
+- self_gen_llR vs. self_dec_min: 23 / 15, p = 0,26
+
+**Ehrliche Kosten:** Mit der Bewertung in einem Durchlauf braucht `self_gen_llR` **20,6 NFE pro Brett** statt 35,8 im alten Lauf. Das ist knapp über dem Regel-Checker (18,2) und ein Drittel billiger als `best2` (26,0), bei deutlich mehr gelösten Brettern.
+
+**Was die Zufallskontrolle zeigt:** Auf hard bringen auch zufällige Neuversuche etwas (+1,3 Prozentpunkte), weil bei 16 % Fehlerquote auch zufällig gezogene Bretter manchmal falsch sind. Gezielt ist aber mit gleichem Aufwand **dreimal so wirksam** (+4,0 Prozentpunkte). Auf medium bringen zufällige Neuversuche gar nichts.
+
+**Fazit über alle Schwierigkeitsgrade:** Das Modell erkennt seine Fehler zuverlässig (AUROC 0,95–0,96 auf hard und medium). Nur die Kombination aus Erkennung und gezieltem Nachrechnen bringt den Gewinn, und das bei einem Aufwand nahe dem Regel-Checker. Auf easy gibt es nichts mehr zu holen (Decken-Effekt).
+
+## Text
+
+Der volle Lauf ist auch im Nachlauf abgestürzt: GPU-Speicher beim Bewerten mit GPT-2 large (max. 3,7 GB erlaubt). Fix: NCM wird während der GPT-2-Bewertung auf die CPU ausgelagert und in Häppchen zu 2 bewertet (`./run_text.sh`).

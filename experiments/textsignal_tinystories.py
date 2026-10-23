@@ -46,6 +46,7 @@ ap.add_argument("--bs", type=int, default=64)
 ap.add_argument("--rounds", type=int, default=2)
 ap.add_argument("--flag_q", type=float, default=0.2, help="Anteil, der als verdächtig gilt")
 ap.add_argument("--ref", default="gpt2-large")
+ap.add_argument("--ref_bs", type=int, default=2, help="Batchgröße für die GPT-2-Bewertung")
 ap.add_argument("--variants", default=",".join(DEFAULT_VARIANTS))
 ap.add_argument("--device", default="auto")
 ap.add_argument("--out", default=os.path.join(ROOT, "results"))
@@ -170,8 +171,19 @@ def load_ref():
 
 
 def quality(texts):
+    """GPT-2-Perplexity. Damit der 8-GB-M1 nicht vollläuft, wird NCM währenddessen auf die CPU
+    ausgelagert und in kleinen Häppchen bewertet."""
+    global net
+    net = net.to("cpu")
+    tk.vqvae.to("cpu")
+    if dev == "mps":
+        torch.mps.empty_cache()
     load_ref()
-    r = generation_perplexity(rlm, rtok, [""] * len(texts), texts, device=dev, batch_size=8)
+    r = generation_perplexity(rlm, rtok, [""] * len(texts), texts, device=dev, batch_size=a.ref_bs)
+    if dev == "mps":
+        torch.mps.empty_cache()
+    tk.vqvae.to(dev)
+    net = net.to(dev)
     return r.ppl, r.mean_ppl
 
 
