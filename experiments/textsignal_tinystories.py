@@ -51,6 +51,8 @@ ap.add_argument("--variants", default=",".join(DEFAULT_VARIANTS))
 ap.add_argument("--device", default="auto")
 ap.add_argument("--out", default=os.path.join(ROOT, "results"))
 ap.add_argument("--tag", default="text")
+ap.add_argument("--save_texts", default="", help="Geschichten aller Varianten als JSON speichern (für das LLM-Urteil)")
+ap.add_argument("--skip_ppl", action="store_true", help="keine GPT-2-Bewertung, nur Geschichten erzeugen")
 a = ap.parse_args()
 
 dev = a.device if a.device != "auto" else (
@@ -274,7 +276,22 @@ thr = {k: torch.quantile(v.double(), a.flag_q).item() for k, v in sig_cal.items(
 
 # Startversuche pro Seed (für alle Varianten identisch)
 init = {s: initial_pass(s) for s in seeds}
-print(f"Startversuche fertig ({time.time() - t0:.0f}s), bewerte mit {a.ref} ...")
+print(f"Startversuche fertig ({time.time() - t0:.0f}s)" + ("" if a.skip_ppl else f", bewerte mit {a.ref} ..."))
+
+if a.skip_ppl:
+    # Nur Geschichten erzeugen und speichern (ohne GPT-2), z.B. für ein paarweises LLM-Urteil
+    out = {"seeds": seeds, "n": a.n, "variants": {}}
+    for name in variants:
+        t0 = time.time()
+        out["variants"][name] = {}
+        for s in seeds:
+            raw, cost, ever = run_variant(name, *init[s], thr, s)
+            out["variants"][name][str(s)] = {"texts": [dec(r.tolist()) for r in raw],
+                                             "retried": ever.int().tolist(), "nfe": cost.tolist()}
+        print(f"{name:<16} fertig ({time.time() - t0:.0f}s)", flush=True)
+        json.dump(out, open(a.save_texts or os.path.join(a.out, f"tinystories-{a.tag}-texts.json"), "w"), ensure_ascii=False)
+    print(f"Gespeichert: {a.save_texts or os.path.join(a.out, f'tinystories-{a.tag}-texts.json')}")
+    sys.exit(0)
 
 # Teil A: Korrelation pro Geschichte
 all_sig = {k: torch.cat([init[s][1][k] for s in seeds]) for k in SIGNALS}

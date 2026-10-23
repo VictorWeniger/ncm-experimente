@@ -109,4 +109,35 @@ k wird über {1, 3, 6, 9} variiert: Wie viel „Konzept“ hält man fest, wie v
 3. Den bestehenden Generator nachtrainieren: Ein Teil der Batches wird mit den *eigenen* generierten groben Codes konditioniert statt mit zufälliger Korruption (Selbst-Konditionierung).
 4. Experiment 1 wiederholen. Die Frage: Schlägt `loop_k3_t0.7` jetzt `loop_k0_t0.7`?
 
-**Rechenbedarf:** Nachtrainieren dauert auf einer A100 ~30–60 min, auf der kostenlosen Colab-T4 einige Stunden. Ziel ist ein Colab-Notebook, das man mit einem Klick startet. Alternativ eine GPU über TUM/LRZ.
+**Rechenbedarf:** Nachtrainieren dauert auf einer A100 ~30–60 min. Ziel ist der TUM/LRZ-Cluster: Trainingsskript plus Slurm-Jobskript (1 GPU, ~2 h, ~16 GB RAM, ~5 GB Speicher). Fallback ist ein Colab-Notebook (T4, einige Stunden).
+
+---
+
+# Experiment 4: Nachtraining, Stand 23.10. (Code fertig, wartet auf Cluster)
+
+**Umsetzung** (`experiments/train_selfcond.py`, `experiments/sudoku_data.py`, `cluster/`):
+- Trainingsdaten: 50.000 selbst erzeugte, eindeutig lösbare Sudokus (30/35/40 Vorgaben), ohne Überschneidung mit den Testbrettern.
+- **Saubere Beispiele:** Paper-Ziel (Gl. 10), Eingabe-Codes zufällig korrumpiert (40 % auf der gröbsten bis 5 % auf der feinsten Ebene).
+- **Selbst-Beispiele (50 %):** Das Modell generiert selbst (T = 0,7). Für ein zufälliges k werden die groben Ebenen 0..k−1 aus der eigenen Generierung übernommen. Ziel für die Ebenen ab k sind die **Reparatur-Codes**: die Restquantisierung der echten Lösung, ausgehend von der eigenen (eventuell falschen) groben Rekonstruktion.
+- **Kontrolle `ctrl`:** gleich viel Training, nur saubere Beispiele. Sie trennt den Effekt der Selbst-Konditionierung vom Effekt bloßen Weitertrainierens.
+- Je 5000 Schritte, Batch 256, AdamW, Lernrate 1e-4 mit Cosinus-Abfall, bf16.
+
+**Erwartungen (vorab):**
+1. Die Baseline (greedy, ein Durchlauf) bleibt bei `self` ungefähr gleich (±1 Prozentpunkt). Sinkt sie deutlich, verdrängt das Reparieren das normale Generieren.
+2. Bei `self` schlagen Schleifen, die grobe Ebenen festhalten (`loop_k3_t0.7`, `loop_k6_t0.7`), endlich `loop_k0_t0.7`. Bei Original und `ctrl` nicht.
+3. Greedy-Schleifen (`loop_k3`, `loop_k6`, ohne Rauschen) kommen bei `self` aus dem Fixpunkt heraus, weil das Modell gelernt hat, aus einer fehlerhaften Skizze etwas anderes zu machen.
+4. Klappt das, ist es die Predictive-Coding-Rückkopplung, die in Experiment 1 gefehlt hat: Die grobe Hypothese bleibt stehen, und die feinen Ebenen korrigieren den Fehler.
+
+---
+
+# Agenda: Experiment 5, Mischform aus NCM und normalen LLMs
+
+**Frage:** Lässt sich das Beste aus beiden verbinden? Von NCM die Planung grob → fein, das parallele Erzeugen und das eingebaute Fehlersignal. Von autoregressiven LLMs die Flexibilität bei beliebig langen Texten und die bessere Qualität.
+
+**Mögliche Bauformen (noch zu prüfen):**
+1. **Blockweise:** Ein LLM schreibt Satz für Satz bzw. Block für Block (autoregressiv über die Blöcke), jeder Block wird mit NCM grob → fein in wenigen Schritten erzeugt. Analog zu „Block Diffusion“ (Arriola et al. 2025), nur mit NCM statt Diffusion innerhalb des Blocks. Das ist am nächsten an „das Gehirn plant einen Satz grob voraus“.
+2. **NCM als Entwurf, LLM als Prüfer (Speculative Decoding):** NCM erzeugt schnell einen ganzen Absatz, ein normales LLM prüft ihn in einem einzigen Durchlauf und übernimmt die passenden Teile. Ähnliche Ideen gibt es mit Diffusionsmodellen als Entwerfer (z.B. DFlash, im NCM-Paper zitiert).
+3. **LLM plant, NCM füllt aus:** Ein LLM sagt nur die groben Konzept-Codes voraus (wenige Tokens), NCM füllt die feinen Ebenen parallel. Verwandt mit „Large Concept Models“ (Meta 2024).
+4. **Feedback dazwischen:** Das interne Fehlersignal aus Experiment 2/3 entscheidet, welche Blöcke nachgebessert oder vom LLM neu geschrieben werden.
+
+**Erster machbarer Schritt:** Literaturrecherche (Block Diffusion, Large Concept Models, Speculative Decoding mit parallelen Entwerfern) und eine kleine Machbarkeitsstudie mit Variante 2 auf TinyStories. Dafür sind beide Modelle schon da (NCM-TinyStories und GPT-2), kein Training nötig.

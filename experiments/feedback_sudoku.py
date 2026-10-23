@@ -41,6 +41,8 @@ ap.add_argument("--device", default="auto")
 ap.add_argument("--seed", type=int, default=0)
 ap.add_argument("--out", default=os.path.join(ROOT, "results"))
 ap.add_argument("--tag", default="", help="Suffix für die Ergebnisdatei, z.B. n500")
+ap.add_argument("--no_levels", action="store_true", help="Analyse pro Ebene überspringen")
+ap.add_argument("--ckpt_dir", default="", help="anderer Checkpoint-Ordner (generator.pt + tokenizer.pt)")
 a = ap.parse_args()
 
 if a.device == "auto":
@@ -67,7 +69,7 @@ torch.nn.functional.interpolate = _interp_mps_safe
 task = f"sudoku-{a.task}"
 out_name = task + (f"-{a.tag}" if a.tag else "")
 CFG = OmegaConf.load(os.path.join(NCM, "config", "eval", f"{task}.yaml"))
-ck = os.path.join(ROOT, "artifacts", "sudoku", a.task)
+ck = a.ckpt_dir or os.path.join(ROOT, "artifacts", "sudoku", a.task)
 dd_candidates = [os.path.join(ROOT, "data", "sudoku", a.task), os.path.join(ROOT, "data", "sudoku")]
 dd = next(d for d in dd_candidates if os.path.exists(os.path.join(d, CFG.data.test)))
 
@@ -275,7 +277,7 @@ print(f"Gerät: {dev} | Aufgabe: {task} | Bretter: {len(items)} | Ebenen: {LEVEL
 summary = {"task": task, "n": len(items), "device": dev, "levels": LEVELS, "rounds": a.rounds, "results": {}}
 
 t0 = time.time()
-summary["cell_acc_after_level"] = level_analysis()
+summary["cell_acc_after_level"] = level_analysis() if not a.no_levels else []
 print("Zellen korrekt nach Ebene (%):", " ".join(f"{x:.1f}" for x in summary["cell_acc_after_level"]),
       f"({time.time() - t0:.0f}s)")
 

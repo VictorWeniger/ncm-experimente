@@ -209,3 +209,72 @@ Paarweise:
 ## Text
 
 Der volle Lauf ist auch im Nachlauf abgestürzt: GPU-Speicher beim Bewerten mit GPT-2 large (max. 3,7 GB erlaubt). Fix: NCM wird während der GPT-2-Bewertung auf die CPU ausgelagert und in Häppchen zu 2 bewertet (`./run_text.sh`).
+
+---
+
+# Experiment 3: Text (TinyStories), 23.10. (`./run_text.sh`)
+
+5 Seeds × 256 Geschichten (wie im Paper), Qualität = Perplexity unter GPT-2 large (hier in float16, deshalb nicht exakt mit dem Paper vergleichbar), Kalibrierung auf separatem Seed. Selbsttest Ein-Pass bestanden.
+
+## Teil A: Erkennt das Modell schlechte Geschichten?
+
+| Signal | Spearman mit GPT-2-Qualität | AUROC für die schlechtesten 20 % |
+|---|---|---|
+| **gen_llR** | **0,782** | **0,924** |
+| gen_ll | 0,719 | 0,887 |
+| cycle | 0,567 | 0,816 |
+| dec_mean | 0,557 | 0,814 |
+
+**Viel stärker als erwartet** (Erwartung 1 war Spearman 0,3–0,5). Wie gut NCM seine eigene Geschichte nach dem Neu-Kodieren erklären kann, sagt die Qualität laut GPT-2 large sehr gut voraus.
+
+## Teil B: Gezielt neu sampeln (untere 20 % nach Signal, bis zu 2 Runden)
+
+| Variante | GenPPL ↓ | ± über Seeds | Entropie | NFE/Geschichte | Δ log-PPL vs. baseline (95 %-KI) |
+|---|---|---|---|---|---|
+| baseline | 16,15 | 0,19 | 3,970 | 11,0 | |
+| **self_gen_llR** | **14,36** | 0,12 | 3,963 | **15,9** | **−0,117 [−0,134; −0,102]** |
+| self_dec_mean | 14,95 | 0,19 | 3,964 | 14,9 | −0,077 [−0,091; −0,063] |
+| rand_gen_llR | 15,45 | 0,43 | 3,968 | 16,9 | −0,045 [−0,055; −0,035] |
+| best2_gen_llR | 13,98 | 0,10 | 3,962 | 24,0 | −0,144 [−0,162; −0,128] |
+
+(Zum Vergleich das Paper: NCM 15,41 bei 12 NFE, echte Daten 9,67, autoregressive Baseline 8,89.)
+
+- **Gezieltes Neu-Sampeln senkt die GenPPL um 11 %** (16,15 → 14,36), bei +45 % Rechenaufwand. Erwartung 2 (5–10 %) leicht übertroffen.
+- **Die Entropie bleibt praktisch gleich** (−0,007, Grenze laut Plan war −0,05). Das Risiko aus Erwartung 3, dass nur repetitiver Text bevorzugt wird, tritt nicht ein.
+- **Gezielt schlägt zufällig** (−0,117 gegen −0,045, die Konfidenzintervalle überlappen nicht), bei sogar weniger Aufwand. Erwartung 4 bestätigt.
+- `best2` (2 Samples für alle) ist noch etwas besser, braucht aber 24 statt 15,9 NFE. Die gezielte Variante holt **~80 % des Gewinns für ~40 % der Zusatzkosten**.
+
+**Grenzen:** GenPPL unter GPT-2 ist nur ein Qualitätsmaß; ein Leser könnte das anders sehen. Die Auswahl nach gen_llR optimiert eine Likelihood, und GenPPL ist auch eine Likelihood (eines anderen Modells), die beiden sind also verwandt. Eine menschliche Stichprobe oder ein LLM-Urteil wäre die sauberere Gegenprobe.
+
+# Gesamtfazit (Stand 23.10.)
+
+1. **NCM erkennt seine eigenen Fehler** mit einem trainingsfreien Signal (Ausgabe neu kodieren, per Teacher Forcing in einem Durchlauf bewerten): AUROC 0,95–0,96 bei Sudoku hard/medium, 0,92 für schlechte Geschichten bei Text.
+2. **Gezieltes Nachrechnen an den erkannten Stellen** bringt bei Sudoku hard +4,0 Prozentpunkte (84,3 → 88,3 %), fast so viel wie ein externer Regel-Checker (89,4 %), und bei Text 11 % niedrigere Perplexity ohne Vielfaltsverlust.
+3. **Die Erkennung ist der Kern:** Gleich viel Rechenaufwand, zufällig verteilt, bringt bei Sudoku ein Drittel des Gewinns oder gar nichts, bei Text etwa ein Drittel.
+4. **Rückkopplung in die groben Konzept-Ebenen bringt nichts**, solange das Modell nicht darauf trainiert ist (Experiment 1). Der nächste Schritt dazu ist Experiment 4 (Nachtraining, TUM-Cluster).
+
+---
+
+# Experiment 3b: Blindes Urteil zur Textqualität (23.10.)
+
+**Frage:** Bestätigt ein unabhängiges Urteil, dass die ausgetauschten Geschichten wirklich besser sind? Bisher kam die Qualität nur von GPT-2-Perplexity, die selbst eine Wahrscheinlichkeit ist.
+
+**Aufbau** (`results/judge/`):
+- Geschichten neu erzeugt (`./run_judge.sh`, 5 × 256): Baseline, gezieltes Nachbessern (`self_gen_llR`) und zufälliges Nachbessern (`rand_gen_llR`).
+- Nur Geschichten, die tatsächlich ausgetauscht wurden: 329 gezielt, 187 zufällig. Daraus je 60 zufällige Paare (alt gegen neu), zu einem Stapel von 120 gemischt, A/B-Reihenfolge zufällig. Die Zuordnung lag in einer getrennten Schlüsseldatei.
+- Richter: Claude, ohne den Schlüssel zu kennen. Kriterium: Welche Geschichte ist zusammenhängender, grammatischer und sinnvoller? Kein Unentschieden erlaubt. Erst nach allen 120 Urteilen wurde aufgedeckt.
+
+**Ergebnis:**
+
+| Stapel | neue Geschichte bevorzugt | p (gegen 50 %) |
+|---|---|---|
+| gezielt (self_gen_llR) | **45 / 60 = 75 %** | 0,0001 |
+| zufällig (rand_gen_llR) | **47 / 60 = 78 %** | < 0,0001 |
+| Unterschied | −3 Prozentpunkte | 0,67 (kein Unterschied) |
+
+**Interpretation:**
+1. **Das Signal misst echte Qualität:** In beiden Stapeln wurde eine Geschichte nur ausgetauscht, wenn die neue ein besseres gen_llR hatte. Der blinde Richter stimmt dieser Wahl in ~3 von 4 Fällen zu. Das ist eine Bestätigung unabhängig von GPT-2.
+2. **Pro Austausch sind gezielt und zufällig gleich gut.** Das ist logisch, denn das Annahmekriterium ist dasselbe. Der Vorteil von gezielt auf Datensatzebene (Experiment 3) kommt daher, *welche und wie viele* Geschichten ausgetauscht werden: Gezielt trifft vor allem die schwachen Geschichten (329 Austausche gegen 187 bei zufälliger Auswahl mit gleicher Quote), zufällig verschwendet Versuche an Geschichten, die schon gut sind.
+3. Damit trennt sich das Verfahren in zwei Bausteine, die beide funktionieren: **Erkennen** (wo nachbessern?) und **Auswählen** (welcher Versuch ist besser?). Beides nutzt dasselbe interne Signal.
+
+**Grenzen:** ein einziger Richter (Claude), 60 Paare pro Stapel. Claude hat das Experiment selbst gebaut und kannte die Hypothese, nur die Zuordnung war verborgen. Für eine Veröffentlichung bräuchte es mehrere unabhängige Richter (Menschen oder andere Modelle).

@@ -1,0 +1,11 @@
+VQVAE, Total parameter count: 36.43M
+VQVAE, Non embedding parameter count: 33.24M
+NCP Transformer, Total parameter count: 88.61M
+NCP Transformer, Non embedding parameter count: 88.30M
+Gerät: mps | TinyStories | Seeds [42, 0, 1, 2, 3] x 256 | Kalibrierung Seed 1000 | Referenz gpt2-large
+Selbsttest Ein-Pass-Bewertung: Abweichung 4.77e-07 (Mittelwert), 6.53e-05 (einzelner Code) -> Ein-Pass
+Startversuche fertig (512s)
+baseline         fertig (0s)
+self_gen_llR     fertig (141s)
+rand_gen_llR     fertig (178s)
+Gespeichert: /Users/victorweniger/Documents/ncm-experimente/results/tinystories-judge-texts.json

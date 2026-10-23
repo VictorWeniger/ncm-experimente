@@ -2,5 +2,8 @@ ncm/
 .venv/
 artifacts/
 data/
+runs/
+logs/
+.pylibs/
 __pycache__/
 .DS_Store
