@@ -1,0 +1,1 @@
+{"task": "freq", "variant": "rnn_det", "seed": 0, "steps": 20, "hidden": 16, "params": 356, "train_s": 0.2, "metric": "acc", "test": 0.23046875, "test_noise": 0.25, "test_long": 0.25390625, "curve": [[20, 1.5416468977928162]], "rate": 0.5867379903793335}

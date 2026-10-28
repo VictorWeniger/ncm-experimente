@@ -1,0 +1,1 @@
+{"task": "recall", "variant": "gru", "seed": 0, "steps": 20, "hidden": 16, "params": 1432, "train_s": 0.1, "metric": "acc", "test": 0.14453125, "test_noise": 0.12109375, "test_long": 0.14453125, "curve": [[20, 2.0991782665252687]], "rate": NaN}

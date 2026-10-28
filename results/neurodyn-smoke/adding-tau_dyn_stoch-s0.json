@@ -1,0 +1,1 @@
+{"task": "adding", "variant": "tau_dyn_stoch", "seed": 0, "steps": 30, "hidden": 64, "params": 8641, "train_s": 1.4, "metric": "mse", "test": 0.1866351068019867, "test_noise": 0.18278825283050537, "test_long": 0.15305563807487488, "curve": [[30, 0.24793449193239211]], "rate": 0.46785858273506165, "test_meanfield": 0.18012739717960358, "test_1sample": 0.1923256665468216}

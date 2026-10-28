@@ -1,0 +1,1 @@
+{"task": "recall", "variant": "tau_dyn_stoch", "seed": 0, "steps": 30, "hidden": 64, "params": 9992, "train_s": 1.0, "metric": "acc", "test": 0.08984375, "test_noise": 0.1015625, "test_long": 0.1015625, "curve": [[30, 2.088591543833415]], "rate": 0.490086168050766, "test_meanfield": 0.08984375, "test_1sample": 0.109375}

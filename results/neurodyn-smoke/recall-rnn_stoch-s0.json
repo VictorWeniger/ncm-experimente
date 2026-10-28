@@ -1,0 +1,1 @@
+{"task": "recall", "variant": "rnn_stoch", "seed": 0, "steps": 20, "hidden": 16, "params": 552, "train_s": 0.1, "metric": "acc", "test": 0.09765625, "test_noise": 0.12109375, "test_long": 0.078125, "curve": [[20, 2.097690540552139]], "rate": 0.516431987285614, "test_meanfield": 0.08984375, "test_1sample": 0.1328125}

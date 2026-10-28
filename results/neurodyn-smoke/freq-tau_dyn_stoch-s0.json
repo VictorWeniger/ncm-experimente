@@ -1,0 +1,1 @@
+{"task": "freq", "variant": "tau_dyn_stoch", "seed": 0, "steps": 30, "hidden": 64, "params": 8708, "train_s": 3.0, "metric": "acc", "test": 0.203125, "test_noise": 0.26171875, "test_long": 0.2265625, "curve": [[30, 1.3979512651761372]], "rate": 0.48817816376686096, "test_meanfield": 0.21484375, "test_1sample": 0.25}

@@ -1,0 +1,1 @@
+{"task": "adding", "variant": "rnn_stoch", "seed": 0, "steps": 20, "hidden": 16, "params": 321, "train_s": 0.1, "metric": "mse", "test": 0.19772300124168396, "test_noise": 0.19858990609645844, "test_long": 0.17146174609661102, "curve": [[20, 0.24882899187505245]], "rate": 0.4841158390045166, "test_meanfield": 0.1802319884300232, "test_1sample": 0.24983778595924377}

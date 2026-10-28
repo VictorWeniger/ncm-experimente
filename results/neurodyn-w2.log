@@ -1,0 +1,45 @@
+[w2 1/45 19:22] freq   tau_hom_det   s0  acc test  22.6% | Rauschen  22.6% | doppelte Länge  23.2% | tau q10/50/90 [11.6, 11.6, 11.6] | 388s
+[w2 2/45 19:29] freq   tau_het_stoch s0  acc test  21.7% | Rauschen  22.8% | doppelte Länge  23.0% | ohne Zufall  22.3% | tau q10/50/90 [1.35, 13.25, 38.25] | 412s
+[w2 3/45 19:32] freq   gru           s0  acc test 100.0% | Rauschen  84.4% | doppelte Länge 100.0% | 149s
+[w2 4/45 19:34] recall tau_hom_det   s0  acc test 100.0% | Rauschen  20.4% | doppelte Länge  93.3% | tau q10/50/90 [9.83, 9.83, 9.83] | 137s
+[w2 5/45 19:37] recall tau_het_stoch s0  acc test 100.0% | Rauschen  23.4% | doppelte Länge  99.3% | ohne Zufall 100.0% | tau q10/50/90 [8.25, 19.87, 29.0] | 154s
+[w2 6/45 19:39] recall gru           s0  acc test 100.0% | Rauschen  16.1% | doppelte Länge 100.0% | 95s
+[w2 7/45 19:43] adding tau_hom_det   s0  mse test 0.1676 | Rauschen 0.1655 | doppelte Länge 0.1641 | tau q10/50/90 [27.08, 27.08, 27.08] | 262s
+[w2 8/45 19:49] adding tau_het_stoch s0  mse test 0.1681 | Rauschen 0.1657 | doppelte Länge 0.1652 | ohne Zufall 0.1680 | tau q10/50/90 [1.75, 6.58, 36.88] | 334s
+[w2 9/45 19:51] adding gru           s0  mse test 0.0001 | Rauschen 0.0732 | doppelte Länge 0.0635 | 158s
+[w2 10/45 19:56] freq   tau_hom_det   s1  acc test  25.3% | Rauschen  25.4% | doppelte Länge  25.4% | tau q10/50/90 [11.09, 11.09, 11.09] | 290s
+[w2 11/45 20:02] freq   tau_het_stoch s1  acc test  24.6% | Rauschen  24.5% | doppelte Länge  24.4% | ohne Zufall  24.9% | tau q10/50/90 [1.53, 9.49, 35.73] | 340s
+[w2 12/45 20:04] freq   gru           s1  acc test 100.0% | Rauschen  78.3% | doppelte Länge 100.0% | 128s
+[w2 13/45 20:06] recall tau_hom_det   s1  acc test 100.0% | Rauschen  18.7% | doppelte Länge  66.8% | tau q10/50/90 [7.73, 7.73, 7.73] | 122s
+[w2 14/45 20:08] recall tau_het_stoch s1  acc test 100.0% | Rauschen  22.0% | doppelte Länge  98.8% | ohne Zufall 100.0% | tau q10/50/90 [8.78, 12.34, 26.75] | 139s
+[w2 15/45 20:10] recall gru           s1  acc test 100.0% | Rauschen  16.0% | doppelte Länge 100.0% | 88s
+[w2 16/45 20:15] adding tau_hom_det   s1  mse test 0.1692 | Rauschen 0.1670 | doppelte Länge 0.1674 | tau q10/50/90 [25.67, 25.67, 25.67] | 299s
+[w2 17/45 20:21] adding tau_het_stoch s1  mse test 0.1690 | Rauschen 0.1663 | doppelte Länge 0.1701 | ohne Zufall 0.1690 | tau q10/50/90 [1.54, 5.43, 44.94] | 349s
+[w2 18/45 20:24] adding gru           s1  mse test 0.0003 | Rauschen 0.0748 | doppelte Länge 0.8987 | 176s
+[w2 19/45 20:29] freq   tau_hom_det   s2  acc test  25.3% | Rauschen  25.0% | doppelte Länge  26.1% | tau q10/50/90 [9.77, 9.77, 9.77] | 319s
+[w2 20/45 20:35] freq   tau_het_stoch s2  acc test  25.4% | Rauschen  24.7% | doppelte Länge  26.5% | ohne Zufall  25.7% | tau q10/50/90 [1.9, 7.11, 33.87] | 322s
+[w2 21/45 20:37] freq   gru           s2  acc test  76.8% | Rauschen  61.1% | doppelte Länge  75.9% | 130s
+[w2 22/45 20:39] recall tau_hom_det   s2  acc test 100.0% | Rauschen  20.3% | doppelte Länge  95.7% | tau q10/50/90 [8.62, 8.62, 8.62] | 126s
+[w2 23/45 20:41] recall tau_het_stoch s2  acc test 100.0% | Rauschen  25.1% | doppelte Länge  99.4% | ohne Zufall 100.0% | tau q10/50/90 [8.8, 17.72, 29.76] | 142s
+[w2 24/45 20:43] recall gru           s2  acc test 100.0% | Rauschen  15.3% | doppelte Länge  87.0% | 87s
+[w2 25/45 20:48] adding tau_hom_det   s2  mse test 0.1685 | Rauschen 0.1664 | doppelte Länge 0.1642 | tau q10/50/90 [24.39, 24.39, 24.39] | 315s
+[w2 26/45 20:54] adding tau_het_stoch s2  mse test 0.1686 | Rauschen 0.1662 | doppelte Länge 0.1638 | ohne Zufall 0.1686 | tau q10/50/90 [2.36, 11.49, 40.4] | 340s
+[w2 27/45 20:57] adding gru           s2  mse test 0.0002 | Rauschen 0.0749 | doppelte Länge 0.0761 | 201s
+[w2 28/45 21:04] freq   tau_hom_det   s3  acc test  37.2% | Rauschen  34.6% | doppelte Länge  36.0% | tau q10/50/90 [9.21, 9.21, 9.21] | 376s
+[w2 29/45 21:10] freq   tau_het_stoch s3  acc test  24.4% | Rauschen  23.3% | doppelte Länge  25.5% | ohne Zufall  23.7% | tau q10/50/90 [1.51, 5.21, 38.07] | 409s
+[w2 30/45 21:13] freq   gru           s3  acc test 100.0% | Rauschen  85.7% | doppelte Länge 100.0% | 143s
+[w2 31/45 21:15] recall tau_hom_det   s3  acc test 100.0% | Rauschen  18.6% | doppelte Länge  75.4% | tau q10/50/90 [8.15, 8.15, 8.15] | 137s
+[w2 32/45 21:18] recall tau_het_stoch s3  acc test 100.0% | Rauschen  24.0% | doppelte Länge  99.8% | ohne Zufall 100.0% | tau q10/50/90 [8.11, 16.32, 27.63] | 146s
+[w2 33/45 21:19] recall gru           s3  acc test 100.0% | Rauschen  15.6% | doppelte Länge 100.0% | 96s
+[w2 34/45 21:25] adding tau_hom_det   s3  mse test 0.1674 | Rauschen 0.1655 | doppelte Länge 0.1648 | tau q10/50/90 [25.54, 25.54, 25.54] | 325s
+[w2 35/45 21:33] adding tau_het_stoch s3  mse test 0.1679 | Rauschen 0.1653 | doppelte Länge 0.1676 | ohne Zufall 0.1677 | tau q10/50/90 [2.02, 11.08, 44.66] | 475s
+[w2 36/45 21:39] adding gru           s3  mse test 0.0002 | Rauschen 0.0734 | doppelte Länge 0.3944 | 376s
+[w2 37/45 21:47] freq   tau_hom_det   s4  acc test  37.2% | Rauschen  33.9% | doppelte Länge  38.5% | tau q10/50/90 [9.61, 9.61, 9.61] | 445s
+[w2 38/45 21:53] freq   tau_het_stoch s4  acc test  26.7% | Rauschen  27.0% | doppelte Länge  27.3% | ohne Zufall  27.7% | tau q10/50/90 [2.34, 8.54, 38.48] | 372s
+[w2 39/45 21:55] freq   gru           s4  acc test 100.0% | Rauschen  87.1% | doppelte Länge 100.0% | 146s
+[w2 40/45 21:58] recall tau_hom_det   s4  acc test 100.0% | Rauschen  20.4% | doppelte Länge  98.2% | tau q10/50/90 [9.23, 9.23, 9.23] | 132s
+[w2 41/45 22:00] recall tau_het_stoch s4  acc test 100.0% | Rauschen  23.6% | doppelte Länge  98.9% | ohne Zufall 100.0% | tau q10/50/90 [8.78, 16.33, 30.32] | 149s
+[w2 42/45 22:02] recall gru           s4  acc test 100.0% | Rauschen  17.0% | doppelte Länge 100.0% | 96s
+[w2 43/45 22:07] adding tau_hom_det   s4  mse test 0.1678 | Rauschen 0.1656 | doppelte Länge 0.1649 | tau q10/50/90 [25.51, 25.51, 25.51] | 322s
+[w2 44/45 22:13] adding tau_het_stoch s4  mse test 0.1678 | Rauschen 0.1655 | doppelte Länge 0.1677 | ohne Zufall 0.1678 | tau q10/50/90 [2.43, 10.6, 43.66] | 346s
+[w2 45/45 22:16] adding gru           s4  mse test 0.0001 | Rauschen 0.0760 | doppelte Länge 0.0393 | 191s

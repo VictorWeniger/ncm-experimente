@@ -1,0 +1,1 @@
+{"task": "freq", "variant": "tau_dyn_det", "seed": 0, "steps": 20, "hidden": 16, "params": 644, "train_s": 0.3, "metric": "acc", "test": 0.21484375, "test_noise": 0.19921875, "test_long": 0.20703125, "curve": [[20, 1.4245850026607514]], "rate": 0.5608890056610107}

@@ -1,0 +1,1 @@
+{"task": "recall", "variant": "rnn_det", "seed": 0, "steps": 20, "hidden": 16, "params": 552, "train_s": 0.1, "metric": "acc", "test": 0.08984375, "test_noise": 0.12890625, "test_long": 0.08984375, "curve": [[20, 2.0891849875450133]], "rate": 0.5144380331039429}

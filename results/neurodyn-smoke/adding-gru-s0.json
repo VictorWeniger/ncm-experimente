@@ -1,0 +1,1 @@
+{"task": "adding", "variant": "gru", "seed": 0, "steps": 20, "hidden": 16, "params": 977, "train_s": 0.1, "metric": "mse", "test": 0.3815419673919678, "test_noise": 0.3819672465324402, "test_long": 0.36400026082992554, "curve": [[20, 0.5778177283704281]], "rate": NaN}

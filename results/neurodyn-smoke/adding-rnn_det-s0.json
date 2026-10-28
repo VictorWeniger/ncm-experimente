@@ -1,0 +1,1 @@
+{"task": "adding", "variant": "rnn_det", "seed": 0, "steps": 20, "hidden": 16, "params": 321, "train_s": 0.1, "metric": "mse", "test": 0.18221011757850647, "test_noise": 0.18156161904335022, "test_long": 0.14978376030921936, "curve": [[20, 0.1804244689643383]], "rate": 0.480171799659729}

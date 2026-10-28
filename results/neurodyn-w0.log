@@ -1,0 +1,45 @@
+[w0 1/45 19:22] freq   rnn_det       s0  acc test  23.3% | Rauschen  23.6% | doppelte Länge  24.6% | 358s
+[w0 2/45 19:29] freq   tau_hom_stoch s0  acc test  22.1% | Rauschen  23.4% | doppelte Länge  23.1% | ohne Zufall  21.1% | tau q10/50/90 [13.41, 13.41, 13.41] | 421s
+[w0 3/45 19:40] freq   tau_dyn_det   s0  acc test 100.0% | Rauschen  62.0% | doppelte Länge  99.3% | 627s
+[w0 4/45 19:41] recall rnn_det       s0  acc test  12.1% | Rauschen  13.2% | doppelte Länge  12.1% | 100s
+[w0 5/45 19:43] recall tau_hom_stoch s0  acc test 100.0% | Rauschen  25.4% | doppelte Länge  99.7% | ohne Zufall 100.0% | tau q10/50/90 [22.83, 22.83, 22.83] | 124s
+[w0 6/45 19:47] recall tau_dyn_det   s0  acc test 100.0% | Rauschen  25.2% | doppelte Länge 100.0% | 243s
+[w0 7/45 19:51] adding rnn_det       s0  mse test 0.1697 | Rauschen 0.1670 | doppelte Länge 0.1645 | 222s
+[w0 8/45 19:57] adding tau_hom_stoch s0  mse test 0.1677 | Rauschen 0.1657 | doppelte Länge 0.1644 | ohne Zufall 0.1678 | tau q10/50/90 [27.78, 27.78, 27.78] | 318s
+[w0 9/45 20:05] adding tau_dyn_det   s0  mse test 0.0003 | Rauschen 0.0832 | doppelte Länge 0.4348 | 534s
+[w0 10/45 20:10] freq   rnn_det       s1  acc test  23.6% | Rauschen  23.6% | doppelte Länge  24.8% | 264s
+[w0 11/45 20:16] freq   tau_hom_stoch s1  acc test  24.7% | Rauschen  25.3% | doppelte Länge  25.4% | ohne Zufall  25.3% | tau q10/50/90 [13.23, 13.23, 13.23] | 345s
+[w0 12/45 20:26] freq   tau_dyn_det   s1  acc test 100.0% | Rauschen  78.5% | doppelte Länge 100.0% | 621s
+[w0 13/45 20:28] recall rnn_det       s1  acc test  12.8% | Rauschen  12.4% | doppelte Länge  12.8% | 110s
+[w0 14/45 20:30] recall tau_hom_stoch s1  acc test 100.0% | Rauschen  24.5% | doppelte Länge  99.4% | ohne Zufall 100.0% | tau q10/50/90 [23.15, 23.15, 23.15] | 137s
+[w0 15/45 20:35] recall tau_dyn_det   s1  acc test 100.0% | Rauschen  22.0% | doppelte Länge 100.0% | 254s
+[w0 16/45 20:38] adding rnn_det       s1  mse test 0.1710 | Rauschen 0.1674 | doppelte Länge 0.1651 | 215s
+[w0 17/45 20:43] adding tau_hom_stoch s1  mse test 0.1694 | Rauschen 0.1672 | doppelte Länge 0.1683 | ohne Zufall 0.1693 | tau q10/50/90 [27.91, 27.91, 27.91] | 290s
+[w0 18/45 20:53] adding tau_dyn_det   s1  mse test 0.0003 | Rauschen 0.0835 | doppelte Länge 0.0253 | 573s
+[w0 19/45 20:57] freq   rnn_det       s2  acc test  24.6% | Rauschen  24.2% | doppelte Länge  25.4% | 269s
+[w0 20/45 21:04] freq   tau_hom_stoch s2  acc test  25.6% | Rauschen  25.8% | doppelte Länge  26.3% | ohne Zufall  25.4% | tau q10/50/90 [12.6, 12.6, 12.6] | 405s
+[w0 21/45 21:15] freq   tau_dyn_det   s2  acc test 100.0% | Rauschen  82.7% | doppelte Länge 100.0% | 641s
+[w0 22/45 21:16] recall rnn_det       s2  acc test  11.6% | Rauschen  12.2% | doppelte Länge  11.6% | 102s
+[w0 23/45 21:19] recall tau_hom_stoch s2  acc test 100.0% | Rauschen  24.5% | doppelte Länge  99.7% | ohne Zufall 100.0% | tau q10/50/90 [23.0, 23.0, 23.0] | 140s
+[w0 24/45 21:23] recall tau_dyn_det   s2  acc test 100.0% | Rauschen  25.3% | doppelte Länge 100.0% | 256s
+[w0 25/45 21:28] adding rnn_det       s2  mse test 0.1698 | Rauschen 0.1669 | doppelte Länge 0.1646 | 282s
+[w0 26/45 21:37] adding tau_hom_stoch s2  mse test 0.1686 | Rauschen 0.1665 | doppelte Länge 0.1640 | ohne Zufall 0.1686 | tau q10/50/90 [25.83, 25.83, 25.83] | 554s
+[w0 27/45 21:50] adding tau_dyn_det   s2  mse test 0.0003 | Rauschen 0.0841 | doppelte Länge 0.0800 | 780s
+[w0 28/45 21:55] freq   rnn_det       s3  acc test  23.6% | Rauschen  23.5% | doppelte Länge  26.2% | 276s
+[w0 29/45 22:00] freq   tau_hom_stoch s3  acc test  30.4% | Rauschen  30.0% | doppelte Länge  29.5% | ohne Zufall  31.2% | tau q10/50/90 [9.85, 9.85, 9.85] | 322s
+[w0 30/45 22:11] freq   tau_dyn_det   s3  acc test 100.0% | Rauschen  76.3% | doppelte Länge 100.0% | 614s
+[w0 31/45 22:13] recall rnn_det       s3  acc test  13.2% | Rauschen  13.2% | doppelte Länge  13.2% | 114s
+[w0 32/45 22:15] recall tau_hom_stoch s3  acc test 100.0% | Rauschen  24.5% | doppelte Länge  99.2% | ohne Zufall 100.0% | tau q10/50/90 [24.04, 24.04, 24.04] | 134s
+[w0 33/45 22:18] recall tau_dyn_det   s3  acc test 100.0% | Rauschen  28.0% | doppelte Länge 100.0% | 188s
+[w0 34/45 22:20] adding rnn_det       s3  mse test 0.1696 | Rauschen 0.1669 | doppelte Länge 0.1644 | 151s
+[w0 35/45 22:24] adding tau_hom_stoch s3  mse test 0.1679 | Rauschen 0.1656 | doppelte Länge 0.1650 | ohne Zufall 0.1677 | tau q10/50/90 [27.26, 27.26, 27.26] | 192s
+[w0 36/45 22:30] adding tau_dyn_det   s3  mse test 0.0004 | Rauschen 0.0843 | doppelte Länge 0.0310 | 348s
+[w0 37/45 22:33] freq   rnn_det       s4  acc test  26.1% | Rauschen  26.3% | doppelte Länge  25.0% | 192s
+[w0 38/45 22:37] freq   tau_hom_stoch s4  acc test  28.2% | Rauschen  27.7% | doppelte Länge  28.2% | ohne Zufall  28.9% | tau q10/50/90 [9.81, 9.81, 9.81] | 238s
+[w0 39/45 22:44] freq   tau_dyn_det   s4  acc test 100.0% | Rauschen  64.9% | doppelte Länge  97.2% | 446s
+[w0 40/45 22:45] recall rnn_det       s4  acc test  12.1% | Rauschen  12.5% | doppelte Länge  12.1% | 73s
+[w0 41/45 22:47] recall tau_hom_stoch s4  acc test 100.0% | Rauschen  23.8% | doppelte Länge  99.5% | ohne Zufall 100.0% | tau q10/50/90 [22.3, 22.3, 22.3] | 97s
+[w0 42/45 22:50] recall tau_dyn_det   s4  acc test 100.0% | Rauschen  28.1% | doppelte Länge 100.0% | 161s
+[w0 43/45 22:52] adding rnn_det       s4  mse test 0.1696 | Rauschen 0.1668 | doppelte Länge 0.1644 | 156s
+[w0 44/45 22:56] adding tau_hom_stoch s4  mse test 0.1680 | Rauschen 0.1658 | doppelte Länge 0.1652 | ohne Zufall 0.1679 | tau q10/50/90 [27.31, 27.31, 27.31] | 186s
+[w0 45/45 23:01] adding tau_dyn_det   s4  mse test 0.0005 | Rauschen 0.0822 | doppelte Länge 0.2146 | 341s

@@ -29,6 +29,8 @@ Details, Statistik (McNemar, Bootstrap) und alle Einschränkungen stehen in [RES
 | `experiments/judge_*.py` | Exp. 3b: blinde Paare und Auswertung für das paarweise Urteil |
 | `experiments/ncm_scoring.py` | Bewertung gegebener Codes per Teacher Forcing in einem Forward Pass |
 | `experiments/train_selfcond.py`, `sudoku_data.py` | Exp. 4: Nachtraining mit Selbst-Konditionierung, Sudoku-Datengenerator |
+| `experiments/neurodyn.py`, `neurodyn_report.py` | Exp. 6: kleine RNNs mit Membran-Zeitkonstanten (gemeinsam, pro Neuron, inputabhängig) und Bernoulli-Spikes |
+| `experiments/critical_periods.py`, `critical_report.py` | Exp. 7a: kritische Phasen (unscharfe Bilder am Trainingsanfang, CIFAR-10) |
 | `cluster/` | Slurm-Job und Anleitung für die LRZ AI Systems |
 | `results/` | Rohdaten aller Läufe (JSON, Logs, Paare und Urteile) |
 
@@ -41,6 +43,8 @@ Getestet auf einem MacBook Air (M1, 8 GB) mit PyTorch/MPS.
 ./run.sh hard         # Experiment 1
 ./run_self.sh hard    # Experiment 2
 ./run_text.sh         # Experiment 3 (lädt GPT-2 large, ~3 GB)
+./run_neurodyn.sh     # Experiment 6 (nur CPU, kein Download, mehrere Stunden)
+./run_night.sh        # Experiment 6 (CPU) und 7a (GPU, lädt CIFAR-10) gleichzeitig
 ```
 
 Der NCM-Code, die Checkpoints und die Daten liegen nicht in diesem Repo, die Skripte laden sie von GitHub bzw. Hugging Face.

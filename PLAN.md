@@ -141,3 +141,75 @@ k wird über {1, 3, 6, 9} variiert: Wie viel „Konzept“ hält man fest, wie v
 4. **Feedback dazwischen:** Das interne Fehlersignal aus Experiment 2/3 entscheidet, welche Blöcke nachgebessert oder vom LLM neu geschrieben werden.
 
 **Erster machbarer Schritt:** Literaturrecherche (Block Diffusion, Large Concept Models, Speculative Decoding mit parallelen Entwerfern) und eine kleine Machbarkeitsstudie mit Variante 2 auf TinyStories. Dafür sind beide Modelle schon da (NCM-TinyStories und GPT-2), kein Training nötig.
+
+
+---
+
+# Experiment 6: Neuronen mit Zeitverhalten und Feuerwahrscheinlichkeit (bereit, läuft auf dem M1)
+
+**Frage:** Echte Neuronen reagieren nicht sofort. Die Membranspannung baut sich mit einer Zeitkonstante auf und läuft wieder aus (Ionenkanäle öffnen und schließen verzögert), jedes Neuron ist anders schnell, und ob es feuert, ist zufällig. Werden kleine rekurrente Netze damit besser oder robuster?
+
+**Neuronenmodell** (`experiments/neurodyn.py`), pro Zeitschritt mit Leck-Faktor a = exp(−1/τ):
+v_t = a·v_{t−1} + (1−a)·(W x_t + U s_{t−1} + b), Feuerwahrscheinlichkeit p_t = sigmoid(v_t).
+
+| Variante | Zeitverhalten | Ausgabe |
+|---|---|---|
+| `rnn_*` | keins (a = 0), klassisches RNN | |
+| `tau_hom_*` | ein gemeinsames lernbares τ (Start ≈ 7 Schritte) | `*_det`: Feuerrate p_t |
+| `tau_het_*` | eigenes lernbares τ pro Neuron, Start log-gleichverteilt 1–50 | `*_stoch`: Spike ~ Bernoulli(p_t), Gradient per Straight-Through |
+| `tau_dyn_*` | τ hängt vom aktuellen Input und Zustand ab (ähnlich Liquid Time-Constant Networks) | |
+| `gru` | Referenz: Standard-GRU | |
+
+**Aufgaben** (synthetisch, kein Download): `freq` (verrauschtes Signal aus langsamer und schneller Schwingung, 4 Klassen, braucht zwei Zeitskalen), `recall` (ein Symbol von 8 merken über 17–77 Schritte), `adding` (zwei markierte Zahlen aus 100 addieren).
+**Gemessen:** Test wie im Training, mit stärkerem Input-Rauschen, mit doppelter Folgenlänge. Bei `stoch` zusätzlich dasselbe Netz ohne Zufall. Gelernte τ-Verteilung. 64 Neuronen, 5 Seeds, 135 Läufe.
+
+**Erwartungen (vorab festgelegt):**
+1. Zeitkonstanten helfen bei `freq` und `recall` deutlich gegenüber `rnn` (die Membran ist ein eingebautes Kurzzeitgedächtnis).
+2. Heterogen ≥ gemeinsam, vor allem bei `freq` (zwei Zeitskalen) und bei doppelter Länge, wie bei Perez-Nieves et al. 2021. Die gelernten τ bleiben breit verteilt.
+3. Bernoulli-Spikes kosten im Training etwas Genauigkeit, sind aber unter Rauschen gleich gut oder robuster. Ein stochastisch trainiertes Netz funktioniert auch ohne Zufall.
+4. `tau_dyn` liegt nahe an der GRU (beides sind Netze mit Gates).
+
+**Starten:** `./run_neurodyn.sh` (erst Schnelltest ~1–2 min, dann 3 Worker auf der CPU, Auswertung in `results/neurodyn-summary.md`). Fortsetzbar nach Abbruch.
+
+**Anschluss an NCM:** Wenn Bernoulli-Neuronen ohne Verlust trainierbar sind, ist der nächste Schritt Rauschen in den NCM-Aktivierungen statt nur beim Sampling der Codes. Experiment 1 hat gezeigt, dass die Feedback-Schleife ohne Zufall im Fixpunkt hängt.
+
+**Literatur:** Perez-Nieves et al. 2021, *Neural heterogeneity promotes robust learning* (Nat. Commun.). Hasani et al. 2021, *Liquid Time-Constant Networks* (AAAI). Buesing et al. 2011, *Neural dynamics as sampling* (PLoS Comput. Biol.). Bengio et al. 2013 (Straight-Through-Schätzer).
+
+---
+
+# Agenda: Experiment 7, Lernen wie bei Evolution und Entwicklung
+
+**Frage:** Menschen lernen auf zwei Zeitskalen. Die Evolution liefert Bauregeln und angeborene Strukturen (Genom ≈ wenige hundert MB für ~10^14 Synapsen, also keine fertigen Gewichte). Die Entwicklung läuft in Phasen: kritische Perioden, erst Überproduktion von Synapsen, dann Ausdünnen, Schlaf-Konsolidierung, wenig Daten. Was davon hilft künstlichen Netzen?
+
+**Mögliche Teil-Experimente:**
+1. **Kritische Phasen** (Mac-machbar): Achille et al. 2019 nachbauen. Ein kleines CNN bekommt in den ersten N Epochen unscharfe Bilder, dann scharfe. Erholt es sich? Dann prüfen, ob Rauschen oder hohe Plastizität am Anfang (wie bei Kindern) das Fenster verändert.
+2. **Überproduktion und Ausdünnen:** Großes Netz mit hoher Lernrate starten, dann schrittweise prunen und „stabilisieren“ (Lernrate pro Gewicht senken), gegen ein gleich großes Netz von Anfang an. Bezug: Lottery Ticket Hypothesis (Frankle & Carbin 2019).
+3. **Genomischer Flaschenhals:** Gewichte nicht direkt lernen, sondern aus einer kleinen „Bauregel“ erzeugen (Hypernetz mit wenigen Parametern) und über Generationen optimieren. Danach mit wenig Daten nachlernen. Bezug: Zador 2019 (*A critique of pure learning*), Shuvaev et al. 2024 (genomischer Flaschenhals).
+4. **Kindgerechte Datenmenge** (Cluster): kleines Sprachmodell nach BabyLM-Regeln (~10–100 Mio. Wörter) mit Entwicklungs-Lehrplan (einfach → schwer, Phasen hoher und niedriger Plastizität) gegen normales Training.
+
+**Erster Schritt:** Literaturrecherche (kritische Phasen in Netzen, Entwicklungs-Curricula, BabyLM-Ergebnisse 2023–2025, genomischer Flaschenhals), dann Teil 1 auf dem Mac.
+
+
+## Experiment 7a: Kritische Phasen (gebaut, läuft auf der M1-GPU)
+
+`experiments/critical_periods.py`, Auswertung `experiments/critical_report.py`. Kleines CNN (~0,3 Mio. Parameter) auf CIFAR-10, SGD, Lernrate 0,05·0,94^Epoche, alle Läufe enden mit 3 Epochen bei Lernrate 0,0005. Defizit = Bilder auf 8×8 verkleinert und wieder hochskaliert („grauer Star“). 13 Läufe × 2 Seeds:
+
+| Lauf | Was | prüft |
+|---|---|---|
+| `def0/5/10/20/30/40` | Defizit in den ersten D Epochen, danach 30 normale | Gibt es einen Dauerschaden, und ab wann? |
+| `win10`, `win30` | Defizit 10 Epochen lang, aber später | Ist nur der *Anfang* kritisch? |
+| `def0/20/40_const` | konstante Lernrate | Ist es nur die sinkende Lernrate? |
+| `def20/40_reset` | Lernrate springt nach dem Defizit zurück auf den Startwert | Lässt sich die Phase „wieder öffnen“? |
+
+Für `def0` und `def40` (Seed 0) zusätzlich die Spur der Fisher-Information pro Epoche.
+
+**Erwartungen (vorab festgelegt):**
+1. Der Endwert sinkt mit der Länge des Defizits: `def40` liegt mindestens 1 Punkt unter `def0`. `def5` schadet kaum.
+2. Dasselbe Defizit später (`win30`) schadet weniger als am Anfang (`def10`).
+3. Auch mit konstanter Lernrate bleibt ein Schaden, er ist aber kleiner (wie bei Achille et al.).
+4. Die Lernrate zurückzusetzen holt einen Teil, aber nicht alles zurück.
+5. Die Fisher-Spur steigt in den ersten Epochen steil an und fällt danach. Mit Defizit ist der Verlauf anders.
+
+**Grenzen:** viel kleineres Netz und kürzeres Training als bei Achille (ResNet-18, 160 Epochen), nur 2 Seeds. Effekte unter ~0,5 Punkten sind Rauschen.
+
+**Starten:** `./run_night.sh` startet Experiment 6 (CPU) und 7a (GPU) gleichzeitig. Einzeln geht `python experiments/critical_periods.py`.

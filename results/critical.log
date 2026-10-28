@@ -1,0 +1,1481 @@
+CIFAR-10: 50000 Training, 10000 Test, Gerät mps
+[19:16] Start def0 Seed 0
+    def0 s0 Ep 1/33 lr 0.0500 test 60.0%
+    def0 s0 Ep 2/33 lr 0.0470 test 60.7%
+    def0 s0 Ep 3/33 lr 0.0442 test 72.1%
+    def0 s0 Ep 4/33 lr 0.0415 test 66.5%
+    def0 s0 Ep 5/33 lr 0.0390 test 71.9%
+    def0 s0 Ep 6/33 lr 0.0367 test 78.6%
+    def0 s0 Ep 7/33 lr 0.0345 test 78.8%
+    def0 s0 Ep 8/33 lr 0.0324 test 75.3%
+    def0 s0 Ep 9/33 lr 0.0305 test 71.5%
+    def0 s0 Ep 10/33 lr 0.0286 test 78.8%
+    def0 s0 Ep 11/33 lr 0.0269 test 78.1%
+    def0 s0 Ep 12/33 lr 0.0253 test 82.8%
+    def0 s0 Ep 13/33 lr 0.0238 test 81.7%
+    def0 s0 Ep 14/33 lr 0.0224 test 81.2%
+    def0 s0 Ep 15/33 lr 0.0210 test 81.7%
+    def0 s0 Ep 16/33 lr 0.0198 test 80.9%
+    def0 s0 Ep 17/33 lr 0.0186 test 81.1%
+    def0 s0 Ep 18/33 lr 0.0175 test 83.7%
+    def0 s0 Ep 19/33 lr 0.0164 test 84.3%
+    def0 s0 Ep 20/33 lr 0.0154 test 82.8%
+    def0 s0 Ep 21/33 lr 0.0145 test 83.5%
+    def0 s0 Ep 22/33 lr 0.0136 test 81.4%
+    def0 s0 Ep 23/33 lr 0.0128 test 84.4%
+    def0 s0 Ep 24/33 lr 0.0120 test 83.3%
+    def0 s0 Ep 25/33 lr 0.0113 test 85.6%
+    def0 s0 Ep 26/33 lr 0.0106 test 85.4%
+    def0 s0 Ep 27/33 lr 0.0100 test 81.9%
+    def0 s0 Ep 28/33 lr 0.0094 test 85.2%
+    def0 s0 Ep 29/33 lr 0.0088 test 86.7%
+    def0 s0 Ep 30/33 lr 0.0083 test 86.0%
+    def0 s0 Ep 31/33 lr 0.0005 test 87.6%
+    def0 s0 Ep 32/33 lr 0.0005 test 87.8%
+    def0 s0 Ep 33/33 lr 0.0005 test 87.9%
+[19:39] FERTIG def0 s0: Test 87.87% (22.8 min)
+[19:39] Start def10 Seed 0
+    def10 s0 Ep 1/43 lr 0.0500 UNSCHARF test 29.1%
+    def10 s0 Ep 2/43 lr 0.0470 UNSCHARF test 28.4%
+    def10 s0 Ep 3/43 lr 0.0442 UNSCHARF test 29.5%
+    def10 s0 Ep 4/43 lr 0.0415 UNSCHARF test 22.7%
+    def10 s0 Ep 5/43 lr 0.0390 UNSCHARF test 33.1%
+    def10 s0 Ep 6/43 lr 0.0367 UNSCHARF test 30.2%
+    def10 s0 Ep 7/43 lr 0.0345 UNSCHARF test 27.5%
+    def10 s0 Ep 8/43 lr 0.0324 UNSCHARF test 33.9%
+    def10 s0 Ep 9/43 lr 0.0305 UNSCHARF test 40.6%
+    def10 s0 Ep 10/43 lr 0.0286 UNSCHARF test 39.7%
+    def10 s0 Ep 11/43 lr 0.0269 test 67.3%
+    def10 s0 Ep 12/43 lr 0.0253 test 72.6%
+    def10 s0 Ep 13/43 lr 0.0238 test 75.4%
+    def10 s0 Ep 14/43 lr 0.0224 test 74.2%
+    def10 s0 Ep 15/43 lr 0.0210 test 73.4%
+    def10 s0 Ep 16/43 lr 0.0198 test 78.2%
+    def10 s0 Ep 17/43 lr 0.0186 test 76.3%
+    def10 s0 Ep 18/43 lr 0.0175 test 79.0%
+    def10 s0 Ep 19/43 lr 0.0164 test 79.6%
+    def10 s0 Ep 20/43 lr 0.0154 test 78.8%
+    def10 s0 Ep 21/43 lr 0.0145 test 81.0%
+    def10 s0 Ep 22/43 lr 0.0136 test 81.8%
+    def10 s0 Ep 23/43 lr 0.0128 test 82.9%
+    def10 s0 Ep 24/43 lr 0.0120 test 81.6%
+    def10 s0 Ep 25/43 lr 0.0113 test 83.1%
+    def10 s0 Ep 26/43 lr 0.0106 test 81.6%
+    def10 s0 Ep 27/43 lr 0.0100 test 80.5%
+    def10 s0 Ep 28/43 lr 0.0094 test 83.6%
+    def10 s0 Ep 29/43 lr 0.0088 test 84.9%
+    def10 s0 Ep 30/43 lr 0.0083 test 84.2%
+    def10 s0 Ep 31/43 lr 0.0078 test 84.1%
+    def10 s0 Ep 32/43 lr 0.0073 test 82.6%
+    def10 s0 Ep 33/43 lr 0.0069 test 84.0%
+    def10 s0 Ep 34/43 lr 0.0065 test 83.8%
+    def10 s0 Ep 35/43 lr 0.0061 test 85.0%
+    def10 s0 Ep 36/43 lr 0.0057 test 85.6%
+    def10 s0 Ep 37/43 lr 0.0054 test 84.2%
+    def10 s0 Ep 38/43 lr 0.0051 test 85.4%
+    def10 s0 Ep 39/43 lr 0.0048 test 85.7%
+    def10 s0 Ep 40/43 lr 0.0045 test 86.3%
+    def10 s0 Ep 41/43 lr 0.0005 test 87.4%
+    def10 s0 Ep 42/43 lr 0.0005 test 87.3%
+    def10 s0 Ep 43/43 lr 0.0005 test 87.5%
+[20:07] FERTIG def10 s0: Test 87.54% (28.3 min)
+[20:07] Start def20 Seed 0
+    def20 s0 Ep 1/53 lr 0.0500 UNSCHARF test 29.1%
+    def20 s0 Ep 2/53 lr 0.0470 UNSCHARF test 28.4%
+    def20 s0 Ep 3/53 lr 0.0442 UNSCHARF test 29.5%
+    def20 s0 Ep 4/53 lr 0.0415 UNSCHARF test 22.7%
+    def20 s0 Ep 5/53 lr 0.0390 UNSCHARF test 33.1%
+    def20 s0 Ep 6/53 lr 0.0367 UNSCHARF test 30.2%
+    def20 s0 Ep 7/53 lr 0.0345 UNSCHARF test 27.5%
+    def20 s0 Ep 8/53 lr 0.0324 UNSCHARF test 33.9%
+    def20 s0 Ep 9/53 lr 0.0305 UNSCHARF test 40.6%
+    def20 s0 Ep 10/53 lr 0.0286 UNSCHARF test 39.7%
+    def20 s0 Ep 11/53 lr 0.0269 UNSCHARF test 32.1%
+    def20 s0 Ep 12/53 lr 0.0253 UNSCHARF test 39.6%
+    def20 s0 Ep 13/53 lr 0.0238 UNSCHARF test 33.5%
+    def20 s0 Ep 14/53 lr 0.0224 UNSCHARF test 30.4%
+    def20 s0 Ep 15/53 lr 0.0210 UNSCHARF test 32.3%
+    def20 s0 Ep 16/53 lr 0.0198 UNSCHARF test 37.1%
+    def20 s0 Ep 17/53 lr 0.0186 UNSCHARF test 30.5%
+    def20 s0 Ep 18/53 lr 0.0175 UNSCHARF test 41.5%
+    def20 s0 Ep 19/53 lr 0.0164 UNSCHARF test 38.2%
+    def20 s0 Ep 20/53 lr 0.0154 UNSCHARF test 34.7%
+    def20 s0 Ep 21/53 lr 0.0145 test 73.4%
+    def20 s0 Ep 22/53 lr 0.0136 test 75.5%
+    def20 s0 Ep 23/53 lr 0.0128 test 77.5%
+    def20 s0 Ep 24/53 lr 0.0120 test 76.6%
+    def20 s0 Ep 25/53 lr 0.0113 test 78.5%
+    def20 s0 Ep 26/53 lr 0.0106 test 77.6%
+    def20 s0 Ep 27/53 lr 0.0100 test 76.1%
+    def20 s0 Ep 28/53 lr 0.0094 test 80.2%
+    def20 s0 Ep 29/53 lr 0.0088 test 82.0%
+    def20 s0 Ep 30/53 lr 0.0083 test 81.0%
+    def20 s0 Ep 31/53 lr 0.0078 test 81.3%
+    def20 s0 Ep 32/53 lr 0.0073 test 79.9%
+    def20 s0 Ep 33/53 lr 0.0069 test 82.3%
+    def20 s0 Ep 34/53 lr 0.0065 test 80.9%
+    def20 s0 Ep 35/53 lr 0.0061 test 82.2%
+    def20 s0 Ep 36/53 lr 0.0057 test 84.1%
+    def20 s0 Ep 37/53 lr 0.0054 test 82.2%
+    def20 s0 Ep 38/53 lr 0.0051 test 83.5%
+    def20 s0 Ep 39/53 lr 0.0048 test 83.7%
+    def20 s0 Ep 40/53 lr 0.0045 test 83.6%
+    def20 s0 Ep 41/53 lr 0.0042 test 82.5%
+    def20 s0 Ep 42/53 lr 0.0040 test 83.8%
+    def20 s0 Ep 43/53 lr 0.0037 test 84.6%
+    def20 s0 Ep 44/53 lr 0.0035 test 84.0%
+    def20 s0 Ep 45/53 lr 0.0033 test 83.7%
+    def20 s0 Ep 46/53 lr 0.0031 test 85.4%
+    def20 s0 Ep 47/53 lr 0.0029 test 85.5%
+    def20 s0 Ep 48/53 lr 0.0027 test 85.1%
+    def20 s0 Ep 49/53 lr 0.0026 test 83.5%
+    def20 s0 Ep 50/53 lr 0.0024 test 85.0%
+    def20 s0 Ep 51/53 lr 0.0005 test 86.1%
+    def20 s0 Ep 52/53 lr 0.0005 test 85.9%
+    def20 s0 Ep 53/53 lr 0.0005 test 85.9%
+[20:43] FERTIG def20 s0: Test 85.92% (36.2 min)
+[20:43] Start def40 Seed 0
+    def40 s0 Ep 1/73 lr 0.0500 UNSCHARF test 29.1%
+    def40 s0 Ep 2/73 lr 0.0470 UNSCHARF test 27.1%
+    def40 s0 Ep 3/73 lr 0.0442 UNSCHARF test 34.4%
+    def40 s0 Ep 4/73 lr 0.0415 UNSCHARF test 28.1%
+    def40 s0 Ep 5/73 lr 0.0390 UNSCHARF test 34.3%
+    def40 s0 Ep 6/73 lr 0.0367 UNSCHARF test 25.9%
+    def40 s0 Ep 7/73 lr 0.0345 UNSCHARF test 24.0%
+    def40 s0 Ep 8/73 lr 0.0324 UNSCHARF test 30.6%
+    def40 s0 Ep 9/73 lr 0.0305 UNSCHARF test 33.4%
+    def40 s0 Ep 10/73 lr 0.0286 UNSCHARF test 35.1%
+    def40 s0 Ep 11/73 lr 0.0269 UNSCHARF test 32.7%
+    def40 s0 Ep 12/73 lr 0.0253 UNSCHARF test 30.1%
+    def40 s0 Ep 13/73 lr 0.0238 UNSCHARF test 29.2%
+    def40 s0 Ep 14/73 lr 0.0224 UNSCHARF test 26.6%
+    def40 s0 Ep 15/73 lr 0.0210 UNSCHARF test 32.6%
+    def40 s0 Ep 16/73 lr 0.0198 UNSCHARF test 34.3%
+    def40 s0 Ep 17/73 lr 0.0186 UNSCHARF test 22.7%
+    def40 s0 Ep 18/73 lr 0.0175 UNSCHARF test 33.7%
+    def40 s0 Ep 19/73 lr 0.0164 UNSCHARF test 33.4%
+    def40 s0 Ep 20/73 lr 0.0154 UNSCHARF test 23.5%
+    def40 s0 Ep 21/73 lr 0.0145 UNSCHARF test 26.1%
+    def40 s0 Ep 22/73 lr 0.0136 UNSCHARF test 29.4%
+    def40 s0 Ep 23/73 lr 0.0128 UNSCHARF test 25.1%
+    def40 s0 Ep 24/73 lr 0.0120 UNSCHARF test 30.6%
+    def40 s0 Ep 25/73 lr 0.0113 UNSCHARF test 33.0%
+    def40 s0 Ep 26/73 lr 0.0106 UNSCHARF test 29.2%
+    def40 s0 Ep 27/73 lr 0.0100 UNSCHARF test 33.4%
+    def40 s0 Ep 28/73 lr 0.0094 UNSCHARF test 29.8%
+    def40 s0 Ep 29/73 lr 0.0088 UNSCHARF test 27.2%
+    def40 s0 Ep 30/73 lr 0.0083 UNSCHARF test 27.0%
+    def40 s0 Ep 31/73 lr 0.0078 UNSCHARF test 33.7%
+    def40 s0 Ep 32/73 lr 0.0073 UNSCHARF test 35.9%
+    def40 s0 Ep 33/73 lr 0.0069 UNSCHARF test 31.9%
+    def40 s0 Ep 34/73 lr 0.0065 UNSCHARF test 22.9%
+    def40 s0 Ep 35/73 lr 0.0061 UNSCHARF test 27.1%
+    def40 s0 Ep 36/73 lr 0.0057 UNSCHARF test 26.9%
+    def40 s0 Ep 37/73 lr 0.0054 UNSCHARF test 34.7%
+    def40 s0 Ep 38/73 lr 0.0051 UNSCHARF test 35.7%
+    def40 s0 Ep 39/73 lr 0.0048 UNSCHARF test 35.1%
+    def40 s0 Ep 40/73 lr 0.0045 UNSCHARF test 26.2%
+    def40 s0 Ep 41/73 lr 0.0042 test 75.9%
+    def40 s0 Ep 42/73 lr 0.0040 test 77.5%
+    def40 s0 Ep 43/73 lr 0.0037 test 78.4%
+    def40 s0 Ep 44/73 lr 0.0035 test 78.7%
+    def40 s0 Ep 45/73 lr 0.0033 test 78.2%
+    def40 s0 Ep 46/73 lr 0.0031 test 79.9%
+    def40 s0 Ep 47/73 lr 0.0029 test 79.9%
+    def40 s0 Ep 48/73 lr 0.0027 test 80.9%
+    def40 s0 Ep 49/73 lr 0.0026 test 79.8%
+    def40 s0 Ep 50/73 lr 0.0024 test 80.9%
+    def40 s0 Ep 51/73 lr 0.0023 test 80.9%
+    def40 s0 Ep 52/73 lr 0.0021 test 80.4%
+    def40 s0 Ep 53/73 lr 0.0020 test 81.2%
+    def40 s0 Ep 54/73 lr 0.0019 test 81.5%
+    def40 s0 Ep 55/73 lr 0.0018 test 82.5%
+    def40 s0 Ep 56/73 lr 0.0017 test 82.5%
+    def40 s0 Ep 57/73 lr 0.0016 test 82.3%
+    def40 s0 Ep 58/73 lr 0.0015 test 82.5%
+    def40 s0 Ep 59/73 lr 0.0014 test 82.4%
+    def40 s0 Ep 60/73 lr 0.0013 test 83.0%
+    def40 s0 Ep 61/73 lr 0.0012 test 82.5%
+    def40 s0 Ep 62/73 lr 0.0011 test 83.0%
+    def40 s0 Ep 63/73 lr 0.0011 test 83.0%
+    def40 s0 Ep 64/73 lr 0.0010 test 82.9%
+    def40 s0 Ep 65/73 lr 0.0010 test 82.8%
+    def40 s0 Ep 66/73 lr 0.0009 test 83.2%
+    def40 s0 Ep 67/73 lr 0.0008 test 82.7%
+    def40 s0 Ep 68/73 lr 0.0008 test 82.8%
+    def40 s0 Ep 69/73 lr 0.0007 test 83.0%
+    def40 s0 Ep 70/73 lr 0.0007 test 83.5%
+    def40 s0 Ep 71/73 lr 0.0005 test 83.6%
+    def40 s0 Ep 72/73 lr 0.0005 test 83.5%
+    def40 s0 Ep 73/73 lr 0.0005 test 83.5%
+[21:46] FERTIG def40 s0: Test 83.49% (62.4 min)
+[21:46] Start def5 Seed 0
+    def5 s0 Ep 1/38 lr 0.0500 UNSCHARF test 29.1%
+    def5 s0 Ep 2/38 lr 0.0470 UNSCHARF test 28.4%
+    def5 s0 Ep 3/38 lr 0.0442 UNSCHARF test 29.5%
+    def5 s0 Ep 4/38 lr 0.0415 UNSCHARF test 22.7%
+    def5 s0 Ep 5/38 lr 0.0390 UNSCHARF test 33.1%
+    def5 s0 Ep 6/38 lr 0.0367 test 67.6%
+    def5 s0 Ep 7/38 lr 0.0345 test 65.3%
+    def5 s0 Ep 8/38 lr 0.0324 test 71.6%
+    def5 s0 Ep 9/38 lr 0.0305 test 72.2%
+    def5 s0 Ep 10/38 lr 0.0286 test 78.0%
+    def5 s0 Ep 11/38 lr 0.0269 test 74.3%
+    def5 s0 Ep 12/38 lr 0.0253 test 77.3%
+    def5 s0 Ep 13/38 lr 0.0238 test 78.6%
+    def5 s0 Ep 14/38 lr 0.0224 test 78.9%
+    def5 s0 Ep 15/38 lr 0.0210 test 79.5%
+    def5 s0 Ep 16/38 lr 0.0198 test 81.4%
+    def5 s0 Ep 17/38 lr 0.0186 test 80.6%
+    def5 s0 Ep 18/38 lr 0.0175 test 80.5%
+    def5 s0 Ep 19/38 lr 0.0164 test 83.6%
+    def5 s0 Ep 20/38 lr 0.0154 test 81.4%
+    def5 s0 Ep 21/38 lr 0.0145 test 82.8%
+    def5 s0 Ep 22/38 lr 0.0136 test 82.3%
+    def5 s0 Ep 23/38 lr 0.0128 test 83.5%
+    def5 s0 Ep 24/38 lr 0.0120 test 82.3%
+    def5 s0 Ep 25/38 lr 0.0113 test 81.5%
+    def5 s0 Ep 26/38 lr 0.0106 test 82.3%
+    def5 s0 Ep 27/38 lr 0.0100 test 79.7%
+    def5 s0 Ep 28/38 lr 0.0094 test 83.6%
+    def5 s0 Ep 29/38 lr 0.0088 test 85.1%
+    def5 s0 Ep 30/38 lr 0.0083 test 84.4%
+    def5 s0 Ep 31/38 lr 0.0078 test 84.9%
+    def5 s0 Ep 32/38 lr 0.0073 test 83.6%
+    def5 s0 Ep 33/38 lr 0.0069 test 84.5%
+    def5 s0 Ep 34/38 lr 0.0065 test 85.2%
+    def5 s0 Ep 35/38 lr 0.0061 test 85.2%
+    def5 s0 Ep 36/38 lr 0.0005 test 87.1%
+    def5 s0 Ep 37/38 lr 0.0005 test 87.2%
+    def5 s0 Ep 38/38 lr 0.0005 test 87.2%
+[22:13] FERTIG def5 s0: Test 87.20% (27.2 min)
+[22:13] Start def30 Seed 0
+    def30 s0 Ep 1/63 lr 0.0500 UNSCHARF test 29.1%
+    def30 s0 Ep 2/63 lr 0.0470 UNSCHARF test 28.4%
+    def30 s0 Ep 3/63 lr 0.0442 UNSCHARF test 29.5%
+    def30 s0 Ep 4/63 lr 0.0415 UNSCHARF test 22.7%
+    def30 s0 Ep 5/63 lr 0.0390 UNSCHARF test 33.1%
+    def30 s0 Ep 6/63 lr 0.0367 UNSCHARF test 30.2%
+    def30 s0 Ep 7/63 lr 0.0345 UNSCHARF test 27.5%
+    def30 s0 Ep 8/63 lr 0.0324 UNSCHARF test 33.9%
+    def30 s0 Ep 9/63 lr 0.0305 UNSCHARF test 40.6%
+    def30 s0 Ep 10/63 lr 0.0286 UNSCHARF test 39.7%
+    def30 s0 Ep 11/63 lr 0.0269 UNSCHARF test 32.1%
+    def30 s0 Ep 12/63 lr 0.0253 UNSCHARF test 39.6%
+    def30 s0 Ep 13/63 lr 0.0238 UNSCHARF test 33.5%
+    def30 s0 Ep 14/63 lr 0.0224 UNSCHARF test 30.4%
+    def30 s0 Ep 15/63 lr 0.0210 UNSCHARF test 32.3%
+    def30 s0 Ep 16/63 lr 0.0198 UNSCHARF test 37.1%
+    def30 s0 Ep 17/63 lr 0.0186 UNSCHARF test 30.5%
+    def30 s0 Ep 18/63 lr 0.0175 UNSCHARF test 41.5%
+    def30 s0 Ep 19/63 lr 0.0164 UNSCHARF test 38.2%
+    def30 s0 Ep 20/63 lr 0.0154 UNSCHARF test 34.7%
+    def30 s0 Ep 21/63 lr 0.0145 UNSCHARF test 36.7%
+    def30 s0 Ep 22/63 lr 0.0136 UNSCHARF test 28.5%
+    def30 s0 Ep 23/63 lr 0.0128 UNSCHARF test 29.1%
+    def30 s0 Ep 24/63 lr 0.0120 UNSCHARF test 34.2%
+    def30 s0 Ep 25/63 lr 0.0113 UNSCHARF test 37.8%
+    def30 s0 Ep 26/63 lr 0.0106 UNSCHARF test 36.5%
+    def30 s0 Ep 27/63 lr 0.0100 UNSCHARF test 33.4%
+    def30 s0 Ep 28/63 lr 0.0094 UNSCHARF test 37.5%
+    def30 s0 Ep 29/63 lr 0.0088 UNSCHARF test 39.2%
+    def30 s0 Ep 30/63 lr 0.0083 UNSCHARF test 33.1%
+    def30 s0 Ep 31/63 lr 0.0078 test 75.5%
+    def30 s0 Ep 32/63 lr 0.0073 test 75.8%
+    def30 s0 Ep 33/63 lr 0.0069 test 77.9%
+    def30 s0 Ep 34/63 lr 0.0065 test 79.0%
+    def30 s0 Ep 35/63 lr 0.0061 test 78.1%
+    def30 s0 Ep 36/63 lr 0.0057 test 79.8%
+    def30 s0 Ep 37/63 lr 0.0054 test 79.8%
+    def30 s0 Ep 38/63 lr 0.0051 test 80.1%
+    def30 s0 Ep 39/63 lr 0.0048 test 81.1%
+    def30 s0 Ep 40/63 lr 0.0045 test 81.3%
+    def30 s0 Ep 41/63 lr 0.0042 test 79.7%
+    def30 s0 Ep 42/63 lr 0.0040 test 81.8%
+    def30 s0 Ep 43/63 lr 0.0037 test 82.2%
+    def30 s0 Ep 44/63 lr 0.0035 test 82.2%
+    def30 s0 Ep 45/63 lr 0.0033 test 81.7%
+    def30 s0 Ep 46/63 lr 0.0031 test 83.4%
+    def30 s0 Ep 47/63 lr 0.0029 test 82.9%
+    def30 s0 Ep 48/63 lr 0.0027 test 82.9%
+    def30 s0 Ep 49/63 lr 0.0026 test 81.5%
+    def30 s0 Ep 50/63 lr 0.0024 test 83.2%
+    def30 s0 Ep 51/63 lr 0.0023 test 83.1%
+    def30 s0 Ep 52/63 lr 0.0021 test 83.1%
+    def30 s0 Ep 53/63 lr 0.0020 test 83.9%
+    def30 s0 Ep 54/63 lr 0.0019 test 83.8%
+    def30 s0 Ep 55/63 lr 0.0018 test 84.4%
+    def30 s0 Ep 56/63 lr 0.0017 test 84.6%
+    def30 s0 Ep 57/63 lr 0.0016 test 84.9%
+    def30 s0 Ep 58/63 lr 0.0015 test 84.5%
+    def30 s0 Ep 59/63 lr 0.0014 test 84.2%
+    def30 s0 Ep 60/63 lr 0.0013 test 84.8%
+    def30 s0 Ep 61/63 lr 0.0005 test 85.0%
+    def30 s0 Ep 62/63 lr 0.0005 test 85.0%
+    def30 s0 Ep 63/63 lr 0.0005 test 84.9%
+[22:54] FERTIG def30 s0: Test 84.94% (40.6 min)
+[22:54] Start def40_reset Seed 0
+    def40_reset s0 Ep 1/73 lr 0.0500 UNSCHARF test 29.1%
+    def40_reset s0 Ep 2/73 lr 0.0470 UNSCHARF test 28.4%
+    def40_reset s0 Ep 3/73 lr 0.0442 UNSCHARF test 29.5%
+    def40_reset s0 Ep 4/73 lr 0.0415 UNSCHARF test 22.7%
+    def40_reset s0 Ep 5/73 lr 0.0390 UNSCHARF test 33.1%
+    def40_reset s0 Ep 6/73 lr 0.0367 UNSCHARF test 30.2%
+    def40_reset s0 Ep 7/73 lr 0.0345 UNSCHARF test 27.5%
+    def40_reset s0 Ep 8/73 lr 0.0324 UNSCHARF test 33.9%
+    def40_reset s0 Ep 9/73 lr 0.0305 UNSCHARF test 40.6%
+    def40_reset s0 Ep 10/73 lr 0.0286 UNSCHARF test 39.7%
+    def40_reset s0 Ep 11/73 lr 0.0269 UNSCHARF test 32.1%
+    def40_reset s0 Ep 12/73 lr 0.0253 UNSCHARF test 39.6%
+    def40_reset s0 Ep 13/73 lr 0.0238 UNSCHARF test 33.5%
+    def40_reset s0 Ep 14/73 lr 0.0224 UNSCHARF test 30.4%
+    def40_reset s0 Ep 15/73 lr 0.0210 UNSCHARF test 32.3%
+    def40_reset s0 Ep 16/73 lr 0.0198 UNSCHARF test 37.1%
+    def40_reset s0 Ep 17/73 lr 0.0186 UNSCHARF test 30.5%
+    def40_reset s0 Ep 18/73 lr 0.0175 UNSCHARF test 41.5%
+    def40_reset s0 Ep 19/73 lr 0.0164 UNSCHARF test 38.2%
+    def40_reset s0 Ep 20/73 lr 0.0154 UNSCHARF test 34.7%
+    def40_reset s0 Ep 21/73 lr 0.0145 UNSCHARF test 36.7%
+    def40_reset s0 Ep 22/73 lr 0.0136 UNSCHARF test 28.5%
+    def40_reset s0 Ep 23/73 lr 0.0128 UNSCHARF test 29.1%
+    def40_reset s0 Ep 24/73 lr 0.0120 UNSCHARF test 34.2%
+    def40_reset s0 Ep 25/73 lr 0.0113 UNSCHARF test 37.8%
+    def40_reset s0 Ep 26/73 lr 0.0106 UNSCHARF test 36.5%
+    def40_reset s0 Ep 27/73 lr 0.0100 UNSCHARF test 33.4%
+    def40_reset s0 Ep 28/73 lr 0.0094 UNSCHARF test 37.5%
+    def40_reset s0 Ep 29/73 lr 0.0088 UNSCHARF test 39.2%
+    def40_reset s0 Ep 30/73 lr 0.0083 UNSCHARF test 33.1%
+    def40_reset s0 Ep 31/73 lr 0.0078 UNSCHARF test 37.2%
+    def40_reset s0 Ep 32/73 lr 0.0073 UNSCHARF test 33.8%
+    def40_reset s0 Ep 33/73 lr 0.0069 UNSCHARF test 34.9%
+    def40_reset s0 Ep 34/73 lr 0.0065 UNSCHARF test 33.1%
+    def40_reset s0 Ep 35/73 lr 0.0061 UNSCHARF test 32.6%
+    def40_reset s0 Ep 36/73 lr 0.0057 UNSCHARF test 33.7%
+    def40_reset s0 Ep 37/73 lr 0.0054 UNSCHARF test 33.8%
+    def40_reset s0 Ep 38/73 lr 0.0051 UNSCHARF test 38.4%
+    def40_reset s0 Ep 39/73 lr 0.0048 UNSCHARF test 41.5%
+    def40_reset s0 Ep 40/73 lr 0.0045 UNSCHARF test 27.4%
+    def40_reset s0 Ep 41/73 lr 0.0500 test 69.8%
+    def40_reset s0 Ep 42/73 lr 0.0470 test 74.8%
+    def40_reset s0 Ep 43/73 lr 0.0442 test 75.0%
+    def40_reset s0 Ep 44/73 lr 0.0415 test 77.4%
+    def40_reset s0 Ep 45/73 lr 0.0390 test 76.2%
+    def40_reset s0 Ep 46/73 lr 0.0367 test 79.6%
+    def40_reset s0 Ep 47/73 lr 0.0345 test 80.4%
+    def40_reset s0 Ep 48/73 lr 0.0324 test 78.0%
+    def40_reset s0 Ep 49/73 lr 0.0305 test 78.3%
+    def40_reset s0 Ep 50/73 lr 0.0286 test 80.6%
+    def40_reset s0 Ep 51/73 lr 0.0269 test 82.5%
+    def40_reset s0 Ep 52/73 lr 0.0253 test 81.1%
+    def40_reset s0 Ep 53/73 lr 0.0238 test 82.7%
+    def40_reset s0 Ep 54/73 lr 0.0224 test 83.3%
+    def40_reset s0 Ep 55/73 lr 0.0210 test 82.3%
+    def40_reset s0 Ep 56/73 lr 0.0198 test 83.1%
+    def40_reset s0 Ep 57/73 lr 0.0186 test 83.4%
+    def40_reset s0 Ep 58/73 lr 0.0175 test 84.2%
+    def40_reset s0 Ep 59/73 lr 0.0164 test 83.8%
+    def40_reset s0 Ep 60/73 lr 0.0154 test 84.8%
+    def40_reset s0 Ep 61/73 lr 0.0145 test 84.5%
+    def40_reset s0 Ep 62/73 lr 0.0136 test 86.1%
+    def40_reset s0 Ep 63/73 lr 0.0128 test 85.2%
+    def40_reset s0 Ep 64/73 lr 0.0120 test 83.0%
+    def40_reset s0 Ep 65/73 lr 0.0113 test 85.5%
+    def40_reset s0 Ep 66/73 lr 0.0106 test 85.1%
+    def40_reset s0 Ep 67/73 lr 0.0100 test 86.1%
+    def40_reset s0 Ep 68/73 lr 0.0094 test 86.0%
+    def40_reset s0 Ep 69/73 lr 0.0088 test 84.8%
+    def40_reset s0 Ep 70/73 lr 0.0083 test 86.2%
+    def40_reset s0 Ep 71/73 lr 0.0005 test 87.9%
+    def40_reset s0 Ep 72/73 lr 0.0005 test 87.9%
+    def40_reset s0 Ep 73/73 lr 0.0005 test 87.9%
+[23:30] FERTIG def40_reset s0: Test 87.91% (36.3 min)
+[23:30] Start def20_reset Seed 0
+    def20_reset s0 Ep 1/53 lr 0.0500 UNSCHARF test 29.1%
+    def20_reset s0 Ep 2/53 lr 0.0470 UNSCHARF test 28.4%
+    def20_reset s0 Ep 3/53 lr 0.0442 UNSCHARF test 29.5%
+    def20_reset s0 Ep 4/53 lr 0.0415 UNSCHARF test 22.7%
+    def20_reset s0 Ep 5/53 lr 0.0390 UNSCHARF test 33.1%
+    def20_reset s0 Ep 6/53 lr 0.0367 UNSCHARF test 30.2%
+    def20_reset s0 Ep 7/53 lr 0.0345 UNSCHARF test 27.5%
+    def20_reset s0 Ep 8/53 lr 0.0324 UNSCHARF test 33.9%
+    def20_reset s0 Ep 9/53 lr 0.0305 UNSCHARF test 40.6%
+    def20_reset s0 Ep 10/53 lr 0.0286 UNSCHARF test 39.7%
+    def20_reset s0 Ep 11/53 lr 0.0269 UNSCHARF test 32.1%
+    def20_reset s0 Ep 12/53 lr 0.0253 UNSCHARF test 39.6%
+    def20_reset s0 Ep 13/53 lr 0.0238 UNSCHARF test 33.5%
+    def20_reset s0 Ep 14/53 lr 0.0224 UNSCHARF test 30.4%
+    def20_reset s0 Ep 15/53 lr 0.0210 UNSCHARF test 32.3%
+    def20_reset s0 Ep 16/53 lr 0.0198 UNSCHARF test 37.1%
+    def20_reset s0 Ep 17/53 lr 0.0186 UNSCHARF test 30.5%
+    def20_reset s0 Ep 18/53 lr 0.0175 UNSCHARF test 41.5%
+    def20_reset s0 Ep 19/53 lr 0.0164 UNSCHARF test 38.2%
+    def20_reset s0 Ep 20/53 lr 0.0154 UNSCHARF test 34.7%
+    def20_reset s0 Ep 21/53 lr 0.0500 test 70.6%
+    def20_reset s0 Ep 22/53 lr 0.0470 test 74.3%
+    def20_reset s0 Ep 23/53 lr 0.0442 test 77.0%
+    def20_reset s0 Ep 24/53 lr 0.0415 test 76.1%
+    def20_reset s0 Ep 25/53 lr 0.0390 test 77.4%
+    def20_reset s0 Ep 26/53 lr 0.0367 test 77.8%
+    def20_reset s0 Ep 27/53 lr 0.0345 test 78.2%
+    def20_reset s0 Ep 28/53 lr 0.0324 test 79.8%
+    def20_reset s0 Ep 29/53 lr 0.0305 test 80.4%
+    def20_reset s0 Ep 30/53 lr 0.0286 test 80.9%
+    def20_reset s0 Ep 31/53 lr 0.0269 test 81.4%
+    def20_reset s0 Ep 32/53 lr 0.0253 test 83.2%
+    def20_reset s0 Ep 33/53 lr 0.0238 test 82.7%
+    def20_reset s0 Ep 34/53 lr 0.0224 test 81.4%
+    def20_reset s0 Ep 35/53 lr 0.0210 test 81.5%
+    def20_reset s0 Ep 36/53 lr 0.0198 test 81.0%
+    def20_reset s0 Ep 37/53 lr 0.0186 test 81.3%
+    def20_reset s0 Ep 38/53 lr 0.0175 test 83.6%
+    def20_reset s0 Ep 39/53 lr 0.0164 test 83.2%
+    def20_reset s0 Ep 40/53 lr 0.0154 test 84.9%
+    def20_reset s0 Ep 41/53 lr 0.0145 test 81.7%
+    def20_reset s0 Ep 42/53 lr 0.0136 test 82.8%
+    def20_reset s0 Ep 43/53 lr 0.0128 test 85.8%
+    def20_reset s0 Ep 44/53 lr 0.0120 test 84.9%
+    def20_reset s0 Ep 45/53 lr 0.0113 test 83.5%
+    def20_reset s0 Ep 46/53 lr 0.0106 test 85.5%
+    def20_reset s0 Ep 47/53 lr 0.0100 test 84.2%
+    def20_reset s0 Ep 48/53 lr 0.0094 test 85.6%
+    def20_reset s0 Ep 49/53 lr 0.0088 test 82.3%
+    def20_reset s0 Ep 50/53 lr 0.0083 test 85.9%
+    def20_reset s0 Ep 51/53 lr 0.0005 test 88.1%
+    def20_reset s0 Ep 52/53 lr 0.0005 test 88.2%
+    def20_reset s0 Ep 53/53 lr 0.0005 test 88.4%
+[23:54] FERTIG def20_reset s0: Test 88.42% (24.4 min)
+[23:54] Start def0_const Seed 0
+    def0_const s0 Ep 1/33 lr 0.0500 test 60.0%
+    def0_const s0 Ep 2/33 lr 0.0500 test 61.6%
+    def0_const s0 Ep 3/33 lr 0.0500 test 70.3%
+    def0_const s0 Ep 4/33 lr 0.0500 test 69.6%
+    def0_const s0 Ep 5/33 lr 0.0500 test 71.4%
+    def0_const s0 Ep 6/33 lr 0.0500 test 75.1%
+    def0_const s0 Ep 7/33 lr 0.0500 test 73.2%
+    def0_const s0 Ep 8/33 lr 0.0500 test 70.3%
+    def0_const s0 Ep 9/33 lr 0.0500 test 68.7%
+    def0_const s0 Ep 10/33 lr 0.0500 test 79.2%
+    def0_const s0 Ep 11/33 lr 0.0500 test 76.1%
+    def0_const s0 Ep 12/33 lr 0.0500 test 72.9%
+    def0_const s0 Ep 13/33 lr 0.0500 test 70.7%
+    def0_const s0 Ep 14/33 lr 0.0500 test 79.2%
+    def0_const s0 Ep 15/33 lr 0.0500 test 80.0%
+    def0_const s0 Ep 16/33 lr 0.0500 test 78.0%
+    def0_const s0 Ep 17/33 lr 0.0500 test 72.3%
+    def0_const s0 Ep 18/33 lr 0.0500 test 74.7%
+    def0_const s0 Ep 19/33 lr 0.0500 test 79.6%
+    def0_const s0 Ep 20/33 lr 0.0500 test 75.7%
+    def0_const s0 Ep 21/33 lr 0.0500 test 79.8%
+    def0_const s0 Ep 22/33 lr 0.0500 test 76.3%
+    def0_const s0 Ep 23/33 lr 0.0500 test 78.6%
+    def0_const s0 Ep 24/33 lr 0.0500 test 80.7%
+    def0_const s0 Ep 25/33 lr 0.0500 test 77.3%
+    def0_const s0 Ep 26/33 lr 0.0500 test 80.3%
+    def0_const s0 Ep 27/33 lr 0.0500 test 77.8%
+    def0_const s0 Ep 28/33 lr 0.0500 test 82.5%
+    def0_const s0 Ep 29/33 lr 0.0500 test 81.8%
+    def0_const s0 Ep 30/33 lr 0.0500 test 75.9%
+    def0_const s0 Ep 31/33 lr 0.0005 test 86.8%
+    def0_const s0 Ep 32/33 lr 0.0005 test 87.2%
+    def0_const s0 Ep 33/33 lr 0.0005 test 87.4%
+[00:09] FERTIG def0_const s0: Test 87.41% (15.2 min)
+[00:09] Start def40_const Seed 0
+    def40_const s0 Ep 1/73 lr 0.0500 UNSCHARF test 29.1%
+    def40_const s0 Ep 2/73 lr 0.0500 UNSCHARF test 29.0%
+    def40_const s0 Ep 3/73 lr 0.0500 UNSCHARF test 30.2%
+    def40_const s0 Ep 4/73 lr 0.0500 UNSCHARF test 22.8%
+    def40_const s0 Ep 5/73 lr 0.0500 UNSCHARF test 35.2%
+    def40_const s0 Ep 6/73 lr 0.0500 UNSCHARF test 30.8%
+    def40_const s0 Ep 7/73 lr 0.0500 UNSCHARF test 26.1%
+    def40_const s0 Ep 8/73 lr 0.0500 UNSCHARF test 35.0%
+    def40_const s0 Ep 9/73 lr 0.0500 UNSCHARF test 35.7%
+    def40_const s0 Ep 10/73 lr 0.0500 UNSCHARF test 37.4%
+    def40_const s0 Ep 11/73 lr 0.0500 UNSCHARF test 27.2%
+    def40_const s0 Ep 12/73 lr 0.0500 UNSCHARF test 41.8%
+    def40_const s0 Ep 13/73 lr 0.0500 UNSCHARF test 37.1%
+    def40_const s0 Ep 14/73 lr 0.0500 UNSCHARF test 31.6%
+    def40_const s0 Ep 15/73 lr 0.0500 UNSCHARF test 27.7%
+    def40_const s0 Ep 16/73 lr 0.0500 UNSCHARF test 41.2%
+    def40_const s0 Ep 17/73 lr 0.0500 UNSCHARF test 28.9%
+    def40_const s0 Ep 18/73 lr 0.0500 UNSCHARF test 41.4%
+    def40_const s0 Ep 19/73 lr 0.0500 UNSCHARF test 45.0%
+    def40_const s0 Ep 20/73 lr 0.0500 UNSCHARF test 33.4%
+    def40_const s0 Ep 21/73 lr 0.0500 UNSCHARF test 39.2%
+    def40_const s0 Ep 22/73 lr 0.0500 UNSCHARF test 34.2%
+    def40_const s0 Ep 23/73 lr 0.0500 UNSCHARF test 29.2%
+    def40_const s0 Ep 24/73 lr 0.0500 UNSCHARF test 37.6%
+    def40_const s0 Ep 25/73 lr 0.0500 UNSCHARF test 38.9%
+    def40_const s0 Ep 26/73 lr 0.0500 UNSCHARF test 29.3%
+    def40_const s0 Ep 27/73 lr 0.0500 UNSCHARF test 35.7%
+    def40_const s0 Ep 28/73 lr 0.0500 UNSCHARF test 29.1%
+    def40_const s0 Ep 29/73 lr 0.0500 UNSCHARF test 32.5%
+    def40_const s0 Ep 30/73 lr 0.0500 UNSCHARF test 33.9%
+    def40_const s0 Ep 31/73 lr 0.0500 UNSCHARF test 25.2%
+    def40_const s0 Ep 32/73 lr 0.0500 UNSCHARF test 33.4%
+    def40_const s0 Ep 33/73 lr 0.0500 UNSCHARF test 37.0%
+    def40_const s0 Ep 34/73 lr 0.0500 UNSCHARF test 25.9%
+    def40_const s0 Ep 35/73 lr 0.0500 UNSCHARF test 39.5%
+    def40_const s0 Ep 36/73 lr 0.0500 UNSCHARF test 36.1%
+    def40_const s0 Ep 37/73 lr 0.0500 UNSCHARF test 24.4%
+    def40_const s0 Ep 38/73 lr 0.0500 UNSCHARF test 41.2%
+    def40_const s0 Ep 39/73 lr 0.0500 UNSCHARF test 37.2%
+    def40_const s0 Ep 40/73 lr 0.0500 UNSCHARF test 28.7%
+    def40_const s0 Ep 41/73 lr 0.0500 test 73.4%
+    def40_const s0 Ep 42/73 lr 0.0500 test 73.8%
+    def40_const s0 Ep 43/73 lr 0.0500 test 73.1%
+    def40_const s0 Ep 44/73 lr 0.0500 test 79.8%
+    def40_const s0 Ep 45/73 lr 0.0500 test 79.4%
+    def40_const s0 Ep 46/73 lr 0.0500 test 78.9%
+    def40_const s0 Ep 47/73 lr 0.0500 test 80.0%
+    def40_const s0 Ep 48/73 lr 0.0500 test 74.7%
+    def40_const s0 Ep 49/73 lr 0.0500 test 76.2%
+    def40_const s0 Ep 50/73 lr 0.0500 test 75.7%
+    def40_const s0 Ep 51/73 lr 0.0500 test 79.3%
+    def40_const s0 Ep 52/73 lr 0.0500 test 81.3%
+    def40_const s0 Ep 53/73 lr 0.0500 test 80.9%
+    def40_const s0 Ep 54/73 lr 0.0500 test 80.4%
+    def40_const s0 Ep 55/73 lr 0.0500 test 81.6%
+    def40_const s0 Ep 56/73 lr 0.0500 test 82.1%
+    def40_const s0 Ep 57/73 lr 0.0500 test 78.8%
+    def40_const s0 Ep 58/73 lr 0.0500 test 80.8%
+    def40_const s0 Ep 59/73 lr 0.0500 test 78.7%
+    def40_const s0 Ep 60/73 lr 0.0500 test 83.4%
+    def40_const s0 Ep 61/73 lr 0.0500 test 73.8%
+    def40_const s0 Ep 62/73 lr 0.0500 test 81.1%
+    def40_const s0 Ep 63/73 lr 0.0500 test 81.7%
+    def40_const s0 Ep 64/73 lr 0.0500 test 74.2%
+    def40_const s0 Ep 65/73 lr 0.0500 test 82.3%
+    def40_const s0 Ep 66/73 lr 0.0500 test 79.5%
+    def40_const s0 Ep 67/73 lr 0.0500 test 80.0%
+    def40_const s0 Ep 68/73 lr 0.0500 test 83.2%
+    def40_const s0 Ep 69/73 lr 0.0500 test 74.1%
+    def40_const s0 Ep 70/73 lr 0.0500 test 83.0%
+    def40_const s0 Ep 71/73 lr 0.0005 test 86.9%
+    def40_const s0 Ep 72/73 lr 0.0005 test 87.2%
+    def40_const s0 Ep 73/73 lr 0.0005 test 87.5%
+[00:43] FERTIG def40_const s0: Test 87.52% (33.7 min)
+[00:43] Start def20_const Seed 0
+    def20_const s0 Ep 1/53 lr 0.0500 UNSCHARF test 29.1%
+    def20_const s0 Ep 2/53 lr 0.0500 UNSCHARF test 29.0%
+    def20_const s0 Ep 3/53 lr 0.0500 UNSCHARF test 30.2%
+    def20_const s0 Ep 4/53 lr 0.0500 UNSCHARF test 22.8%
+    def20_const s0 Ep 5/53 lr 0.0500 UNSCHARF test 35.2%
+    def20_const s0 Ep 6/53 lr 0.0500 UNSCHARF test 30.8%
+    def20_const s0 Ep 7/53 lr 0.0500 UNSCHARF test 26.1%
+    def20_const s0 Ep 8/53 lr 0.0500 UNSCHARF test 35.0%
+    def20_const s0 Ep 9/53 lr 0.0500 UNSCHARF test 35.7%
+    def20_const s0 Ep 10/53 lr 0.0500 UNSCHARF test 37.4%
+    def20_const s0 Ep 11/53 lr 0.0500 UNSCHARF test 27.2%
+    def20_const s0 Ep 12/53 lr 0.0500 UNSCHARF test 41.8%
+    def20_const s0 Ep 13/53 lr 0.0500 UNSCHARF test 37.1%
+    def20_const s0 Ep 14/53 lr 0.0500 UNSCHARF test 31.6%
+    def20_const s0 Ep 15/53 lr 0.0500 UNSCHARF test 27.7%
+    def20_const s0 Ep 16/53 lr 0.0500 UNSCHARF test 41.2%
+    def20_const s0 Ep 17/53 lr 0.0500 UNSCHARF test 28.9%
+    def20_const s0 Ep 18/53 lr 0.0500 UNSCHARF test 41.4%
+    def20_const s0 Ep 19/53 lr 0.0500 UNSCHARF test 45.0%
+    def20_const s0 Ep 20/53 lr 0.0500 UNSCHARF test 33.4%
+    def20_const s0 Ep 21/53 lr 0.0500 test 72.8%
+    def20_const s0 Ep 22/53 lr 0.0500 test 75.1%
+    def20_const s0 Ep 23/53 lr 0.0500 test 75.6%
+    def20_const s0 Ep 24/53 lr 0.0500 test 76.8%
+    def20_const s0 Ep 25/53 lr 0.0500 test 75.4%
+    def20_const s0 Ep 26/53 lr 0.0500 test 77.3%
+    def20_const s0 Ep 27/53 lr 0.0500 test 79.2%
+    def20_const s0 Ep 28/53 lr 0.0500 test 77.8%
+    def20_const s0 Ep 29/53 lr 0.0500 test 76.6%
+    def20_const s0 Ep 30/53 lr 0.0500 test 74.3%
+    def20_const s0 Ep 31/53 lr 0.0500 test 81.7%
+    def20_const s0 Ep 32/53 lr 0.0500 test 80.0%
+    def20_const s0 Ep 33/53 lr 0.0500 test 79.1%
+    def20_const s0 Ep 34/53 lr 0.0500 test 82.5%
+    def20_const s0 Ep 35/53 lr 0.0500 test 76.3%
+    def20_const s0 Ep 36/53 lr 0.0500 test 80.1%
+    def20_const s0 Ep 37/53 lr 0.0500 test 80.0%
+    def20_const s0 Ep 38/53 lr 0.0500 test 78.9%
+    def20_const s0 Ep 39/53 lr 0.0500 test 75.6%
+    def20_const s0 Ep 40/53 lr 0.0500 test 79.2%
+    def20_const s0 Ep 41/53 lr 0.0500 test 77.0%
+    def20_const s0 Ep 42/53 lr 0.0500 test 79.1%
+    def20_const s0 Ep 43/53 lr 0.0500 test 79.5%
+    def20_const s0 Ep 44/53 lr 0.0500 test 78.5%
+    def20_const s0 Ep 45/53 lr 0.0500 test 77.0%
+    def20_const s0 Ep 46/53 lr 0.0500 test 80.0%
+    def20_const s0 Ep 47/53 lr 0.0500 test 78.0%
+    def20_const s0 Ep 48/53 lr 0.0500 test 79.1%
+    def20_const s0 Ep 49/53 lr 0.0500 test 76.4%
+    def20_const s0 Ep 50/53 lr 0.0500 test 75.6%
+    def20_const s0 Ep 51/53 lr 0.0005 test 86.6%
+    def20_const s0 Ep 52/53 lr 0.0005 test 87.0%
+    def20_const s0 Ep 53/53 lr 0.0005 test 87.4%
+[01:07] FERTIG def20_const s0: Test 87.35% (24.2 min)
+[01:07] Start win10 Seed 0
+    win10 s0 Ep 1/53 lr 0.0500 test 60.0%
+    win10 s0 Ep 2/53 lr 0.0470 test 60.9%
+    win10 s0 Ep 3/53 lr 0.0442 test 68.3%
+    win10 s0 Ep 4/53 lr 0.0415 test 69.2%
+    win10 s0 Ep 5/53 lr 0.0390 test 70.5%
+    win10 s0 Ep 6/53 lr 0.0367 test 77.0%
+    win10 s0 Ep 7/53 lr 0.0345 test 75.1%
+    win10 s0 Ep 8/53 lr 0.0324 test 78.6%
+    win10 s0 Ep 9/53 lr 0.0305 test 74.9%
+    win10 s0 Ep 10/53 lr 0.0286 test 81.2%
+    win10 s0 Ep 11/53 lr 0.0269 UNSCHARF test 47.1%
+    win10 s0 Ep 12/53 lr 0.0253 UNSCHARF test 46.6%
+    win10 s0 Ep 13/53 lr 0.0238 UNSCHARF test 38.8%
+    win10 s0 Ep 14/53 lr 0.0224 UNSCHARF test 33.1%
+    win10 s0 Ep 15/53 lr 0.0210 UNSCHARF test 36.0%
+    win10 s0 Ep 16/53 lr 0.0198 UNSCHARF test 39.3%
+    win10 s0 Ep 17/53 lr 0.0186 UNSCHARF test 25.7%
+    win10 s0 Ep 18/53 lr 0.0175 UNSCHARF test 37.0%
+    win10 s0 Ep 19/53 lr 0.0164 UNSCHARF test 28.8%
+    win10 s0 Ep 20/53 lr 0.0154 UNSCHARF test 25.3%
+    win10 s0 Ep 21/53 lr 0.0145 test 81.6%
+    win10 s0 Ep 22/53 lr 0.0136 test 81.2%
+    win10 s0 Ep 23/53 lr 0.0128 test 83.5%
+    win10 s0 Ep 24/53 lr 0.0120 test 82.2%
+    win10 s0 Ep 25/53 lr 0.0113 test 83.3%
+    win10 s0 Ep 26/53 lr 0.0106 test 84.2%
+    win10 s0 Ep 27/53 lr 0.0100 test 82.2%
+    win10 s0 Ep 28/53 lr 0.0094 test 84.7%
+    win10 s0 Ep 29/53 lr 0.0088 test 85.5%
+    win10 s0 Ep 30/53 lr 0.0083 test 85.3%
+    win10 s0 Ep 31/53 lr 0.0078 test 84.4%
+    win10 s0 Ep 32/53 lr 0.0073 test 85.1%
+    win10 s0 Ep 33/53 lr 0.0069 test 85.6%
+    win10 s0 Ep 34/53 lr 0.0065 test 85.5%
+    win10 s0 Ep 35/53 lr 0.0061 test 85.2%
+    win10 s0 Ep 36/53 lr 0.0057 test 85.7%
+    win10 s0 Ep 37/53 lr 0.0054 test 85.0%
+    win10 s0 Ep 38/53 lr 0.0051 test 85.3%
+    win10 s0 Ep 39/53 lr 0.0048 test 87.0%
+    win10 s0 Ep 40/53 lr 0.0045 test 86.0%
+    win10 s0 Ep 41/53 lr 0.0042 test 86.5%
+    win10 s0 Ep 42/53 lr 0.0040 test 86.1%
+    win10 s0 Ep 43/53 lr 0.0037 test 86.7%
+    win10 s0 Ep 44/53 lr 0.0035 test 86.7%
+    win10 s0 Ep 45/53 lr 0.0033 test 86.9%
+    win10 s0 Ep 46/53 lr 0.0031 test 86.8%
+    win10 s0 Ep 47/53 lr 0.0029 test 86.5%
+    win10 s0 Ep 48/53 lr 0.0027 test 86.8%
+    win10 s0 Ep 49/53 lr 0.0026 test 85.0%
+    win10 s0 Ep 50/53 lr 0.0024 test 87.1%
+    win10 s0 Ep 51/53 lr 0.0005 test 87.9%
+    win10 s0 Ep 52/53 lr 0.0005 test 87.9%
+    win10 s0 Ep 53/53 lr 0.0005 test 87.7%
+[01:32] FERTIG win10 s0: Test 87.73% (24.3 min)
+[01:32] Start win30 Seed 0
+    win30 s0 Ep 1/73 lr 0.0500 test 60.0%
+    win30 s0 Ep 2/73 lr 0.0470 test 60.9%
+    win30 s0 Ep 3/73 lr 0.0442 test 68.3%
+    win30 s0 Ep 4/73 lr 0.0415 test 69.2%
+    win30 s0 Ep 5/73 lr 0.0390 test 70.5%
+    win30 s0 Ep 6/73 lr 0.0367 test 77.0%
+    win30 s0 Ep 7/73 lr 0.0345 test 75.1%
+    win30 s0 Ep 8/73 lr 0.0324 test 78.6%
+    win30 s0 Ep 9/73 lr 0.0305 test 74.9%
+    win30 s0 Ep 10/73 lr 0.0286 test 81.2%
+    win30 s0 Ep 11/73 lr 0.0269 test 77.2%
+    win30 s0 Ep 12/73 lr 0.0253 test 80.5%
+    win30 s0 Ep 13/73 lr 0.0238 test 81.9%
+    win30 s0 Ep 14/73 lr 0.0224 test 79.9%
+    win30 s0 Ep 15/73 lr 0.0210 test 82.1%
+    win30 s0 Ep 16/73 lr 0.0198 test 80.4%
+    win30 s0 Ep 17/73 lr 0.0186 test 82.6%
+    win30 s0 Ep 18/73 lr 0.0175 test 82.2%
+    win30 s0 Ep 19/73 lr 0.0164 test 81.7%
+    win30 s0 Ep 20/73 lr 0.0154 test 81.8%
+    win30 s0 Ep 21/73 lr 0.0145 test 82.2%
+    win30 s0 Ep 22/73 lr 0.0136 test 85.2%
+    win30 s0 Ep 23/73 lr 0.0128 test 85.2%
+    win30 s0 Ep 24/73 lr 0.0120 test 83.2%
+    win30 s0 Ep 25/73 lr 0.0113 test 84.3%
+    win30 s0 Ep 26/73 lr 0.0106 test 85.4%
+    win30 s0 Ep 27/73 lr 0.0100 test 80.2%
+    win30 s0 Ep 28/73 lr 0.0094 test 84.2%
+    win30 s0 Ep 29/73 lr 0.0088 test 86.2%
+    win30 s0 Ep 30/73 lr 0.0083 test 85.6%
+    win30 s0 Ep 31/73 lr 0.0078 UNSCHARF test 44.3%
+    win30 s0 Ep 32/73 lr 0.0073 UNSCHARF test 32.7%
+    win30 s0 Ep 33/73 lr 0.0069 UNSCHARF test 38.0%
+    win30 s0 Ep 34/73 lr 0.0065 UNSCHARF test 22.8%
+    win30 s0 Ep 35/73 lr 0.0061 UNSCHARF test 19.8%
+    win30 s0 Ep 36/73 lr 0.0057 UNSCHARF test 26.4%
+    win30 s0 Ep 37/73 lr 0.0054 UNSCHARF test 34.5%
+    win30 s0 Ep 38/73 lr 0.0051 UNSCHARF test 36.6%
+    win30 s0 Ep 39/73 lr 0.0048 UNSCHARF test 33.9%
+    win30 s0 Ep 40/73 lr 0.0045 UNSCHARF test 21.7%
+    win30 s0 Ep 41/73 lr 0.0042 test 85.4%
+    win30 s0 Ep 42/73 lr 0.0040 test 86.2%
+    win30 s0 Ep 43/73 lr 0.0037 test 86.6%
+    win30 s0 Ep 44/73 lr 0.0035 test 87.0%
+    win30 s0 Ep 45/73 lr 0.0033 test 87.1%
+    win30 s0 Ep 46/73 lr 0.0031 test 87.9%
+    win30 s0 Ep 47/73 lr 0.0029 test 86.7%
+    win30 s0 Ep 48/73 lr 0.0027 test 87.2%
+    win30 s0 Ep 49/73 lr 0.0026 test 85.9%
+    win30 s0 Ep 50/73 lr 0.0024 test 87.4%
+    win30 s0 Ep 51/73 lr 0.0023 test 87.4%
+    win30 s0 Ep 52/73 lr 0.0021 test 87.5%
+    win30 s0 Ep 53/73 lr 0.0020 test 87.7%
+    win30 s0 Ep 54/73 lr 0.0019 test 87.5%
+    win30 s0 Ep 55/73 lr 0.0018 test 88.1%
+    win30 s0 Ep 56/73 lr 0.0017 test 87.7%
+    win30 s0 Ep 57/73 lr 0.0016 test 88.1%
+    win30 s0 Ep 58/73 lr 0.0015 test 87.7%
+    win30 s0 Ep 59/73 lr 0.0014 test 87.8%
+    win30 s0 Ep 60/73 lr 0.0013 test 88.1%
+    win30 s0 Ep 61/73 lr 0.0012 test 88.1%
+    win30 s0 Ep 62/73 lr 0.0011 test 88.0%
+    win30 s0 Ep 63/73 lr 0.0011 test 87.8%
+    win30 s0 Ep 64/73 lr 0.0010 test 88.2%
+    win30 s0 Ep 65/73 lr 0.0010 test 88.0%
+    win30 s0 Ep 66/73 lr 0.0009 test 88.1%
+    win30 s0 Ep 67/73 lr 0.0008 test 88.2%
+    win30 s0 Ep 68/73 lr 0.0008 test 87.8%
+    win30 s0 Ep 69/73 lr 0.0007 test 87.8%
+    win30 s0 Ep 70/73 lr 0.0007 test 88.1%
+    win30 s0 Ep 71/73 lr 0.0005 test 88.1%
+    win30 s0 Ep 72/73 lr 0.0005 test 88.0%
+    win30 s0 Ep 73/73 lr 0.0005 test 88.1%
+[02:05] FERTIG win30 s0: Test 88.15% (33.1 min)
+[02:05] Start def0 Seed 1
+    def0 s1 Ep 1/33 lr 0.0500 test 50.1%
+    def0 s1 Ep 2/33 lr 0.0470 test 64.1%
+    def0 s1 Ep 3/33 lr 0.0442 test 70.8%
+    def0 s1 Ep 4/33 lr 0.0415 test 70.3%
+    def0 s1 Ep 5/33 lr 0.0390 test 74.9%
+    def0 s1 Ep 6/33 lr 0.0367 test 69.2%
+    def0 s1 Ep 7/33 lr 0.0345 test 78.6%
+    def0 s1 Ep 8/33 lr 0.0324 test 71.5%
+    def0 s1 Ep 9/33 lr 0.0305 test 78.0%
+    def0 s1 Ep 10/33 lr 0.0286 test 78.3%
+    def0 s1 Ep 11/33 lr 0.0269 test 79.5%
+    def0 s1 Ep 12/33 lr 0.0253 test 80.8%
+    def0 s1 Ep 13/33 lr 0.0238 test 82.6%
+    def0 s1 Ep 14/33 lr 0.0224 test 81.8%
+    def0 s1 Ep 15/33 lr 0.0210 test 81.8%
+    def0 s1 Ep 16/33 lr 0.0198 test 78.5%
+    def0 s1 Ep 17/33 lr 0.0186 test 81.8%
+    def0 s1 Ep 18/33 lr 0.0175 test 84.3%
+    def0 s1 Ep 19/33 lr 0.0164 test 82.1%
+    def0 s1 Ep 20/33 lr 0.0154 test 82.4%
+    def0 s1 Ep 21/33 lr 0.0145 test 83.7%
+    def0 s1 Ep 22/33 lr 0.0136 test 78.7%
+    def0 s1 Ep 23/33 lr 0.0128 test 83.6%
+    def0 s1 Ep 24/33 lr 0.0120 test 83.1%
+    def0 s1 Ep 25/33 lr 0.0113 test 84.7%
+    def0 s1 Ep 26/33 lr 0.0106 test 82.1%
+    def0 s1 Ep 27/33 lr 0.0100 test 84.2%
+    def0 s1 Ep 28/33 lr 0.0094 test 85.5%
+    def0 s1 Ep 29/33 lr 0.0088 test 85.9%
+    def0 s1 Ep 30/33 lr 0.0083 test 85.4%
+    def0 s1 Ep 31/33 lr 0.0005 test 87.9%
+    def0 s1 Ep 32/33 lr 0.0005 test 88.0%
+    def0 s1 Ep 33/33 lr 0.0005 test 88.0%
+[02:20] FERTIG def0 s1: Test 87.98% (15.0 min)
+[02:20] Start def10 Seed 1
+    def10 s1 Ep 1/43 lr 0.0500 UNSCHARF test 27.5%
+    def10 s1 Ep 2/43 lr 0.0470 UNSCHARF test 26.4%
+    def10 s1 Ep 3/43 lr 0.0442 UNSCHARF test 18.3%
+    def10 s1 Ep 4/43 lr 0.0415 UNSCHARF test 33.5%
+    def10 s1 Ep 5/43 lr 0.0390 UNSCHARF test 19.6%
+    def10 s1 Ep 6/43 lr 0.0367 UNSCHARF test 34.7%
+    def10 s1 Ep 7/43 lr 0.0345 UNSCHARF test 27.1%
+    def10 s1 Ep 8/43 lr 0.0324 UNSCHARF test 25.7%
+    def10 s1 Ep 9/43 lr 0.0305 UNSCHARF test 30.1%
+    def10 s1 Ep 10/43 lr 0.0286 UNSCHARF test 27.6%
+    def10 s1 Ep 11/43 lr 0.0269 test 71.4%
+    def10 s1 Ep 12/43 lr 0.0253 test 74.6%
+    def10 s1 Ep 13/43 lr 0.0238 test 72.2%
+    def10 s1 Ep 14/43 lr 0.0224 test 76.5%
+    def10 s1 Ep 15/43 lr 0.0210 test 74.8%
+    def10 s1 Ep 16/43 lr 0.0198 test 77.3%
+    def10 s1 Ep 17/43 lr 0.0186 test 77.2%
+    def10 s1 Ep 18/43 lr 0.0175 test 80.5%
+    def10 s1 Ep 19/43 lr 0.0164 test 80.0%
+    def10 s1 Ep 20/43 lr 0.0154 test 80.9%
+    def10 s1 Ep 21/43 lr 0.0145 test 79.2%
+    def10 s1 Ep 22/43 lr 0.0136 test 81.0%
+    def10 s1 Ep 23/43 lr 0.0128 test 82.3%
+    def10 s1 Ep 24/43 lr 0.0120 test 81.2%
+    def10 s1 Ep 25/43 lr 0.0113 test 83.4%
+    def10 s1 Ep 26/43 lr 0.0106 test 82.5%
+    def10 s1 Ep 27/43 lr 0.0100 test 83.2%
+    def10 s1 Ep 28/43 lr 0.0094 test 83.9%
+    def10 s1 Ep 29/43 lr 0.0088 test 83.4%
+    def10 s1 Ep 30/43 lr 0.0083 test 84.7%
+    def10 s1 Ep 31/43 lr 0.0078 test 84.0%
+    def10 s1 Ep 32/43 lr 0.0073 test 84.6%
+    def10 s1 Ep 33/43 lr 0.0069 test 83.9%
+    def10 s1 Ep 34/43 lr 0.0065 test 84.1%
+    def10 s1 Ep 35/43 lr 0.0061 test 84.2%
+    def10 s1 Ep 36/43 lr 0.0057 test 84.9%
+    def10 s1 Ep 37/43 lr 0.0054 test 85.6%
+    def10 s1 Ep 38/43 lr 0.0051 test 85.7%
+    def10 s1 Ep 39/43 lr 0.0048 test 85.9%
+    def10 s1 Ep 40/43 lr 0.0045 test 86.4%
+    def10 s1 Ep 41/43 lr 0.0005 test 87.1%
+    def10 s1 Ep 42/43 lr 0.0005 test 87.4%
+    def10 s1 Ep 43/43 lr 0.0005 test 87.2%
+[02:39] FERTIG def10 s1: Test 87.19% (19.6 min)
+[02:39] Start def20 Seed 1
+    def20 s1 Ep 1/53 lr 0.0500 UNSCHARF test 27.5%
+    def20 s1 Ep 2/53 lr 0.0470 UNSCHARF test 26.4%
+    def20 s1 Ep 3/53 lr 0.0442 UNSCHARF test 18.3%
+    def20 s1 Ep 4/53 lr 0.0415 UNSCHARF test 33.5%
+    def20 s1 Ep 5/53 lr 0.0390 UNSCHARF test 19.6%
+    def20 s1 Ep 6/53 lr 0.0367 UNSCHARF test 34.7%
+    def20 s1 Ep 7/53 lr 0.0345 UNSCHARF test 27.1%
+    def20 s1 Ep 8/53 lr 0.0324 UNSCHARF test 25.7%
+    def20 s1 Ep 9/53 lr 0.0305 UNSCHARF test 30.1%
+    def20 s1 Ep 10/53 lr 0.0286 UNSCHARF test 27.6%
+    def20 s1 Ep 11/53 lr 0.0269 UNSCHARF test 28.5%
+    def20 s1 Ep 12/53 lr 0.0253 UNSCHARF test 28.3%
+    def20 s1 Ep 13/53 lr 0.0238 UNSCHARF test 32.7%
+    def20 s1 Ep 14/53 lr 0.0224 UNSCHARF test 26.6%
+    def20 s1 Ep 15/53 lr 0.0210 UNSCHARF test 29.4%
+    def20 s1 Ep 16/53 lr 0.0198 UNSCHARF test 29.9%
+    def20 s1 Ep 17/53 lr 0.0186 UNSCHARF test 34.2%
+    def20 s1 Ep 18/53 lr 0.0175 UNSCHARF test 28.9%
+    def20 s1 Ep 19/53 lr 0.0164 UNSCHARF test 34.8%
+    def20 s1 Ep 20/53 lr 0.0154 UNSCHARF test 39.4%
+    def20 s1 Ep 21/53 lr 0.0145 test 68.9%
+    def20 s1 Ep 22/53 lr 0.0136 test 76.4%
+    def20 s1 Ep 23/53 lr 0.0128 test 76.8%
+    def20 s1 Ep 24/53 lr 0.0120 test 77.8%
+    def20 s1 Ep 25/53 lr 0.0113 test 79.4%
+    def20 s1 Ep 26/53 lr 0.0106 test 75.9%
+    def20 s1 Ep 27/53 lr 0.0100 test 76.3%
+    def20 s1 Ep 28/53 lr 0.0094 test 80.6%
+    def20 s1 Ep 29/53 lr 0.0088 test 79.9%
+    def20 s1 Ep 30/53 lr 0.0083 test 81.6%
+    def20 s1 Ep 31/53 lr 0.0078 test 80.9%
+    def20 s1 Ep 32/53 lr 0.0073 test 83.1%
+    def20 s1 Ep 33/53 lr 0.0069 test 80.1%
+    def20 s1 Ep 34/53 lr 0.0065 test 82.8%
+    def20 s1 Ep 35/53 lr 0.0061 test 83.0%
+    def20 s1 Ep 36/53 lr 0.0057 test 83.2%
+    def20 s1 Ep 37/53 lr 0.0054 test 84.0%
+    def20 s1 Ep 38/53 lr 0.0051 test 83.2%
+    def20 s1 Ep 39/53 lr 0.0048 test 84.5%
+    def20 s1 Ep 40/53 lr 0.0045 test 84.8%
+    def20 s1 Ep 41/53 lr 0.0042 test 84.8%
+    def20 s1 Ep 42/53 lr 0.0040 test 85.0%
+    def20 s1 Ep 43/53 lr 0.0037 test 84.5%
+    def20 s1 Ep 44/53 lr 0.0035 test 85.2%
+    def20 s1 Ep 45/53 lr 0.0033 test 85.4%
+    def20 s1 Ep 46/53 lr 0.0031 test 85.6%
+    def20 s1 Ep 47/53 lr 0.0029 test 85.2%
+    def20 s1 Ep 48/53 lr 0.0027 test 83.2%
+    def20 s1 Ep 49/53 lr 0.0026 test 85.4%
+    def20 s1 Ep 50/53 lr 0.0024 test 85.7%
+    def20 s1 Ep 51/53 lr 0.0005 test 86.3%
+    def20 s1 Ep 52/53 lr 0.0005 test 86.2%
+    def20 s1 Ep 53/53 lr 0.0005 test 86.1%
+[03:03] FERTIG def20 s1: Test 86.05% (23.9 min)
+[03:03] Start def40 Seed 1
+    def40 s1 Ep 1/73 lr 0.0500 UNSCHARF test 27.5%
+    def40 s1 Ep 2/73 lr 0.0470 UNSCHARF test 26.4%
+    def40 s1 Ep 3/73 lr 0.0442 UNSCHARF test 18.3%
+    def40 s1 Ep 4/73 lr 0.0415 UNSCHARF test 33.5%
+    def40 s1 Ep 5/73 lr 0.0390 UNSCHARF test 19.6%
+    def40 s1 Ep 6/73 lr 0.0367 UNSCHARF test 34.7%
+    def40 s1 Ep 7/73 lr 0.0345 UNSCHARF test 27.1%
+    def40 s1 Ep 8/73 lr 0.0324 UNSCHARF test 25.7%
+    def40 s1 Ep 9/73 lr 0.0305 UNSCHARF test 30.1%
+    def40 s1 Ep 10/73 lr 0.0286 UNSCHARF test 27.6%
+    def40 s1 Ep 11/73 lr 0.0269 UNSCHARF test 28.5%
+    def40 s1 Ep 12/73 lr 0.0253 UNSCHARF test 28.3%
+    def40 s1 Ep 13/73 lr 0.0238 UNSCHARF test 32.7%
+    def40 s1 Ep 14/73 lr 0.0224 UNSCHARF test 26.6%
+    def40 s1 Ep 15/73 lr 0.0210 UNSCHARF test 29.4%
+    def40 s1 Ep 16/73 lr 0.0198 UNSCHARF test 29.9%
+    def40 s1 Ep 17/73 lr 0.0186 UNSCHARF test 34.2%
+    def40 s1 Ep 18/73 lr 0.0175 UNSCHARF test 28.9%
+    def40 s1 Ep 19/73 lr 0.0164 UNSCHARF test 34.8%
+    def40 s1 Ep 20/73 lr 0.0154 UNSCHARF test 39.4%
+    def40 s1 Ep 21/73 lr 0.0145 UNSCHARF test 31.7%
+    def40 s1 Ep 22/73 lr 0.0136 UNSCHARF test 30.4%
+    def40 s1 Ep 23/73 lr 0.0128 UNSCHARF test 28.2%
+    def40 s1 Ep 24/73 lr 0.0120 UNSCHARF test 34.2%
+    def40 s1 Ep 25/73 lr 0.0113 UNSCHARF test 28.8%
+    def40 s1 Ep 26/73 lr 0.0106 UNSCHARF test 31.1%
+    def40 s1 Ep 27/73 lr 0.0100 UNSCHARF test 34.5%
+    def40 s1 Ep 28/73 lr 0.0094 UNSCHARF test 35.3%
+    def40 s1 Ep 29/73 lr 0.0088 UNSCHARF test 28.9%
+    def40 s1 Ep 30/73 lr 0.0083 UNSCHARF test 29.3%
+    def40 s1 Ep 31/73 lr 0.0078 UNSCHARF test 34.2%
+    def40 s1 Ep 32/73 lr 0.0073 UNSCHARF test 30.5%
+    def40 s1 Ep 33/73 lr 0.0069 UNSCHARF test 31.3%
+    def40 s1 Ep 34/73 lr 0.0065 UNSCHARF test 32.4%
+    def40 s1 Ep 35/73 lr 0.0061 UNSCHARF test 31.2%
+    def40 s1 Ep 36/73 lr 0.0057 UNSCHARF test 29.5%
+    def40 s1 Ep 37/73 lr 0.0054 UNSCHARF test 33.0%
+    def40 s1 Ep 38/73 lr 0.0051 UNSCHARF test 35.8%
+    def40 s1 Ep 39/73 lr 0.0048 UNSCHARF test 29.5%
+    def40 s1 Ep 40/73 lr 0.0045 UNSCHARF test 32.5%
+    def40 s1 Ep 41/73 lr 0.0042 test 77.3%
+    def40 s1 Ep 42/73 lr 0.0040 test 77.7%
+    def40 s1 Ep 43/73 lr 0.0037 test 78.3%
+    def40 s1 Ep 44/73 lr 0.0035 test 78.7%
+    def40 s1 Ep 45/73 lr 0.0033 test 78.7%
+    def40 s1 Ep 46/73 lr 0.0031 test 80.0%
+    def40 s1 Ep 47/73 lr 0.0029 test 80.5%
+    def40 s1 Ep 48/73 lr 0.0027 test 79.7%
+    def40 s1 Ep 49/73 lr 0.0026 test 81.2%
+    def40 s1 Ep 50/73 lr 0.0024 test 81.3%
+    def40 s1 Ep 51/73 lr 0.0023 test 81.6%
+    def40 s1 Ep 52/73 lr 0.0021 test 81.5%
+    def40 s1 Ep 53/73 lr 0.0020 test 81.3%
+    def40 s1 Ep 54/73 lr 0.0019 test 82.3%
+    def40 s1 Ep 55/73 lr 0.0018 test 82.0%
+    def40 s1 Ep 56/73 lr 0.0017 test 82.3%
+    def40 s1 Ep 57/73 lr 0.0016 test 82.4%
+    def40 s1 Ep 58/73 lr 0.0015 test 82.5%
+    def40 s1 Ep 59/73 lr 0.0014 test 82.9%
+    def40 s1 Ep 60/73 lr 0.0013 test 82.9%
+    def40 s1 Ep 61/73 lr 0.0012 test 82.9%
+    def40 s1 Ep 62/73 lr 0.0011 test 83.3%
+    def40 s1 Ep 63/73 lr 0.0011 test 83.0%
+    def40 s1 Ep 64/73 lr 0.0010 test 83.1%
+    def40 s1 Ep 65/73 lr 0.0010 test 83.6%
+    def40 s1 Ep 66/73 lr 0.0009 test 83.4%
+    def40 s1 Ep 67/73 lr 0.0008 test 83.7%
+    def40 s1 Ep 68/73 lr 0.0008 test 83.5%
+    def40 s1 Ep 69/73 lr 0.0007 test 83.4%
+    def40 s1 Ep 70/73 lr 0.0007 test 83.6%
+    def40 s1 Ep 71/73 lr 0.0005 test 83.6%
+    def40 s1 Ep 72/73 lr 0.0005 test 83.7%
+    def40 s1 Ep 73/73 lr 0.0005 test 83.9%
+[03:36] FERTIG def40 s1: Test 83.90% (33.2 min)
+[03:36] Start def5 Seed 1
+    def5 s1 Ep 1/38 lr 0.0500 UNSCHARF test 27.5%
+    def5 s1 Ep 2/38 lr 0.0470 UNSCHARF test 26.4%
+    def5 s1 Ep 3/38 lr 0.0442 UNSCHARF test 18.3%
+    def5 s1 Ep 4/38 lr 0.0415 UNSCHARF test 33.5%
+    def5 s1 Ep 5/38 lr 0.0390 UNSCHARF test 19.6%
+    def5 s1 Ep 6/38 lr 0.0367 test 63.9%
+    def5 s1 Ep 7/38 lr 0.0345 test 72.4%
+    def5 s1 Ep 8/38 lr 0.0324 test 64.1%
+    def5 s1 Ep 9/38 lr 0.0305 test 72.7%
+    def5 s1 Ep 10/38 lr 0.0286 test 75.3%
+    def5 s1 Ep 11/38 lr 0.0269 test 76.1%
+    def5 s1 Ep 12/38 lr 0.0253 test 79.0%
+    def5 s1 Ep 13/38 lr 0.0238 test 78.5%
+    def5 s1 Ep 14/38 lr 0.0224 test 80.8%
+    def5 s1 Ep 15/38 lr 0.0210 test 76.7%
+    def5 s1 Ep 16/38 lr 0.0198 test 80.2%
+    def5 s1 Ep 17/38 lr 0.0186 test 79.6%
+    def5 s1 Ep 18/38 lr 0.0175 test 81.4%
+    def5 s1 Ep 19/38 lr 0.0164 test 82.0%
+    def5 s1 Ep 20/38 lr 0.0154 test 82.7%
+    def5 s1 Ep 21/38 lr 0.0145 test 81.9%
+    def5 s1 Ep 22/38 lr 0.0136 test 82.5%
+    def5 s1 Ep 23/38 lr 0.0128 test 82.3%
+    def5 s1 Ep 24/38 lr 0.0120 test 83.9%
+    def5 s1 Ep 25/38 lr 0.0113 test 84.7%
+    def5 s1 Ep 26/38 lr 0.0106 test 81.6%
+    def5 s1 Ep 27/38 lr 0.0100 test 82.1%
+    def5 s1 Ep 28/38 lr 0.0094 test 85.4%
+    def5 s1 Ep 29/38 lr 0.0088 test 85.6%
+    def5 s1 Ep 30/38 lr 0.0083 test 83.8%
+    def5 s1 Ep 31/38 lr 0.0078 test 83.5%
+    def5 s1 Ep 32/38 lr 0.0073 test 85.3%
+    def5 s1 Ep 33/38 lr 0.0069 test 84.7%
+    def5 s1 Ep 34/38 lr 0.0065 test 85.6%
+    def5 s1 Ep 35/38 lr 0.0061 test 84.0%
+    def5 s1 Ep 36/38 lr 0.0005 test 87.3%
+    def5 s1 Ep 37/38 lr 0.0005 test 87.2%
+    def5 s1 Ep 38/38 lr 0.0005 test 87.5%
+[03:54] FERTIG def5 s1: Test 87.49% (17.2 min)
+[03:54] Start def30 Seed 1
+    def30 s1 Ep 1/63 lr 0.0500 UNSCHARF test 27.5%
+    def30 s1 Ep 2/63 lr 0.0470 UNSCHARF test 26.4%
+    def30 s1 Ep 3/63 lr 0.0442 UNSCHARF test 18.3%
+    def30 s1 Ep 4/63 lr 0.0415 UNSCHARF test 33.5%
+    def30 s1 Ep 5/63 lr 0.0390 UNSCHARF test 19.6%
+    def30 s1 Ep 6/63 lr 0.0367 UNSCHARF test 34.7%
+    def30 s1 Ep 7/63 lr 0.0345 UNSCHARF test 27.1%
+    def30 s1 Ep 8/63 lr 0.0324 UNSCHARF test 25.7%
+    def30 s1 Ep 9/63 lr 0.0305 UNSCHARF test 30.1%
+    def30 s1 Ep 10/63 lr 0.0286 UNSCHARF test 27.6%
+    def30 s1 Ep 11/63 lr 0.0269 UNSCHARF test 28.5%
+    def30 s1 Ep 12/63 lr 0.0253 UNSCHARF test 28.3%
+    def30 s1 Ep 13/63 lr 0.0238 UNSCHARF test 32.7%
+    def30 s1 Ep 14/63 lr 0.0224 UNSCHARF test 26.6%
+    def30 s1 Ep 15/63 lr 0.0210 UNSCHARF test 29.4%
+    def30 s1 Ep 16/63 lr 0.0198 UNSCHARF test 29.9%
+    def30 s1 Ep 17/63 lr 0.0186 UNSCHARF test 34.2%
+    def30 s1 Ep 18/63 lr 0.0175 UNSCHARF test 28.9%
+    def30 s1 Ep 19/63 lr 0.0164 UNSCHARF test 34.8%
+    def30 s1 Ep 20/63 lr 0.0154 UNSCHARF test 39.4%
+    def30 s1 Ep 21/63 lr 0.0145 UNSCHARF test 31.7%
+    def30 s1 Ep 22/63 lr 0.0136 UNSCHARF test 30.4%
+    def30 s1 Ep 23/63 lr 0.0128 UNSCHARF test 28.2%
+    def30 s1 Ep 24/63 lr 0.0120 UNSCHARF test 34.2%
+    def30 s1 Ep 25/63 lr 0.0113 UNSCHARF test 28.8%
+    def30 s1 Ep 26/63 lr 0.0106 UNSCHARF test 31.1%
+    def30 s1 Ep 27/63 lr 0.0100 UNSCHARF test 34.5%
+    def30 s1 Ep 28/63 lr 0.0094 UNSCHARF test 35.3%
+    def30 s1 Ep 29/63 lr 0.0088 UNSCHARF test 28.9%
+    def30 s1 Ep 30/63 lr 0.0083 UNSCHARF test 29.3%
+    def30 s1 Ep 31/63 lr 0.0078 test 75.3%
+    def30 s1 Ep 32/63 lr 0.0073 test 77.6%
+    def30 s1 Ep 33/63 lr 0.0069 test 77.9%
+    def30 s1 Ep 34/63 lr 0.0065 test 78.5%
+    def30 s1 Ep 35/63 lr 0.0061 test 78.5%
+    def30 s1 Ep 36/63 lr 0.0057 test 79.5%
+    def30 s1 Ep 37/63 lr 0.0054 test 80.2%
+    def30 s1 Ep 38/63 lr 0.0051 test 79.8%
+    def30 s1 Ep 39/63 lr 0.0048 test 81.5%
+    def30 s1 Ep 40/63 lr 0.0045 test 81.3%
+    def30 s1 Ep 41/63 lr 0.0042 test 81.7%
+    def30 s1 Ep 42/63 lr 0.0040 test 82.6%
+    def30 s1 Ep 43/63 lr 0.0037 test 82.2%
+    def30 s1 Ep 44/63 lr 0.0035 test 82.6%
+    def30 s1 Ep 45/63 lr 0.0033 test 83.0%
+    def30 s1 Ep 46/63 lr 0.0031 test 83.0%
+    def30 s1 Ep 47/63 lr 0.0029 test 83.3%
+    def30 s1 Ep 48/63 lr 0.0027 test 81.9%
+    def30 s1 Ep 49/63 lr 0.0026 test 83.7%
+    def30 s1 Ep 50/63 lr 0.0024 test 83.9%
+    def30 s1 Ep 51/63 lr 0.0023 test 83.8%
+    def30 s1 Ep 52/63 lr 0.0021 test 84.1%
+    def30 s1 Ep 53/63 lr 0.0020 test 84.1%
+    def30 s1 Ep 54/63 lr 0.0019 test 84.6%
+    def30 s1 Ep 55/63 lr 0.0018 test 84.3%
+    def30 s1 Ep 56/63 lr 0.0017 test 84.3%
+    def30 s1 Ep 57/63 lr 0.0016 test 84.6%
+    def30 s1 Ep 58/63 lr 0.0015 test 84.4%
+    def30 s1 Ep 59/63 lr 0.0014 test 84.7%
+    def30 s1 Ep 60/63 lr 0.0013 test 84.9%
+    def30 s1 Ep 61/63 lr 0.0005 test 85.3%
+    def30 s1 Ep 62/63 lr 0.0005 test 85.3%
+    def30 s1 Ep 63/63 lr 0.0005 test 85.3%
+[04:22] FERTIG def30 s1: Test 85.26% (28.3 min)
+[04:22] Start def40_reset Seed 1
+    def40_reset s1 Ep 1/73 lr 0.0500 UNSCHARF test 27.5%
+    def40_reset s1 Ep 2/73 lr 0.0470 UNSCHARF test 26.4%
+    def40_reset s1 Ep 3/73 lr 0.0442 UNSCHARF test 18.3%
+    def40_reset s1 Ep 4/73 lr 0.0415 UNSCHARF test 33.5%
+    def40_reset s1 Ep 5/73 lr 0.0390 UNSCHARF test 19.6%
+    def40_reset s1 Ep 6/73 lr 0.0367 UNSCHARF test 34.7%
+    def40_reset s1 Ep 7/73 lr 0.0345 UNSCHARF test 27.1%
+    def40_reset s1 Ep 8/73 lr 0.0324 UNSCHARF test 25.7%
+    def40_reset s1 Ep 9/73 lr 0.0305 UNSCHARF test 30.1%
+    def40_reset s1 Ep 10/73 lr 0.0286 UNSCHARF test 27.6%
+    def40_reset s1 Ep 11/73 lr 0.0269 UNSCHARF test 28.5%
+    def40_reset s1 Ep 12/73 lr 0.0253 UNSCHARF test 28.3%
+    def40_reset s1 Ep 13/73 lr 0.0238 UNSCHARF test 32.7%
+    def40_reset s1 Ep 14/73 lr 0.0224 UNSCHARF test 26.6%
+    def40_reset s1 Ep 15/73 lr 0.0210 UNSCHARF test 29.4%
+    def40_reset s1 Ep 16/73 lr 0.0198 UNSCHARF test 29.9%
+    def40_reset s1 Ep 17/73 lr 0.0186 UNSCHARF test 34.2%
+    def40_reset s1 Ep 18/73 lr 0.0175 UNSCHARF test 28.9%
+    def40_reset s1 Ep 19/73 lr 0.0164 UNSCHARF test 34.8%
+    def40_reset s1 Ep 20/73 lr 0.0154 UNSCHARF test 39.4%
+    def40_reset s1 Ep 21/73 lr 0.0145 UNSCHARF test 31.7%
+    def40_reset s1 Ep 22/73 lr 0.0136 UNSCHARF test 30.4%
+    def40_reset s1 Ep 23/73 lr 0.0128 UNSCHARF test 28.2%
+    def40_reset s1 Ep 24/73 lr 0.0120 UNSCHARF test 34.2%
+    def40_reset s1 Ep 25/73 lr 0.0113 UNSCHARF test 28.8%
+    def40_reset s1 Ep 26/73 lr 0.0106 UNSCHARF test 31.1%
+    def40_reset s1 Ep 27/73 lr 0.0100 UNSCHARF test 34.5%
+    def40_reset s1 Ep 28/73 lr 0.0094 UNSCHARF test 35.3%
+    def40_reset s1 Ep 29/73 lr 0.0088 UNSCHARF test 28.9%
+    def40_reset s1 Ep 30/73 lr 0.0083 UNSCHARF test 29.3%
+    def40_reset s1 Ep 31/73 lr 0.0078 UNSCHARF test 34.2%
+    def40_reset s1 Ep 32/73 lr 0.0073 UNSCHARF test 30.5%
+    def40_reset s1 Ep 33/73 lr 0.0069 UNSCHARF test 31.3%
+    def40_reset s1 Ep 34/73 lr 0.0065 UNSCHARF test 32.4%
+    def40_reset s1 Ep 35/73 lr 0.0061 UNSCHARF test 31.2%
+    def40_reset s1 Ep 36/73 lr 0.0057 UNSCHARF test 29.5%
+    def40_reset s1 Ep 37/73 lr 0.0054 UNSCHARF test 33.0%
+    def40_reset s1 Ep 38/73 lr 0.0051 UNSCHARF test 35.8%
+    def40_reset s1 Ep 39/73 lr 0.0048 UNSCHARF test 29.5%
+    def40_reset s1 Ep 40/73 lr 0.0045 UNSCHARF test 32.5%
+    def40_reset s1 Ep 41/73 lr 0.0500 test 69.4%
+    def40_reset s1 Ep 42/73 lr 0.0470 test 69.6%
+    def40_reset s1 Ep 43/73 lr 0.0442 test 69.6%
+    def40_reset s1 Ep 44/73 lr 0.0415 test 74.6%
+    def40_reset s1 Ep 45/73 lr 0.0390 test 81.2%
+    def40_reset s1 Ep 46/73 lr 0.0367 test 79.1%
+    def40_reset s1 Ep 47/73 lr 0.0345 test 79.5%
+    def40_reset s1 Ep 48/73 lr 0.0324 test 79.0%
+    def40_reset s1 Ep 49/73 lr 0.0305 test 79.8%
+    def40_reset s1 Ep 50/73 lr 0.0286 test 81.4%
+    def40_reset s1 Ep 51/73 lr 0.0269 test 81.5%
+    def40_reset s1 Ep 52/73 lr 0.0253 test 82.6%
+    def40_reset s1 Ep 53/73 lr 0.0238 test 83.2%
+    def40_reset s1 Ep 54/73 lr 0.0224 test 82.1%
+    def40_reset s1 Ep 55/73 lr 0.0210 test 84.3%
+    def40_reset s1 Ep 56/73 lr 0.0198 test 84.2%
+    def40_reset s1 Ep 57/73 lr 0.0186 test 82.1%
+    def40_reset s1 Ep 58/73 lr 0.0175 test 78.1%
+    def40_reset s1 Ep 59/73 lr 0.0164 test 84.1%
+    def40_reset s1 Ep 60/73 lr 0.0154 test 83.5%
+    def40_reset s1 Ep 61/73 lr 0.0145 test 84.0%
+    def40_reset s1 Ep 62/73 lr 0.0136 test 86.3%
+    def40_reset s1 Ep 63/73 lr 0.0128 test 86.1%
+    def40_reset s1 Ep 64/73 lr 0.0120 test 86.0%
+    def40_reset s1 Ep 65/73 lr 0.0113 test 86.0%
+    def40_reset s1 Ep 66/73 lr 0.0106 test 85.0%
+    def40_reset s1 Ep 67/73 lr 0.0100 test 85.9%
+    def40_reset s1 Ep 68/73 lr 0.0094 test 85.7%
+    def40_reset s1 Ep 69/73 lr 0.0088 test 87.0%
+    def40_reset s1 Ep 70/73 lr 0.0083 test 86.5%
+    def40_reset s1 Ep 71/73 lr 0.0005 test 88.4%
+    def40_reset s1 Ep 72/73 lr 0.0005 test 88.5%
+    def40_reset s1 Ep 73/73 lr 0.0005 test 88.6%
+[04:55] FERTIG def40_reset s1: Test 88.59% (32.9 min)
+[04:55] Start def20_reset Seed 1
+    def20_reset s1 Ep 1/53 lr 0.0500 UNSCHARF test 27.5%
+    def20_reset s1 Ep 2/53 lr 0.0470 UNSCHARF test 26.4%
+    def20_reset s1 Ep 3/53 lr 0.0442 UNSCHARF test 18.3%
+    def20_reset s1 Ep 4/53 lr 0.0415 UNSCHARF test 33.5%
+    def20_reset s1 Ep 5/53 lr 0.0390 UNSCHARF test 19.6%
+    def20_reset s1 Ep 6/53 lr 0.0367 UNSCHARF test 34.7%
+    def20_reset s1 Ep 7/53 lr 0.0345 UNSCHARF test 27.1%
+    def20_reset s1 Ep 8/53 lr 0.0324 UNSCHARF test 25.7%
+    def20_reset s1 Ep 9/53 lr 0.0305 UNSCHARF test 30.1%
+    def20_reset s1 Ep 10/53 lr 0.0286 UNSCHARF test 27.6%
+    def20_reset s1 Ep 11/53 lr 0.0269 UNSCHARF test 28.5%
+    def20_reset s1 Ep 12/53 lr 0.0253 UNSCHARF test 28.3%
+    def20_reset s1 Ep 13/53 lr 0.0238 UNSCHARF test 32.7%
+    def20_reset s1 Ep 14/53 lr 0.0224 UNSCHARF test 26.6%
+    def20_reset s1 Ep 15/53 lr 0.0210 UNSCHARF test 29.4%
+    def20_reset s1 Ep 16/53 lr 0.0198 UNSCHARF test 29.9%
+    def20_reset s1 Ep 17/53 lr 0.0186 UNSCHARF test 34.2%
+    def20_reset s1 Ep 18/53 lr 0.0175 UNSCHARF test 28.9%
+    def20_reset s1 Ep 19/53 lr 0.0164 UNSCHARF test 34.8%
+    def20_reset s1 Ep 20/53 lr 0.0154 UNSCHARF test 39.4%
+    def20_reset s1 Ep 21/53 lr 0.0500 test 65.0%
+    def20_reset s1 Ep 22/53 lr 0.0470 test 70.5%
+    def20_reset s1 Ep 23/53 lr 0.0442 test 72.3%
+    def20_reset s1 Ep 24/53 lr 0.0415 test 77.0%
+    def20_reset s1 Ep 25/53 lr 0.0390 test 78.4%
+    def20_reset s1 Ep 26/53 lr 0.0367 test 77.2%
+    def20_reset s1 Ep 27/53 lr 0.0345 test 70.8%
+    def20_reset s1 Ep 28/53 lr 0.0324 test 81.1%
+    def20_reset s1 Ep 29/53 lr 0.0305 test 79.1%
+    def20_reset s1 Ep 30/53 lr 0.0286 test 81.3%
+    def20_reset s1 Ep 31/53 lr 0.0269 test 79.2%
+    def20_reset s1 Ep 32/53 lr 0.0253 test 82.8%
+    def20_reset s1 Ep 33/53 lr 0.0238 test 80.4%
+    def20_reset s1 Ep 34/53 lr 0.0224 test 81.6%
+    def20_reset s1 Ep 35/53 lr 0.0210 test 80.8%
+    def20_reset s1 Ep 36/53 lr 0.0198 test 83.6%
+    def20_reset s1 Ep 37/53 lr 0.0186 test 82.9%
+    def20_reset s1 Ep 38/53 lr 0.0175 test 81.5%
+    def20_reset s1 Ep 39/53 lr 0.0164 test 84.6%
+    def20_reset s1 Ep 40/53 lr 0.0154 test 85.4%
+    def20_reset s1 Ep 41/53 lr 0.0145 test 83.3%
+    def20_reset s1 Ep 42/53 lr 0.0136 test 83.7%
+    def20_reset s1 Ep 43/53 lr 0.0128 test 83.9%
+    def20_reset s1 Ep 44/53 lr 0.0120 test 84.8%
+    def20_reset s1 Ep 45/53 lr 0.0113 test 86.3%
+    def20_reset s1 Ep 46/53 lr 0.0106 test 84.2%
+    def20_reset s1 Ep 47/53 lr 0.0100 test 85.8%
+    def20_reset s1 Ep 48/53 lr 0.0094 test 85.0%
+    def20_reset s1 Ep 49/53 lr 0.0088 test 87.1%
+    def20_reset s1 Ep 50/53 lr 0.0083 test 85.1%
+    def20_reset s1 Ep 51/53 lr 0.0005 test 88.2%
+    def20_reset s1 Ep 52/53 lr 0.0005 test 88.1%
+    def20_reset s1 Ep 53/53 lr 0.0005 test 88.3%
+[05:19] FERTIG def20_reset s1: Test 88.27% (23.9 min)
+[05:19] Start def0_const Seed 1
+    def0_const s1 Ep 1/33 lr 0.0500 test 50.1%
+    def0_const s1 Ep 2/33 lr 0.0500 test 63.6%
+    def0_const s1 Ep 3/33 lr 0.0500 test 68.3%
+    def0_const s1 Ep 4/33 lr 0.0500 test 69.4%
+    def0_const s1 Ep 5/33 lr 0.0500 test 72.2%
+    def0_const s1 Ep 6/33 lr 0.0500 test 70.3%
+    def0_const s1 Ep 7/33 lr 0.0500 test 77.5%
+    def0_const s1 Ep 8/33 lr 0.0500 test 68.3%
+    def0_const s1 Ep 9/33 lr 0.0500 test 74.8%
+    def0_const s1 Ep 10/33 lr 0.0500 test 75.5%
+    def0_const s1 Ep 11/33 lr 0.0500 test 77.2%
+    def0_const s1 Ep 12/33 lr 0.0500 test 79.5%
+    def0_const s1 Ep 13/33 lr 0.0500 test 77.2%
+    def0_const s1 Ep 14/33 lr 0.0500 test 79.1%
+    def0_const s1 Ep 15/33 lr 0.0500 test 77.9%
+    def0_const s1 Ep 16/33 lr 0.0500 test 73.4%
+    def0_const s1 Ep 17/33 lr 0.0500 test 78.6%
+    def0_const s1 Ep 18/33 lr 0.0500 test 80.2%
+    def0_const s1 Ep 19/33 lr 0.0500 test 77.6%
+    def0_const s1 Ep 20/33 lr 0.0500 test 77.7%
+    def0_const s1 Ep 21/33 lr 0.0500 test 81.0%
+    def0_const s1 Ep 22/33 lr 0.0500 test 72.3%
+    def0_const s1 Ep 23/33 lr 0.0500 test 81.6%
+    def0_const s1 Ep 24/33 lr 0.0500 test 80.9%
+    def0_const s1 Ep 25/33 lr 0.0500 test 83.3%
+    def0_const s1 Ep 26/33 lr 0.0500 test 75.9%
+    def0_const s1 Ep 27/33 lr 0.0500 test 78.9%
+    def0_const s1 Ep 28/33 lr 0.0500 test 82.5%
+    def0_const s1 Ep 29/33 lr 0.0500 test 83.5%
+    def0_const s1 Ep 30/33 lr 0.0500 test 82.3%
+    def0_const s1 Ep 31/33 lr 0.0005 test 87.0%
+    def0_const s1 Ep 32/33 lr 0.0005 test 87.2%
+    def0_const s1 Ep 33/33 lr 0.0005 test 87.3%
+[05:34] FERTIG def0_const s1: Test 87.32% (14.8 min)
+[05:34] Start def40_const Seed 1
+    def40_const s1 Ep 1/73 lr 0.0500 UNSCHARF test 27.5%
+    def40_const s1 Ep 2/73 lr 0.0500 UNSCHARF test 27.6%
+    def40_const s1 Ep 3/73 lr 0.0500 UNSCHARF test 17.9%
+    def40_const s1 Ep 4/73 lr 0.0500 UNSCHARF test 33.7%
+    def40_const s1 Ep 5/73 lr 0.0500 UNSCHARF test 22.5%
+    def40_const s1 Ep 6/73 lr 0.0500 UNSCHARF test 35.6%
+    def40_const s1 Ep 7/73 lr 0.0500 UNSCHARF test 31.6%
+    def40_const s1 Ep 8/73 lr 0.0500 UNSCHARF test 29.8%
+    def40_const s1 Ep 9/73 lr 0.0500 UNSCHARF test 32.9%
+    def40_const s1 Ep 10/73 lr 0.0500 UNSCHARF test 30.5%
+    def40_const s1 Ep 11/73 lr 0.0500 UNSCHARF test 31.5%
+    def40_const s1 Ep 12/73 lr 0.0500 UNSCHARF test 29.5%
+    def40_const s1 Ep 13/73 lr 0.0500 UNSCHARF test 36.9%
+    def40_const s1 Ep 14/73 lr 0.0500 UNSCHARF test 25.3%
+    def40_const s1 Ep 15/73 lr 0.0500 UNSCHARF test 29.7%
+    def40_const s1 Ep 16/73 lr 0.0500 UNSCHARF test 24.6%
+    def40_const s1 Ep 17/73 lr 0.0500 UNSCHARF test 42.6%
+    def40_const s1 Ep 18/73 lr 0.0500 UNSCHARF test 28.6%
+    def40_const s1 Ep 19/73 lr 0.0500 UNSCHARF test 40.1%
+    def40_const s1 Ep 20/73 lr 0.0500 UNSCHARF test 38.7%
+    def40_const s1 Ep 21/73 lr 0.0500 UNSCHARF test 34.7%
+    def40_const s1 Ep 22/73 lr 0.0500 UNSCHARF test 27.5%
+    def40_const s1 Ep 23/73 lr 0.0500 UNSCHARF test 29.2%
+    def40_const s1 Ep 24/73 lr 0.0500 UNSCHARF test 33.4%
+    def40_const s1 Ep 25/73 lr 0.0500 UNSCHARF test 32.4%
+    def40_const s1 Ep 26/73 lr 0.0500 UNSCHARF test 31.1%
+    def40_const s1 Ep 27/73 lr 0.0500 UNSCHARF test 34.7%
+    def40_const s1 Ep 28/73 lr 0.0500 UNSCHARF test 37.3%
+    def40_const s1 Ep 29/73 lr 0.0500 UNSCHARF test 32.7%
+    def40_const s1 Ep 30/73 lr 0.0500 UNSCHARF test 35.9%
+    def40_const s1 Ep 31/73 lr 0.0500 UNSCHARF test 41.6%
+    def40_const s1 Ep 32/73 lr 0.0500 UNSCHARF test 31.0%
+    def40_const s1 Ep 33/73 lr 0.0500 UNSCHARF test 31.9%
+    def40_const s1 Ep 34/73 lr 0.0500 UNSCHARF test 32.4%
+    def40_const s1 Ep 35/73 lr 0.0500 UNSCHARF test 29.4%
+    def40_const s1 Ep 36/73 lr 0.0500 UNSCHARF test 30.0%
+    def40_const s1 Ep 37/73 lr 0.0500 UNSCHARF test 32.7%
+    def40_const s1 Ep 38/73 lr 0.0500 UNSCHARF test 38.0%
+    def40_const s1 Ep 39/73 lr 0.0500 UNSCHARF test 31.0%
+    def40_const s1 Ep 40/73 lr 0.0500 UNSCHARF test 37.3%
+    def40_const s1 Ep 41/73 lr 0.0500 test 72.4%
+    def40_const s1 Ep 42/73 lr 0.0500 test 74.0%
+    def40_const s1 Ep 43/73 lr 0.0500 test 75.7%
+    def40_const s1 Ep 44/73 lr 0.0500 test 75.0%
+    def40_const s1 Ep 45/73 lr 0.0500 test 78.7%
+    def40_const s1 Ep 46/73 lr 0.0500 test 77.7%
+    def40_const s1 Ep 47/73 lr 0.0500 test 78.4%
+    def40_const s1 Ep 48/73 lr 0.0500 test 75.7%
+    def40_const s1 Ep 49/73 lr 0.0500 test 78.0%
+    def40_const s1 Ep 50/73 lr 0.0500 test 81.5%
+    def40_const s1 Ep 51/73 lr 0.0500 test 77.0%
+    def40_const s1 Ep 52/73 lr 0.0500 test 79.4%
+    def40_const s1 Ep 53/73 lr 0.0500 test 75.9%
+    def40_const s1 Ep 54/73 lr 0.0500 test 82.3%
+    def40_const s1 Ep 55/73 lr 0.0500 test 81.5%
+    def40_const s1 Ep 56/73 lr 0.0500 test 82.2%
+    def40_const s1 Ep 57/73 lr 0.0500 test 74.7%
+    def40_const s1 Ep 58/73 lr 0.0500 test 76.8%
+    def40_const s1 Ep 59/73 lr 0.0500 test 82.4%
+    def40_const s1 Ep 60/73 lr 0.0500 test 80.1%
+    def40_const s1 Ep 61/73 lr 0.0500 test 81.4%
+    def40_const s1 Ep 62/73 lr 0.0500 test 83.0%
+    def40_const s1 Ep 63/73 lr 0.0500 test 82.9%
+    def40_const s1 Ep 64/73 lr 0.0500 test 78.1%
+    def40_const s1 Ep 65/73 lr 0.0500 test 82.2%
+    def40_const s1 Ep 66/73 lr 0.0500 test 83.2%
+    def40_const s1 Ep 67/73 lr 0.0500 test 77.2%
+    def40_const s1 Ep 68/73 lr 0.0500 test 82.0%
+    def40_const s1 Ep 69/73 lr 0.0500 test 82.7%
+    def40_const s1 Ep 70/73 lr 0.0500 test 81.3%
+    def40_const s1 Ep 71/73 lr 0.0005 test 86.9%
+    def40_const s1 Ep 72/73 lr 0.0005 test 87.4%
+    def40_const s1 Ep 73/73 lr 0.0005 test 87.7%
+[06:06] FERTIG def40_const s1: Test 87.66% (32.8 min)
+[06:06] Start def20_const Seed 1
+    def20_const s1 Ep 1/53 lr 0.0500 UNSCHARF test 27.5%
+    def20_const s1 Ep 2/53 lr 0.0500 UNSCHARF test 27.6%
+    def20_const s1 Ep 3/53 lr 0.0500 UNSCHARF test 17.9%
+    def20_const s1 Ep 4/53 lr 0.0500 UNSCHARF test 33.7%
+    def20_const s1 Ep 5/53 lr 0.0500 UNSCHARF test 22.5%
+    def20_const s1 Ep 6/53 lr 0.0500 UNSCHARF test 35.6%
+    def20_const s1 Ep 7/53 lr 0.0500 UNSCHARF test 31.6%
+    def20_const s1 Ep 8/53 lr 0.0500 UNSCHARF test 29.8%
+    def20_const s1 Ep 9/53 lr 0.0500 UNSCHARF test 32.9%
+    def20_const s1 Ep 10/53 lr 0.0500 UNSCHARF test 30.5%
+    def20_const s1 Ep 11/53 lr 0.0500 UNSCHARF test 31.5%
+    def20_const s1 Ep 12/53 lr 0.0500 UNSCHARF test 29.5%
+    def20_const s1 Ep 13/53 lr 0.0500 UNSCHARF test 36.9%
+    def20_const s1 Ep 14/53 lr 0.0500 UNSCHARF test 25.3%
+    def20_const s1 Ep 15/53 lr 0.0500 UNSCHARF test 29.7%
+    def20_const s1 Ep 16/53 lr 0.0500 UNSCHARF test 24.6%
+    def20_const s1 Ep 17/53 lr 0.0500 UNSCHARF test 42.6%
+    def20_const s1 Ep 18/53 lr 0.0500 UNSCHARF test 28.6%
+    def20_const s1 Ep 19/53 lr 0.0500 UNSCHARF test 40.1%
+    def20_const s1 Ep 20/53 lr 0.0500 UNSCHARF test 38.7%
+    def20_const s1 Ep 21/53 lr 0.0500 test 68.5%
+    def20_const s1 Ep 22/53 lr 0.0500 test 73.1%
+    def20_const s1 Ep 23/53 lr 0.0500 test 74.6%
+    def20_const s1 Ep 24/53 lr 0.0500 test 76.2%
+    def20_const s1 Ep 25/53 lr 0.0500 test 76.3%
+    def20_const s1 Ep 26/53 lr 0.0500 test 68.4%
+    def20_const s1 Ep 27/53 lr 0.0500 test 75.5%
+    def20_const s1 Ep 28/53 lr 0.0500 test 79.0%
+    def20_const s1 Ep 29/53 lr 0.0500 test 78.3%
+    def20_const s1 Ep 30/53 lr 0.0500 test 78.5%
+    def20_const s1 Ep 31/53 lr 0.0500 test 75.4%
+    def20_const s1 Ep 32/53 lr 0.0500 test 80.3%
+    def20_const s1 Ep 33/53 lr 0.0500 test 78.8%
+    def20_const s1 Ep 34/53 lr 0.0500 test 76.0%
+    def20_const s1 Ep 35/53 lr 0.0500 test 79.7%
+    def20_const s1 Ep 36/53 lr 0.0500 test 81.0%
+    def20_const s1 Ep 37/53 lr 0.0500 test 77.0%
+    def20_const s1 Ep 38/53 lr 0.0500 test 76.2%
+    def20_const s1 Ep 39/53 lr 0.0500 test 78.9%
+    def20_const s1 Ep 40/53 lr 0.0500 test 81.3%
+    def20_const s1 Ep 41/53 lr 0.0500 test 76.2%
+    def20_const s1 Ep 42/53 lr 0.0500 test 79.8%
+    def20_const s1 Ep 43/53 lr 0.0500 test 72.4%
+    def20_const s1 Ep 44/53 lr 0.0500 test 75.9%
+    def20_const s1 Ep 45/53 lr 0.0500 test 80.7%
+    def20_const s1 Ep 46/53 lr 0.0500 test 78.4%
+    def20_const s1 Ep 47/53 lr 0.0500 test 79.5%
+    def20_const s1 Ep 48/53 lr 0.0500 test 79.1%
+    def20_const s1 Ep 49/53 lr 0.0500 test 78.4%
+    def20_const s1 Ep 50/53 lr 0.0500 test 80.2%
+    def20_const s1 Ep 51/53 lr 0.0005 test 86.5%
+    def20_const s1 Ep 52/53 lr 0.0005 test 87.0%
+    def20_const s1 Ep 53/53 lr 0.0005 test 87.2%
+[06:30] FERTIG def20_const s1: Test 87.18% (24.0 min)
+[06:30] Start win10 Seed 1
+    win10 s1 Ep 1/53 lr 0.0500 test 50.1%
+    win10 s1 Ep 2/53 lr 0.0470 test 64.1%
+    win10 s1 Ep 3/53 lr 0.0442 test 70.8%
+    win10 s1 Ep 4/53 lr 0.0415 test 70.3%
+    win10 s1 Ep 5/53 lr 0.0390 test 74.9%
+    win10 s1 Ep 6/53 lr 0.0367 test 69.2%
+    win10 s1 Ep 7/53 lr 0.0345 test 78.6%
+    win10 s1 Ep 8/53 lr 0.0324 test 71.5%
+    win10 s1 Ep 9/53 lr 0.0305 test 78.0%
+    win10 s1 Ep 10/53 lr 0.0286 test 78.3%
+    win10 s1 Ep 11/53 lr 0.0269 UNSCHARF test 34.4%
+    win10 s1 Ep 12/53 lr 0.0253 UNSCHARF test 32.9%
+    win10 s1 Ep 13/53 lr 0.0238 UNSCHARF test 32.8%
+    win10 s1 Ep 14/53 lr 0.0224 UNSCHARF test 22.3%
+    win10 s1 Ep 15/53 lr 0.0210 UNSCHARF test 38.0%
+    win10 s1 Ep 16/53 lr 0.0198 UNSCHARF test 27.7%
+    win10 s1 Ep 17/53 lr 0.0186 UNSCHARF test 36.8%
+    win10 s1 Ep 18/53 lr 0.0175 UNSCHARF test 31.1%
+    win10 s1 Ep 19/53 lr 0.0164 UNSCHARF test 37.8%
+    win10 s1 Ep 20/53 lr 0.0154 UNSCHARF test 33.7%
+    win10 s1 Ep 21/53 lr 0.0145 test 79.5%
+    win10 s1 Ep 22/53 lr 0.0136 test 80.9%
+    win10 s1 Ep 23/53 lr 0.0128 test 82.6%
+    win10 s1 Ep 24/53 lr 0.0120 test 83.3%
+    win10 s1 Ep 25/53 lr 0.0113 test 83.9%
+    win10 s1 Ep 26/53 lr 0.0106 test 82.7%
+    win10 s1 Ep 27/53 lr 0.0100 test 83.7%
+    win10 s1 Ep 28/53 lr 0.0094 test 85.3%
+    win10 s1 Ep 29/53 lr 0.0088 test 85.4%
+    win10 s1 Ep 30/53 lr 0.0083 test 84.7%
+    win10 s1 Ep 31/53 lr 0.0078 test 83.6%
+    win10 s1 Ep 32/53 lr 0.0073 test 85.6%
+    win10 s1 Ep 33/53 lr 0.0069 test 85.8%
+    win10 s1 Ep 34/53 lr 0.0065 test 85.7%
+    win10 s1 Ep 35/53 lr 0.0061 test 84.6%
+    win10 s1 Ep 36/53 lr 0.0057 test 85.2%
+    win10 s1 Ep 37/53 lr 0.0054 test 85.9%
+    win10 s1 Ep 38/53 lr 0.0051 test 85.3%
+    win10 s1 Ep 39/53 lr 0.0048 test 86.7%
+    win10 s1 Ep 40/53 lr 0.0045 test 87.0%
+    win10 s1 Ep 41/53 lr 0.0042 test 86.2%
+    win10 s1 Ep 42/53 lr 0.0040 test 87.5%
+    win10 s1 Ep 43/53 lr 0.0037 test 86.4%
+    win10 s1 Ep 44/53 lr 0.0035 test 86.4%
+    win10 s1 Ep 45/53 lr 0.0033 test 86.6%
+    win10 s1 Ep 46/53 lr 0.0031 test 86.7%
+    win10 s1 Ep 47/53 lr 0.0029 test 87.3%
+    win10 s1 Ep 48/53 lr 0.0027 test 85.0%
+    win10 s1 Ep 49/53 lr 0.0026 test 87.3%
+    win10 s1 Ep 50/53 lr 0.0024 test 87.9%
+    win10 s1 Ep 51/53 lr 0.0005 test 88.0%
+    win10 s1 Ep 52/53 lr 0.0005 test 88.1%
+    win10 s1 Ep 53/53 lr 0.0005 test 87.9%
+[06:54] FERTIG win10 s1: Test 87.89% (23.8 min)
+[06:54] Start win30 Seed 1
+    win30 s1 Ep 1/73 lr 0.0500 test 50.1%
+    win30 s1 Ep 2/73 lr 0.0470 test 64.1%
+    win30 s1 Ep 3/73 lr 0.0442 test 70.8%
+    win30 s1 Ep 4/73 lr 0.0415 test 70.3%
+    win30 s1 Ep 5/73 lr 0.0390 test 74.9%
+    win30 s1 Ep 6/73 lr 0.0367 test 69.2%
+    win30 s1 Ep 7/73 lr 0.0345 test 78.6%
+    win30 s1 Ep 8/73 lr 0.0324 test 71.5%
+    win30 s1 Ep 9/73 lr 0.0305 test 78.0%
+    win30 s1 Ep 10/73 lr 0.0286 test 78.3%
+    win30 s1 Ep 11/73 lr 0.0269 test 79.5%
+    win30 s1 Ep 12/73 lr 0.0253 test 80.8%
+    win30 s1 Ep 13/73 lr 0.0238 test 82.6%
+    win30 s1 Ep 14/73 lr 0.0224 test 81.8%
+    win30 s1 Ep 15/73 lr 0.0210 test 81.8%
+    win30 s1 Ep 16/73 lr 0.0198 test 78.5%
+    win30 s1 Ep 17/73 lr 0.0186 test 81.8%
+    win30 s1 Ep 18/73 lr 0.0175 test 84.3%
+    win30 s1 Ep 19/73 lr 0.0164 test 82.1%
+    win30 s1 Ep 20/73 lr 0.0154 test 82.4%
+    win30 s1 Ep 21/73 lr 0.0145 test 83.7%
+    win30 s1 Ep 22/73 lr 0.0136 test 78.7%
+    win30 s1 Ep 23/73 lr 0.0128 test 83.6%
+    win30 s1 Ep 24/73 lr 0.0120 test 83.1%
+    win30 s1 Ep 25/73 lr 0.0113 test 84.7%
+    win30 s1 Ep 26/73 lr 0.0106 test 82.1%
+    win30 s1 Ep 27/73 lr 0.0100 test 84.2%
+    win30 s1 Ep 28/73 lr 0.0094 test 85.5%
+    win30 s1 Ep 29/73 lr 0.0088 test 85.9%
+    win30 s1 Ep 30/73 lr 0.0083 test 85.4%
+    win30 s1 Ep 31/73 lr 0.0078 UNSCHARF test 47.8%
+    win30 s1 Ep 32/73 lr 0.0073 UNSCHARF test 41.2%
+    win30 s1 Ep 33/73 lr 0.0069 UNSCHARF test 35.2%
+    win30 s1 Ep 34/73 lr 0.0065 UNSCHARF test 27.7%
+    win30 s1 Ep 35/73 lr 0.0061 UNSCHARF test 27.5%
+    win30 s1 Ep 36/73 lr 0.0057 UNSCHARF test 21.9%
+    win30 s1 Ep 37/73 lr 0.0054 UNSCHARF test 26.1%
+    win30 s1 Ep 38/73 lr 0.0051 UNSCHARF test 25.2%
+    win30 s1 Ep 39/73 lr 0.0048 UNSCHARF test 20.3%
+    win30 s1 Ep 40/73 lr 0.0045 UNSCHARF test 28.8%
+    win30 s1 Ep 41/73 lr 0.0042 test 85.8%
+    win30 s1 Ep 42/73 lr 0.0040 test 86.8%
+    win30 s1 Ep 43/73 lr 0.0037 test 86.7%
+    win30 s1 Ep 44/73 lr 0.0035 test 86.6%
+    win30 s1 Ep 45/73 lr 0.0033 test 87.2%
+    win30 s1 Ep 46/73 lr 0.0031 test 87.4%
+    win30 s1 Ep 47/73 lr 0.0029 test 87.7%
+    win30 s1 Ep 48/73 lr 0.0027 test 86.3%
+    win30 s1 Ep 49/73 lr 0.0026 test 87.8%
+    win30 s1 Ep 50/73 lr 0.0024 test 87.9%
+    win30 s1 Ep 51/73 lr 0.0023 test 87.6%
+    win30 s1 Ep 52/73 lr 0.0021 test 87.3%
+    win30 s1 Ep 53/73 lr 0.0020 test 87.8%
+    win30 s1 Ep 54/73 lr 0.0019 test 87.9%
+    win30 s1 Ep 55/73 lr 0.0018 test 88.2%
+    win30 s1 Ep 56/73 lr 0.0017 test 88.0%
+    win30 s1 Ep 57/73 lr 0.0016 test 88.1%
+    win30 s1 Ep 58/73 lr 0.0015 test 88.1%
+    win30 s1 Ep 59/73 lr 0.0014 test 88.5%
+    win30 s1 Ep 60/73 lr 0.0013 test 88.2%
+    win30 s1 Ep 61/73 lr 0.0012 test 88.3%
+    win30 s1 Ep 62/73 lr 0.0011 test 88.3%
+    win30 s1 Ep 63/73 lr 0.0011 test 88.3%
+    win30 s1 Ep 64/73 lr 0.0010 test 88.0%
+    win30 s1 Ep 65/73 lr 0.0010 test 88.2%
+    win30 s1 Ep 66/73 lr 0.0009 test 88.5%
+    win30 s1 Ep 67/73 lr 0.0008 test 88.2%
+    win30 s1 Ep 68/73 lr 0.0008 test 88.0%
+    win30 s1 Ep 69/73 lr 0.0007 test 88.4%
+    win30 s1 Ep 70/73 lr 0.0007 test 88.3%
+    win30 s1 Ep 71/73 lr 0.0005 test 88.5%
+    win30 s1 Ep 72/73 lr 0.0005 test 88.3%
+    win30 s1 Ep 73/73 lr 0.0005 test 88.4%
+[07:27] FERTIG win30 s1: Test 88.44% (32.8 min)

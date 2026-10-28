@@ -1,0 +1,29 @@
+freq   rnn_det       s0  acc test  23.0% | Rauschen  25.0% | doppelte Länge  25.4% | 0s
+freq   rnn_stoch     s0  acc test  28.1% | Rauschen  24.6% | doppelte Länge  23.4% | ohne Zufall  24.2% | 0s
+freq   tau_hom_det   s0  acc test  31.2% | Rauschen  31.2% | doppelte Länge  26.2% | tau q10/50/90 [7.02, 7.02, 7.02] | 0s
+freq   tau_hom_stoch s0  acc test  30.5% | Rauschen  30.1% | doppelte Länge  26.2% | ohne Zufall  30.5% | tau q10/50/90 [7.12, 7.12, 7.12] | 0s
+freq   tau_het_det   s0  acc test  21.1% | Rauschen  23.0% | doppelte Länge  22.7% | tau q10/50/90 [1.51, 6.78, 42.21] | 0s
+freq   tau_het_stoch s0  acc test  20.7% | Rauschen  24.2% | doppelte Länge  23.4% | ohne Zufall  20.7% | tau q10/50/90 [1.5, 6.87, 42.16] | 0s
+freq   tau_dyn_det   s0  acc test  21.5% | Rauschen  19.9% | doppelte Länge  20.7% | 0s
+freq   tau_dyn_stoch s0  acc test  20.7% | Rauschen  19.1% | doppelte Länge  20.7% | ohne Zufall  21.9% | 0s
+freq   gru           s0  acc test  25.8% | Rauschen  26.6% | doppelte Länge  25.4% | 0s
+recall rnn_det       s0  acc test   9.0% | Rauschen  12.9% | doppelte Länge   9.0% | 0s
+recall rnn_stoch     s0  acc test   9.8% | Rauschen  12.1% | doppelte Länge   7.8% | ohne Zufall   9.0% | 0s
+recall tau_hom_det   s0  acc test   9.0% | Rauschen   9.0% | doppelte Länge   9.0% | tau q10/50/90 [7.25, 7.25, 7.25] | 0s
+recall tau_hom_stoch s0  acc test   9.0% | Rauschen   9.0% | doppelte Länge   9.0% | ohne Zufall   9.0% | tau q10/50/90 [6.96, 6.96, 6.96] | 0s
+recall tau_het_det   s0  acc test   8.2% | Rauschen   9.8% | doppelte Länge   8.2% | tau q10/50/90 [2.99, 6.35, 29.28] | 0s
+recall tau_het_stoch s0  acc test  10.5% | Rauschen  10.5% | doppelte Länge  13.3% | ohne Zufall   8.2% | tau q10/50/90 [3.06, 6.48, 29.28] | 0s
+recall tau_dyn_det   s0  acc test  14.5% | Rauschen  13.7% | doppelte Länge  14.5% | 0s
+recall tau_dyn_stoch s0  acc test  13.7% | Rauschen  14.8% | doppelte Länge  13.7% | ohne Zufall  14.5% | 0s
+recall gru           s0  acc test  14.5% | Rauschen  12.1% | doppelte Länge  14.5% | 0s
+adding rnn_det       s0  mse test 0.1822 | Rauschen 0.1816 | doppelte Länge 0.1498 | 0s
+adding rnn_stoch     s0  mse test 0.1977 | Rauschen 0.1986 | doppelte Länge 0.1715 | ohne Zufall 0.1802 | 0s
+adding tau_hom_det   s0  mse test 0.1832 | Rauschen 0.1832 | doppelte Länge 0.1526 | tau q10/50/90 [7.21, 7.21, 7.21] | 0s
+adding tau_hom_stoch s0  mse test 0.1864 | Rauschen 0.1838 | doppelte Länge 0.1523 | ohne Zufall 0.1827 | tau q10/50/90 [7.17, 7.17, 7.17] | 0s
+adding tau_het_det   s0  mse test 0.1789 | Rauschen 0.1823 | doppelte Länge 0.1595 | tau q10/50/90 [2.0, 5.55, 35.21] | 0s
+adding tau_het_stoch s0  mse test 0.1834 | Rauschen 0.1921 | doppelte Länge 0.1635 | ohne Zufall 0.1793 | tau q10/50/90 [2.0, 5.51, 35.21] | 0s
+adding tau_dyn_det   s0  mse test 0.1810 | Rauschen 0.1823 | doppelte Länge 0.1589 | 0s
+adding tau_dyn_stoch s0  mse test 0.1832 | Rauschen 0.1815 | doppelte Länge 0.1578 | ohne Zufall 0.1811 | 0s
+adding gru           s0  mse test 0.3815 | Rauschen 0.3820 | doppelte Länge 0.3640 | 0s
+
+SCHNELLTEST OK (12s). Geschätzt pro Seed (alle Aufgaben/Varianten, 1 Worker): 1.0 h (eher Obergrenze, GRU ist schneller)

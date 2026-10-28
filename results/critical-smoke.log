@@ -1,0 +1,7 @@
+Lade CIFAR-10 (~170 MB) ...
+CIFAR-10: 50000 Training, 10000 Test, Gerät mps
+    def1 s0 Ep 1/2 lr 0.0005 UNSCHARF test 11.4%
+    def1 s0 Ep 2/2 lr 0.0005 test 21.3%
+    time s0 Ep 1/1 lr 0.0005 test 30.9%
+
+SCHNELLTEST OK (14s, Test 21.3% nach 2 Mini-Epochen). ~40s pro Epoche, 714 Epochen pro Seed -> ~7.9 h pro Seed

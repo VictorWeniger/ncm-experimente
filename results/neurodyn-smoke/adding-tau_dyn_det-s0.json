@@ -1,0 +1,1 @@
+{"task": "adding", "variant": "tau_dyn_det", "seed": 0, "steps": 20, "hidden": 16, "params": 625, "train_s": 0.2, "metric": "mse", "test": 0.18100407719612122, "test_noise": 0.18226419389247894, "test_long": 0.15886546671390533, "curve": [[20, 0.5961788475513459]], "rate": 0.49760401248931885}
