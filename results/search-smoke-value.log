@@ -1,0 +1,8 @@
+[top3] AUROC Prüfer nan | dec nan | prior nan | gierig 100.0 % | Abdeckung 100.0 %
+   B1: value 100.0 % | dec 100.0 % | prior 100.0 %
+   B2: value 100.0 % | dec 100.0 % | prior 100.0 %
+   B4: fill 100.0 %
+[all] AUROC Prüfer 0.593 | dec 0.741 | prior 0.963 | gierig 85.7 % | Abdeckung 85.7 %
+   B1: value 85.7 % | dec 85.7 % | prior 85.7 %
+   B2: value 85.7 % | dec 85.7 % | prior 85.7 %
+   B4: fill 85.7 %

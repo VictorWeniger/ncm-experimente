@@ -1,0 +1,25 @@
+[top1] AUROC Prüfer 0.513 | dec 0.447 | prior 0.687 | gierig 83.0 % | Abdeckung 84.0 %
+   B1: value 82.5 % | dec 82.0 % | prior 83.0 %
+   B2: value 83.0 % | dec 83.0 % | prior 83.0 %
+   B4: value 83.5 % | dec 83.5 % | prior 83.0 %
+   B8: fill 84.0 %
+[top3] AUROC Prüfer 0.624 | dec 0.468 | prior 0.750 | gierig 83.0 % | Abdeckung 86.0 %
+   B1: value 82.0 % | dec 83.0 % | prior 83.0 %
+   B2: value 82.5 % | dec 84.5 % | prior 83.0 %
+   B4: value 83.5 % | dec 85.0 % | prior 83.5 %
+   B8: fill 86.0 %
+[top6] AUROC Prüfer 0.689 | dec 0.510 | prior 0.826 | gierig 85.5 % | Abdeckung 91.5 %
+   B1: value 85.5 % | dec 84.0 % | prior 86.5 %
+   B2: value 85.5 % | dec 87.0 % | prior 86.5 %
+   B4: value 87.0 % | dec 88.5 % | prior 88.0 %
+   B8: fill 91.5 %
+[top9] AUROC Prüfer 0.585 | dec 0.533 | prior 0.871 | gierig 86.0 % | Abdeckung 92.0 %
+   B1: value 83.5 % | dec 84.5 % | prior 85.5 %
+   B2: value 86.0 % | dec 87.0 % | prior 89.0 %
+   B4: value 87.5 % | dec 90.0 % | prior 88.5 %
+   B8: fill 89.0 %
+[all] AUROC Prüfer 0.721 | dec 0.878 | prior 0.888 | gierig 82.5 % | Abdeckung 91.5 %
+   B1: value 87.5 % | dec 89.0 % | prior 82.5 %
+   B2: value 88.5 % | dec 89.5 % | prior 87.0 %
+   B4: value 87.0 % | dec 89.5 % | prior 88.0 %
+   B8: fill 88.5 %

@@ -1,0 +1,54 @@
+VQVAE, Total parameter count: 14.90M
+VQVAE, Non embedding parameter count: 14.87M
+NCP Transformer, Total parameter count: 25.46M
+NCP Transformer, Non embedding parameter count: 25.32M
+Gerät: mps | sudoku-hard | Test 16 | Kalibrierung 16 | N=4 | T=0.7 | Batch 16 Rätsel
+Ebenen: [1, 2, 4, 6, 9, 13, 18, 26, 37, 50, 67, 89] | Token-Einheiten pro Durchlauf: [92, 93, 95, 97, 100, 104, 109, 117, 128, 141, 158, 180]
+Gierig: Test 87.50 % gelöst | gen_llR-Schwelle -0.1493 markiert 37.5 % (5s)
+
+[top3] 11s | Abdeckung (irgendein Kandidat richtig) 87.5 % | verschiedene Bretter 1.0/4 | Kandidaten gelöst 87.5 %
+  AUROC Teilbewertung: prior 0.548 | dec 0.429 | gen_llR (fertig) 1.000
+  Regel          gelöst %    NFE  Einheiten  gated %  g-NFE  g-Einh.
+  prior_B1          87.50     22       2667    87.50   21.2     2827
+  prior_B2          87.50     32       4214    87.50   25.0     3407
+  fill_B4           87.50     52       7308    87.50   32.5     4568
+  dec_B1            87.50     22       2667    87.50   21.2     2827
+  dec_B2            87.50     32       4214    87.50   25.0     3407
+  rand_B1           87.50     22       2667    87.50   21.2     2827
+  rand_B2           87.50     32       4214    87.50   25.0     3407
+  oracle_B1         87.50     22       2667    87.50   21.2     2827
+  oracle_B2         87.50     32       4214    87.50   25.0     3407
+
+[all] 11s | Abdeckung (irgendein Kandidat richtig) 87.5 % | verschiedene Bretter 1.3/4 | Kandidaten gelöst 87.5 %
+  AUROC Teilbewertung: prior 0.960 | dec 0.865 | gen_llR (fertig) 1.000
+  Regel          gelöst %    NFE  Einheiten  gated %  g-NFE  g-Einh.
+  prior_B1          87.50     49       6069    87.50   31.4     4103
+  prior_B2          87.50     50       6482    87.50   31.8     4258
+  fill_B4           87.50     52       7308    87.50   32.5     4568
+  dec_B1            87.50     49       6069    87.50   31.4     4103
+  dec_B2            87.50     50       6482    87.50   31.8     4258
+  rand_B1           87.50     49       6069    87.50   31.4     4103
+  rand_B2           87.50     50       6482    87.50   31.8     4258
+  oracle_B1         87.50     49       6069    87.50   31.4     4103
+  oracle_B2         87.50     50       6482    87.50   31.8     4258
+
+[low6] 11s | Abdeckung (irgendein Kandidat richtig) 93.8 % | verschiedene Bretter 1.3/4 | Kandidaten gelöst 89.1 %
+  AUROC Teilbewertung: prior 0.912 | dec 0.019 | gen_llR (fertig) 1.000
+  Regel          gelöst %    NFE  Einheiten  gated %  g-NFE  g-Einh.
+  fill_B4           93.75     34       5565    93.75   25.8     3914
+
+McNemar gegen gierig (nur Regel gelöst / nur gierig gelöst / p):
+  top3/fill_B4              0    0   p=1.0000
+  top3/dec_B1               0    0   p=1.0000
+  top3/dec_B2               0    0   p=1.0000
+  all/fill_B4               0    0   p=1.0000
+  all/dec_B1                0    0   p=1.0000
+  all/dec_B2                0    0   p=1.0000
+  low6/fill_B4              1    0   p=1.0000
+
+Abzweigungsort gegen 'alles neu' (alle N vervollständigt, gleiche Auswahl nach gen_llR):
+  top3      87.50 % vs  87.50 %      0/   0  p=1.0000
+  low6      93.75 % vs  87.50 %      1/   0  p=1.0000
+
+Gespeichert: /Users/victorweniger/Projekte/ncm-experimente/results/sudoku-hard-search-smoke.json  (0.6 min)
+SCHNELLTEST OK. Schätzung Mac-Hauptlauf (500 Rätsel, N = 8, 8 Abzweigungsorte): ~1.5 h (eher zu hoch, kleine Batches sind ineffizient)

@@ -1,0 +1,107 @@
+VQVAE, Total parameter count: 14.90M
+VQVAE, Non embedding parameter count: 14.87M
+NCP Transformer, Total parameter count: 25.46M
+NCP Transformer, Non embedding parameter count: 25.32M
+Gerät: mps | sudoku-hard | Test 500 | Kalibrierung 500 | N=8 | T=1.5 | Batch 8 Rätsel
+Ebenen: [1, 2, 4, 6, 9, 13, 18, 26, 37, 50, 67, 89] | Token-Einheiten pro Durchlauf: [92, 93, 95, 97, 100, 104, 109, 117, 128, 141, 158, 180]
+Gierig: Test 85.20 % gelöst | gen_llR-Schwelle -0.1887 markiert 15.0 % (154s)
+
+[top1] 686s | Abdeckung (irgendein Kandidat richtig) 86.6 % | verschiedene Bretter 1.2/8 | Kandidaten gelöst 84.5 %
+  AUROC Teilbewertung: prior 0.688 | dec 0.511 | gen_llR (fertig) 0.955
+  Regel          gelöst %    NFE  Einheiten  gated %  g-NFE  g-Einh.
+  prior_B1          85.20     20       2471    85.20   16.0     2198
+  prior_B2          85.20     32       4206    85.20   17.8     2458
+  prior_B4          85.40     56       7676    85.40   21.4     2978
+  fill_B8           86.60    104      14616    86.60   28.6     4019
+  dec_B1            82.80     20       2471    85.80   16.0     2198
+  dec_B2            84.00     32       4206    86.00   17.8     2458
+  dec_B4            86.00     56       7676    86.40   21.4     2978
+  rand_B1           84.40     20       2471    85.40   16.0     2198
+  rand_B2           85.40     32       4206    85.80   17.8     2458
+  rand_B4           86.40     56       7676    86.40   21.4     2978
+  oracle_B1         86.60     20       2471    86.60   16.0     2198
+  oracle_B2         86.60     32       4206    86.60   17.8     2458
+  oracle_B4         86.60     56       7676    86.60   21.4     2978
+
+[top3] 679s | Abdeckung (irgendein Kandidat richtig) 89.2 % | verschiedene Bretter 1.4/8 | Kandidaten gelöst 84.7 %
+  AUROC Teilbewertung: prior 0.770 | dec 0.498 | gen_llR (fertig) 0.960
+  Regel          gelöst %    NFE  Einheiten  gated %  g-NFE  g-Einh.
+  prior_B1          85.00     34       3787    85.20   18.1     2395
+  prior_B2          85.20     44       5334    85.40   19.6     2627
+  prior_B4          86.40     64       8428    86.40   22.6     3091
+  fill_B8           89.20    104      14616    89.20   28.6     4019
+  dec_B1            82.40     34       3787    85.60   18.1     2395
+  dec_B2            85.20     44       5334    86.60   19.6     2627
+  dec_B4            87.00     64       8428    87.00   22.6     3091
+  rand_B1           84.80     34       3787    86.20   18.1     2395
+  rand_B2           86.80     44       5334    87.00   19.6     2627
+  rand_B4           88.20     64       8428    88.20   22.6     3091
+  oracle_B1         89.20     34       3787    89.20   18.1     2395
+  oracle_B2         89.20     44       5334    89.20   19.6     2627
+  oracle_B4         89.20     64       8428    89.20   22.6     3091
+
+[top6] 682s | Abdeckung (irgendein Kandidat richtig) 92.4 % | verschiedene Bretter 1.8/8 | Kandidaten gelöst 83.6 %
+  AUROC Teilbewertung: prior 0.837 | dec 0.509 | gen_llR (fertig) 0.966
+  Regel          gelöst %    NFE  Einheiten  gated %  g-NFE  g-Einh.
+  prior_B1          85.20     55       5894    85.20   21.3     2711
+  prior_B2          86.60     62       7140    86.60   22.3     2898
+  prior_B4          89.40     76       9632    89.40   24.4     3272
+  fill_B8           91.20    104      14616    91.20   28.6     4019
+  dec_B1            81.00     55       5894    86.40   21.3     2711
+  dec_B2            85.60     62       7140    87.80   22.3     2898
+  dec_B4            89.80     76       9632    89.80   24.4     3272
+  rand_B1           83.80     55       5894    87.00   21.3     2711
+  rand_B2           87.40     62       7140    88.60   22.3     2898
+  rand_B4           90.00     76       9632    90.00   24.4     3272
+  oracle_B1         92.40     55       5894    91.60   21.3     2711
+  oracle_B2         91.80     62       7140    91.60   22.3     2898
+  oracle_B4         91.60     76       9632    91.40   24.4     3272
+
+[all] 682s | Abdeckung (irgendein Kandidat richtig) 94.0 % | verschiedene Bretter 2.2/8 | Kandidaten gelöst 81.7 %
+  AUROC Teilbewertung: prior 0.840 | dec 0.853 | gen_llR (fertig) 0.974
+  Regel          gelöst %    NFE  Einheiten  gated %  g-NFE  g-Einh.
+  prior_B1          85.20     97      11725    85.20   27.6     3586
+  prior_B2          89.00     98      12138    88.80   27.7     3648
+  prior_B4          90.40    100      12964    90.20   28.0     3772
+  fill_B8           92.00    104      14616    91.80   28.6     4019
+  dec_B1            89.80     97      11725    89.80   27.6     3586
+  dec_B2            91.60     98      12138    91.40   27.7     3648
+  dec_B4            92.20    100      12964    91.80   28.0     3772
+  rand_B1           81.00     97      11725    86.80   27.6     3586
+  rand_B2           88.40     98      12138    88.80   27.7     3648
+  rand_B4           90.00    100      12964    90.00   28.0     3772
+  oracle_B1         94.00     97      11725    92.80   27.6     3586
+  oracle_B2         93.80     98      12138    92.80   27.7     3648
+  oracle_B4         93.20    100      12964    92.60   28.0     3772
+
+[low6] 681s | Abdeckung (irgendein Kandidat richtig) 90.0 % | verschiedene Bretter 2.0/8 | Kandidaten gelöst 83.9 %
+  AUROC Teilbewertung: prior 0.855 | dec 0.500 | gen_llR (fertig) 0.978
+  Regel          gelöst %    NFE  Einheiten  gated %  g-NFE  g-Einh.
+  fill_B8           89.20     62      10549    89.00   22.3     3409
+
+McNemar gegen gierig (nur Regel gelöst / nur gierig gelöst / p):
+  top1/fill_B8              7    0   p=0.0156
+  top1/dec_B1               5   17   p=0.0169
+  top1/dec_B2               5   11   p=0.2101
+  top1/dec_B4               6    2   p=0.2891
+  top3/fill_B8             20    0   p=0.0000
+  top3/dec_B1               5   19   p=0.0066
+  top3/dec_B2               8    8   p=1.0000
+  top3/dec_B4               9    0   p=0.0039
+  top6/fill_B8             31    1   p=0.0000
+  top6/dec_B1               9   30   p=0.0011
+  top6/dec_B2              17   15   p=0.8601
+  top6/dec_B4              24    1   p=0.0000
+  all/fill_B8              36    2   p=0.0000
+  all/dec_B1               24    1   p=0.0000
+  all/dec_B2               33    1   p=0.0000
+  all/dec_B4               36    1   p=0.0000
+  low6/fill_B8             21    1   p=0.0000
+
+Abzweigungsort gegen 'alles neu' (alle N vervollständigt, gleiche Auswahl nach gen_llR):
+  top1      86.60 % vs  92.00 %      2/  29  p=0.0000
+  top3      89.20 % vs  92.00 %      4/  18  p=0.0043
+  top6      91.20 % vs  92.00 %     10/  14  p=0.5413
+  low6      89.20 % vs  92.00 %      3/  17  p=0.0026
+
+Gespeichert: /Users/victorweniger/Projekte/ncm-experimente/results/sudoku-hard-search-t15.json  (59.4 min)
