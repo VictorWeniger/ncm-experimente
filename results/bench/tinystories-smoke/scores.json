@@ -1,0 +1,351 @@
+{
+ "task": "tinystories",
+ "judges": [
+  "gpt2-large",
+  "HuggingFaceTB/SmolLM2-360M"
+ ],
+ "scores": {
+  "baseline": {
+   "source": "ncm",
+   "gflops": 112.773564182,
+   "steps": 11.0,
+   "seconds": 5.221203088760376,
+   "retried": 0.0,
+   "ppl_gpt2-large": 13.051456247580564,
+   "ppl_gpt2-large_sd": 0.0,
+   "paper_genppl": 13.051456247580564,
+   "paper_genppl_sd": 0.0,
+   "ppl_SmolLM2-360M": 11.435361730831415,
+   "ppl_SmolLM2-360M_sd": 0.0,
+   "entropy": 3.978260287085893,
+   "paper_entropy": 3.978260287085893,
+   "words": 103.625
+  },
+  "self": {
+   "source": "ncm",
+   "gflops": 250.588975104,
+   "steps": 13.5,
+   "seconds": 6.304142951965332,
+   "retried": 12.5,
+   "ppl_gpt2-large": 12.567563963158104,
+   "ppl_gpt2-large_sd": 0.0,
+   "paper_genppl": 12.567563963158104,
+   "paper_genppl_sd": 0.0,
+   "dlogppl_gpt2-large": [
+    -0.03835795949306289,
+    -0.1074964545978111,
+    0.0
+   ],
+   "ppl_SmolLM2-360M": 10.827510068493396,
+   "ppl_SmolLM2-360M_sd": 0.0,
+   "dlogppl_SmolLM2-360M": [
+    -0.039686416762329674,
+    -0.11808500722499199,
+    0.0
+   ],
+   "entropy": 3.9780596418160625,
+   "paper_entropy": 3.9780596418160625,
+   "words": 103.3125
+  },
+  "rand": {
+   "source": "ncm",
+   "gflops": 334.118641664,
+   "steps": 18.0,
+   "seconds": 8.534855127334595,
+   "retried": 25.0,
+   "ppl_gpt2-large": 12.16501455227765,
+   "ppl_gpt2-large_sd": 0.0,
+   "paper_genppl": 12.16501455227765,
+   "paper_genppl_sd": 0.0,
+   "dlogppl_gpt2-large": [
+    -0.07098129014818513,
+    -0.1876889229292071,
+    0.0
+   ],
+   "ppl_SmolLM2-360M": 10.346940036298736,
+   "ppl_SmolLM2-360M_sd": 0.0,
+   "dlogppl_SmolLM2-360M": [
+    -0.09263542239056079,
+    -0.25205014777738,
+    0.0
+   ],
+   "entropy": 3.9654372651600323,
+   "paper_entropy": 3.9654372651600323,
+   "words": 103.75
+  },
+  "best4": {
+   "source": "ncm",
+   "gflops": 890.983047272,
+   "steps": 48.0,
+   "seconds": 20.504285097122192,
+   "retried": 100.0,
+   "ppl_gpt2-large": 11.834457534178709,
+   "ppl_gpt2-large_sd": 0.0,
+   "paper_genppl": 11.834457534178709,
+   "paper_genppl_sd": 0.0,
+   "dlogppl_gpt2-large": [
+    -0.09855844838152006,
+    -0.21280930561133873,
+    0.01411717862257669
+   ],
+   "ppl_SmolLM2-360M": 10.28020277884199,
+   "ppl_SmolLM2-360M_sd": 0.0,
+   "dlogppl_SmolLM2-360M": [
+    -0.10394670063383456,
+    -0.2246335139632083,
+    -0.01062248355375911
+   ],
+   "entropy": 3.9407696026802386,
+   "paper_entropy": 3.9407696026802386,
+   "words": 104.1875
+  },
+  "llm_only": {
+   "source": "hybrid",
+   "gflops": 17.421443136,
+   "steps": 129.125,
+   "seconds": 6.850247859954834,
+   "retried": 0.0,
+   "ppl_gpt2-large": 10.674587870538073,
+   "ppl_gpt2-large_sd": 0.0,
+   "paper_genppl": 10.674587870538073,
+   "paper_genppl_sd": 0.0,
+   "dlogppl_gpt2-large": [
+    -0.20126469335813144,
+    -0.4472207589783474,
+    0.03278140384010345
+   ],
+   "ppl_SmolLM2-360M": 9.616496298461914,
+   "ppl_SmolLM2-360M_sd": 0.0,
+   "dlogppl_SmolLM2-360M": [
+    -0.1908307991095989,
+    -0.428736444815849,
+    0.04323003602408791
+   ],
+   "entropy": 3.978273115786827,
+   "paper_entropy": 3.978273115786827,
+   "words": 101.0
+  },
+  "s1_replace": {
+   "source": "hybrid",
+   "gflops": 224.938085594,
+   "steps": 28.25,
+   "seconds": 3.1619482040405273,
+   "retried": 12.5,
+   "ppl_gpt2-large": 12.039156926002041,
+   "ppl_gpt2-large_sd": 0.0,
+   "paper_genppl": 12.039156926002041,
+   "paper_genppl_sd": 0.0,
+   "dlogppl_gpt2-large": [
+    -0.08111166912626322,
+    -0.2258707547308889,
+    0.0
+   ],
+   "ppl_SmolLM2-360M": 10.349360509693716,
+   "ppl_SmolLM2-360M_sd": 0.0,
+   "dlogppl_SmolLM2-360M": [
+    -0.09053037080104119,
+    -0.25450238380145823,
+    0.0
+   ],
+   "entropy": 3.9931504582840947,
+   "paper_entropy": 3.9931504582840947,
+   "words": 103.0625
+  },
+  "s2_sentence": {
+   "source": "hybrid",
+   "gflops": 225.490350362,
+   "steps": 19.5,
+   "seconds": 3.7488858699798584,
+   "retried": 12.5,
+   "ppl_gpt2-large": 12.902577746353618,
+   "ppl_gpt2-large_sd": 0.0,
+   "paper_genppl": 12.902577746353618,
+   "paper_genppl_sd": 0.0,
+   "dlogppl_gpt2-large": [
+    -0.013710094236837195,
+    -0.03703745481764839,
+    0.0
+   ],
+   "ppl_SmolLM2-360M": 11.357915854694332,
+   "ppl_SmolLM2-360M_sd": 0.0,
+   "dlogppl_SmolLM2-360M": [
+    -0.0048505500676909175,
+    -0.012482653773629393,
+    0.0
+   ],
+   "entropy": 3.9795133181105324,
+   "paper_entropy": 3.9795133181105324,
+   "words": 104.5
+  },
+  "s3_spec": {
+   "source": "hybrid",
+   "gflops": 251.036779706,
+   "steps": 93.9375,
+   "seconds": 27.036816120147705,
+   "retried": 0.0,
+   "ppl_gpt2-large": 8.922385763614482,
+   "ppl_gpt2-large_sd": 0.0,
+   "paper_genppl": 8.922385763614482,
+   "paper_genppl_sd": 0.0,
+   "dlogppl_gpt2-large": [
+    -0.3814310238970159,
+    -0.4930788869895362,
+    -0.26758191865154235
+   ],
+   "ppl_SmolLM2-360M": 7.218763263090637,
+   "ppl_SmolLM2-360M_sd": 0.0,
+   "dlogppl_SmolLM2-360M": [
+    -0.45197020682994626,
+    -0.6001254711149767,
+    -0.3088571370493873
+   ],
+   "entropy": 4.009210026575727,
+   "paper_entropy": 4.009210026575727,
+   "words": 107.4375
+  },
+  "s3_pick4": {
+   "source": "hybrid",
+   "gflops": 960.769231592,
+   "steps": 49.0,
+   "seconds": 1.8410379886627197,
+   "retried": 100.0,
+   "ppl_gpt2-large": 11.30960969588283,
+   "ppl_gpt2-large_sd": 0.0,
+   "paper_genppl": 11.30960969588283,
+   "paper_genppl_sd": 0.0,
+   "dlogppl_gpt2-large": [
+    -0.1450033817927479,
+    -0.2430463260198522,
+    -0.059994118484828954
+   ],
+   "ppl_SmolLM2-360M": 9.602117415585788,
+   "ppl_SmolLM2-360M_sd": 0.0,
+   "dlogppl_SmolLM2-360M": [
+    -0.15655584375877118,
+    -0.27494903537810433,
+    -0.06261887146604321
+   ],
+   "entropy": 3.956845537543862,
+   "paper_entropy": 3.956845537543862,
+   "words": 103.4375
+  },
+  "s1_rewrite": {
+   "source": "hybrid",
+   "gflops": 263.93574385,
+   "steps": 29.9375,
+   "seconds": 8.407899141311646,
+   "retried": 12.5,
+   "ppl_gpt2-large": 12.380646541907794,
+   "ppl_gpt2-large_sd": 0.0,
+   "paper_genppl": 12.380646541907794,
+   "paper_genppl_sd": 0.0,
+   "dlogppl_gpt2-large": [
+    -0.051276532882410714,
+    -0.13981088765397795,
+    0.0
+   ],
+   "ppl_SmolLM2-360M": 10.961950877873354,
+   "ppl_SmolLM2-360M_sd": 0.0,
+   "dlogppl_SmolLM2-360M": [
+    -0.039289666836787696,
+    -0.1101016496683274,
+    2.991605815849674e-08
+   ],
+   "entropy": 4.008115355600286,
+   "paper_entropy": 4.008115355600286,
+   "words": 104.75
+  },
+  "s1_rewrite_rand": {
+   "source": "hybrid",
+   "gflops": 284.746874202,
+   "steps": 39.0625,
+   "seconds": 10.272475957870483,
+   "retried": 18.75,
+   "ppl_gpt2-large": 12.510447201647182,
+   "ppl_gpt2-large_sd": 0.0,
+   "paper_genppl": 12.510447201647182,
+   "paper_genppl_sd": 0.0,
+   "dlogppl_gpt2-large": [
+    -0.038994143081481775,
+    -0.08846912181461104,
+    0.0
+   ],
+   "ppl_SmolLM2-360M": 11.089339921873602,
+   "ppl_SmolLM2-360M_sd": 0.0,
+   "dlogppl_SmolLM2-360M": [
+    -0.02981974288613093,
+    -0.06615712604738005,
+    0.0
+   ],
+   "entropy": 3.99502168707977,
+   "paper_entropy": 3.99502168707977,
+   "words": 106.5
+  },
+  "s1_rewrite_all": {
+   "source": "hybrid",
+   "gflops": 570.85360097,
+   "steps": 173.4375,
+   "seconds": 23.98666000366211,
+   "retried": 100.0,
+   "ppl_gpt2-large": 9.045180642800313,
+   "ppl_gpt2-large_sd": 0.0,
+   "paper_genppl": 9.045180642800313,
+   "paper_genppl_sd": 0.0,
+   "dlogppl_gpt2-large": [
+    -0.33828655434735155,
+    -0.43645125457669887,
+    -0.24307930067013123
+   ],
+   "ppl_SmolLM2-360M": 8.151368561061364,
+   "ppl_SmolLM2-360M_sd": 0.0,
+   "dlogppl_SmolLM2-360M": [
+    -0.3490355404041721,
+    -0.46835719172191304,
+    -0.24067908595229803
+   ],
+   "entropy": 4.150573737467276,
+   "paper_entropy": 4.150573737467276,
+   "words": 132.375
+  }
+ },
+ "meta": {
+  "ncm": {
+   "task": "tinystories",
+   "uncond": true,
+   "metric": "genppl",
+   "levels": [
+    1,
+    8,
+    16,
+    24,
+    32,
+    40,
+    52,
+    64,
+    76,
+    92,
+    108,
+    128
+   ],
+   "N": 4,
+   "rounds": 2,
+   "flag_q": 0.2,
+   "fast_scoring": true,
+   "params": {
+    "gen": 85648129.0,
+    "enc": 0,
+    "dec": 4920704
+   },
+   "flops_generate": 112773564182.0,
+   "flops_score": 109972197636.0,
+   "nfe_generate": 11,
+   "nfe_score": 1
+  },
+  "hybrid": {
+   "task": "tinystories",
+   "uncond": true,
+   "lm": "roneneldan/TinyStories-33M",
+   "rewriter": "Qwen/Qwen2.5-0.5B-Instruct"
+  }
+ }
+}
