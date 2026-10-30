@@ -166,6 +166,8 @@ class Task:
 
     def dec(self, ids):
         ids = list(ids)
+        while ids and ids[0] == self.EOS:  # LM1B: [CLS] steht als Startmarke vorn, nicht als Ende
+            ids = ids[1:]
         if self.cut_at_eos and self.EOS in ids:
             ids = ids[:ids.index(self.EOS)]
         return self.tk.pre_tokenizer.decode([t for t in ids if t not in (self.EOS, self.PAD)],

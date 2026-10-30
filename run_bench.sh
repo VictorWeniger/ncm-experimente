@@ -13,7 +13,8 @@ if [ -z "${NCM_CAFFEINATED:-}" ] && command -v caffeinate >/dev/null; then
 fi
 source .venv/bin/activate
 export PYTHONUNBUFFERED=1 PYTORCH_ENABLE_MPS_FALLBACK=1 TOKENIZERS_PARALLELISM=false
-export PYTORCH_MPS_HIGH_WATERMARK_RATIO=0.7 PYTORCH_MPS_LOW_WATERMARK_RATIO=0.5
+# 0.7 begrenzte den Grafikspeicher auf 3,7 GB -> Speicherfehler beim Bewerten und Trainieren
+export PYTORCH_MPS_HIGH_WATERMARK_RATIO=1.0 PYTORCH_MPS_LOW_WATERMARK_RATIO=0.8
 mkdir -p results/bench
 PART="${1:-a}"
 LOG="results/bench/run-$PART.log"
@@ -85,7 +86,7 @@ b)
   } 2>&1 | tee "$LOG" ;;
 m)
   ST="${STEPS:-3000}"
-  TR="--steps $ST --bs 16 --micro_bs 8"
+  TR="--steps $ST --bs 16 --micro_bs 4"
   {
   [ -f results/bench/tinystories/ncm.json ] || step experiments/bench_ncm.py --task tinystories
   # A (Baseline) und GPT-2 ohne Plan
@@ -118,7 +119,13 @@ nach)
   # XSum neu: die erste Nacht lieferte wegen eines Umwandlungsfehlers auf dem Mac leere Texte
   ( step experiments/bench_ncm.py --task xsum --n 1000 && step experiments/bench_score.py --task xsum )
   } 2>&1 | tee "$LOG" ;;
-*) echo "Aufruf: ./run_bench.sh setup|a|b|m|nach"; exit 1 ;;
+nach2)
+  # LM1B neu bewerten (Textprotokoll war leer), TinyStories bewerten
+  {
+  step experiments/bench_score.py --task lm1b-small
+  step experiments/bench_score.py --task tinystories
+  } 2>&1 | tee "$LOG" ;;
+*) echo "Aufruf: ./run_bench.sh setup|a|b|m|nach|nach2"; exit 1 ;;
 esac
 
 python experiments/bench_report.py > /dev/null && echo "Übersicht: results/bench/SUMMARY.md"
