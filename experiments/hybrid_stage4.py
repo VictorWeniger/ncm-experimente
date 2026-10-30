@@ -135,13 +135,12 @@ def batch_from_texts(texts, noise=0.0):
 
 # ====================================================================== Training
 if a.mode == "train":
-    from datasets import load_dataset
+    from bench_common import tinystories_first, tinystories_random
     del T.net
     free(dev)
     model = PlanLM().to(dev)
-    ds = load_dataset("roneneldan/TinyStories", split="train", streaming=True).shuffle(seed=0, buffer_size=10000)
-    val = [r["text"] for r, _ in zip(load_dataset("roneneldan/TinyStories", split="validation", streaming=True), range(256))]
-    it = iter(ds)
+    val = tinystories_first("valid", 256 if not a.smoke else 4)
+    it = tinystories_random("train", seed=0)
     opt = torch.optim.AdamW([p for p in model.parameters() if p.requires_grad], lr=a.lr, weight_decay=0.01)
     sched = torch.optim.lr_scheduler.LambdaLR(
         opt, lambda s: min(1.0, (s + 1) / a.warmup) * 0.5 * (1 + math.cos(math.pi * min(s, a.steps) / a.steps)))
@@ -166,7 +165,7 @@ if a.mode == "train":
     model.train()
     for step in range(a.steps):
         for _ in range(acc):
-            texts = [next(it)["text"] for _ in range(a.micro_bs)]
+            texts = [next(it) for _ in range(a.micro_bs)]
             c, x, att, y = batch_from_texts(texts, a.code_noise)
             lg = model(c, x, att)
             loss = F.cross_entropy(lg.float().transpose(1, 2), y, ignore_index=-100) / acc
@@ -201,9 +200,8 @@ else:
     nfe_plan = max(a.k - 1, 0)
     val = None
     if a.teacher:
-        from datasets import load_dataset
-        val = [r["text"] for r, _ in zip(load_dataset("roneneldan/TinyStories", split="validation", streaming=True),
-                                          range(len(seeds) * a.n_samples))]
+        from bench_common import tinystories_first
+        val = tinystories_first("valid", len(seeds) * a.n_samples)
     t0 = time.time()
     bs = 32 if dev == "cuda" else 16
     for si, s in enumerate(seeds):

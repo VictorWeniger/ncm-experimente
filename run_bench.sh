@@ -67,8 +67,8 @@ a)
   ( smoke bench_ncm.py --task lm1b-small && smoke bench_score.py --task lm1b-small \
     && step experiments/bench_ncm.py --task lm1b-small && step experiments/bench_score.py --task lm1b-small )
   ( smoke bench_ncm.py --task tinystories && smoke bench_hybrid.py --task tinystories && smoke bench_score.py --task tinystories \
-    && step experiments/bench_ncm.py --task tinystories && step experiments/bench_hybrid.py --task tinystories \
-    && step experiments/bench_score.py --task tinystories )
+    && step experiments/bench_ncm.py --task tinystories && { step experiments/bench_hybrid.py --task tinystories; \
+    step experiments/bench_score.py --task tinystories; } )
   } 2>&1 | tee "$LOG" ;;
 b)
   {
@@ -105,7 +105,20 @@ m)
     && step experiments/merge_arch.py train --arch C --k 12 $TR && step experiments/merge_arch.py gen --arch C --k 12 --par )
   step experiments/bench_score.py --task tinystories
   } 2>&1 | tee "$LOG" ;;
-*) echo "Aufruf: ./run_bench.sh setup|a|b|m"; exit 1 ;;
+nach)
+  # Nachholen, was in der ersten Nacht fehlte (vorhandene Ergebnisse werden nicht neu gerechnet)
+  {
+  ( [ -f results/bench/lm1b-small/ncm.json ] || step experiments/bench_ncm.py --task lm1b-small ) \
+    && step experiments/bench_score.py --task lm1b-small
+  [ -f results/bench/tinystories/hybrid.json ] && grep -q s1_rewrite results/bench/tinystories/hybrid.json \
+    || step experiments/bench_hybrid.py --task tinystories
+  step experiments/bench_score.py --task tinystories
+  ( smoke bench_ncm.py --task wmt14 --n_full 3003 && step experiments/bench_ncm.py --task wmt14 \
+    && step experiments/bench_score.py --task wmt14 )
+  # XSum neu: die erste Nacht lieferte wegen eines Umwandlungsfehlers auf dem Mac leere Texte
+  ( step experiments/bench_ncm.py --task xsum --n 1000 && step experiments/bench_score.py --task xsum )
+  } 2>&1 | tee "$LOG" ;;
+*) echo "Aufruf: ./run_bench.sh setup|a|b|m|nach"; exit 1 ;;
 esac
 
 python experiments/bench_report.py > /dev/null && echo "Übersicht: results/bench/SUMMARY.md"

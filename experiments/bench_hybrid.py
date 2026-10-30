@@ -130,8 +130,9 @@ class LM:
     def token_logps(self, texts):
         """Log-Wahrscheinlichkeit jedes Tokens (BOS vorangestellt) + Zeichen-Offsets."""
         res_ = []
-        for i in range(0, len(texts), a.bs):
-            chunk = texts[i:i + a.bs]
+        sb = a.bs if dev == "cuda" else 4  # volle Vokabular-Logits sind groß -> auf dem Mac kleine Häppchen
+        for i in range(0, len(texts), sb):
+            chunk = texts[i:i + sb]
             enc = [self.tok(t, add_special_tokens=False, return_offsets_mapping=True) for t in chunk]
             seqs = [[self.bos] + e["input_ids"] for e in enc]
             T = max(len(s) for s in seqs)
@@ -140,8 +141,10 @@ class LM:
             for j, s in enumerate(seqs):
                 ids[j, :len(s)] = torch.tensor(s)
                 att[j, :len(s)] = 1
-            lg = self.m(input_ids=ids.to(dev), attention_mask=att.to(dev)).logits.float()
-            lp = F.log_softmax(lg[:, :-1], -1).gather(-1, ids[:, 1:].to(dev).unsqueeze(-1)).squeeze(-1).cpu()
+            lg = self.m(input_ids=ids.to(dev), attention_mask=att.to(dev)).logits[:, :-1]
+            tgt = ids[:, 1:].to(dev).unsqueeze(-1)
+            lp = (lg.gather(-1, tgt).squeeze(-1).float() - torch.logsumexp(lg.float(), -1)).cpu()
+            del lg
             for j, e in enumerate(enc):
                 n = len(e["input_ids"])
                 res_.append((lp[j, :n].tolist(), e["offset_mapping"]))

@@ -192,9 +192,7 @@ assert plan_len() + TXT_MAX + 2 <= 1024, "Plan zu lang für GPT-2"
 
 
 # ====================================================================== Trainingsdaten
-def stories(split):
-    from datasets import load_dataset
-    return load_dataset("roneneldan/TinyStories", split=split, streaming=True)
+from bench_common import tinystories_first, tinystories_random  # noqa: E402
 
 
 def make_example(text, rng):
@@ -268,8 +266,8 @@ if a.mode == "train":
     free(dev)
     model = Merged().to(dev)
     rng = random.Random(0)
-    it = iter(stories("train").shuffle(seed=1, buffer_size=10000))
-    val_txt = [r["text"] for r, _ in zip(stories("validation"), range(128 if not a.smoke else 4))]
+    it = tinystories_random("train", seed=1)
+    val_txt = tinystories_first("valid", 128 if not a.smoke else 4)
     val = [make_example(t, random.Random(i)) for i, t in enumerate(val_txt)]
     opt = torch.optim.AdamW(model.parameters(), lr=a.lr, weight_decay=0.01)
     sched = torch.optim.lr_scheduler.LambdaLR(
@@ -281,7 +279,7 @@ if a.mode == "train":
     model.train()
     for step in range(a.steps):
         for _ in range(acc):
-            exs = [make_example(next(it)["text"], rng) for _ in range(a.micro_bs)]
+            exs = [make_example(next(it), rng) for _ in range(a.micro_bs)]
             loss, lt, lc = batch_loss(model, exs)
             (loss / acc).backward()
         torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)

@@ -59,7 +59,9 @@ T = Task(a.task, a.device, a.ckpt, a.data)
 dev = T.dev
 bs = a.bs or int(T.CFG.eval.batch_size)
 if dev != "cuda":
-    bs = min(bs, 16)
+    # Decoder-Logits (Batch x Länge x Vokabular) begrenzen: WMT14 hat 151.680 Tokens im Vokabular
+    V = int(T.tk.vqvae.decoder(torch.zeros(1, T.L, T.vq.embed_dim, device=dev)).shape[-1])
+    bs = max(1, min(bs, 16, int(4e7 // (T.L * V))))
 seeds = [int(s) for s in a.seeds.split(",")] if a.seeds else [int(s) for s in T.CFG.eval.get("seeds", [42])]
 N = a.N
 if a.smoke:

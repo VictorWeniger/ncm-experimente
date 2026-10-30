@@ -208,7 +208,8 @@ class Task:
         if self.freq <= 0 and not self.ADJ:
             return logits.argmax(-1)
         # float64 gibt es auf MPS nicht -> auf der CPU rechnen
-        lg = logits.detach().to("cpu", torch.float64)
+        # erst float32 auf die CPU, dann float64: die direkte Umwandlung MPS -> float64 liefert auf dem Mac Unsinn
+        lg = logits.detach().float().cpu().double()
         B, T, V = lg.shape
         freq, mu, ADJ = self.freq, self.mu, self.ADJ
         allow = (self.ALLOW[:V] * T)[None, :] if self.ALLOW is not None else None
@@ -249,7 +250,8 @@ class Task:
         _, zl = self.vq.idx_to_zhats(g, return_zlevels=True)
         logits = self.tk.vqvae.decoder(zl[-1])
         raw = self.pick_tokens(logits)
-        tok_lp = F.log_softmax(logits.float(), -1).gather(-1, raw.unsqueeze(-1)).squeeze(-1)
+        tok_lp = logits.gather(-1, raw.unsqueeze(-1)).squeeze(-1).float() - torch.logsumexp(logits.float(), -1)
+        del logits
         llr = self.score(pfx, raw)
         return raw.cpu(), llr.cpu(), tok_lp.cpu(), g.cpu()
 
@@ -427,3 +429,52 @@ def bootstrap_diff(a, b, n=2000, seed=0):
                              - b[torch.randint(len(b), (len(b),), generator=g)].mean() for _ in range(n)])
         m = (a.mean() - b.mean()).item()
     return m, torch.quantile(boots, 0.025).item(), torch.quantile(boots, 0.975).item()
+
+
+# ====================================================================== TinyStories als lokale Datei
+# Statt Streaming (hing auf dem Mac stundenlang an Hugging Face) einmal die Textdatei laden (1,9 GB, landet
+# im HF_HOME, also auf der externen Platte) und daraus per zufälligem Sprung Geschichten ziehen.
+_SEP = b"<|endoftext|>"
+
+
+def tinystories_path(split):
+    from huggingface_hub import hf_hub_download
+    name = "TinyStories-train.txt" if split == "train" else "TinyStories-valid.txt"
+    return hf_hub_download("roneneldan/TinyStories", name, repo_type="dataset")
+
+
+def tinystories_first(split, n):
+    """Die ersten n Geschichten einer Datei (für Validierung)."""
+    out, buf = [], b""
+    with open(tinystories_path(split), "rb") as f:
+        while len(out) < n:
+            chunk = f.read(1 << 20)
+            if not chunk:
+                break
+            buf += chunk
+            parts = buf.split(_SEP)
+            buf = parts.pop()
+            out += [p.decode("utf-8", "ignore").strip() for p in parts if p.strip()]
+    return out[:n]
+
+
+def tinystories_random(split="train", seed=0, min_chars=40):
+    """Endloser Strom zufälliger Geschichten: an eine zufällige Stelle springen, bis zum nächsten
+    Trenner vorlesen, die Geschichte danach nehmen."""
+    import random
+    rng = random.Random(seed)
+    path = tinystories_path(split)
+    size = os.path.getsize(path)
+    with open(path, "rb") as f:
+        while True:
+            f.seek(rng.randrange(max(1, size - 20000)))
+            buf = f.read(24000)
+            i = buf.find(_SEP)
+            if i < 0:
+                continue
+            j = buf.find(_SEP, i + len(_SEP))
+            if j < 0:
+                continue
+            s = buf[i + len(_SEP):j].decode("utf-8", "ignore").strip()
+            if len(s) >= min_chars:
+                yield s

@@ -1,0 +1,137 @@
+{
+ "task": "lm1b-small",
+ "judges": [
+  "gpt2-large",
+  "HuggingFaceTB/SmolLM2-360M"
+ ],
+ "scores": {
+  "baseline": {
+   "source": "ncm",
+   "gflops": 123.559538432,
+   "steps": 11.0,
+   "seconds": 559.1255006790161,
+   "retried": 0.0,
+   "paper_genppl": 92.59214116941398,
+   "paper_genppl_sd": 1.3962443633713186,
+   "paper_entropy": 4.311926613514563,
+   "ppl_gpt2-large": 8488.833574581802,
+   "ppl_gpt2-large_sd": 0.0,
+   "ppl_SmolLM2-360M": 9174.801884429371,
+   "ppl_SmolLM2-360M_sd": 0.0,
+   "entropy": 0.6931471805599453,
+   "words": 0.0
+  },
+  "self": {
+   "source": "ncm",
+   "gflops": 294.431471936,
+   "steps": 14.68125,
+   "seconds": 690.3348000049591,
+   "retried": 19.140625,
+   "paper_genppl": 86.07597596175222,
+   "paper_genppl_sd": 1.5208930084865906,
+   "paper_entropy": 4.3111960388437485,
+   "ppl_gpt2-large": 8488.833574581802,
+   "ppl_gpt2-large_sd": 0.0,
+   "dlogppl_gpt2-large": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "ppl_SmolLM2-360M": 9174.801884429371,
+   "ppl_SmolLM2-360M_sd": 0.0,
+   "dlogppl_SmolLM2-360M": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "entropy": 0.6931471805599453,
+   "words": 0.0
+  },
+  "rand": {
+   "source": "ncm",
+   "gflops": 338.426976512,
+   "steps": 16.875,
+   "seconds": 795.7167785167694,
+   "retried": 20.3125,
+   "paper_genppl": 89.94687577952952,
+   "paper_genppl_sd": 1.1929593310642566,
+   "paper_entropy": 4.309275052182123,
+   "ppl_gpt2-large": 8488.833574581802,
+   "ppl_gpt2-large_sd": 0.0,
+   "dlogppl_gpt2-large": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "ppl_SmolLM2-360M": 9174.801884429371,
+   "ppl_SmolLM2-360M_sd": 0.0,
+   "dlogppl_SmolLM2-360M": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "entropy": 0.6931471805599453,
+   "words": 0.0
+  },
+  "best4": {
+   "source": "ncm",
+   "gflops": 962.636751872,
+   "steps": 48.0,
+   "seconds": 2352.605227470398,
+   "retried": 100.0,
+   "paper_genppl": 80.06840459259281,
+   "paper_genppl_sd": 0.2132982571039653,
+   "paper_entropy": 4.30064856742783,
+   "ppl_gpt2-large": 8488.833574581802,
+   "ppl_gpt2-large_sd": 0.0,
+   "dlogppl_gpt2-large": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "ppl_SmolLM2-360M": 9174.801884429371,
+   "ppl_SmolLM2-360M_sd": 0.0,
+   "dlogppl_SmolLM2-360M": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "entropy": 0.6931471805599453,
+   "words": 0.0
+  }
+ },
+ "meta": {
+  "ncm": {
+   "task": "lm1b-small",
+   "uncond": true,
+   "metric": "genppl_flm",
+   "levels": [
+    1,
+    8,
+    16,
+    24,
+    32,
+    40,
+    52,
+    64,
+    76,
+    92,
+    108,
+    128
+   ],
+   "N": 4,
+   "rounds": 2,
+   "flag_q": 0.2,
+   "fast_scoring": true,
+   "params": {
+    "gen": 91199104.0,
+    "enc": 0,
+    "dec": 18821504
+   },
+   "flops_generate": 123559538432.0,
+   "flops_score": 117099649536.0,
+   "nfe_generate": 11,
+   "nfe_score": 1
+  }
+ }
+}
