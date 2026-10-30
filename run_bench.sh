@@ -4,7 +4,7 @@
 #   ./run_bench.sh a       Nacht A: LM1B (NCM + Nachbessern), TinyStories (NCM + Mischformen 1-3), Bewertung
 #   ./run_bench.sh b       Nacht B: XSum (1000 Artikel) und WMT14 (alle 3003 Sätze), Bewertung
 #   ./run_bench.sh m       Architektur-Vergleich A (Baseline), B, C, C-par, D + GPT-2 ohne Plan (TinyStories).
-#                          Mac-Version mit verkürztem Training (STEPS, Standard 3000); voll: cluster/lrz_merge.sbatch
+#                          Mac-Version mit verkürztem Training (STEPS, Standard 1000); voll: cluster/lrz_merge.sbatch
 # Jede Aufgabe startet mit einem Schnelltest; schlägt der fehl, wird nur diese Aufgabe übersprungen.
 cd "$(dirname "$0")"
 if [ -z "${NCM_CAFFEINATED:-}" ] && command -v caffeinate >/dev/null; then
@@ -85,8 +85,8 @@ b)
     && step experiments/bench_ncm.py --task wmt14 && step experiments/bench_score.py --task wmt14 )
   } 2>&1 | tee "$LOG" ;;
 m)
-  ST="${STEPS:-3000}"
-  TR="--steps $ST --bs 16 --micro_bs 4"
+  ST="${STEPS:-1000}"
+  TR="--steps $ST --bs 16 --micro_bs 2"
   {
   [ -f results/bench/tinystories/ncm.json ] || step experiments/bench_ncm.py --task tinystories
   # A (Baseline) und GPT-2 ohne Plan
@@ -103,7 +103,7 @@ m)
     && step experiments/merge_arch.py gen --arch C --k 3 --max_blocks 6 --tag long --n_samples 64 --seeds 42 )
   # C-par
   ( smoke merge_arch.py train --arch C --k 12 && smoke merge_arch.py gen --arch C --k 12 --par \
-    && step experiments/merge_arch.py train --arch C --k 12 $TR && step experiments/merge_arch.py gen --arch C --k 12 --par )
+    && step experiments/merge_arch.py train --arch C --k 12 --steps $ST --bs 16 --micro_bs 1 && step experiments/merge_arch.py gen --arch C --k 12 --par )
   step experiments/bench_score.py --task tinystories
   } 2>&1 | tee "$LOG" ;;
 nach)

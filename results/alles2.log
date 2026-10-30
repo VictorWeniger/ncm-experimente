@@ -1,0 +1,476 @@
+== experiments/bench_ncm.py --task lm1b-small (08:32:02)
+VQVAE, Total parameter count: 111.40M
+VQVAE, Non embedding parameter count: 99.63M
+NCP Transformer, Total parameter count: 97.07M
+NCP Transformer, Non embedding parameter count: 96.76M
+Gerät mps | Aufgabe lm1b-small | Metrik genppl_flm | Ebenen [1, 8, 16, 24, 32, 40, 52, 64, 76, 92, 108, 128] | Präfix 1 | Sampling T=1.0 top_k=0 top_p=1.0 | Strafen freq=11.5 adj=[10.0, 4.0, 0.5]
+Parameter (ohne Einbettungen): Generator 91.2 M, Encoder 0.0 M, Decoder 18.8 M
+Selbsttest Ein-Pass-Bewertung: Abweichung 4.77e-07 -> Ein-Pass
+Schwelle gen_llR (unteres 20%-Quantil, Kalibrierung): -3.5187
+Startversuche: 5 x 256 in 559s
+baseline   fertig:      0s | GFLOPs/Sample   123.56 | NFE/Sample  11.0 | neu versucht   0.0 %
+self       fertig:    131s | GFLOPs/Sample   294.43 | NFE/Sample  14.7 | neu versucht  19.1 %
+rand       fertig:    237s | GFLOPs/Sample   338.43 | NFE/Sample  16.9 | neu versucht  20.3 %
+best4      fertig:   1794s | GFLOPs/Sample   962.64 | NFE/Sample  48.0 | neu versucht 100.0 %
+
+Gespeichert: /Users/victorweniger/Projekte/ncm-experimente/results/bench/lm1b-small/ncm.json  (2835s)
+Weiter mit: python experiments/bench_score.py --task lm1b-small
+== experiments/bench_score.py --task lm1b-small (09:19:49)
+lm1b-small: 4 Varianten: baseline, self, rand, best4
+VQVAE, Total parameter count: 111.40M
+VQVAE, Non embedding parameter count: 99.63M
+NCP Transformer, Total parameter count: 97.07M
+NCP Transformer, Non embedding parameter count: 96.76M
+W1030 09:20:10.414000 96054 torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+Loading weights:   0%|          | 0/436 [00:00<?, ?it/s]Loading weights:   0%|          | 2/436 [00:00<03:19,  2.18it/s]Loading weights:   2%|▏         | 10/436 [00:02<01:38,  4.34it/s]Loading weights:   5%|▌         | 22/436 [00:02<00:38, 10.86it/s]Loading weights:   6%|▌         | 26/436 [00:03<00:45,  9.00it/s]Loading weights:   8%|▊         | 34/436 [00:04<00:57,  6.99it/s]Loading weights:   8%|▊         | 36/436 [00:05<00:55,  7.16it/s]Loading weights:  11%|█         | 46/436 [00:05<00:44,  8.77it/s]Loading weights:  11%|█         | 48/436 [00:07<01:05,  5.89it/s]Loading weights:  13%|█▎        | 58/436 [00:07<00:45,  8.34it/s]Loading weights:  14%|█▍        | 60/436 [00:08<00:50,  7.42it/s]Loading weights:  16%|█▌        | 70/436 [00:09<00:48,  7.58it/s]Loading weights:  17%|█▋        | 72/436 [00:09<00:44,  8.16it/s]Loading weights:  19%|█▉        | 82/436 [00:10<00:35,  9.95it/s]Loading weights:  19%|█▉        | 84/436 [00:11<00:49,  7.10it/s]Loading weights:  22%|██▏       | 94/436 [00:11<00:37,  9.18it/s]Loading weights:  22%|██▏       | 98/436 [00:12<00:36,  9.16it/s]Loading weights:  24%|██▍       | 106/436 [00:13<00:37,  8.75it/s]Loading weights:  25%|██▍       | 108/436 [00:13<00:38,  8.47it/s]Loading weights:  27%|██▋       | 118/436 [00:14<00:35,  8.90it/s]Loading weights:  28%|██▊       | 120/436 [00:15<00:37,  8.39it/s]Loading weights:  30%|██▉       | 130/436 [00:16<00:33,  9.12it/s]Loading weights:  30%|███       | 132/436 [00:16<00:34,  8.74it/s]Loading weights:  33%|███▎      | 142/436 [00:16<00:24, 11.81it/s]Loading weights:  33%|███▎      | 144/436 [00:18<00:41,  6.99it/s]Loading weights:  35%|███▌      | 154/436 [00:18<00:29,  9.67it/s]Loading weights:  36%|███▌      | 156/436 [00:18<00:28,  9.97it/s]Loading weights:  36%|███▌      | 158/436 [00:18<00:27, 10.11it/s]Loading weights:  38%|███▊      | 166/436 [00:20<00:31,  8.53it/s]Loading weights:  39%|███▊      | 168/436 [00:20<00:30,  8.73it/s]Loading weights:  41%|████      | 178/436 [00:21<00:25, 10.25it/s]Loading weights:  41%|████▏     | 180/436 [00:21<00:35,  7.25it/s]Loading weights:  44%|████▎     | 190/436 [00:22<00:24,  9.90it/s]Loading weights:  44%|████▍     | 192/436 [00:22<00:24, 10.03it/s]Loading weights:  46%|████▋     | 202/436 [00:24<00:28,  8.09it/s]Loading weights:  47%|████▋     | 204/436 [00:24<00:28,  8.10it/s]Loading weights:  49%|████▉     | 214/436 [00:24<00:19, 11.47it/s]Loading weights:  50%|████▉     | 216/436 [00:25<00:30,  7.29it/s]Loading weights:  52%|█████▏    | 226/436 [00:26<00:21,  9.68it/s]Loading weights:  52%|█████▏    | 228/436 [00:26<00:20, 10.14it/s]Loading weights:  53%|█████▎    | 230/436 [00:27<00:27,  7.63it/s]Loading weights:  55%|█████▍    | 238/436 [00:28<00:25,  7.68it/s]Loading weights:  56%|█████▌    | 242/436 [00:28<00:21,  8.84it/s]Loading weights:  58%|█████▊    | 252/436 [00:29<00:23,  7.97it/s]Loading weights:  60%|██████    | 262/436 [00:30<00:15, 11.11it/s]Loading weights:  61%|██████    | 266/436 [00:30<00:17,  9.66it/s]Loading weights:  63%|██████▎   | 274/436 [00:31<00:17,  9.40it/s]Loading weights:  63%|██████▎   | 276/436 [00:32<00:18,  8.87it/s]Loading weights:  66%|██████▌   | 286/436 [00:33<00:18,  8.27it/s]Loading weights:  66%|██████▌   | 288/436 [00:33<00:19,  7.49it/s]Loading weights:  68%|██████▊   | 298/436 [00:34<00:14,  9.41it/s]Loading weights:  69%|██████▉   | 300/436 [00:35<00:18,  7.40it/s]Loading weights:  71%|███████   | 310/436 [00:36<00:14,  9.00it/s]Loading weights:  72%|███████▏  | 312/436 [00:36<00:15,  8.25it/s]Loading weights:  74%|███████▍  | 322/436 [00:37<00:12,  8.85it/s]Loading weights:  74%|███████▍  | 324/436 [00:37<00:13,  8.47it/s]Loading weights:  77%|███████▋  | 334/436 [00:38<00:10,  9.60it/s]Loading weights:  77%|███████▋  | 336/436 [00:39<00:11,  8.40it/s]Loading weights:  79%|███████▉  | 346/436 [00:40<00:09,  9.01it/s]Loading weights:  80%|███████▉  | 348/436 [00:40<00:09,  8.86it/s]Loading weights:  82%|████████▏ | 358/436 [00:41<00:08,  9.03it/s]Loading weights:  83%|████████▎ | 360/436 [00:42<00:09,  8.05it/s]Loading weights:  85%|████████▍ | 370/436 [00:43<00:07,  9.21it/s]Loading weights:  85%|████████▌ | 372/436 [00:43<00:08,  7.58it/s]Loading weights:  88%|████████▊ | 382/436 [00:44<00:06,  8.84it/s]Loading weights:  88%|████████▊ | 384/436 [00:44<00:06,  7.99it/s]Loading weights:  90%|█████████ | 394/436 [00:45<00:04,  8.80it/s]Loading weights:  91%|█████████ | 396/436 [00:46<00:05,  7.63it/s]Loading weights:  93%|█████████▎| 406/436 [00:47<00:03,  9.30it/s]Loading weights:  94%|█████████▎| 408/436 [00:47<00:03,  8.01it/s]Loading weights:  96%|█████████▌| 418/436 [00:48<00:01,  9.07it/s]Loading weights:  96%|█████████▋| 420/436 [00:48<00:01,  9.45it/s]Loading weights:  99%|█████████▊| 430/436 [00:49<00:00, 10.00it/s]Loading weights:  99%|█████████▉| 432/436 [00:49<00:00, 10.53it/s]Loading weights: 100%|██████████| 436/436 [00:53<00:00,  3.58it/s]Loading weights: 100%|██████████| 436/436 [00:53<00:00,  8.18it/s]
+  FLM baseline            92.59 ± 1.40 | Entropie 4.312
+  FLM self                86.08 ± 1.52 | Entropie 4.311
+  FLM rand                89.95 ± 1.19 | Entropie 4.309
+  FLM best4               80.07 ± 0.21 | Entropie 4.301
+Loading weights:   0%|          | 0/436 [00:00<?, ?it/s]Loading weights:   0%|          | 2/436 [00:01<07:09,  1.01it/s]Loading weights:   3%|▎         | 14/436 [00:02<01:02,  6.77it/s]Loading weights:   5%|▌         | 22/436 [00:03<00:55,  7.46it/s]Loading weights:   6%|▌         | 24/436 [00:03<00:51,  7.93it/s]Loading weights:   8%|▊         | 36/436 [00:06<01:07,  5.88it/s]Loading weights:  11%|█         | 48/436 [00:07<00:50,  7.61it/s]Loading weights:  14%|█▍        | 60/436 [00:07<00:38,  9.68it/s]Loading weights:  14%|█▍        | 62/436 [00:08<00:40,  9.18it/s]Loading weights:  16%|█▌        | 70/436 [00:09<00:39,  9.17it/s]Loading weights:  17%|█▋        | 72/436 [00:09<00:42,  8.58it/s]Loading weights:  17%|█▋        | 74/436 [00:09<00:44,  8.06it/s]Loading weights:  19%|█▉        | 84/436 [00:11<00:51,  6.84it/s]Loading weights:  24%|██▍       | 106/436 [00:12<00:29, 11.37it/s]Loading weights:  25%|██▍       | 108/436 [00:15<01:01,  5.35it/s]Loading weights:  33%|███▎      | 142/436 [00:16<00:23, 12.63it/s]Loading weights:  33%|███▎      | 145/436 [00:17<00:29,  9.84it/s]Loading weights:  34%|███▎      | 147/436 [00:17<00:29,  9.86it/s]Loading weights:  36%|███▌      | 156/436 [00:19<00:41,  6.70it/s]Loading weights:  41%|████      | 178/436 [00:20<00:23, 10.79it/s]Loading weights:  41%|████▏     | 180/436 [00:21<00:27,  9.17it/s]Loading weights:  44%|████▎     | 190/436 [00:22<00:26,  9.33it/s]Loading weights:  47%|████▋     | 204/436 [00:23<00:23, 10.00it/s]Loading weights:  47%|████▋     | 206/436 [00:23<00:23,  9.77it/s]Loading weights:  49%|████▉     | 214/436 [00:24<00:24,  9.23it/s]Loading weights:  50%|████▉     | 216/436 [00:25<00:27,  7.93it/s]Loading weights:  52%|█████▏    | 228/436 [00:26<00:25,  8.06it/s]Loading weights:  55%|█████▌    | 240/436 [00:27<00:21,  9.13it/s]Loading weights:  56%|█████▌    | 242/436 [00:28<00:21,  8.84it/s]Loading weights:  60%|██████    | 262/436 [00:29<00:16, 10.60it/s]Loading weights:  63%|██████▎   | 274/436 [00:30<00:13, 12.30it/s]Loading weights:  63%|██████▎   | 276/436 [00:31<00:17,  9.15it/s]Loading weights:  66%|██████▌   | 286/436 [00:31<00:13, 10.85it/s]Loading weights:  66%|██████▌   | 288/436 [00:32<00:14, 10.25it/s]Loading weights:  67%|██████▋   | 290/436 [00:32<00:16,  8.62it/s]Loading weights:  68%|██████▊   | 298/436 [00:33<00:16,  8.49it/s]Loading weights:  71%|███████   | 310/436 [00:35<00:14,  8.56it/s]Loading weights:  72%|███████▏  | 312/436 [00:35<00:15,  8.26it/s]Loading weights:  74%|███████▍  | 322/436 [00:36<00:11, 10.06it/s]Loading weights:  74%|███████▍  | 324/436 [00:36<00:14,  7.57it/s]Loading weights:  77%|███████▋  | 334/436 [00:37<00:11,  8.95it/s]Loading weights:  77%|███████▋  | 336/436 [00:38<00:10,  9.14it/s]Loading weights:  78%|███████▊  | 338/436 [00:38<00:10,  9.61it/s]Loading weights:  79%|███████▉  | 346/436 [00:39<00:10,  8.43it/s]Loading weights:  80%|███████▉  | 348/436 [00:39<00:11,  7.70it/s]Loading weights:  82%|████████▏ | 358/436 [00:40<00:08,  9.57it/s]Loading weights:  83%|████████▎ | 360/436 [00:40<00:09,  8.19it/s]Loading weights:  85%|████████▍ | 370/436 [00:42<00:07,  8.49it/s]Loading weights:  85%|████████▌ | 372/436 [00:42<00:08,  7.92it/s]Loading weights:  88%|████████▊ | 382/436 [00:43<00:06,  8.88it/s]Loading weights:  88%|████████▊ | 384/436 [00:43<00:06,  7.66it/s]Loading weights:  90%|█████████ | 394/436 [00:44<00:04,  9.21it/s]Loading weights:  91%|█████████ | 396/436 [00:45<00:04,  8.06it/s]Loading weights:  93%|█████████▎| 406/436 [00:46<00:03,  8.99it/s]Loading weights:  94%|█████████▎| 408/436 [00:46<00:03,  8.63it/s]Loading weights:  96%|█████████▌| 418/436 [00:47<00:01,  9.79it/s]Loading weights:  96%|█████████▋| 420/436 [00:48<00:02,  7.70it/s]Loading weights:  99%|█████████▊| 430/436 [00:48<00:00, 10.35it/s]Loading weights:  99%|█████████▉| 432/436 [00:48<00:00, 10.72it/s]Loading weights: 100%|██████████| 436/436 [00:52<00:00,  3.32it/s]Loading weights: 100%|██████████| 436/436 [00:52<00:00,  8.30it/s]
+  gpt2-large     baseline          8488.83
+  gpt2-large     self              8488.83
+  gpt2-large     rand              8488.83
+  gpt2-large     best4             8488.83
+Loading weights:   0%|          | 0/290 [00:00<?, ?it/s]Loading weights:   0%|          | 1/290 [00:04<21:53,  4.55s/it]Loading weights:  23%|██▎       | 68/290 [00:04<00:11, 20.05it/s]Loading weights:  31%|███       | 89/290 [00:05<00:09, 21.99it/s]Loading weights:  35%|███▌      | 102/290 [00:05<00:08, 22.70it/s]Loading weights:  38%|███▊      | 111/290 [00:06<00:08, 21.72it/s]Loading weights:  41%|████      | 118/290 [00:06<00:07, 21.80it/s]Loading weights:  42%|████▏     | 123/290 [00:07<00:08, 19.44it/s]Loading weights:  44%|████▍     | 129/290 [00:07<00:07, 21.33it/s]Loading weights:  46%|████▌     | 134/290 [00:07<00:06, 23.05it/s]Loading weights:  48%|████▊     | 138/290 [00:07<00:06, 24.74it/s]Loading weights:  49%|████▉     | 142/290 [00:08<00:07, 19.01it/s]Loading weights:  51%|█████     | 148/290 [00:08<00:06, 23.21it/s]Loading weights:  52%|█████▏    | 152/290 [00:08<00:05, 23.19it/s]Loading weights:  54%|█████▍    | 156/290 [00:08<00:05, 24.93it/s]Loading weights:  55%|█████▌    | 160/290 [00:08<00:06, 21.55it/s]Loading weights:  57%|█████▋    | 165/290 [00:08<00:04, 26.08it/s]Loading weights:  58%|█████▊    | 169/290 [00:08<00:04, 26.15it/s]Loading weights:  60%|██████    | 175/290 [00:09<00:06, 17.76it/s]Loading weights:  63%|██████▎   | 183/290 [00:09<00:06, 17.56it/s]Loading weights:  67%|██████▋   | 194/290 [00:10<00:04, 23.68it/s]Loading weights:  69%|██████▉   | 201/290 [00:10<00:04, 21.25it/s]Loading weights:  70%|███████   | 204/290 [00:10<00:04, 21.22it/s]Loading weights:  74%|███████▍  | 216/290 [00:10<00:02, 31.54it/s]Loading weights:  76%|███████▌  | 220/290 [00:11<00:02, 23.85it/s]Loading weights:  78%|███████▊  | 225/290 [00:11<00:02, 26.15it/s]Loading weights:  79%|███████▉  | 229/290 [00:11<00:03, 18.71it/s]Loading weights:  82%|████████▏ | 237/290 [00:12<00:02, 23.55it/s]Loading weights:  85%|████████▍ | 246/290 [00:12<00:01, 26.10it/s]Loading weights:  86%|████████▌ | 250/290 [00:12<00:01, 27.91it/s]Loading weights:  88%|████████▊ | 255/290 [00:12<00:01, 22.26it/s]Loading weights:  91%|█████████ | 264/290 [00:12<00:00, 29.50it/s]Loading weights:  92%|█████████▏| 268/290 [00:13<00:00, 30.81it/s]Loading weights:  94%|█████████▍| 272/290 [00:13<00:00, 32.06it/s]Loading weights:  95%|█████████▌| 276/290 [00:13<00:00, 17.44it/s]Loading weights: 100%|██████████| 290/290 [00:13<00:00, 21.00it/s]
+  SmolLM2-360M   baseline          9174.80
+  SmolLM2-360M   self              9174.80
+  SmolLM2-360M   rand              9174.80
+  SmolLM2-360M   best4             9174.80
+
+# lm1b-small
+
+| Variante | Paper-GenPPL | Entropie | PPL gpt2-large | PPL SmolLM2-360M | Δlog-PPL gpt2-large [95 %-KI] | Δlog-PPL SmolLM2-360M [95 %-KI] | GFLOPs/Sample | seq. Schritte | angefasst % | Sekunden |
+|---|---|---|---|---|---|---|---|---|---|---|
+| baseline | 92.59 ± 1.40 | 4.312 | 8488.83 | 9174.80 | – | – | 123.56 | 11 | 0 | 559 |
+| self | 86.08 ± 1.52 | 4.311 | 8488.83 | 9174.80 | +0.000 [+0.000, +0.000] | +0.000 [+0.000, +0.000] | 294.43 | 15 | 19 | 690 |
+| rand | 89.95 ± 1.19 | 4.309 | 8488.83 | 9174.80 | +0.000 [+0.000, +0.000] | +0.000 [+0.000, +0.000] | 338.43 | 17 | 20 | 796 |
+| best4 | 80.07 ± 0.21 | 4.301 | 8488.83 | 9174.80 | +0.000 [+0.000, +0.000] | +0.000 [+0.000, +0.000] | 962.64 | 48 | 100 | 2353 |
+
+Negativ bei Δlog-PPL = flüssiger als die NCM-Baseline. Entropie deutlich unter der Baseline = repetitiver.
+
+Gespeichert: /Users/victorweniger/Projekte/ncm-experimente/results/bench/lm1b-small/scores.json, table.md, pairs.jsonl (0 blinde Paare)
+== experiments/bench_hybrid.py --task tinystories (09:38:55)
+Gerät mps | tinystories | 1280 NCM-Texte | markiert 26.1 % | LM roneneldan/TinyStories-33M | Umschreiber Qwen/Qwen2.5-0.5B-Instruct
+W1030 09:38:59.572000 96388 torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/56 [00:00<?, ?it/s]Loading weights: 100%|██████████| 56/56 [00:00<00:00, 26960.63it/s]
+[transformers] [1mGPTNeoForCausalLM LOAD REPORT[0m from: roneneldan/TinyStories-33M
+Key                                                   | Status     |  | 
+------------------------------------------------------+------------+--+-
+transformer.h.{0, 1, 2, 3}.attn.attention.bias        | UNEXPECTED |  | 
+transformer.h.{0, 1, 2, 3}.attn.attention.masked_bias | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+roneneldan/TinyStories-33M: 67 M Parameter, Länge bis 135 Tokens
+llm_only fertig (295s)
+s1_replace fertig (77s)
+VQVAE, Total parameter count: 36.43M
+VQVAE, Non embedding parameter count: 33.24M
+NCP Transformer, Total parameter count: 88.61M
+NCP Transformer, Non embedding parameter count: 88.30M
+s2_sentence fertig: 334 Sätze ersetzt (44s)
+s3_spec fertig: 91 % ab einer Stelle neu geschrieben, im Mittel 45 % des Entwurfs übernommen (358s)
+s3_pick4 fertig: gleiche Wahl wie NCM-Signal in 65 % (256s)
+Loading weights:   0%|          | 0/290 [00:00<?, ?it/s]Loading weights:   0%|          | 1/290 [00:10<51:25, 10.68s/it]Loading weights:  44%|████▍     | 129/290 [00:10<00:09, 16.92it/s]Loading weights:  79%|███████▊  | 228/290 [00:15<00:03, 19.02it/s]Loading weights:  93%|█████████▎| 270/290 [00:17<00:01, 18.75it/s]Loading weights: 100%|██████████| 290/290 [00:18<00:00, 16.10it/s]
+  umgeschrieben 16/334
+  umgeschrieben 32/334
+  umgeschrieben 48/334
+  umgeschrieben 64/334
+  umgeschrieben 80/334
+  umgeschrieben 96/334
+  umgeschrieben 112/334
+  umgeschrieben 128/334
+  umgeschrieben 144/334
+  umgeschrieben 160/334
+  umgeschrieben 176/334
+  umgeschrieben 192/334
+  umgeschrieben 208/334
+  umgeschrieben 224/334
+  umgeschrieben 240/334
+  umgeschrieben 256/334
+  umgeschrieben 272/334
+  umgeschrieben 288/334
+  umgeschrieben 304/334
+  umgeschrieben 320/334
+  umgeschrieben 334/334
+s1_rewrite fertig (334 Texte, 566s)
+  umgeschrieben 16/208
+  umgeschrieben 32/208
+  umgeschrieben 48/208
+  umgeschrieben 64/208
+  umgeschrieben 80/208
+  umgeschrieben 96/208
+  umgeschrieben 112/208
+  umgeschrieben 128/208
+  umgeschrieben 144/208
+  umgeschrieben 160/208
+  umgeschrieben 176/208
+  umgeschrieben 192/208
+  umgeschrieben 208/208
+s1_rewrite_rand fertig (300 Texte, 351s)
+  umgeschrieben 16/738
+  umgeschrieben 32/738
+  umgeschrieben 48/738
+  umgeschrieben 64/738
+  umgeschrieben 80/738
+  umgeschrieben 96/738
+  umgeschrieben 112/738
+  umgeschrieben 128/738
+  umgeschrieben 144/738
+  umgeschrieben 160/738
+  umgeschrieben 176/738
+  umgeschrieben 192/738
+  umgeschrieben 208/738
+  umgeschrieben 224/738
+  umgeschrieben 240/738
+  umgeschrieben 256/738
+  umgeschrieben 272/738
+  umgeschrieben 288/738
+  umgeschrieben 304/738
+  umgeschrieben 320/738
+  umgeschrieben 336/738
+  umgeschrieben 352/738
+  umgeschrieben 368/738
+  umgeschrieben 384/738
+  umgeschrieben 400/738
+  umgeschrieben 416/738
+  umgeschrieben 432/738
+  umgeschrieben 448/738
+  umgeschrieben 464/738
+  umgeschrieben 480/738
+  umgeschrieben 496/738
+  umgeschrieben 512/738
+  umgeschrieben 528/738
+  umgeschrieben 544/738
+  umgeschrieben 560/738
+  umgeschrieben 576/738
+  umgeschrieben 592/738
+  umgeschrieben 608/738
+  umgeschrieben 624/738
+  umgeschrieben 640/738
+  umgeschrieben 656/738
+  umgeschrieben 672/738
+  umgeschrieben 688/738
+  umgeschrieben 704/738
+  umgeschrieben 720/738
+  umgeschrieben 736/738
+  umgeschrieben 738/738
+s1_rewrite_all fertig (1280 Texte, 1239s)
+
+Gespeichert: /Users/victorweniger/Projekte/ncm-experimente/results/bench/tinystories/hybrid.json
+Weiter mit: python experiments/bench_score.py --task tinystories
+== experiments/bench_score.py --task tinystories (10:32:36)
+tinystories: 12 Varianten: baseline, self, rand, best4, llm_only, s1_replace, s2_sentence, s3_spec, s3_pick4, s1_rewrite, s1_rewrite_rand, s1_rewrite_all
+VQVAE, Total parameter count: 36.43M
+VQVAE, Non embedding parameter count: 33.24M
+NCP Transformer, Total parameter count: 88.61M
+NCP Transformer, Non embedding parameter count: 88.30M
+W1030 10:32:44.266000 96981 torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+Loading weights:   0%|          | 0/436 [00:00<?, ?it/s]Loading weights:   0%|          | 2/436 [00:01<05:22,  1.34it/s]Loading weights:   3%|▎         | 12/436 [00:02<01:22,  5.16it/s]Loading weights:   5%|▌         | 22/436 [00:04<01:07,  6.10it/s]Loading weights:   8%|▊         | 36/436 [00:05<00:53,  7.41it/s]Loading weights:  11%|█         | 48/436 [00:07<00:50,  7.69it/s]Loading weights:  14%|█▍        | 62/436 [00:07<00:39,  9.50it/s]Loading weights:  16%|█▌        | 70/436 [00:08<00:36,  9.91it/s]Loading weights:  17%|█▋        | 72/436 [00:08<00:37,  9.76it/s]Loading weights:  19%|█▉        | 82/436 [00:10<00:39,  9.02it/s]Loading weights:  19%|█▉        | 84/436 [00:10<00:41,  8.41it/s]Loading weights:  22%|██▏       | 96/436 [00:12<00:45,  7.40it/s]Loading weights:  25%|██▍       | 108/436 [00:14<00:46,  7.01it/s]Loading weights:  27%|██▋       | 118/436 [00:15<00:38,  8.24it/s]Loading weights:  30%|███       | 132/436 [00:16<00:30,  9.87it/s]Loading weights:  33%|███▎      | 142/436 [00:17<00:33,  8.75it/s]Loading weights:  36%|███▌      | 156/436 [00:18<00:25, 11.01it/s]Loading weights:  38%|███▊      | 166/436 [00:19<00:24, 10.81it/s]Loading weights:  41%|████      | 178/436 [00:20<00:23, 10.97it/s]Loading weights:  41%|████▏     | 180/436 [00:21<00:29,  8.64it/s]Loading weights:  44%|████▎     | 190/436 [00:22<00:26,  9.18it/s]Loading weights:  44%|████▍     | 192/436 [00:22<00:28,  8.66it/s]Loading weights:  46%|████▋     | 202/436 [00:23<00:27,  8.63it/s]Loading weights:  47%|████▋     | 204/436 [00:23<00:27,  8.54it/s]Loading weights:  49%|████▉     | 214/436 [00:24<00:25,  8.65it/s]Loading weights:  50%|████▉     | 216/436 [00:25<00:28,  7.63it/s]Loading weights:  52%|█████▏    | 226/436 [00:25<00:19, 10.61it/s]Loading weights:  52%|█████▏    | 228/436 [00:26<00:25,  8.29it/s]Loading weights:  55%|█████▍    | 238/436 [00:27<00:21,  9.39it/s]Loading weights:  55%|█████▌    | 240/436 [00:27<00:20,  9.37it/s]Loading weights:  56%|█████▌    | 242/436 [00:27<00:21,  9.19it/s]Loading weights:  57%|█████▋    | 250/436 [00:28<00:20,  9.14it/s]Loading weights:  58%|█████▊    | 252/436 [00:29<00:21,  8.47it/s]Loading weights:  60%|██████    | 262/436 [00:30<00:19,  9.08it/s]Loading weights:  61%|██████    | 264/436 [00:30<00:21,  7.88it/s]Loading weights:  63%|██████▎   | 274/436 [00:31<00:16,  9.80it/s]Loading weights:  63%|██████▎   | 276/436 [00:32<00:20,  7.92it/s]Loading weights:  66%|██████▌   | 286/436 [00:33<00:17,  8.51it/s]Loading weights:  66%|██████▌   | 288/436 [00:33<00:18,  8.02it/s]Loading weights:  68%|██████▊   | 298/436 [00:34<00:16,  8.44it/s]Loading weights:  69%|██████▉   | 300/436 [00:35<00:17,  7.58it/s]Loading weights:  71%|███████   | 310/436 [00:35<00:13,  9.38it/s]Loading weights:  72%|███████▏  | 312/436 [00:36<00:16,  7.65it/s]Loading weights:  74%|███████▍  | 322/436 [00:37<00:12,  9.11it/s]Loading weights:  74%|███████▍  | 324/436 [00:37<00:11,  9.44it/s]Loading weights:  77%|███████▋  | 334/436 [00:38<00:12,  8.21it/s]Loading weights:  77%|███████▋  | 336/436 [00:39<00:12,  8.08it/s]Loading weights:  79%|███████▉  | 346/436 [00:39<00:08, 10.10it/s]Loading weights:  80%|███████▉  | 348/436 [00:40<00:12,  7.15it/s]Loading weights:  82%|████████▏ | 358/436 [00:41<00:08,  8.91it/s]Loading weights:  83%|████████▎ | 360/436 [00:41<00:08,  9.33it/s]Loading weights:  83%|████████▎ | 362/436 [00:41<00:07, 10.01it/s]Loading weights:  85%|████████▍ | 370/436 [00:43<00:09,  7.02it/s]Loading weights:  85%|████████▌ | 372/436 [00:43<00:08,  7.58it/s]Loading weights:  88%|████████▊ | 382/436 [00:44<00:05,  9.14it/s]Loading weights:  88%|████████▊ | 384/436 [00:44<00:06,  7.57it/s]Loading weights:  90%|█████████ | 394/436 [00:45<00:04,  8.79it/s]Loading weights:  91%|█████████ | 396/436 [00:46<00:05,  7.97it/s]Loading weights:  93%|█████████▎| 406/436 [00:47<00:03,  9.14it/s]Loading weights:  94%|█████████▎| 408/436 [00:48<00:04,  6.82it/s]Loading weights:  96%|█████████▋| 420/436 [00:48<00:01,  9.66it/s]Loading weights:  97%|█████████▋| 422/436 [00:49<00:01,  9.53it/s]Loading weights:  99%|█████████▊| 430/436 [00:49<00:00, 10.69it/s]Loading weights:  99%|█████████▉| 432/436 [00:49<00:00, 10.93it/s]Loading weights: 100%|██████████| 436/436 [00:53<00:00,  3.41it/s]Loading weights: 100%|██████████| 436/436 [00:53<00:00,  8.18it/s]
+  gpt2-large     baseline            16.15
+Traceback (most recent call last):
+  File "/Users/victorweniger/Projekte/ncm-experimente/experiments/bench_score.py", line 106, in <module>
+    ppl_i, mp = J.genppl_paper([texts[i] for i in sel], bs=a.ref_bs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/victorweniger/Projekte/ncm-experimente/.venv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/victorweniger/Projekte/ncm-experimente/experiments/bench_common.py", line 363, in genppl_paper
+    r = generation_perplexity(_F32(self.m).eval(), self.tok, [""] * len(texts), texts,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/victorweniger/Projekte/ncm-experimente/.venv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/victorweniger/Projekte/ncm-experimente/ncm/evaluation/gen_ppl.py", line 74, in generation_perplexity
+    logits = ref_model(input_ids=input_ids, attention_mask=attn_mask).logits
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/victorweniger/Projekte/ncm-experimente/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/victorweniger/Projekte/ncm-experimente/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/victorweniger/Projekte/ncm-experimente/experiments/bench_common.py", line 360, in forward
+    o.logits = o.logits.float()
+               ^^^^^^^^^^^^^^^^
+RuntimeError: MPS backend out of memory (MPS allocated: 3.25 GiB, other allocations: 408.91 MiB, max allowed: 3.73 GiB). Tried to allocate 100.00 MiB on shared pool. Use PYTORCH_MPS_HIGH_WATERMARK_RATIO=0.0 to disable upper limit for memory allocations (may cause system failure).
+FEHLER bei experiments/bench_score.py --task tinystories  -> Rest dieser Aufgabe übersprungen
+-- Schnelltest bench_ncm.py --task wmt14 --n_full 3003 (10:38:04)
+Hochrechnung voller Lauf (12268 Generierungen à 0.499s): ca. 1.7 h (ohne Bewertung)
+== experiments/bench_ncm.py --task wmt14 (10:39:18)
+VQVAE, Total parameter count: 144.00M
+VQVAE, Non embedding parameter count: 85.73M
+NCP Transformer, Total parameter count: 119.96M
+NCP Transformer, Non embedding parameter count: 119.66M
+Gerät mps | Aufgabe wmt14 | Metrik bleu | Ebenen [1, 4, 8, 14, 20, 26, 32, 40, 48, 56, 64] | Präfix 96 | Sampling T=1.0 top_k=1 top_p=0.0 | Strafen freq=0.0 adj=None
+Parameter (ohne Einbettungen): Generator 91.6 M, Encoder 0.0 M, Decoder 60.0 M
+Selbsttest Ein-Pass-Bewertung: Abweichung 1.79e-07 -> Ein-Pass
+Schwelle gen_llR(gierig) auf 256 Kalibrier-Dokumenten: -12.2821
+gierig: 2747 Dokumente in 1408s
+  Kandidat 2/4 fertig (1438s)
+  Kandidat 3/4 fertig (1449s)
+  Kandidat 4/4 fertig (1449s)
+baseline   | GFLOPs/Dok   258.61 | NFE/Dok  11.0 | anderer Text als gierig   0.0 %
+rerank4    | GFLOPs/Dok  1334.28 | NFE/Dok  48.0 | anderer Text als gierig  81.3 %
+gated4     | GFLOPs/Dok   509.89 | NFE/Dok  18.3 | anderer Text als gierig  16.5 %
+rand4      | GFLOPs/Dok  1034.42 | NFE/Dok  44.0 | anderer Text als gierig  75.5 %
+oracle4    | GFLOPs/Dok  1034.42 | NFE/Dok  44.0 | anderer Text als gierig  63.5 %
+
+Gespeichert: /Users/victorweniger/Projekte/ncm-experimente/results/bench/wmt14/ncm.json  (5875s)
+Weiter mit: python experiments/bench_score.py --task wmt14
+== experiments/bench_score.py --task wmt14 (12:17:43)
+wmt14: 5 Varianten: baseline, rerank4, gated4, rand4, oracle4
+VQVAE, Total parameter count: 144.00M
+VQVAE, Non embedding parameter count: 85.73M
+NCP Transformer, Total parameter count: 119.96M
+NCP Transformer, Non embedding parameter count: 119.66M
+  baseline     BLEU 21.64 (lc 22.53) chrF 49.48 Länge 0.936
+  rerank4      BLEU 19.42 (lc 20.25) chrF 47.78 Länge 1.024
+  gated4       BLEU 21.51 (lc 22.39) chrF 49.37 Länge 0.949
+  rand4        BLEU 19.63 (lc 20.46) chrF 47.35 Länge 0.955
+  oracle4      BLEU 25.59 (lc 26.54) chrF 53.65 Länge 0.971
+
+# wmt14
+
+| Variante | BLEU | BLEU lc | chrF | Länge | Δ Satz-chrF [95 %-KI] | GFLOPs/Dok | seq. Schritte | angefasst % |
+|---|---|---|---|---|---|---|---|---|
+| baseline | 21.64 | 22.53 | 49.48 | 0.936 | – | 258.61 | 11 | 0 |
+| rerank4 | 19.42 | 20.25 | 47.78 | 1.024 | -1.8638 [-2.2544, -1.4785] | 1334.28 | 48 | 100 |
+| gated4 | 21.51 | 22.39 | 49.37 | 0.949 | -0.1407 [-0.3488, +0.0742] | 509.89 | 18 | 18 |
+| rand4 | 19.63 | 20.46 | 47.35 | 0.955 | -2.0721 [-2.4379, -1.7118] | 1034.42 | 44 | 100 |
+| oracle4 | 25.59 | 26.54 | 53.65 | 0.971 | +4.9145 [+4.6689, +5.1762] | 1034.42 | 44 | 100 |
+
+Gespeichert: /Users/victorweniger/Projekte/ncm-experimente/results/bench/wmt14/scores.json, table.md, pairs.jsonl (243 blinde Paare)
+== experiments/bench_ncm.py --task xsum --n 1000 (12:18:11)
+VQVAE, Total parameter count: 60.63M
+VQVAE, Non embedding parameter count: 41.30M
+NCP Transformer, Total parameter count: 88.02M
+NCP Transformer, Non embedding parameter count: 87.71M
+Gerät mps | Aufgabe xsum | Metrik rouge | Ebenen [4, 6, 10, 14, 20, 26, 32, 40, 48] | Präfix 512 | Sampling T=1.0 top_k=1 top_p=0.0 | Strafen freq=2.0 adj=[5.0, 4.0, 0.5]
+Parameter (ohne Einbettungen): Generator 85.6 M, Encoder 0.0 M, Decoder 21.1 M
+Selbsttest Ein-Pass-Bewertung: Abweichung 3.58e-07 -> Ein-Pass
+Schwelle gen_llR(gierig) auf 256 Kalibrier-Dokumenten: -5.6180
+gierig: 1000 Dokumente in 1381s
+  Kandidat 2/4 fertig (1361s)
+  Kandidat 3/4 fertig (1359s)
+  Kandidat 4/4 fertig (1350s)
+baseline   | GFLOPs/Dok   825.63 | NFE/Dok   9.0 | anderer Text als gierig   0.0 %
+rerank4    | GFLOPs/Dok  3790.39 | NFE/Dok  40.0 | anderer Text als gierig  74.9 %
+gated4     | GFLOPs/Dok  1453.61 | NFE/Dok  15.3 | anderer Text als gierig  16.5 %
+rand4      | GFLOPs/Dok  3302.53 | NFE/Dok  36.0 | anderer Text als gierig  77.0 %
+oracle4    | GFLOPs/Dok  3302.53 | NFE/Dok  36.0 | anderer Text als gierig  71.4 %
+
+Gespeichert: /Users/victorweniger/Projekte/ncm-experimente/results/bench/xsum/ncm.json  (5797s)
+Weiter mit: python experiments/bench_score.py --task xsum
+== experiments/bench_score.py --task xsum (13:55:22)
+xsum: 5 Varianten: baseline, rerank4, gated4, rand4, oracle4
+VQVAE, Total parameter count: 60.63M
+VQVAE, Non embedding parameter count: 41.30M
+NCP Transformer, Total parameter count: 88.02M
+NCP Transformer, Non embedding parameter count: 87.71M
+W1030 13:55:37.549000 98867 torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights:   7%|▋         | 10/148 [00:01<00:15,  8.71it/s]Loading weights:  15%|█▍        | 22/148 [00:01<00:06, 19.48it/s]Loading weights:  18%|█▊        | 27/148 [00:02<00:09, 12.33it/s]Loading weights:  23%|██▎       | 34/148 [00:02<00:09, 11.93it/s]Loading weights:  31%|███       | 46/148 [00:03<00:05, 18.09it/s]Loading weights:  39%|███▉      | 58/148 [00:03<00:04, 20.65it/s]Loading weights:  47%|████▋     | 70/148 [00:04<00:03, 21.21it/s]Loading weights:  49%|████▉     | 73/148 [00:04<00:03, 21.36it/s]Loading weights:  57%|█████▋    | 84/148 [00:04<00:03, 20.58it/s]Loading weights:  59%|█████▉    | 87/148 [00:05<00:03, 18.15it/s]Loading weights:  64%|██████▎   | 94/148 [00:05<00:03, 15.10it/s]Loading weights:  72%|███████▏  | 106/148 [00:06<00:02, 18.03it/s]Loading weights:  80%|███████▉  | 118/148 [00:06<00:01, 19.09it/s]Loading weights:  88%|████████▊ | 130/148 [00:07<00:00, 20.13it/s]Loading weights:  90%|████████▉ | 133/148 [00:07<00:00, 20.62it/s]Loading weights:  97%|█████████▋| 144/148 [00:07<00:00, 28.81it/s]Loading weights: 100%|██████████| 148/148 [00:09<00:00, 15.86it/s]
+  baseline     R1 34.63 R2 12.84 RL 27.78 GenPPL 82.5
+  rerank4      R1 34.17 R2 12.13 RL 27.18 GenPPL 85.0
+  gated4       R1 34.60 R2 12.94 RL 27.73 GenPPL 81.2
+  rand4        R1 33.59 R2 11.90 RL 26.77 GenPPL 98.7
+  oracle4      R1 39.60 R2 16.25 RL 33.64 GenPPL 88.7
+
+# xsum
+
+| Variante | R-1 | R-2 | R-L | GenPPL | Wörter | Δ Satz-R-L [95 %-KI] | GFLOPs/Dok | seq. Schritte | angefasst % |
+|---|---|---|---|---|---|---|---|---|---|
+| baseline | 34.63 | 12.84 | 27.78 | 82.5 | 20.9 | – | 825.63 | 9 | 0 |
+| rerank4 | 34.17 | 12.13 | 27.18 | 85.0 | 21.9 | -0.0060 [-0.0107, -0.0012] | 3790.39 | 40 | 100 |
+| gated4 | 34.60 | 12.94 | 27.73 | 81.2 | 21.1 | -0.0005 [-0.0032, +0.0022] | 1453.61 | 15 | 18 |
+| rand4 | 33.59 | 11.90 | 26.77 | 98.7 | 20.4 | -0.0101 [-0.0151, -0.0053] | 3302.53 | 36 | 100 |
+| oracle4 | 39.60 | 16.25 | 33.64 | 88.7 | 20.2 | +0.0586 [+0.0546, +0.0625] | 3302.53 | 36 | 100 |
+
+Gespeichert: /Users/victorweniger/Projekte/ncm-experimente/results/bench/xsum/scores.json, table.md, pairs.jsonl (245 blinde Paare)
+Übersicht: results/bench/SUMMARY.md
+Ergebnisse nach Documents/ncm-nachtlauf/bench kopiert
+Git-Commit erstellt (git push nicht vergessen)
+Ende 13:56:42
+-- Schnelltest hybrid_stage4.py train --k 3 (13:56:42)
+SCHNELLTEST FEHLGESCHLAGEN: hybrid_stage4.py train --k 3  -> diese Aufgabe wird übersprungen
+VQVAE, Total parameter count: 36.43M
+VQVAE, Non embedding parameter count: 33.24M
+NCP Transformer, Total parameter count: 88.61M
+NCP Transformer, Non embedding parameter count: 88.30M
+W1030 13:56:49.695000 98912 torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights:   5%|▌         | 8/148 [00:00<00:01, 71.66it/s]Loading weights:  11%|█         | 16/148 [00:00<00:03, 38.69it/s]Loading weights:  24%|██▍       | 36/148 [00:00<00:01, 79.83it/s]Loading weights:  58%|█████▊    | 86/148 [00:00<00:00, 196.68it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 227.54it/s]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Training Stufe 4, k=3 (25 Plan-Codes) | 124 M Parameter | 4 Schritte x 4
+Schritt     0 | Loss 6.413 | 90.01s/Schritt | Rest ca. 0.1 h
+Traceback (most recent call last):
+  File "/Users/victorweniger/Projekte/ncm-experimente/experiments/hybrid_stage4.py", line 172, in <module>
+    loss.backward()
+  File "/Users/victorweniger/Projekte/ncm-experimente/.venv/lib/python3.11/site-packages/torch/_tensor.py", line 623, in backward
+    torch.autograd.backward(
+  File "/Users/victorweniger/Projekte/ncm-experimente/.venv/lib/python3.11/site-packages/torch/autograd/__init__.py", line 395, in backward
+    _engine_run_backward(
+  File "/Users/victorweniger/Projekte/ncm-experimente/.venv/lib/python3.11/site-packages/torch/autograd/graph.py", line 1072, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: MPS backend out of memory (MPS allocated: 3.42 GiB, other allocations: 263.55 MiB, max allowed: 3.73 GiB). Tried to allocate 62.00 MiB on shared pool. Use PYTORCH_MPS_HIGH_WATERMARK_RATIO=0.0 to disable upper limit for memory allocations (may cause system failure).
+-- Schnelltest merge_arch.py train --arch B --k 3 (13:58:31)
+SCHNELLTEST FEHLGESCHLAGEN: merge_arch.py train --arch B --k 3  -> diese Aufgabe wird übersprungen
+VQVAE, Total parameter count: 36.43M
+VQVAE, Non embedding parameter count: 33.24M
+NCP Transformer, Total parameter count: 88.61M
+NCP Transformer, Non embedding parameter count: 88.30M
+W1030 13:58:38.407000 98980 torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights:   5%|▌         | 8/148 [00:00<00:02, 53.08it/s]Loading weights:  12%|█▏        | 18/148 [00:00<00:03, 42.94it/s]Loading weights:  23%|██▎       | 34/148 [00:00<00:01, 67.13it/s]Loading weights:  28%|██▊       | 42/148 [00:00<00:01, 67.76it/s]Loading weights:  40%|███▉      | 59/148 [00:00<00:00, 89.37it/s]Loading weights:  47%|████▋     | 69/148 [00:00<00:00, 86.34it/s]Loading weights:  53%|█████▎    | 79/148 [00:01<00:00, 86.09it/s]Loading weights:  64%|██████▍   | 95/148 [00:01<00:00, 99.97it/s]Loading weights:  96%|█████████▌| 142/148 [00:01<00:00, 183.24it/s]Loading weights: 100%|██████████| 148/148 [00:01<00:00, 114.91it/s]
+[transformers] The new embeddings will be initialized from a multivariate normal distribution that has old embeddings' mean and covariance. As described in this article: https://nlp.stanford.edu/~johnhew/vocab-expansion.html. To disable this, use `mean_resizing=False`
+Training B, k=3 (25 Plan-Codes + 16 Auslese) | 133 M Parameter | 3 Schritte x 2
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Schritt     0 | Text 2.847 | Codes 12.174 | 2.98s/Schritt | Rest ca. 0.0 h
+Traceback (most recent call last):
+  File "/Users/victorweniger/Projekte/ncm-experimente/experiments/merge_arch.py", line 284, in <module>
+    (loss / acc).backward()
+  File "/Users/victorweniger/Projekte/ncm-experimente/.venv/lib/python3.11/site-packages/torch/_tensor.py", line 623, in backward
+    torch.autograd.backward(
+  File "/Users/victorweniger/Projekte/ncm-experimente/.venv/lib/python3.11/site-packages/torch/autograd/__init__.py", line 395, in backward
+    _engine_run_backward(
+  File "/Users/victorweniger/Projekte/ncm-experimente/.venv/lib/python3.11/site-packages/torch/autograd/graph.py", line 1072, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: MPS backend out of memory (MPS allocated: 3.55 GiB, other allocations: 143.73 MiB, max allowed: 3.73 GiB). Tried to allocate 148.00 MiB on shared pool. Use PYTORCH_MPS_HIGH_WATERMARK_RATIO=0.0 to disable upper limit for memory allocations (may cause system failure).
+-- Schnelltest merge_arch.py train --arch C --k 3 (13:59:05)
+SCHNELLTEST FEHLGESCHLAGEN: merge_arch.py train --arch C --k 3  -> diese Aufgabe wird übersprungen
+VQVAE, Total parameter count: 36.43M
+VQVAE, Non embedding parameter count: 33.24M
+NCP Transformer, Total parameter count: 88.61M
+NCP Transformer, Non embedding parameter count: 88.30M
+W1030 13:59:11.873000 98995 torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights:  16%|█▌        | 24/148 [00:00<00:00, 155.40it/s]Loading weights:  27%|██▋       | 40/148 [00:00<00:00, 145.62it/s]Loading weights:  37%|███▋      | 55/148 [00:00<00:01, 71.58it/s] Loading weights:  66%|██████▌   | 98/148 [00:00<00:00, 137.50it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 176.85it/s]
+[transformers] The new embeddings will be initialized from a multivariate normal distribution that has old embeddings' mean and covariance. As described in this article: https://nlp.stanford.edu/~johnhew/vocab-expansion.html. To disable this, use `mean_resizing=False`
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Training C, k=3 (25 Plan-Codes + 16 Auslese) | 133 M Parameter | 3 Schritte x 2
+Schritt     0 | Text 2.940 | Codes 18.277 | 2.24s/Schritt | Rest ca. 0.0 h
+Traceback (most recent call last):
+  File "/Users/victorweniger/Projekte/ncm-experimente/experiments/merge_arch.py", line 284, in <module>
+    (loss / acc).backward()
+  File "/Users/victorweniger/Projekte/ncm-experimente/.venv/lib/python3.11/site-packages/torch/_tensor.py", line 623, in backward
+    torch.autograd.backward(
+  File "/Users/victorweniger/Projekte/ncm-experimente/.venv/lib/python3.11/site-packages/torch/autograd/__init__.py", line 395, in backward
+    _engine_run_backward(
+  File "/Users/victorweniger/Projekte/ncm-experimente/.venv/lib/python3.11/site-packages/torch/autograd/graph.py", line 1072, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: MPS backend out of memory (MPS allocated: 3.54 GiB, other allocations: 66.22 MiB, max allowed: 3.73 GiB). Tried to allocate 148.00 MiB on shared pool. Use PYTORCH_MPS_HIGH_WATERMARK_RATIO=0.0 to disable upper limit for memory allocations (may cause system failure).
+-- Schnelltest merge_arch.py train --arch C --k 12 (13:59:35)
+SCHNELLTEST FEHLGESCHLAGEN: merge_arch.py train --arch C --k 12  -> diese Aufgabe wird übersprungen
+    outputs = func(self, *args, **kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/victorweniger/Projekte/ncm-experimente/.venv/lib/python3.11/site-packages/transformers/models/gpt2/modeling_gpt2.py", line 608, in forward
+    hidden_states = block(
+                    ^^^^^^
+  File "/Users/victorweniger/Projekte/ncm-experimente/.venv/lib/python3.11/site-packages/transformers/modeling_layers.py", line 111, in __call__
+    return super().__call__(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/victorweniger/Projekte/ncm-experimente/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/victorweniger/Projekte/ncm-experimente/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/victorweniger/Projekte/ncm-experimente/.venv/lib/python3.11/site-packages/transformers/models/gpt2/modeling_gpt2.py", line 274, in forward
+    attn_output, _ = self.attn(
+                     ^^^^^^^^^^
+  File "/Users/victorweniger/Projekte/ncm-experimente/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/victorweniger/Projekte/ncm-experimente/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/victorweniger/Projekte/ncm-experimente/.venv/lib/python3.11/site-packages/transformers/models/gpt2/modeling_gpt2.py", line 211, in forward
+    attn_output, attn_weights = attention_interface(
+                                ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/victorweniger/Projekte/ncm-experimente/.venv/lib/python3.11/site-packages/transformers/integrations/sdpa_attention.py", line 174, in sdpa_attention_forward
+    attn_output = torch.nn.functional.scaled_dot_product_attention(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: MPS backend out of memory (MPS allocated: 3.71 GiB, other allocations: 4.83 MiB, max allowed: 3.73 GiB). Tried to allocate 90.00 MiB on shared pool. Use PYTORCH_MPS_HIGH_WATERMARK_RATIO=0.0 to disable upper limit for memory allocations (may cause system failure).
+== experiments/bench_score.py --task tinystories (13:59:55)
+tinystories: 12 Varianten: baseline, self, rand, best4, llm_only, s1_replace, s2_sentence, s3_spec, s3_pick4, s1_rewrite, s1_rewrite_rand, s1_rewrite_all
+VQVAE, Total parameter count: 36.43M
+VQVAE, Non embedding parameter count: 33.24M
+NCP Transformer, Total parameter count: 88.61M
+NCP Transformer, Non embedding parameter count: 88.30M
+W1030 14:00:02.058000 99012 torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+Loading weights:   0%|          | 0/436 [00:00<?, ?it/s]Loading weights:   0%|          | 2/436 [00:01<06:36,  1.09it/s]Loading weights:   2%|▏         | 10/436 [00:04<02:49,  2.52it/s]Loading weights:   6%|▌         | 24/436 [00:06<01:46,  3.88it/s]Loading weights:   6%|▌         | 26/436 [00:07<01:41,  4.02it/s]Loading weights:   8%|▊         | 36/436 [00:10<01:52,  3.54it/s]Loading weights:  11%|█         | 46/436 [00:12<01:34,  4.12it/s]Loading weights:  14%|█▍        | 60/436 [00:15<01:24,  4.45it/s]Loading weights:  19%|█▉        | 82/436 [00:16<00:48,  7.26it/s]Loading weights:  19%|█▉        | 84/436 [00:18<01:06,  5.25it/s]Loading weights:  22%|██▏       | 96/436 [00:19<00:56,  6.01it/s]Loading weights:  25%|██▍       | 108/436 [00:22<01:04,  5.07it/s]Loading weights:  27%|██▋       | 118/436 [00:23<00:52,  6.00it/s]Loading weights:  28%|██▊       | 120/436 [00:24<00:58,  5.38it/s]Loading weights:  30%|██▉       | 130/436 [00:25<00:46,  6.53it/s]Loading weights:  30%|███       | 132/436 [00:27<01:02,  4.85it/s]Loading weights:  33%|███▎      | 142/436 [00:27<00:41,  7.12it/s]Loading weights:  33%|███▎      | 146/436 [00:29<00:55,  5.23it/s]Loading weights:  35%|███▌      | 154/436 [00:30<00:47,  5.89it/s]Loading weights:  36%|███▌      | 158/436 [00:30<00:41,  6.76it/s]Loading weights:  38%|███▊      | 166/436 [00:33<00:59,  4.51it/s]Loading weights:  39%|███▊      | 168/436 [00:33<00:59,  4.48it/s]Loading weights:  41%|████      | 178/436 [00:34<00:40,  6.34it/s]Loading weights:  41%|████▏     | 180/436 [00:35<00:55,  4.59it/s]Loading weights:  44%|████▎     | 190/436 [00:37<00:47,  5.14it/s]Loading weights:  44%|████▍     | 192/436 [00:37<00:48,  5.06it/s]Loading weights:  44%|████▍     | 194/436 [00:38<00:50,  4.82it/s]Loading weights:  46%|████▋     | 202/436 [00:39<00:47,  4.96it/s]Loading weights:  47%|████▋     | 204/436 [00:40<00:55,  4.15it/s]Loading weights:  49%|████▉     | 214/436 [00:42<00:40,  5.52it/s]Loading weights:  50%|████▉     | 216/436 [00:43<00:48,  4.55it/s]Loading weights:  52%|█████▏    | 226/436 [00:45<00:44,  4.71it/s]Loading weights:  55%|█████▍    | 238/436 [00:46<00:35,  5.65it/s]Loading weights:  55%|█████▌    | 240/436 [00:48<00:44,  4.40it/s]Loading weights:  57%|█████▋    | 250/436 [00:48<00:30,  6.02it/s]Loading weights:  58%|█████▊    | 252/436 [00:49<00:35,  5.14it/s]Loading weights:  60%|██████    | 262/436 [00:52<00:36,  4.83it/s]Loading weights:  63%|██████▎   | 274/436 [00:53<00:27,  5.86it/s]Loading weights:  63%|██████▎   | 276/436 [00:55<00:36,  4.37it/s]Loading weights:  66%|██████▌   | 286/436 [00:56<00:27,  5.41it/s]Loading weights:  66%|██████▌   | 288/436 [00:57<00:31,  4.63it/s]Loading weights:  68%|██████▊   | 298/436 [00:59<00:29,  4.68it/s]Loading weights:  69%|██████▉   | 300/436 [00:59<00:28,  4.78it/s]Loading weights:  69%|██████▉   | 302/436 [00:59<00:25,  5.19it/s]Loading weights:  71%|███████   | 310/436 [01:01<00:26,  4.69it/s]Loading weights:  72%|███████▏  | 312/436 [01:03<00:34,  3.63it/s]Loading weights:  74%|███████▍  | 322/436 [01:04<00:23,  4.82it/s]Loading weights:  74%|███████▍  | 324/436 [01:05<00:27,  4.12it/s]Loading weights:  77%|███████▋  | 334/436 [01:07<00:22,  4.44it/s]Loading weights:  77%|███████▋  | 336/436 [01:08<00:22,  4.39it/s]Loading weights:  79%|███████▉  | 346/436 [01:10<00:20,  4.38it/s]Loading weights:  80%|███████▉  | 348/436 [01:11<00:21,  4.12it/s]Loading weights:  82%|████████▏ | 358/436 [01:12<00:16,  4.70it/s]Loading weights:  83%|████████▎ | 360/436 [01:14<00:19,  3.90it/s]Loading weights:  85%|████████▍ | 370/436 [01:15<00:14,  4.68it/s]Loading weights:  85%|████████▌ | 372/436 [01:16<00:16,  3.92it/s]Loading weights:  88%|████████▊ | 382/436 [01:18<00:12,  4.38it/s]Loading weights:  88%|████████▊ | 384/436 [01:19<00:11,  4.38it/s]Loading weights:  90%|█████████ | 394/436 [01:21<00:08,  4.70it/s]Loading weights:  91%|█████████ | 396/436 [01:22<00:10,  3.94it/s]Loading weights:  93%|█████████▎| 406/436 [01:23<00:05,  5.43it/s]Loading weights:  94%|█████████▎| 408/436 [01:24<00:06,  4.60it/s]Loading weights:  96%|█████████▌| 418/436 [01:26<00:03,  4.85it/s]Loading weights:  96%|█████████▋| 420/436 [01:26<00:03,  5.11it/s]Loading weights:  99%|█████████▊| 430/436 [01:28<00:01,  5.26it/s]Loading weights:  99%|█████████▉| 432/436 [01:28<00:00,  4.85it/s]Loading weights: 100%|██████████| 436/436 [01:39<00:00,  1.23it/s]Loading weights: 100%|██████████| 436/436 [01:39<00:00,  4.38it/s]
+Traceback (most recent call last):
+  File "/Users/victorweniger/Projekte/ncm-experimente/experiments/bench_score.py", line 106, in <module>
+    ppl_i, mp = J.genppl_paper([texts[i] for i in sel], bs=a.ref_bs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/victorweniger/Projekte/ncm-experimente/.venv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/victorweniger/Projekte/ncm-experimente/experiments/bench_common.py", line 363, in genppl_paper
+    r = generation_perplexity(_F32(self.m).eval(), self.tok, [""] * len(texts), texts,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/victorweniger/Projekte/ncm-experimente/.venv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/victorweniger/Projekte/ncm-experimente/ncm/evaluation/gen_ppl.py", line 74, in generation_perplexity
+    logits = ref_model(input_ids=input_ids, attention_mask=attn_mask).logits
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/victorweniger/Projekte/ncm-experimente/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/victorweniger/Projekte/ncm-experimente/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/victorweniger/Projekte/ncm-experimente/experiments/bench_common.py", line 360, in forward
+    o.logits = o.logits.float()
+               ^^^^^^^^^^^^^^^^
+RuntimeError: MPS backend out of memory (MPS allocated: 3.34 GiB, other allocations: 312.88 MiB, max allowed: 3.73 GiB). Tried to allocate 100.00 MiB on shared pool. Use PYTORCH_MPS_HIGH_WATERMARK_RATIO=0.0 to disable upper limit for memory allocations (may cause system failure).
+FEHLER bei experiments/bench_score.py --task tinystories  -> Rest dieser Aufgabe übersprungen
+Übersicht: results/bench/SUMMARY.md
+Ergebnisse nach Documents/ncm-nachtlauf/bench kopiert
+On branch main
+Your branch is ahead of 'origin/main' by 5 commits.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   results/NIGHT.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	experiments/diag_xsum.py
+	experiments/level_demo.py
+	results/alles.log
+	results/alles2.log
+	results/bench/lm1b-small-smoke/
+	results/bench/lm1b-small/ncm.json
+	results/bench/lm1b-small/pairs.jsonl
+	results/bench/lm1b-small/pairs_key.json
+	results/bench/run-a.log
+	results/bench/run-b.log
+	results/bench/run-m.log
+	results/bench/run-nach.log
+	results/bench/smoke.log
+	results/bench/tinystories-smoke/hybrid.json
+	results/bench/tinystories-smoke/ncm.json
+	results/bench/tinystories-smoke/pairs.jsonl
+	results/bench/tinystories-smoke/pairs_key.json
+	results/bench/tinystories/
+	results/bench/wmt14-smoke/
+	results/bench/wmt14/ncm.json
+	results/bench/wmt14/pairs.jsonl
+	results/bench/wmt14/pairs_key.json
+	results/bench/xsum-smoke/ncm.json
+	results/bench/xsum-smoke/pairs.jsonl
+	results/bench/xsum-smoke/pairs_key.json
+	results/bench/xsum/ncm.json
+	results/bench/xsum/pairs.jsonl
+	results/bench/xsum/pairs_key.json
+	results/level_demo.json
+	start_nacht.sh
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Ende 14:03:19
