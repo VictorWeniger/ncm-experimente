@@ -39,9 +39,10 @@ setup)
     mkdir -p "artifacts/$d"
     dest="$(dirname "$(realdir "artifacts/$d")")"
     # shellcheck disable=SC2086
-    set -f; hf download hazyresearch/ncm-checkpoints --include $pats --local-dir "$dest"; set +f
+    inc=(); set -f; for p in $pats; do inc+=(--include "$p"); done; set +f
+    hf download hazyresearch/ncm-checkpoints "${inc[@]}" --local-dir "$dest"
   done
-  hf download hazyresearch/ncm-datasets --repo-type dataset --include "xsum/*" "wmt14/*" --local-dir "$(realdir data)"
+  hf download hazyresearch/ncm-datasets --repo-type dataset --include "xsum/*" --include "wmt14/*" --local-dir "$(realdir data)"
   # Modelle für Mischformen und Bewertung vorab laden (sonst lädt die Nacht sie)
   python - <<'PY'
 from transformers import AutoModelForCausalLM, AutoTokenizer
@@ -71,6 +72,12 @@ a)
   } 2>&1 | tee "$LOG" ;;
 b)
   {
+  # LM1B nachholen, falls Teil a es übersprungen hat (Speicherfehler in der Bewertung, behoben)
+  if [ ! -f results/bench/lm1b-small/scores.json ]; then
+  ( smoke bench_score.py --task lm1b-small || true
+    [ -f results/bench/lm1b-small/ncm.json ] || step experiments/bench_ncm.py --task lm1b-small
+    step experiments/bench_score.py --task lm1b-small )
+  fi
   ( smoke bench_ncm.py --task xsum --n_full 1000 && smoke bench_score.py --task xsum \
     && step experiments/bench_ncm.py --task xsum --n 1000 && step experiments/bench_score.py --task xsum )
   ( smoke bench_ncm.py --task wmt14 --n_full 3003 && smoke bench_score.py --task wmt14 \

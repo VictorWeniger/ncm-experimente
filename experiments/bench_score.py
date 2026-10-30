@@ -81,7 +81,7 @@ if uncond:
             for s in useeds:
                 sel = [i for i, x in enumerate(v["seed"]) if x == s]
                 texts = gen_tok.batch_decode([v["raw_ids"][i] for i in sel])
-                ppl, _ = ref.corpus_ppl_flm(texts)
+                ppl, _ = ref.corpus_ppl_flm(texts, bs=a.ref_bs)
                 ent = float(np.mean([entropy_ids(v["raw_ids"][i]) for i in sel]))
                 per.append((ppl, ent))
             S[k]["paper_genppl"] = float(np.mean([p[0] for p in per]))

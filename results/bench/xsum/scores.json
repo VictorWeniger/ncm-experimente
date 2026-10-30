@@ -1,0 +1,121 @@
+{
+ "task": "xsum",
+ "judges": [
+  "gpt2-large",
+  "HuggingFaceTB/SmolLM2-360M"
+ ],
+ "scores": {
+  "baseline": {
+   "source": "ncm",
+   "gflops": 825.631982992,
+   "steps": 9.0,
+   "seconds": 1349.5255630016327,
+   "retried": 0.0,
+   "rouge1": 0.0,
+   "rouge2": 0.0,
+   "rougeL": 0.0,
+   "words": 0.0,
+   "genppl_gpt2": 1.0
+  },
+  "rerank4": {
+   "source": "ncm",
+   "gflops": 3790.388423808,
+   "steps": 40.0,
+   "seconds": 5500.522508144379,
+   "retried": 100.0,
+   "rouge1": 0.0,
+   "rouge2": 0.0,
+   "rougeL": 0.0,
+   "words": 0.0,
+   "genppl_gpt2": 1.0,
+   "d_sentence_metric": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "gated4": {
+   "source": "ncm",
+   "gflops": 1592.910735105312,
+   "steps": 16.81,
+   "seconds": 2291.8018616316376,
+   "retried": 22.7,
+   "rouge1": 0.0,
+   "rouge2": 0.0,
+   "rougeL": 0.0,
+   "words": 0.0,
+   "genppl_gpt2": 1.0,
+   "d_sentence_metric": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "rand4": {
+   "source": "ncm",
+   "gflops": 3302.527931968,
+   "steps": 36.0,
+   "seconds": 5500.522508144379,
+   "retried": 100.0,
+   "rouge1": 0.0,
+   "rouge2": 0.0,
+   "rougeL": 0.0,
+   "words": 0.0,
+   "genppl_gpt2": 1.0,
+   "d_sentence_metric": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "oracle4": {
+   "source": "ncm",
+   "gflops": 3302.527931968,
+   "steps": 36.0,
+   "seconds": 5500.522508144379,
+   "retried": 100.0,
+   "rouge1": 0.0,
+   "rouge2": 0.0,
+   "rougeL": 0.0,
+   "words": 0.0,
+   "genppl_gpt2": 1.0,
+   "d_sentence_metric": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  }
+ },
+ "meta": {
+  "ncm": {
+   "task": "xsum",
+   "uncond": false,
+   "metric": "rouge",
+   "levels": [
+    4,
+    6,
+    10,
+    14,
+    20,
+    26,
+    32,
+    40,
+    48
+   ],
+   "N": 4,
+   "rounds": 2,
+   "flag_q": 0.2,
+   "fast_scoring": true,
+   "params": {
+    "gen": 85649665.0,
+    "enc": 0,
+    "dec": 21091712
+   },
+   "flops_generate": 825631982992.0,
+   "flops_score": 121965122960.0,
+   "nfe_generate": 9,
+   "nfe_score": 1,
+   "n_docs": 1000
+  }
+ }
+}

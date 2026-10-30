@@ -363,7 +363,7 @@ class RefLM:
         return r.ppl.double(), float(r.mean_ppl)
 
     @torch.no_grad()
-    def corpus_ppl_flm(self, texts, bs=16):
+    def corpus_ppl_flm(self, texts, bs=4):
         """FLM-Protokoll (LM1B): erste 128 GPT-2-Tokens, Korpus-Perplexity (eval_merge.genppl_flm)."""
         enc = self.tok(texts, return_tensors="pt", return_token_type_ids=False, truncation=True,
                        padding=True, max_length=128)
@@ -380,6 +380,9 @@ class RefLM:
             nll_sum += float((nll * valid).sum())
             tok_sum += float(valid.sum())
             per += ((nll * valid).sum(1) / valid.sum(1).clamp_min(1)).tolist()
+            del logits, nll
+            if self.dev == "mps":
+                torch.mps.empty_cache()
         return float(math.exp(nll_sum / tok_sum)), torch.tensor(per, dtype=torch.float64)
 
     def close(self):
