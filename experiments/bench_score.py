@@ -61,6 +61,11 @@ print(f"{a.task}: {len(V)} Varianten: {', '.join(V)}", flush=True)
 
 T = Task(a.task, "cpu")  # nur für den Tokenizer (Entropie, FLM)
 pre = T.tk.pre_tokenizer
+if metric == "genppl_flm":
+    # LM1B: Texte aus den Roh-Tokens neu dekodieren (die gespeicherten waren wegen der [CLS]-Startmarke leer)
+    for v in V.values():
+        if "raw_ids" in v:
+            v["texts"] = [T.dec(r) for r in v["raw_ids"]]
 del T.net
 free("cpu")
 S = {k: {"source": v["source"], "gflops": float(np.mean(v["flops"])) / 1e9, "steps": float(np.mean(v["nfe"])),

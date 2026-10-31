@@ -14,12 +14,12 @@
    "paper_genppl": 92.59214116941398,
    "paper_genppl_sd": 1.3962443633713186,
    "paper_entropy": 4.311926613514563,
-   "ppl_gpt2-large": 8488.833574581802,
-   "ppl_gpt2-large_sd": 0.0,
-   "ppl_SmolLM2-360M": 9174.801884429371,
-   "ppl_SmolLM2-360M_sd": 0.0,
-   "entropy": 0.6931471805599453,
-   "words": 0.0
+   "ppl_gpt2-large": 2820.78847581629,
+   "ppl_gpt2-large_sd": 2072.1640306245345,
+   "ppl_SmolLM2-360M": NaN,
+   "ppl_SmolLM2-360M_sd": NaN,
+   "entropy": 2.4370376500565447,
+   "words": 11.6546875
   },
   "self": {
    "source": "ncm",
@@ -30,22 +30,22 @@
    "paper_genppl": 86.07597596175222,
    "paper_genppl_sd": 1.5208930084865906,
    "paper_entropy": 4.3111960388437485,
-   "ppl_gpt2-large": 8488.833574581802,
-   "ppl_gpt2-large_sd": 0.0,
+   "ppl_gpt2-large": 2324.785391997869,
+   "ppl_gpt2-large_sd": 1559.0430154226196,
    "dlogppl_gpt2-large": [
-    0.0,
-    0.0,
-    0.0
+    -0.09104405784837158,
+    -0.14076621015404595,
+    -0.04120540584306013
    ],
-   "ppl_SmolLM2-360M": 9174.801884429371,
-   "ppl_SmolLM2-360M_sd": 0.0,
+   "ppl_SmolLM2-360M": NaN,
+   "ppl_SmolLM2-360M_sd": NaN,
    "dlogppl_SmolLM2-360M": [
-    0.0,
-    0.0,
-    0.0
+    NaN,
+    NaN,
+    NaN
    ],
-   "entropy": 0.6931471805599453,
-   "words": 0.0
+   "entropy": 2.455005768043327,
+   "words": 11.73125
   },
   "rand": {
    "source": "ncm",
@@ -56,22 +56,22 @@
    "paper_genppl": 89.94687577952952,
    "paper_genppl_sd": 1.1929593310642566,
    "paper_entropy": 4.309275052182123,
-   "ppl_gpt2-large": 8488.833574581802,
-   "ppl_gpt2-large_sd": 0.0,
+   "ppl_gpt2-large": 2776.1075110647703,
+   "ppl_gpt2-large_sd": 2093.2317977488283,
    "dlogppl_gpt2-large": [
-    0.0,
-    0.0,
-    0.0
+    -0.030715956374273122,
+    -0.06804373361143498,
+    0.0069420601609814
    ],
-   "ppl_SmolLM2-360M": 9174.801884429371,
-   "ppl_SmolLM2-360M_sd": 0.0,
+   "ppl_SmolLM2-360M": NaN,
+   "ppl_SmolLM2-360M_sd": NaN,
    "dlogppl_SmolLM2-360M": [
-    0.0,
-    0.0,
-    0.0
+    NaN,
+    NaN,
+    NaN
    ],
-   "entropy": 0.6931471805599453,
-   "words": 0.0
+   "entropy": 2.4456591192423707,
+   "words": 11.63359375
   },
   "best4": {
    "source": "ncm",
@@ -82,22 +82,22 @@
    "paper_genppl": 80.06840459259281,
    "paper_genppl_sd": 0.2132982571039653,
    "paper_entropy": 4.30064856742783,
-   "ppl_gpt2-large": 8488.833574581802,
-   "ppl_gpt2-large_sd": 0.0,
+   "ppl_gpt2-large": 1877.4024758017779,
+   "ppl_gpt2-large_sd": 1136.663080406782,
    "dlogppl_gpt2-large": [
-    0.0,
-    0.0,
-    0.0
+    -0.09838181873303323,
+    -0.19092768331106233,
+    -0.011155033004080038
    ],
-   "ppl_SmolLM2-360M": 9174.801884429371,
-   "ppl_SmolLM2-360M_sd": 0.0,
+   "ppl_SmolLM2-360M": NaN,
+   "ppl_SmolLM2-360M_sd": NaN,
    "dlogppl_SmolLM2-360M": [
-    0.0,
-    0.0,
-    0.0
+    NaN,
+    NaN,
+    NaN
    ],
-   "entropy": 0.6931471805599453,
-   "words": 0.0
+   "entropy": 2.4388823629835756,
+   "words": 11.7734375
   }
  },
  "meta": {

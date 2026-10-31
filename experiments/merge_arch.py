@@ -263,8 +263,13 @@ def batch_loss(model, exs):
 if a.mode == "train":
     import random
     del T.net
+    T._gen_rec = T._check = T._tf = None  # hielten den Generator über eine Closure im Speicher
+    import gc
+    gc.collect()
     free(dev)
     model = Merged().to(dev)
+    model.lm.gradient_checkpointing_enable()  # spart Aktivierungsspeicher (8-GB-Mac)
+    model.lm.config.use_cache = False
     rng = random.Random(0)
     it = tinystories_random("train", seed=1)
     val_txt = tinystories_first("valid", 128 if not a.smoke else 4)

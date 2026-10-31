@@ -306,6 +306,32 @@
    "entropy": 4.1707443375866236,
    "paper_entropy": 4.1707443375866236,
    "words": 127.821875
+  },
+  "merge_Cpar_k12": {
+   "source": "merge",
+   "gflops": 387.73056488320003,
+   "steps": 23.353125,
+   "seconds": 2293.826676130295,
+   "retried": 0.0,
+   "ppl_gpt2-large": 334.8123867870312,
+   "ppl_gpt2-large_sd": 5.610837174672308,
+   "paper_genppl": 334.8123867870312,
+   "paper_genppl_sd": 5.610837174672308,
+   "dlogppl_gpt2-large": [
+    3.035775450581535,
+    3.008377334558118,
+    3.063605253307653
+   ],
+   "ppl_SmolLM2-360M": NaN,
+   "ppl_SmolLM2-360M_sd": NaN,
+   "dlogppl_SmolLM2-360M": [
+    NaN,
+    NaN,
+    NaN
+   ],
+   "entropy": 3.7671641123723894,
+   "paper_entropy": 3.7671641123723894,
+   "words": 95.33671875
   }
  },
  "meta": {
@@ -346,6 +372,10 @@
    "uncond": true,
    "lm": "roneneldan/TinyStories-33M",
    "rewriter": "Qwen/Qwen2.5-0.5B-Instruct"
+  },
+  "merge": {
+   "task": "tinystories",
+   "uncond": true
   }
  }
 }

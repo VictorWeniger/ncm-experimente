@@ -137,8 +137,13 @@ def batch_from_texts(texts, noise=0.0):
 if a.mode == "train":
     from bench_common import tinystories_first, tinystories_random
     del T.net
+    T._gen_rec = T._check = T._tf = None  # hielten den Generator über eine Closure im Speicher
+    import gc
+    gc.collect()
     free(dev)
     model = PlanLM().to(dev)
+    model.lm.gradient_checkpointing_enable()  # spart Aktivierungsspeicher (8-GB-Mac)
+    model.lm.config.use_cache = False
     val = tinystories_first("valid", 256 if not a.smoke else 4)
     it = tinystories_random("train", seed=0)
     opt = torch.optim.AdamW([p for p in model.parameters() if p.requires_grad], lr=a.lr, weight_decay=0.01)
