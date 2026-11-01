@@ -291,6 +291,9 @@ if a.mode == "train":
         opt.step()
         sched.step()
         opt.zero_grad(set_to_none=True)
+        del loss
+        if dev == "mps":
+            torch.mps.empty_cache()  # wechselnde Sequenzlängen zerstückeln sonst den Grafikspeicher
         if step % 100 == 0 or step == a.steps - 1:
             el = time.time() - t0
             print(f"Schritt {step:5d} | Text {lt:.3f} | Codes {lc:.3f} | {el / (step + 1):.2f}s/Schritt | "

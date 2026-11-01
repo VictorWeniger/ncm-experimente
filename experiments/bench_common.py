@@ -319,7 +319,8 @@ class RefLM:
         self.tok = AutoTokenizer.from_pretrained(name)
         if self.tok.pad_token is None:
             self.tok.pad_token = self.tok.eos_token
-        half = dev in ("mps", "cuda")
+        # halbe Genauigkeit nur für das große Prüfmodell; kleinere (SmolLM2) liefen in fp16 auf dem Mac über (NaN)
+        half = dev == "cuda" or (dev == "mps" and "large" in name)
         self.m = AutoModelForCausalLM.from_pretrained(
             name, dtype=torch.float16 if half else torch.float32).to(dev).eval()
         self.bos = self.tok.bos_token_id if self.tok.bos_token_id is not None else self.tok.eos_token_id

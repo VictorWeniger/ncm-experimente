@@ -125,7 +125,21 @@ nach2)
   step experiments/bench_score.py --task lm1b-small
   step experiments/bench_score.py --task tinystories
   } 2>&1 | tee "$LOG" ;;
-*) echo "Aufruf: ./run_bench.sh setup|a|b|m|nach|nach2"; exit 1 ;;
+m2)
+  # Teil m ohne Schnelltests nachholen: eine Geschichte gleichzeitig, C-par ist schon fertig
+  ST="${STEPS:-1000}"
+  TR="--steps $ST --bs 16 --micro_bs 1"
+  {
+  ( step experiments/hybrid_stage4.py train --k 0 $TR && step experiments/hybrid_stage4.py gen --k 0 )
+  ( step experiments/hybrid_stage4.py train --k 3 $TR && step experiments/hybrid_stage4.py gen --k 3 )
+  ( step experiments/merge_arch.py train --arch B --k 3 $TR && step experiments/merge_arch.py gen --arch B --k 3 \
+    && step experiments/merge_arch.py gen --arch D --k 3 )
+  ( step experiments/merge_arch.py train --arch C --k 3 $TR && step experiments/merge_arch.py gen --arch C --k 3 \
+    && step experiments/merge_arch.py gen --arch C --k 3 --max_blocks 6 --tag long --n_samples 64 --seeds 42 )
+  step experiments/bench_score.py --task tinystories
+  step experiments/bench_score.py --task lm1b-small
+  } 2>&1 | tee "$LOG" ;;
+*) echo "Aufruf: ./run_bench.sh setup|a|b|m|m2|nach|nach2"; exit 1 ;;
 esac
 
 python experiments/bench_report.py > /dev/null && echo "Übersicht: results/bench/SUMMARY.md"

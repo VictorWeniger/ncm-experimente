@@ -175,13 +175,17 @@ if a.mode == "train":
             lg = model(c, x, att)
             loss = F.cross_entropy(lg.float().transpose(1, 2), y, ignore_index=-100) / acc
             loss.backward()
+            loss_val = loss.item() * acc
         torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
         opt.step()
         sched.step()
         opt.zero_grad(set_to_none=True)
+        del loss
+        if dev == "mps":
+            torch.mps.empty_cache()  # wechselnde Sequenzlängen zerstückeln sonst den Grafikspeicher
         if step % 100 == 0 or step == a.steps - 1:
             el = time.time() - t0
-            print(f"Schritt {step:5d} | Loss {loss.item() * acc:.3f} | {el / (step + 1):.2f}s/Schritt | "
+            print(f"Schritt {step:5d} | Loss {loss_val:.3f} | {el / (step + 1):.2f}s/Schritt | "
                   f"Rest ca. {el / (step + 1) * (a.steps - step - 1) / 3600:.1f} h", flush=True)
         if (step + 1) % 1000 == 0 or step == a.steps - 1:
             vl = val_loss()
