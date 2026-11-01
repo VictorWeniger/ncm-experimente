@@ -146,7 +146,16 @@ dk)
   step experiments/merge_arch.py gen --arch D --k 3 --d_mode rand
   step experiments/bench_score.py --task tinystories
   } 2>&1 | tee "$LOG" ;;
-*) echo "Aufruf: ./run_bench.sh setup|a|b|m|m2|nach|nach2|dk"; exit 1 ;;
+sel)
+  # Exp. 9: Auswahlsignal für bedingte Aufgaben (nutzt die Kandidaten aus bench_ncm.py)
+  pip install -q sentencepiece sacremoses
+  {
+  ( smoke cond_select.py --task xsum && step experiments/cond_select.py --task xsum )
+  ( smoke cond_select.py --task wmt14 && step experiments/cond_select.py --task wmt14 )
+  } 2>&1 | tee "$LOG"
+  mkdir -p ~/Documents/ncm-nachtlauf/bench
+  for t in xsum wmt14; do cp results/bench/$t/select.md results/bench/$t/select.json ~/Documents/ncm-nachtlauf/bench/$t/ 2>/dev/null; done ;;
+*) echo "Aufruf: ./run_bench.sh setup|a|b|m|m2|nach|nach2|dk|sel"; exit 1 ;;
 esac
 
 python experiments/bench_report.py > /dev/null && echo "Übersicht: results/bench/SUMMARY.md"
