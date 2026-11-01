@@ -61,6 +61,10 @@ ap.add_argument("--max_blocks", type=int, default=2, help="C: Blöcke pro Geschi
 ap.add_argument("--max_ctx", type=int, default=192, help="C: max. GPT-2-Tokens Kontext")
 ap.add_argument("--max_text", type=int, default=192)
 ap.add_argument("--R", type=int, default=2, help="D: max. Neuversuche pro Satz")
+ap.add_argument("--d_mode", default="plan", choices=["plan", "randtrig", "rand"],
+                help="D: plan = Neuversuch wenn Plan-Abstand groß, bester nach Plan-Abstand; "
+                     "randtrig = zufällig ausgelöster Neuversuch (gleiche Rate), bester nach Plan-Abstand; "
+                     "rand = zufällig ausgelöst und zufällig gewählt (Kontrolle ganz ohne Plan)")
 ap.add_argument("--flag_q", type=float, default=0.2)
 ap.add_argument("--n_samples", type=int, default=256)
 ap.add_argument("--seeds", default="42,0,1,2,3")
@@ -452,6 +456,9 @@ def plan_distance(codes, texts):
     return d
 
 
+SENT_STATS = [0, 0]  # Sätze gesamt, Sätze mit Neuversuch
+
+
 @torch.no_grad()
 def gen_D(Bn, thr=None, calib=False):
     e0, a0 = left_pad([[]] * Bn)
@@ -462,13 +469,20 @@ def gen_D(Bn, thr=None, calib=False):
     flops = [fl(plan_len()) for _ in range(Bn)]
     steps = [a.k] * Bn
     dists, retried = [], [0] * Bn
+    import random as _r
+    rng = _r.Random(int(torch.randint(1 << 30, (1,)).item()))
+    trig = {}
     while not all(done):
         act = [b for b in range(Bn) if not done[b] and len(written[b]) < a.max_text]
         if not act:
             break
         cands = {b: [] for b in act}
+        trig = {b: rng.random() < a.flag_q for b in act}  # nur für die Zufalls-Kontrollen
         for attempt in range(1 + (0 if calib else a.R)):
-            todo = [b for b in act if attempt == 0 or (cands[b] and cands[b][-1][2] > thr and len(cands[b]) == attempt)]
+            if a.d_mode == "plan" or calib:
+                todo = [b for b in act if attempt == 0 or (cands[b] and cands[b][-1][2] > thr and len(cands[b]) == attempt)]
+            else:
+                todo = [b for b in act if attempt == 0 or (trig[b] and len(cands[b]) == attempt)]
             if not todo:
                 break
             te, ta = left_pad([[EOT] + written[b] for b in todo])
@@ -500,7 +514,12 @@ def gen_D(Bn, thr=None, calib=False):
                 if attempt == 0:
                     dists.append(dv)
         for b in act:
-            k, fin, _ = min(cands[b], key=lambda c: c[2])
+            SENT_STATS[0] += 1
+            SENT_STATS[1] += len(cands[b]) > 1
+            if a.d_mode == "rand" and not calib:
+                k, fin, _ = rng.choice(cands[b])
+            else:
+                k, fin, _ = min(cands[b], key=lambda c: c[2])
             written[b] += k
             if fin or not k:
                 done[b] = True
@@ -509,7 +528,7 @@ def gen_D(Bn, thr=None, calib=False):
 
 
 # ---------------------------------------------------------------- Lauf
-name = {"B": f"merge_B_k{a.k}", "C": f"merge_C{'par' if a.par else ''}_k{a.k}", "D": f"merge_D_k{a.k}"}[a.arch]
+name = {"B": f"merge_B_k{a.k}", "C": f"merge_C{'par' if a.par else ''}_k{a.k}", "D": f"merge_D_k{a.k}" + ("" if a.d_mode == "plan" else "_" + a.d_mode)}[a.arch]
 if a.tag:
     name += "_" + a.tag
 thr = None
@@ -517,6 +536,7 @@ if a.arch == "D":
     torch.manual_seed(999)
     _, _, _, dcal, _ = gen_D(32 if not a.smoke else 2, calib=True)
     thr = torch.quantile(torch.tensor(dcal), 1 - a.flag_q).item()
+    SENT_STATS[:] = [0, 0]
     print(f"D: Schwelle Plan-Abstand (oberes {a.flag_q:.0%}) = {thr:.4f}", flush=True)
 seeds = [int(s) for s in a.seeds.split(",")]
 bs = 32 if dev == "cuda" else 8
@@ -544,7 +564,9 @@ for s in seeds:
     print(f"Seed {s}: {a.n_samples} Geschichten ({time.time() - t0:.0f}s)", flush=True)
 path = os.path.join(a.out, "merge.json")
 res = json.load(open(path)) if os.path.exists(path) else {"task": "tinystories", "uncond": True, "variants": {}}
-res["variants"][name] = {"texts": texts, "seed": seed_of, "flops": flops, "nfe": steps, "retried": retried,
+if a.arch == "D":
+    print(f"D ({a.d_mode}): {SENT_STATS[0]} Sätze, davon {100 * SENT_STATS[1] / max(SENT_STATS[0], 1):.1f} % neu versucht", flush=True)
+res["variants"][name] = {"texts": texts, "seed": seed_of, "flops": flops, "nfe": steps, "retried": retried, "sent_retry_frac": SENT_STATS[1] / max(SENT_STATS[0], 1),
                          "seconds": time.time() - t0, "train_steps": sd.get("step"),
                          "val_text": sd.get("val_text"), "val_codes": sd.get("val_codes")}
 json.dump(res, open(path, "w"), ensure_ascii=False)

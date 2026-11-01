@@ -139,7 +139,14 @@ m2)
   step experiments/bench_score.py --task tinystories
   step experiments/bench_score.py --task lm1b-small
   } 2>&1 | tee "$LOG" ;;
-*) echo "Aufruf: ./run_bench.sh setup|a|b|m|m2|nach|nach2"; exit 1 ;;
+dk)
+  # Kontrollen für D: zufällig ausgelöste Neuversuche (Auswahl nach Plan) und ganz zufällig
+  {
+  step experiments/merge_arch.py gen --arch D --k 3 --d_mode randtrig
+  step experiments/merge_arch.py gen --arch D --k 3 --d_mode rand
+  step experiments/bench_score.py --task tinystories
+  } 2>&1 | tee "$LOG" ;;
+*) echo "Aufruf: ./run_bench.sh setup|a|b|m|m2|nach|nach2|dk"; exit 1 ;;
 esac
 
 python experiments/bench_report.py > /dev/null && echo "Übersicht: results/bench/SUMMARY.md"

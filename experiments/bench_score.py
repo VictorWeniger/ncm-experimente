@@ -102,11 +102,12 @@ if uncond:
         logppl[short] = {}
         for k, v in V.items():
             texts = [t if t.strip() else "." for t in v["texts"]]
+            vseeds = list(dict.fromkeys(v["seed"]))  # eigene Seeds der Variante (lange Geschichten: nur einer)
             if metric != "genppl_flm" and jn == judges[0]:
                 # exakt wie das Paper für TinyStories/OWT: generation_perplexity pro Seed
                 lp = torch.zeros(len(texts), dtype=torch.float64)
                 per_seed = []
-                for s_ in useeds:
+                for s_ in vseeds:
                     sel = [i for i, x in enumerate(v["seed"]) if x == s_]
                     ppl_i, mp = J.genppl_paper([texts[i] for i in sel], bs=a.ref_bs)
                     lp[sel] = ppl_i.double().log()
@@ -114,7 +115,7 @@ if uncond:
             else:
                 nt = J.nll_per_text(texts, bs=a.ref_bs, max_len=1024)
                 lp = torch.tensor([s_ / max(n, 1) for s_, n in nt], dtype=torch.float64)
-                per_seed = [lp[[i for i, x in enumerate(v["seed"]) if x == s_]].exp().mean().item() for s_ in useeds]
+                per_seed = [lp[[i for i, x in enumerate(v["seed"]) if x == s_]].exp().mean().item() for s_ in vseeds]
             logppl[short][k] = lp
             S[k][f"ppl_{short}"] = float(np.mean(per_seed))
             S[k][f"ppl_{short}_sd"] = float(np.std(per_seed, ddof=1)) if len(per_seed) > 1 else 0.0
