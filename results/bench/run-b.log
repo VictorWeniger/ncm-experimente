@@ -1,0 +1,78 @@
+-- Schnelltest bench_ncm.py --task xsum --n_full 1000 (23:30:19)
+Hochrechnung voller Lauf (4256 Generierungen à 1.175s): ca. 1.4 h (ohne Bewertung)
+-- Schnelltest bench_score.py --task xsum (23:32:41)
+== experiments/bench_ncm.py --task xsum --n 1000 (23:33:31)
+VQVAE, Total parameter count: 60.63M
+VQVAE, Non embedding parameter count: 41.30M
+NCP Transformer, Total parameter count: 88.02M
+NCP Transformer, Non embedding parameter count: 87.71M
+Gerät mps | Aufgabe xsum | Metrik rouge | Ebenen [4, 6, 10, 14, 20, 26, 32, 40, 48] | Präfix 512 | Sampling T=1.0 top_k=1 top_p=0.0 | Strafen freq=2.0 adj=[5.0, 4.0, 0.5]
+Parameter (ohne Einbettungen): Generator 85.6 M, Encoder 0.0 M, Decoder 21.1 M
+Selbsttest Ein-Pass-Bewertung: Abweichung 3.58e-07 -> Ein-Pass
+Schwelle gen_llR(gierig) auf 256 Kalibrier-Dokumenten: -7.0464
+gierig: 1000 Dokumente in 1350s
+  Kandidat 2/4 fertig (1375s)
+  Kandidat 3/4 fertig (1402s)
+  Kandidat 4/4 fertig (1374s)
+baseline   | GFLOPs/Dok   825.63 | NFE/Dok   9.0 | anderer Text als gierig   0.0 %
+rerank4    | GFLOPs/Dok  3790.39 | NFE/Dok  40.0 | anderer Text als gierig   0.0 %
+gated4     | GFLOPs/Dok  1592.91 | NFE/Dok  16.8 | anderer Text als gierig   0.0 %
+rand4      | GFLOPs/Dok  3302.53 | NFE/Dok  36.0 | anderer Text als gierig  77.0 %
+oracle4    | GFLOPs/Dok  3302.53 | NFE/Dok  36.0 | anderer Text als gierig   0.0 %
+
+Gespeichert: /Users/victorweniger/Projekte/ncm-experimente/results/bench/xsum/ncm.json  (5829s)
+Weiter mit: python experiments/bench_score.py --task xsum
+== experiments/bench_score.py --task xsum (01:11:18)
+xsum: 5 Varianten: baseline, rerank4, gated4, rand4, oracle4
+VQVAE, Total parameter count: 60.63M
+VQVAE, Non embedding parameter count: 41.30M
+NCP Transformer, Total parameter count: 88.02M
+NCP Transformer, Non embedding parameter count: 87.71M
+W1030 01:11:34.297000 86438 torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights:   7%|▋         | 10/148 [00:01<00:15,  8.85it/s]Loading weights:  15%|█▍        | 22/148 [00:01<00:09, 13.62it/s]Loading weights:  18%|█▊        | 26/148 [00:01<00:08, 14.83it/s]Loading weights:  23%|██▎       | 34/148 [00:02<00:07, 14.81it/s]Loading weights:  24%|██▍       | 36/148 [00:02<00:08, 13.36it/s]Loading weights:  31%|███       | 46/148 [00:03<00:08, 12.27it/s]Loading weights:  32%|███▏      | 48/148 [00:03<00:08, 11.31it/s]Loading weights:  39%|███▉      | 58/148 [00:04<00:05, 15.33it/s]Loading weights:  41%|████      | 60/148 [00:04<00:07, 12.04it/s]Loading weights:  47%|████▋     | 70/148 [00:05<00:05, 13.34it/s]Loading weights:  55%|█████▌    | 82/148 [00:05<00:04, 15.96it/s]Loading weights:  57%|█████▋    | 84/148 [00:06<00:04, 14.35it/s]Loading weights:  64%|██████▎   | 94/148 [00:06<00:03, 16.15it/s]Loading weights:  65%|██████▍   | 96/148 [00:07<00:03, 13.25it/s]Loading weights:  72%|███████▏  | 106/148 [00:07<00:03, 13.56it/s]Loading weights:  73%|███████▎  | 108/148 [00:07<00:02, 13.89it/s]Loading weights:  80%|███████▉  | 118/148 [00:08<00:02, 13.61it/s]Loading weights:  81%|████████  | 120/148 [00:08<00:02, 13.64it/s]Loading weights:  88%|████████▊ | 130/148 [00:09<00:01, 13.50it/s]Loading weights:  96%|█████████▌| 142/148 [00:10<00:00, 16.31it/s]Loading weights:  97%|█████████▋| 144/148 [00:10<00:00, 15.43it/s]Loading weights: 100%|██████████| 148/148 [00:12<00:00,  5.71it/s]Loading weights: 100%|██████████| 148/148 [00:12<00:00, 11.70it/s]
+  baseline     R1 0.00 R2 0.00 RL 0.00 GenPPL 1.0
+  rerank4      R1 0.00 R2 0.00 RL 0.00 GenPPL 1.0
+  gated4       R1 0.00 R2 0.00 RL 0.00 GenPPL 1.0
+  rand4        R1 0.00 R2 0.00 RL 0.00 GenPPL 1.0
+  oracle4      R1 0.00 R2 0.00 RL 0.00 GenPPL 1.0
+
+# xsum
+
+| Variante | R-1 | R-2 | R-L | GenPPL | Wörter | Δ Satz-R-L [95 %-KI] | GFLOPs/Dok | seq. Schritte | angefasst % |
+|---|---|---|---|---|---|---|---|---|---|
+| baseline | 0.00 | 0.00 | 0.00 | 1.0 | 0.0 | – | 825.63 | 9 | 0 |
+| rerank4 | 0.00 | 0.00 | 0.00 | 1.0 | 0.0 | +0.0000 [+0.0000, +0.0000] | 3790.39 | 40 | 100 |
+| gated4 | 0.00 | 0.00 | 0.00 | 1.0 | 0.0 | +0.0000 [+0.0000, +0.0000] | 1592.91 | 17 | 23 |
+| rand4 | 0.00 | 0.00 | 0.00 | 1.0 | 0.0 | +0.0000 [+0.0000, +0.0000] | 3302.53 | 36 | 100 |
+| oracle4 | 0.00 | 0.00 | 0.00 | 1.0 | 0.0 | +0.0000 [+0.0000, +0.0000] | 3302.53 | 36 | 100 |
+
+Gespeichert: /Users/victorweniger/Projekte/ncm-experimente/results/bench/xsum/scores.json, table.md, pairs.jsonl (0 blinde Paare)
+-- Schnelltest bench_ncm.py --task wmt14 --n_full 3003 (01:11:56)
+SCHNELLTEST FEHLGESCHLAGEN: bench_ncm.py --task wmt14 --n_full 3003  -> diese Aufgabe wird übersprungen
+VQVAE, Total parameter count: 144.00M
+VQVAE, Non embedding parameter count: 85.73M
+NCP Transformer, Total parameter count: 119.96M
+NCP Transformer, Non embedding parameter count: 119.66M
+Gerät mps | Aufgabe wmt14 | Metrik bleu | Ebenen [1, 4, 8, 14, 20, 26, 32, 40, 48, 56, 64] | Präfix 96 | Sampling T=1.0 top_k=1 top_p=0.0 | Strafen freq=0.0 adj=None
+Parameter (ohne Einbettungen): Generator 91.6 M, Encoder 0.0 M, Decoder 60.0 M
+Selbsttest Ein-Pass-Bewertung: Abweichung 1.79e-07 -> Ein-Pass
+Traceback (most recent call last):
+  File "/Users/victorweniger/Projekte/ncm-experimente/experiments/bench_ncm.py", line 254, in <module>
+    _, llr_cal, _ = gen(P_cal)
+                    ^^^^^^^^^^
+  File "/Users/victorweniger/Projekte/ncm-experimente/experiments/bench_ncm.py", line 101, in gen
+    r = run_batches(pfx_all, lambda p: T.generate(p, **kw)[:3])
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/victorweniger/Projekte/ncm-experimente/experiments/bench_ncm.py", line 88, in run_batches
+    r = fn(pfx_all[s:s + bs].to(dev))
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/victorweniger/Projekte/ncm-experimente/experiments/bench_ncm.py", line 101, in <lambda>
+    r = run_batches(pfx_all, lambda p: T.generate(p, **kw)[:3])
+                                       ^^^^^^^^^^^^^^^^^^^
+  File "/Users/victorweniger/Projekte/ncm-experimente/.venv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/victorweniger/Projekte/ncm-experimente/experiments/bench_common.py", line 252, in generate
+    tok_lp = F.log_softmax(logits.float(), -1).gather(-1, raw.unsqueeze(-1)).squeeze(-1)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: MPS backend out of memory (MPS allocated: 3.21 GiB, other allocations: 604.38 MiB, max allowed: 3.73 GiB). Tried to allocate 4.00 KiB on shared pool. Use PYTORCH_MPS_HIGH_WATERMARK_RATIO=0.0 to disable upper limit for memory allocations (may cause system failure).

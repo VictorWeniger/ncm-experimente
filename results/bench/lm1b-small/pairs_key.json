@@ -1,0 +1,482 @@
+[
+ {
+  "id": "self-82",
+  "variant": "self",
+  "variant_is": "B"
+ },
+ {
+  "id": "self-621",
+  "variant": "self",
+  "variant_is": "B"
+ },
+ {
+  "id": "self-1266",
+  "variant": "self",
+  "variant_is": "B"
+ },
+ {
+  "id": "self-391",
+  "variant": "self",
+  "variant_is": "B"
+ },
+ {
+  "id": "self-454",
+  "variant": "self",
+  "variant_is": "B"
+ },
+ {
+  "id": "self-291",
+  "variant": "self",
+  "variant_is": "A"
+ },
+ {
+  "id": "self-589",
+  "variant": "self",
+  "variant_is": "B"
+ },
+ {
+  "id": "self-1178",
+  "variant": "self",
+  "variant_is": "B"
+ },
+ {
+  "id": "self-1254",
+  "variant": "self",
+  "variant_is": "B"
+ },
+ {
+  "id": "self-1107",
+  "variant": "self",
+  "variant_is": "B"
+ },
+ {
+  "id": "self-801",
+  "variant": "self",
+  "variant_is": "A"
+ },
+ {
+  "id": "rand-788",
+  "variant": "rand",
+  "variant_is": "B"
+ },
+ {
+  "id": "rand-82",
+  "variant": "rand",
+  "variant_is": "A"
+ },
+ {
+  "id": "rand-447",
+  "variant": "rand",
+  "variant_is": "B"
+ },
+ {
+  "id": "rand-202",
+  "variant": "rand",
+  "variant_is": "B"
+ },
+ {
+  "id": "rand-418",
+  "variant": "rand",
+  "variant_is": "A"
+ },
+ {
+  "id": "rand-454",
+  "variant": "rand",
+  "variant_is": "B"
+ },
+ {
+  "id": "rand-917",
+  "variant": "rand",
+  "variant_is": "A"
+ },
+ {
+  "id": "rand-911",
+  "variant": "rand",
+  "variant_is": "A"
+ },
+ {
+  "id": "rand-1221",
+  "variant": "rand",
+  "variant_is": "B"
+ },
+ {
+  "id": "rand-376",
+  "variant": "rand",
+  "variant_is": "A"
+ },
+ {
+  "id": "rand-387",
+  "variant": "rand",
+  "variant_is": "B"
+ },
+ {
+  "id": "rand-382",
+  "variant": "rand",
+  "variant_is": "A"
+ },
+ {
+  "id": "rand-266",
+  "variant": "rand",
+  "variant_is": "A"
+ },
+ {
+  "id": "rand-1107",
+  "variant": "rand",
+  "variant_is": "B"
+ },
+ {
+  "id": "best4-788",
+  "variant": "best4",
+  "variant_is": "A"
+ },
+ {
+  "id": "best4-82",
+  "variant": "best4",
+  "variant_is": "B"
+ },
+ {
+  "id": "best4-530",
+  "variant": "best4",
+  "variant_is": "B"
+ },
+ {
+  "id": "best4-1047",
+  "variant": "best4",
+  "variant_is": "B"
+ },
+ {
+  "id": "best4-995",
+  "variant": "best4",
+  "variant_is": "B"
+ },
+ {
+  "id": "best4-829",
+  "variant": "best4",
+  "variant_is": "A"
+ },
+ {
+  "id": "best4-621",
+  "variant": "best4",
+  "variant_is": "B"
+ },
+ {
+  "id": "best4-733",
+  "variant": "best4",
+  "variant_is": "B"
+ },
+ {
+  "id": "best4-1194",
+  "variant": "best4",
+  "variant_is": "B"
+ },
+ {
+  "id": "best4-1033",
+  "variant": "best4",
+  "variant_is": "A"
+ },
+ {
+  "id": "best4-286",
+  "variant": "best4",
+  "variant_is": "A"
+ },
+ {
+  "id": "best4-1266",
+  "variant": "best4",
+  "variant_is": "B"
+ },
+ {
+  "id": "best4-513",
+  "variant": "best4",
+  "variant_is": "A"
+ },
+ {
+  "id": "best4-1090",
+  "variant": "best4",
+  "variant_is": "A"
+ },
+ {
+  "id": "best4-1232",
+  "variant": "best4",
+  "variant_is": "B"
+ },
+ {
+  "id": "best4-300",
+  "variant": "best4",
+  "variant_is": "A"
+ },
+ {
+  "id": "best4-635",
+  "variant": "best4",
+  "variant_is": "A"
+ },
+ {
+  "id": "best4-202",
+  "variant": "best4",
+  "variant_is": "A"
+ },
+ {
+  "id": "best4-151",
+  "variant": "best4",
+  "variant_is": "B"
+ },
+ {
+  "id": "best4-966",
+  "variant": "best4",
+  "variant_is": "B"
+ },
+ {
+  "id": "best4-1146",
+  "variant": "best4",
+  "variant_is": "A"
+ },
+ {
+  "id": "best4-206",
+  "variant": "best4",
+  "variant_is": "A"
+ },
+ {
+  "id": "best4-889",
+  "variant": "best4",
+  "variant_is": "A"
+ },
+ {
+  "id": "best4-418",
+  "variant": "best4",
+  "variant_is": "A"
+ },
+ {
+  "id": "best4-906",
+  "variant": "best4",
+  "variant_is": "A"
+ },
+ {
+  "id": "best4-1067",
+  "variant": "best4",
+  "variant_is": "B"
+ },
+ {
+  "id": "best4-127",
+  "variant": "best4",
+  "variant_is": "A"
+ },
+ {
+  "id": "best4-191",
+  "variant": "best4",
+  "variant_is": "A"
+ },
+ {
+  "id": "best4-816",
+  "variant": "best4",
+  "variant_is": "B"
+ },
+ {
+  "id": "best4-1253",
+  "variant": "best4",
+  "variant_is": "A"
+ },
+ {
+  "id": "best4-1010",
+  "variant": "best4",
+  "variant_is": "A"
+ },
+ {
+  "id": "best4-682",
+  "variant": "best4",
+  "variant_is": "B"
+ },
+ {
+  "id": "best4-499",
+  "variant": "best4",
+  "variant_is": "A"
+ },
+ {
+  "id": "best4-666",
+  "variant": "best4",
+  "variant_is": "A"
+ },
+ {
+  "id": "best4-128",
+  "variant": "best4",
+  "variant_is": "B"
+ },
+ {
+  "id": "best4-391",
+  "variant": "best4",
+  "variant_is": "B"
+ },
+ {
+  "id": "best4-454",
+  "variant": "best4",
+  "variant_is": "B"
+ },
+ {
+  "id": "best4-291",
+  "variant": "best4",
+  "variant_is": "A"
+ },
+ {
+  "id": "best4-186",
+  "variant": "best4",
+  "variant_is": "B"
+ },
+ {
+  "id": "best4-655",
+  "variant": "best4",
+  "variant_is": "B"
+ },
+ {
+  "id": "best4-1040",
+  "variant": "best4",
+  "variant_is": "A"
+ },
+ {
+  "id": "best4-223",
+  "variant": "best4",
+  "variant_is": "B"
+ },
+ {
+  "id": "best4-1128",
+  "variant": "best4",
+  "variant_is": "B"
+ },
+ {
+  "id": "best4-596",
+  "variant": "best4",
+  "variant_is": "A"
+ },
+ {
+  "id": "best4-255",
+  "variant": "best4",
+  "variant_is": "A"
+ },
+ {
+  "id": "best4-1121",
+  "variant": "best4",
+  "variant_is": "B"
+ },
+ {
+  "id": "best4-681",
+  "variant": "best4",
+  "variant_is": "A"
+ },
+ {
+  "id": "best4-1106",
+  "variant": "best4",
+  "variant_is": "A"
+ },
+ {
+  "id": "best4-416",
+  "variant": "best4",
+  "variant_is": "A"
+ },
+ {
+  "id": "best4-1120",
+  "variant": "best4",
+  "variant_is": "A"
+ },
+ {
+  "id": "best4-589",
+  "variant": "best4",
+  "variant_is": "B"
+ },
+ {
+  "id": "best4-911",
+  "variant": "best4",
+  "variant_is": "B"
+ },
+ {
+  "id": "best4-1221",
+  "variant": "best4",
+  "variant_is": "A"
+ },
+ {
+  "id": "best4-649",
+  "variant": "best4",
+  "variant_is": "A"
+ },
+ {
+  "id": "best4-1178",
+  "variant": "best4",
+  "variant_is": "B"
+ },
+ {
+  "id": "best4-495",
+  "variant": "best4",
+  "variant_is": "A"
+ },
+ {
+  "id": "best4-387",
+  "variant": "best4",
+  "variant_is": "B"
+ },
+ {
+  "id": "best4-382",
+  "variant": "best4",
+  "variant_is": "A"
+ },
+ {
+  "id": "best4-67",
+  "variant": "best4",
+  "variant_is": "B"
+ },
+ {
+  "id": "best4-1254",
+  "variant": "best4",
+  "variant_is": "A"
+ },
+ {
+  "id": "best4-532",
+  "variant": "best4",
+  "variant_is": "A"
+ },
+ {
+  "id": "best4-975",
+  "variant": "best4",
+  "variant_is": "A"
+ },
+ {
+  "id": "best4-183",
+  "variant": "best4",
+  "variant_is": "A"
+ },
+ {
+  "id": "best4-266",
+  "variant": "best4",
+  "variant_is": "B"
+ },
+ {
+  "id": "best4-306",
+  "variant": "best4",
+  "variant_is": "A"
+ },
+ {
+  "id": "best4-79",
+  "variant": "best4",
+  "variant_is": "A"
+ },
+ {
+  "id": "best4-1107",
+  "variant": "best4",
+  "variant_is": "A"
+ },
+ {
+  "id": "best4-801",
+  "variant": "best4",
+  "variant_is": "B"
+ },
+ {
+  "id": "best4-1074",
+  "variant": "best4",
+  "variant_is": "B"
+ },
+ {
+  "id": "best4-1068",
+  "variant": "best4",
+  "variant_is": "B"
+ },
+ {
+  "id": "best4-482",
+  "variant": "best4",
+  "variant_is": "B"
+ }
+]

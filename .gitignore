@@ -8,3 +8,18 @@ logs/
 __pycache__/
 .DS_Store
 _to_delete/
+
+# NCM-Feedback: große Dateien und lokale Daten (siehe results/README.md)
+.venv/
+ncm/
+artifacts/
+data/
+_to_delete/
+__pycache__/
+.DS_Store
+*.pt
+results/bench/*/ncm.json
+results/bench/*/hybrid.json
+results/bench/*/stage4.json
+results/bench/*/merge.json
+results/bench/*-smoke/
